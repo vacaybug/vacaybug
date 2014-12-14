@@ -1,0 +1,35 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: vacaybug
+  pool: 5
+  username: root
+  password: mysql
+  port: 3306
+  collation: utf8_general_ci
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: vacaybug_test
+  host: localhost
+  pool: 5
+  username: root
+  password: mysql
+  port: 3306
+  collation: utf8_general_ci
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: vacaybug
+  host: 
+  pool: 5
+  username: 
+  password:
+  collation: utf8_general_ci
+  session_variables: time_zone=UTC
+  reconnect: true
