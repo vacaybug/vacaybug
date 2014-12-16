@@ -16,9 +16,15 @@
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
+
 //= require_tree ./backbone/templates
 //= require_tree ./backbone/models
 //= require_tree ./backbone/views
 //= require backbone/routers/router
 //= require backbone/vacaybug
 //= require_self
+
+//= require bootstrap.min
+//= require classie
+//= require cbpAnimatedHeader
+//= require agency
