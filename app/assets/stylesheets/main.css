@@ -1,0 +1,87 @@
+.navbar-primary {
+	background-color: #303030;
+}
+
+.navbar-subnav {
+	background-color: #00ced1;
+}
+
+.navbar-subnav .navbar-nav > li > a {
+  color: #4a4a4a;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 0px;
+}
+
+.navbar .nav-search {
+	-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   width: 20em;
+}
+
+.navbar .nav-search:hover {
+	-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   width: 30em;
+}
+
+.navbar .fa-search {
+	position: relative;
+	top: 0px;
+	right: 30px;
+}
+
+.cover.profile .cover-info .cover-follow {
+	margin-right: 40px;
+	margin-top: 11px;  
+}
+
+@media (max-width: 768px) {
+  .cover.profile .cover-info .cover-follow {
+		margin-right: 20px;
+	} 
+}
+
+footer {
+   text-align: center;
+}
+
+footer span.copyright, ul.quicklinks {
+	font-weight: bold;
+	line-height: 40px;
+}
+
+ul.social-buttons {
+	margin-bottom: 0;
+}
+
+ul.social-buttons li a {
+	display: block;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	font-size: 20px;
+	line-height: 40px;
+	outline: 0;
+	color: #fff;
+	background-color: #222;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	transition: all .3s;
+}
+
+ul.social-buttons li a:hover,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:active {
+	background-color: #fed136;
+}
+
+.panel .tab-content .tab-heading {
+       font-size: 14px;
+       padding:10px;
+       color: #fff;
+       font-weight: 500;
+       background-color: #25ad9f;
+}

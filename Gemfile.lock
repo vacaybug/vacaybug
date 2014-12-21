@@ -31,6 +31,10 @@ GEM
     arel (3.0.3)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.5)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -60,6 +64,11 @@ GEM
     multi_json (1.10.1)
     mysql2 (0.3.15)
     orm_adapter (0.5.0)
+    paperclip (4.2.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.4.5)
@@ -126,6 +135,7 @@ DEPENDENCIES
   devise (= 2.2.8)
   jquery-rails
   mysql2 (= 0.3.15)
+  paperclip (~> 4.2)
   pg
   rails (= 3.2.18)
   rails-backbone

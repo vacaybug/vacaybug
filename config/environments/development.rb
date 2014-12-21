@@ -1,4 +1,4 @@
-Travelrank::Application.configure do
+Vacaybug::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -49,4 +49,6 @@ Travelrank::Application.configure do
     user_name: "travelrank2014",
     password: "ranktravel2014"
   }
+
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

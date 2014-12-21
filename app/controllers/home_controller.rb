@@ -1,6 +1,17 @@
 class HomeController < ActionController::Base
+    before_filter :load_prefetch_data
+
     def index
-        render 'home/index'
+        if current_user || true
+            render 'backbone/dashboard'
+        else
+            render 'home/landing'
+        end
+    end
+
+    def load_prefetch_data
+        @prefetch_data = {}
+        @prefetch_data[:current_user] = current_user
     end
 
     def backbone

@@ -3,20 +3,15 @@
     <title>Vacaybug</title>
 
     <!-- Stylesheets -->
-<!--     <%= stylesheet_link_tag "hackerrank_libraries", :media => "all" %>
-    <%= stylesheet_link_tag("hackerrank-core", :media => "all") %>
-    <%= stylesheet_link_tag("dashboard", :media => "all") %> -->
+    <%= stylesheet_link_tag("application") %>
 
     <!-- Javascripts -->
-<!--     <%= javascript_include_tag("hackerrank_libraries") %>
-    <%= javascript_include_tag("codeshell/dist/codeshell.js") %> -->
     <%= javascript_include_tag("application") %>
 
 </head>
 <body>
-
-    <div id="wrapper">
-        <div id="content" class="main_content"></div>
+    <%= render 'generic/navigation.html.erb' %>
+    <div class="container" id="wrapper">
     </div>
 
     <%= render "generic/footer" %>

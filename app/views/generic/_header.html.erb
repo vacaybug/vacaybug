@@ -1,4 +1,10 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+
 <script type="text/javascript">
   var Vacaybug;
   Vacaybug = window.Vacaybug || {};
+  Vacaybug.PREFETCH_DATA = <%= raw @prefetch_data.to_json.gsub('</', '<\/') %>;
 </script>
+
+<%= csrf_meta_tags %>

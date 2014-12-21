@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Travelrank::Application.load_tasks
+Vacaybug::Application.load_tasks

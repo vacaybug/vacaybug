@@ -1,11 +1,14 @@
-Travelrank::Application.routes.draw do
+Vacaybug::Application.routes.draw do
     devise_for :users
-    match '/users/sign_out(.:format)' => 'devise/sessions#destroy', via: :get
 
     resources :friendships
-    resources :users
 
     root :to => 'home#index'
+
+    namespace :rest do
+        resources :users, only: [:show, :update] do
+        end
+    end
 
     match '(*all)' => 'home#backbone', via: :get
 end

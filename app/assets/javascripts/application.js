@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require underscore
-//= require backbone
+//= require underscore1
+//= require backbone1
 //= require backbone_rails_sync
 //= require backbone_datalink
 
