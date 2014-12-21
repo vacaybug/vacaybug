@@ -2,7 +2,7 @@ class HomeController < ActionController::Base
     before_filter :load_prefetch_data
 
     def index
-        if current_user || true
+        if current_user
             render 'backbone/dashboard'
         else
             render 'home/landing'
