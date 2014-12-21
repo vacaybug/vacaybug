@@ -5,6 +5,8 @@ Vacaybug::Application.routes.draw do
 
     root :to => 'home#index'
 
+    get 'static/sample'
+
     namespace :rest do
         resources :users, only: [:show, :update] do
         end
