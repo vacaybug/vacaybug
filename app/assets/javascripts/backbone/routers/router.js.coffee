@@ -1,7 +1,7 @@
 jQuery ->
   class Router extends Backbone.Router
     routes:
-      "user/:user": "profile"
+      "users/:user": "profile"
     
     initialize: ->
 
