@@ -3,7 +3,7 @@ class HomeController < ActionController::Base
 
     def index
         if current_user
-            render 'backbone/dashboard'
+            redirect_to "/users/#{current_user.username}"
         else
             render 'home/landing'
         end
