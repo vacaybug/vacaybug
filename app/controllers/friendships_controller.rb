@@ -1,4 +1,4 @@
-class FriendshipsController < ApplicationController
+class FriendshipsController < ActionController::Base
   def create
     current_user.add_friend(params[:friend_id])
     redirect_to root_url

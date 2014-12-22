@@ -1,4 +1,4 @@
-class Rest::UsersController < ApplicationController
+class Rest::UsersController < ActionController::Base
     def show
         @user = find_user(params[:id])
 
