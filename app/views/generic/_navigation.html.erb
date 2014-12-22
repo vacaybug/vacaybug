@@ -7,16 +7,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a data-toggle="sidebar-chat" class="btn btn-link navbar-btn visible-xs"><i class="fa fa-comments"></i></a>
-            <a class="navbar-brand" href="index.html">VacayBug</a>
+            <a class="nav-logo" href="index.html">
+                <img src="/assets/nav-light-logo.svg" width="200" height="60">
+            </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="">
+        <div class="collapse navbar-collapse" id="main-nav">
             <% if (current_user) %>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden-xs">
-                        <a href="#" data-toggle="sidebar-chat">
+                        <a href="/message">
                             <i class="fa fa-comments"></i>
                         </a>
                     </li>
@@ -37,7 +38,7 @@
                     </li>
                 </ul>
             <% else %>
-                <a class="navbar-brand navbar-right" href="#signin" data-toggle="modal">Login</a>
+                <a class="btn btn-default btn-login navbar-right" href="/login">Login</a>
             <% end %>
             <ul class="nav navbar-nav navbar-right">
                 <form class="navbar-form" role="search">

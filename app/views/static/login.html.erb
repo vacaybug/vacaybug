@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VacayBug | Login</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= render 'generic/header.html.erb' %>
+</head>
+<body>
+	<%= render 'generic/navigation.html.erb' %>
+	<div class="container sign-up">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<h2 class="text-center">VacayBug Login</h2>
+				<p class="text-center text-muted">Adventure Starts Here</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="row">
+					<div class="col-sm-4 col-sm-offset-1">
+						<form class="form-horizontal">
+							<div class="form-group">
+								   <input type="text" class="form-control" placeholder="Email">
+							</div>
+							<div class="form-group">
+							   <input type="password" class="form-control" placeholder="Password">
+							</div>
+							<div class="form-group">
+							   <button class="btn btn-primary btn-block">Sign In</button>
+							</div>
+						</form>
+					</div>
+					<div class="col-sm-2 border">
+						<img src="/assets/border.png">
+					</div>
+					<div class="col-sm-4">
+						<button type="button" class="btn btn-primary btn-block">Facebook</button>
+						<button type="button" class="btn btn-info btn-block">Twitter</button>
+						<button type="button" class="btn btn-danger btn-block">Google+</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    	<!-- <div class="row">
+        	<div class="col-lg-8 col-lg-offset-2">
+				<h2 class="text-center">VacayBug Login</h2>
+				<p class="text-center text-muted">Adventure Starts Here</p>
+				<div class="row text-center">
+					<form class="col-md-6">
+						<div class="row">
+					      <div class="col-sm-8 col-sm-offset-2">
+					          <button type="button" class="btn btn-primary btn-block">Facebook</button>
+					      </div>
+					      <div class="col-sm-8 col-sm-offset-2">
+					          <button type="button" class="btn btn-info btn-block">Twitter</button>
+					      </div>
+					      <div class="col-sm-8 col-sm-offset-2">
+					          <button type="button" class="btn btn-danger btn-block">Google+</button>
+						   </div>
+						</div>
+						<div class="">
+							<hr />
+							<div class="form-group col-sm-8 col-sm-offset-2">
+							   <input type="text" class="form-control input-lg" placeholder="Email">
+							</div>
+							<div class="form-group col-sm-8 col-sm-offset-2">
+							   <input type="password" class="form-control input-lg" placeholder="Password">
+							</div>
+							<div class="form-group col-sm-8 col-sm-offset-2">
+							   <button class="btn btn-primary btn-lg btn-block">Sign In</button>
+							</div>
+						</div>
+					</form>
+				</div>
+         </div>
+      </div> -->
+   </div>
+	<%= render 'generic/footer.html.erb' %>
+</body>
+</html>

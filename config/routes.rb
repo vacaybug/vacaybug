@@ -5,7 +5,10 @@ Vacaybug::Application.routes.draw do
 
     root :to => 'home#index'
 
-    get 'static/sample'
+    get 'static/guide'
+    get 'static/follower'
+    get 'static/following'
+    get 'static/login'
 
     namespace :rest do
         resources :users, only: [:show, :update] do

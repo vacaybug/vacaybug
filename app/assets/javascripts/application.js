@@ -28,3 +28,5 @@
 //= require classie
 //= require cbpAnimatedHeader
 //= require agency
+//= require scripts.min
+//= require vendor.min
