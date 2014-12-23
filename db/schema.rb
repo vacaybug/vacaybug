@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20141222230619) do
     t.string   "location"
     t.string   "photo_url"
     t.text     "tag_line"
+    t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"

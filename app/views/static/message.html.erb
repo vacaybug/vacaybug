@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VacayBug | <%= yield :title %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= render 'generic/header.html.erb' %>
+</head>
+<body>
+	<%= render 'generic/navigation.html.erb' %>
+	<%= render 'generic/navigation-sub.html.erb' %>
+
+	<%= yield %>
+	
+	<%= render 'generic/footer.html.erb' %>
+</body>
+</html>

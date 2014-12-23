@@ -10,6 +10,7 @@ Vacaybug::Application.routes.draw do
     get 'static/following'
     get 'static/login'
     get 'static/signup'
+    get 'static/message'
 
     namespace :rest do
         resources :users, only: [:show, :update] do

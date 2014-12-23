@@ -1,5 +1,14 @@
 /* GENERAL */
 
+body {
+	font-family: "Open Sans";
+	font-weight: 200;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333333;
+	background-color: #ededed;
+}
+
 .margin-top-3 {
 	margin-top: 3px;
 }
@@ -69,12 +78,19 @@
 	margin-top: 11px;  
 }
 
+.cover.profile .cover-info .cover-nav > li.active > a {
+	color: #666;
+	font-weight: 600;
+}
+
 .panel .tab-content .tab-heading {
 	font-size: 14px;
-	padding:10px;
+	padding: 20px;
+	margin: -15px;
+	margin-bottom: 10px;
 	color: #fff;
 	font-weight: 500;
-	background-color: #25ad9f;
+	background-color: #99d5e8;
 }
 
 .modal .modal-header {
@@ -242,13 +258,6 @@
 	border-radius: 10px;
 }
 
-.sign-up .row .col-md-4 input {
-	background-color: #fff
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-}
-
 .sign-up .row .border img {
 	margin-left: 40px;
 }
@@ -273,6 +282,10 @@
 .sign-up .row .col-md-4 .terms {
 	font-size: 13px;
 	margin-bottom: 25px;
+}
+
+.sign-up .row .col-md-4 .fa {
+	width: 20px;
 }
 
 .sign-up .row .col-md-4 .row .col-sm-6 a {
