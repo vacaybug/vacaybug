@@ -14,4 +14,8 @@ class StaticController < ActionController::Base
 	def login
 		render 'static/login'
 	end
+
+	def signup
+		render 'static/signup'
+	end
 end

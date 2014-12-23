@@ -230,23 +230,58 @@
 	-moz-background-size: cover;
 	background-size: cover;
 	-o-background-size: cover;
-	padding-top:80px;
-	padding-bottom:180px;
+	padding-top: 50px;
 	width: 100%;
-	height: 100%;
 }
 
-.sign-up .row .col-md-8 h2,p {
-	color: #fff;
-}
-
-.sign-up .row .col-md-6 {
+.sign-up .row .col-md-4 {
 	background-color: #fff;
-	padding:20px;
+	padding: 40px 50px 20px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.sign-up .row .col-md-4 input {
+	background-color: #fff
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .sign-up .row .border img {
 	margin-left: 40px;
+}
+
+.sign-up .row .col-md-8 .login-text {
+	font-size: 40px;
+	text-align: center;
+	text-shadow: 0 0 15px #202020;
+	line-height: 1.25;
+	color: #fff;
+}
+
+.sign-up .row .col-md-8 .login-subtext {
+	font-size: 20px;
+	text-align: center;
+	text-shadow: 0 0 15px #202020;
+	line-height: 1.25;
+	color: #fff;
+	margin-bottom: 20px;
+}
+
+.sign-up .row .col-md-4 .terms {
+	font-size: 13px;
+	margin-bottom: 25px;
+}
+
+.sign-up .row .col-md-4 .row .col-sm-6 a {
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+.sign-up .row .col-md-4 h5 {
+	margin-bottom: 20px;
 }
 
 /* FOOTER */
