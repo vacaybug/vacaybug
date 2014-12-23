@@ -12,8 +12,12 @@ class User < ActiveRecord::Base
       has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
       validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-    has_many :friendships
-    has_many :friends, :through => :friendships, :conditions => "status = 2"
+    has_many :followers, :class_name => 'Follower', :foreign_key => 'user_id'
+    has_many :following, :class_name => 'Follower', :foreign_key => 'follower_id'
+
+    validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/ }
+    validates :email, uniqueness: true
+    validates :username, uniqueness: { case_sensitive: false }
 
     def display_name
         self.first_name || self.username
@@ -34,8 +38,23 @@ class User < ActiveRecord::Base
         name
     end
 
+    def additional_attributes (options={})
+        data = {
+            followers_count: self.followers.count,
+            following_count: self.following.count
+        }
+
+        if options[:current_user]
+            data.merge!({
+                follows: Follower.where(:user_id => self.id, :follower_id => options[:current_user].id).count > 0
+            })
+        end
+    end
+
     def as_json(options = {})
         json = super(options.merge({methods: [:full_name]}))
+        json.merge!(additional_attributes(options)) if options[:additional]
+
         json
     end
 end

@@ -1,3 +1,5 @@
+<!-- TODO: Split public and private profiles -->
+
 <% if (model.id != Vacaybug.current_user.get('id')) { %>
     <div class="cover profile">
         <div class="wrapper">
@@ -12,7 +14,19 @@
             <div class="name">
                 <a href="#"><%= model.full_name %></a>
             </div>
-            <a href="#" class="btn btn-info cover-follow pull-right">Follow</a>
+            <% if (model.follows) { %>
+                <a href="#" class="btn btn-danger cover-follow pull-right js-unfollow">Unfollow</a>
+            <% } else { %>
+                <a href="#" class="btn btn-info cover-follow pull-right js-follow">Follow</a>
+            <% } %>
+            <ul class="cover-nav nav nav-tabs pull-right" style="left: 650px">
+                <li style="border-right-style: none !important">
+                    <a href="#"><%= model.followers_count %> Followers</a>
+                </li>
+                <li style="border-right-style: none !important">
+                    <a href="#"><%= model.following_count %> Following</a>
+                </li>
+            </ul>
             <ul class="cover-nav nav nav-tabs" role="tablist">
                 <li class="active">
                     <a href="#passport" role="tab" data-toggle="tab"><i class="fa fa-briefcase"></i> Passport</a>
@@ -131,6 +145,14 @@
                 </li>
                 <li>
                     <a href="#about" role="tab" data-toggle="tab"><i class="fa fa-info-circle"></i> About</a>
+                </li>
+            </ul>
+            <ul class="cover-nav nav nav-tabs pull-right" style="left: 650px">
+                <li style="border-right-style: none !important">
+                    <a href="#"><%= model.followers_count %> Followers</a>
+                </li>
+                <li style="border-right-style: none !important">
+                    <a href="#"><%= model.following_count %> Following</a>
                 </li>
             </ul>
         </div>

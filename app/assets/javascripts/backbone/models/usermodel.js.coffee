@@ -10,5 +10,19 @@ jQuery ->
 
     initialize: ->
 
+    follow: ->
+      $.ajax
+        url: "/rest/users/#{@get('id')}/follow"
+        type: 'PUT'
+        success: (data) =>
+          @set({follows: true})
+
+    unfollow: ->
+      $.ajax
+        url: "/rest/users/#{@get('id')}/unfollow"
+        type: 'PUT'
+        success: (data) =>
+          @set({follows: false})
+
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.UserModel = UserModel
