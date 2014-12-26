@@ -11,6 +11,6 @@ $(document).ready ->
     Vacaybug.appView = new Vacaybug.AppView
     Vacaybug.router = new Vacaybug.Router
 
-    if Backbone.History.started
+    if !Backbone.History.started
       Backbone.history.start
         pushState: true
