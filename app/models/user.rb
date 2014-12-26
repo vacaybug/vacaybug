@@ -15,9 +15,8 @@ class User < ActiveRecord::Base
     has_many :followers, :class_name => 'Follower', :foreign_key => 'user_id'
     has_many :following, :class_name => 'Follower', :foreign_key => 'follower_id'
 
-    validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/ }
-    validates :email, uniqueness: true
-    validates :username, uniqueness: { case_sensitive: false }
+    validates :username, format: { with: /\A[a-zA-Z0-9_]+\Z/, message: 'should only contain letters, numbers and underscore character' }, uniqueness: { case_sensitive: false },
+        length: { in: 3..16 }
 
     def display_name
         self.first_name || self.username
