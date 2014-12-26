@@ -17,8 +17,4 @@ class HomeController < ActionController::Base
     def backbone
         render 'backbone/dashboard'
     end
-
-    def login
-        render 'home/login'
-    end
 end

@@ -22,6 +22,7 @@
 //= require_tree ./backbone/views
 //= require backbone/routers/router
 //= require backbone/vacaybug
+//= require backbone/util
 //= require_self
 
 //= require bootstrap.min

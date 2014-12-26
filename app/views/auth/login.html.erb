@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VacayBug | Login</title>
+        <%= stylesheet_link_tag    "application", :media => "all" %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
+        <%= render 'generic/header.html.erb' %>
+    </head>
+    <body>
+        <%= render 'generic/navigation.html.erb' %>
+        <div class="container sign-up">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 class="login-text">Log in to VacayBug</h2>
+                    <p class="login-subtext">Adventure Starts Here</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <button type="button" class="btn btn-primary btn-block">Facebook</button>
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="button" class="btn btn-info btn-block">Twitter</button>
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="button" class="btn btn-danger btn-block">Google+</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <h5 class="text-center">Or you can sign in with email</h5>
+                    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <%= f.email_field :email, :autofocus => true, :class => 'form-control', :placeholder => 'Email' %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <%= f.password_field :password, :class => 'form-control', :placeholder => 'Password' %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <%= f.check_box :remember_me %> Remember me
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="#" class="forgot-pwd pull-right">Forgot your password?</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3">
+                                <div class="form-group">
+                                    <div><%= f.submit "Log In", :class => 'btn btn-primary btn-block' %></div>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                    <h5 class="text-center">Don't have an account? <a href="/register">Join Now!<a></h5>
+                </div>
+            </div>
+        </div>
+        <%= render 'generic/footer.html.erb' %>
+    </body>
+</html>

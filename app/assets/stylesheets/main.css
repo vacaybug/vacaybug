@@ -9,6 +9,29 @@ body {
 	background-color: #ededed;
 }
 
+div.flash-notification {
+    top: 80px;
+    position: absolute;
+    width: 100%;
+    padding: 0px;
+}
+
+div.flash-notification .flash-message {
+    width: 100%;
+    text-align: center;
+    height: 3em;
+    line-height: 3em;
+    font-weight: 500;
+}
+
+div.flash-notification .flash-alert {
+    background-color: #F0A8A8;
+}
+
+div.flash-notification .flash-notice {
+    background-color: #A4E7A0;
+}
+
 .margin-top-3 {
 	margin-top: 3px;
 }
