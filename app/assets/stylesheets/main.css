@@ -1,10 +1,10 @@
 /* GENERAL */
 
 body {
-	font-family: "Open Sans";
+/*	font-family: "Open Sans";
 	font-weight: 200;
 	font-size: 14px;
-	line-height: 1.42857143;
+	line-height: 1.42857143;*/
 	color: #333333;
 	background-color: #ededed;
 }
@@ -362,6 +362,9 @@ div.flash-notification .flash-notice {
 	margin: 5px
 }
 .row .message-content .row a img {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 	width: 65px;
 }
 .row .message-content .share {
@@ -444,6 +447,93 @@ div.flash-notification .flash-notice {
 
 .row .message-content .share {
   margin-bottom: 30px;
+}
+
+/* SEARCH */
+
+.search-container {
+	margin-top: -34px;
+	margin-bottom: 20px;
+	background-image: url(../assets/search-cover.png);
+	background-repeat: repeat;
+	width: 100%;
+}
+
+.search-container .search-header {
+	font-size: 35px;
+	font-weight: 500;
+	margin-top: 50px;
+	margin-bottom: 25px;
+}
+
+.search-container #searchbox {
+	margin-top: 40px;
+	margin-bottom: 15px;
+}
+
+.search-container #searchbox input{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	height: 50px;
+	font-size: 18px;
+}
+
+.search-content .result-header {
+	padding: 10px 0px; 
+	border-bottom: 1px solid #4d4d4d;
+}
+
+.search-content .panel-body .row .result-filter li a{
+	font-size: 14px;
+	font-weight: 500;
+}
+.search-content .panel-body .result .avatar {
+	width: 60px;
+	margin-top: 10px;
+	margin-left: 25px;
+	margin-right: 25px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.search-content .panel-body .result .name {
+	color: #4d4d4d;
+	font-size: 15px;
+	font-weight: 700;
+}
+.search-content .panel-body .result span.date {
+	color: #777777;
+	font-size: 12px;
+	float:right;
+}
+.search-content .panel-body .result .guide-title{
+	margin-top: 10px;
+	color: #4d4d4d;
+	font-size: 16px;
+}
+
+@media (max-width: 1080px) {
+	.search-content .panel-body .result .avatar {
+		width: 60px;
+		margin-top: 10px;
+		margin-left: 18px;
+		margin-right: 18px;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+	}
+	.search-content .panel-body .result .name {
+		color: #4d4d4d;
+		font-size: 14px;
+		font-weight: 700;
+	}
+	.search-content .panel-body .result .guide-title{
+		margin-top: 10px;
+		color: #4d4d4d;
+		font-size: 14px;
+	}
 }
 
 /* FOOTER */

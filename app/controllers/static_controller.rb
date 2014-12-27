@@ -22,4 +22,8 @@ class StaticController < ActionController::Base
 	def message
 		render 'static/message'
 	end
+
+	def search
+		render 'static/search'
+	end
 end
