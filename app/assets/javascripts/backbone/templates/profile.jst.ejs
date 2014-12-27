@@ -36,7 +36,7 @@
     </div>
     <div class="panel panel-default">
         <div class="tab-content">
-            <div class="tab-pane fade active in" id="passport">
+            <div class="tab-pane fade in" id="passport">
                 <div class="tab-heading">
                     <i class="fa fa-briefcase"></i> My Passport - I've Been to...
                 </div>
@@ -137,13 +137,13 @@
                 <a href="#"><%= model.full_name %></a>
             </div>
             <ul class="cover-nav nav nav-tabs" role="tablist">
-                <li class="active">
+                <li class="<%= activeTab == 'passport' ? 'active' : '' %> js-tab" data-tab='passport'>
                     <a href="#passport" role="tab" data-toggle="tab"><i class="fa fa-briefcase"></i> Passport</a>
                 </li>
-                <li>
+                <li class="<%= activeTab == 'wishlist' ? 'active' : '' %> js-tab" data-tab='wishlist'>
                     <a href="#wishlist" role="tab" data-toggle="tab"><i class="fa fa-globe"></i> Wishlist</a>
                 </li>
-                <li>
+                <li class="<%= activeTab == 'about' ? 'active' : '' %> js-tab" data-tab='about'>
                     <a href="#about" role="tab" data-toggle="tab"><i class="fa fa-info-circle"></i> About</a>
                 </li>
             </ul>
@@ -159,7 +159,7 @@
     </div>
     <div class="panel panel-default">
         <div class="tab-content">
-            <div class="tab-pane fade active in" id="passport">
+            <div class="tab-pane fade <%= activeTab == 'passport' ? 'active in' : '' %> in" id="passport">
                 <div class="tab-heading">
                     <i class="fa fa-briefcase"></i> My Passport - I've Been to...
                 </div>
@@ -193,7 +193,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="wishlist">
+            <div class="tab-pane <%= activeTab == 'wishlist' ? 'active in' : ''%> fade" id="wishlist">
                 <div class="tab-heading">
                     <i class="fa fa-globe"></i> My Wishlist - I Want to Go...
                 </div>
@@ -227,56 +227,86 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="about">
+            <div class="tab-pane <%= activeTab == 'about' ? 'active in' : '' %> fade" id="about">
                 <div class="tab-heading">
                     <i class="fa fa-info-circle"></i> About Me
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <h4>Personal Information</h4>
-                            <a class="js-edit" href="#"><i class="fa fa-edit"></i>Edit</a>
+                            <h4 class="pull-left">Personal Information</h4>
+                            <% if (editMode == false) { %>
+                                <a class="js-edit" href="javascript:void(0)" style="color:black">Edit</a>
+                            <% } else { %>
+                                <a class="js-save" href="javascript:void(0)" style="color:black">Save</a>
+                                <a class="js-save" href="javascript:void(0)" style="color:black">Cancel</a>
+                            <% } %>
+                            <div class="clearfix"></div>
                             <ul class="list-unstyled profile-about">
                                 <li>
                                     <div class="row">
                                         <div class="col-sm-4"><span class="text-muted">Username:</span>
                                         </div>
-                                        <div class="col-sm-8"><%= model.username %></div>
+                                        <% if (editMode) { %>
+                                            <div class="col-sm-8"><input class="profile-field" data-field="username" placeholder="Username" value="<%= model.username %>"></div>
+                                        <% } else { %>
+                                            <div class="col-sm-8"><%= model.username %></div>
+                                        <% } %>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="row">
                                         <div class="col-sm-4"><span class="text-muted">First name:</span>
                                         </div>
-                                        <div class="col-sm-8"><%= model.first_name %></div>
+                                        <% if (editMode) { %>
+                                            <div class="col-sm-8"><input class="profile-field" data-field="first_name" placeholder="First name" value="<%= model.first_name %>"></div>
+                                        <% } else { %>
+                                            <div class="col-sm-8"><%= model.first_name %></div>
+                                        <% } %>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="row">
                                         <div class="col-sm-4"><span class="text-muted">Last name:</span>
                                         </div>
-                                        <div class="col-sm-8"><%= model.last_name %></div>
+                                        <% if (editMode) { %>
+                                            <div class="col-sm-8"><input class="profile-field" data-field="last_name" placeholder="Last name" value="<%= model.last_name %>"></div>
+                                        <% } else { %>
+                                            <div class="col-sm-8"><%= model.last_name %></div>
+                                        <% } %>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="row">
                                         <div class="col-sm-4"><span class="text-muted">Email:</span>
                                         </div>
-                                        <div class="col-sm-8"><%= model.email %></div>
+                                        <% if (editMode) { %>
+                                            <div class="col-sm-8"><input class="profile-field" data-field="email" placeholder="Email" value="<%= model.email %>"></div>
+                                        <% } else { %>
+                                            <div class="col-sm-8"><%= model.email %></div>
+                                        <% } %>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="row">
                                         <div class="col-sm-4"><span class="text-muted">Birth Date:</span>
                                         </div>
-                                        <div class="col-sm-8">May 8</div>
+                                        <% if (editMode) { %>
+                                            <div class="col-sm-8"><input class="profile-field input-birthday" data-field="birth_date" placeholder="Birth Date" value="<%= birth_date %>"></div>
+                                        <% } else { %>
+                                            <div class="col-sm-8"><%= birth_date %></div>
+                                        <% } %>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="row">
                                         <div class="col-sm-4"><span class="text-muted">Birth Year:</span>
                                         </div>
-                                        <div class="col-sm-8">1984</div>
+                                        <% if (editMode) { %>
+                                            <div class="col-sm-8"><input class="profile-field" data-field="birth_year" placeholder="Birth Year" value="<%= birth_year %>"></div>
+                                        <% } else { %>
+                                            <div class="col-sm-8"><%= birth_year %></div>
+                                        <% } %>
                                     </div>
                                 </li>
                             </ul>

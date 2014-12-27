@@ -3,7 +3,7 @@ class HomeController < ActionController::Base
 
     def index
         if current_user
-            redirect_to "/users/#{current_user.username}"
+            redirect_to "/profile"
         else
             render 'home/landing'
         end

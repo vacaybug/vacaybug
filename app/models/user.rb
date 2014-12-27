@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
     # Setup accessible (or protected) attributes for your model
     attr_accessible :id, :email, :password, :password_confirmation, :remember_me
     attr_accessible :website, :location, :photo_url, :tag_line, :username, :first_name, :last_name
-    attr_accessible :avatar
+    attr_accessible :avatar, :birthday
       has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
       validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 
     validates :username, format: { with: /\A[a-zA-Z0-9_]+\Z/, message: 'should only contain letters, numbers and underscore character' }, uniqueness: { case_sensitive: false },
         length: { in: 3..16 }
+    validate :validate_birthday
 
     def display_name
         self.first_name || self.username
@@ -62,5 +63,13 @@ class User < ActiveRecord::Base
         json.merge!(additional_attributes(options)) if options[:additional]
 
         json
+    end
+
+    private
+
+    def validate_birthday
+        if self.birthday.present? && self.birthday > Date.today
+            errors.add(:birthday, "can't be in the future")
+        end
     end
 end

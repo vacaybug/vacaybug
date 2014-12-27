@@ -17,7 +17,7 @@ class Rest::UsersController < ActionController::Base
         @user = find_user(params[:id])
 
         if @user.id == current_user.id
-            allowed_fields = [:username, :first_name, :last_name, :photo_url, :website, :location, :tag_line]
+            allowed_fields = [:username, :first_name, :last_name, :photo_url, :website, :location, :tag_line, :email, :birthday]
             changed = false
 
             allowed_fields.each do |field|
@@ -28,14 +28,14 @@ class Rest::UsersController < ActionController::Base
                     puts "sending #{field} #{params[field]}"
                     changed = true
                     @user.send("#{field}=", params[field])
-                end 
+                end
             end
 
             if changed
                 @user.save!
             end
 
-            render json: 'OK'
+            render json: {status: true}
         else
             render text: 'Method not allowed', status: 403
         end

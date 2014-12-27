@@ -11,7 +11,8 @@ body {
 
 div.flash-notification {
     top: 80px;
-    position: absolute;
+    position: fixed;
+    z-index: 1001;
     width: 100%;
     padding: 0px;
 }
