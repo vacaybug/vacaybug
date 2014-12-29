@@ -26,4 +26,8 @@ class StaticController < ActionController::Base
 	def search
 		render 'static/search'
 	end
+
+	def home
+		render 'static/home'
+	end
 end
