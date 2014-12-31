@@ -39,14 +39,15 @@ a.active {
 }
 
 a {
-    color: #fed136;
+    color: #00629b;
+    cursor: inherit;
 }
 
 a:hover,
 a:focus,
 a:active,
 a.active {
-    color: #fec503;
+    color: #99d4e9;
 }
 
 h1,
@@ -74,14 +75,14 @@ h6 {
 
 .btn-xl {
     padding: 15px 30px;
-    border-color: #fed136;
+    border-color: #f26d64;
     border-radius: 3px;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: #fff;
-    background-color: #fed136;
+    background-color: #f26d64;
 }
 
 .btn-xl:hover,
@@ -89,9 +90,9 @@ h6 {
 .btn-xl:active,
 .btn-xl.active,
 .open .dropdown-toggle.btn-xl {
-    border-color: #f6bf01;
+    border-color: #f5776e;
     color: #fff;
-    background-color: #fec503;
+    background-color: #f5776e;
 }
 
 .btn-xl:active,
@@ -141,7 +142,7 @@ fieldset[disabled] .btn-xl.active {
   padding-left: 30px;
 }
 .navbar-primary .navbar-nav .divider {
-  border-left: 2px solid #1f3140;
+  border-left: 2px solid #66757f;
 }
 .navbar-primary .navbar-nav > li > a {
   color: #00629b;
@@ -189,6 +190,7 @@ fieldset[disabled] .btn-xl.active {
 header {
     text-align: center;
     color: #fff;
+    padding-top: 5px;
     background-attachment: scroll;
     background-image: url(../assets/header.jpg);
     background-position: center center;
@@ -228,7 +230,7 @@ header .intro-text .intro-heading {
     }
 
     header .intro-text .intro-heading {
-        margin-bottom: 50px;
+        margin-bottom: 70px;
         text-transform: uppercase;
         font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 75px;
@@ -349,7 +351,7 @@ section h3.section-subheading {
 }
 
 section#signup {
-    background-color: #222;
+    background-color: #99d4e9;
     background-image: url(../assets/map-image.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -393,6 +395,7 @@ footer {
 
 footer span.copyright {
     text-transform: uppercase;
+    color: #00629b;
     text-transform: none;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     line-height: 40px;
@@ -419,7 +422,7 @@ ul.social-buttons li a {
     line-height: 40px;
     outline: 0;
     color: #fff;
-    background-color: #222;
+    background-color: #99d4e9;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     transition: all .3s;
@@ -428,7 +431,7 @@ ul.social-buttons li a {
 ul.social-buttons li a:hover,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
-    background-color: #fed136;
+    background-color: #00629b;
 }
 
 .btn:focus,
