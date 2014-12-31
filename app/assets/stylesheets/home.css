@@ -127,96 +127,63 @@ fieldset[disabled] .btn-xl.active {
     background-color: #fed136;
 }
 
-.navbar-default {
-    border-color: transparent;
-    background-color: #222;
+.navbar-primary .navbar-brand {
+  color: #ffffff;
+  font-weight: bold;
+  padding: 17px 10px 0px 15px;
 }
-
-.navbar-default .navbar-brand {
-    font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
-    color: #fed136;
+.navbar-primary .navbar-text {
+  color: #fff;
 }
-
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus,
-.navbar-default .navbar-brand:active,
-.navbar-default .navbar-brand.active {
-    color: #fec503;
+.navbar-primary .navbar-nav > li {
+  margin-top: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
 }
-
-.navbar-default .navbar-collapse {
-    border-color: rgba(255,255,255,.02);
+.navbar-primary .navbar-nav .divider {
+  border-left: 2px solid #1f3140;
 }
-
-.navbar-default .navbar-toggle {
-    border-color: #fed136;
-    background-color: #fed136;
+.navbar-primary .navbar-nav > li > a {
+  color: #00629b;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 0px;
 }
-
-.navbar-default .navbar-toggle .icon-bar {
+.navbar-primary .navbar-nav > li > a:hover {
+  color: #f26d64;
+  background: none;
+}
+@media (max-width: 768px) {
+  .navbar-primary .navbar-collapse .navbar-nav .open .dropdown-menu > li a {
+    color: #fff;
+    font-weight: 500;
+    background-color: #219c90;
+  }
+  .navbar-primary .navbar-collapse .navbar-nav .open .dropdown-menu > li a:hover {
+    background: #1e8b80;
+  }
+}
+.navbar-primary.dropdown-hover .navbar-nav > li:hover .dropdown-menu {
+  display: block;
+}
+.navbar-primary .navbar-toggle {
+  background-color: #219c90;
+}
+.navbar-primary .navbar-toggle:hover,
+.navbar-primary .navbar-toggle:focus {
+  background-color: #1e8b80;
+}
+.navbar-primary .navbar-toggle:hover .icon-bar,
+.navbar-primary .navbar-toggle:focus .icon-bar {
+  background-color: #fff;
+}
+.navbar-primary .navbar-toggle .icon-bar {
+  background-color: #86e5db;
+}
+.navbar-primary {
     background-color: #fff;
-}
-
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-    background-color: #fed136;
-}
-
-.navbar-default .nav li a {
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 400;
-    letter-spacing: 1px;
-    color: #000;
-}
-
-.navbar-default .nav li a:hover,
-.navbar-default .nav li a:focus {
-    outline: 0;
-    color: #fed136;
-}
-
-.navbar-default .navbar-nav>.active>a {
-    border-radius: 0;
-    color: #fff;
-    background-color: #fed136;
-}
-
-.navbar-default .navbar-nav>.active>a:hover,
-.navbar-default .navbar-nav>.active>a:focus {
-    color: #fff;
-    background-color: #fec503;
-}
-
-@media(min-width:768px) {
-    .navbar-default {
-        padding: 25px 0;
-        border: 0;
-        background-color: transparent;
-        -webkit-transition: padding .3s;
-        -moz-transition: padding .3s;
-        transition: padding .3s;
-    }
-
-    .navbar-default .navbar-brand {
-        font-size: 2em;
-        -webkit-transition: all .3s;
-        -moz-transition: all .3s;
-        transition: all .3s;
-    }
-
-    .navbar-default .navbar-nav>.active>a {
-        border-radius: 3px;
-    }
-
-    .navbar-default.navbar-shrink {
-        padding: 10px 0;
-        background-color: #222;
-    }
-
-    .navbar-default.navbar-shrink .navbar-brand {
-        font-size: 1.5em;
-    }
+    padding: 10px 0px;
+    box-shadow: 0 -7px 16px #000;
 }
 
 header {
