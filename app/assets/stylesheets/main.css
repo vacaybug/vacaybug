@@ -44,12 +44,13 @@ div.flash-notification .flash-notice {
 /* NAVBAR */
 
 .navbar-primary {
-	background-color: #303030;
+	background-color: #fff;
 	padding: 10px 0px;
+	box-shadow: 0 -7px 16px #000;
 }
 
 .navbar-primary .nav-search {
-	-webkit-border-radius: 5px;
+   -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
    border-radius: 5px;
    width: 20em;
@@ -79,18 +80,37 @@ div.flash-notification .flash-notice {
 }
 
 .navbar-subnav {
-	margin-top: 9px;
-	background-color: #00ced1;
+	background-color: #99d5e9;
+ 	border: none;
+ 	padding: 1px;
+  	margin: 10px 0 -1px;
 }
 
 .navbar-subnav .navbar-nav > li > a {
-  color: #4a4a4a;
-  font-weight: bold;
+  color: #1c1e2b;
+  font-weight: 500;
   padding-top: 2px;
   padding-bottom: 0px;
+  	transition-property: color;
+  	transition-duration: .5s;
+  	transition-timing-function: linear;
 }
 
 /* USER PROFILE */
+
+.cover.profile {
+position: relative;
+border: 1px solid #efefef;
+border-radius: 0 0 5px 5px;
+}
+
+.cover.profile .cover-info .avatar img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
 
 .cover.profile .cover-info .cover-follow {
 	margin-right: 20px;
@@ -113,8 +133,9 @@ div.flash-notification .flash-notice {
 	margin: -15px;
 	margin-bottom: 10px;
 	color: #fff;
-	font-weight: 500;
-	background-color: #99d5e8;
+	font-weight: 600;
+	background-color: #f26d64;
+	border-radius: 5px 5px 0 0;
 }
 
 .modal .modal-header {
