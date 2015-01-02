@@ -6,7 +6,28 @@
 
 body {
     overflow-x: hidden;
-    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body a {
+    cursor: pointer;
+}
+
+
+#sign-up {
+    color: #f26d64;
+}
+
+
+#sign-up:hover {
+    color: #f5776e;
+}
+
+
+.fa-inverse {
+    color: #ffffff;
+    background: #99d4e9;
+    border-radius: 50%;
 }
 
 .text-muted {
@@ -56,9 +77,11 @@ h3,
 h4,
 h5,
 h6 {
+    color: #00629b;
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 700;
+    margin: 20px;
 }
 
 .img-centered {
@@ -78,9 +101,9 @@ h6 {
     border-color: #f26d64;
     border-radius: 3px;
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 500;
     color: #fff;
     background-color: #f26d64;
 }
@@ -151,7 +174,7 @@ fieldset[disabled] .btn-xl.active {
   padding: 0px;
 }
 .navbar-primary .navbar-nav > li > a:hover {
-  color: #f26d64;
+  color: #99d4e9;
   background: none;
 }
 @media (max-width: 768px) {
@@ -168,18 +191,18 @@ fieldset[disabled] .btn-xl.active {
   display: block;
 }
 .navbar-primary .navbar-toggle {
-  background-color: #219c90;
+  background-color: #00629b;
 }
 .navbar-primary .navbar-toggle:hover,
 .navbar-primary .navbar-toggle:focus {
-  background-color: #1e8b80;
+  background-color: #99d4e9;
 }
 .navbar-primary .navbar-toggle:hover .icon-bar,
 .navbar-primary .navbar-toggle:focus .icon-bar {
   background-color: #fff;
 }
 .navbar-primary .navbar-toggle .icon-bar {
-  background-color: #86e5db;
+  background-color: #fff;
 }
 .navbar-primary {
     background-color: #fff;
@@ -206,13 +229,18 @@ header .intro-text {
     padding-bottom: 50px;
 }
 
+header .intro-text span {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+
+}
+
 header .intro-text .intro-heading {
     margin-bottom: 25px;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 40px;
+    font-size: 70px;
     font-weight: 700;
-    line-height: 50px;
 }
 
 @media(min-width:768px) {
@@ -223,20 +251,12 @@ header .intro-text .intro-heading {
 
     header .intro-text .intro-lead-in {
         margin-bottom: 25px;
-        font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: 'Open Sans', sans-serif;
         font-size: 40px;
         font-style: italic;
         line-height: 40px;
     }
 
-    header .intro-text .intro-heading {
-        margin-bottom: 70px;
-        text-transform: uppercase;
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 75px;
-        font-weight: 700;
-        line-height: 75px;
-    }
 }
 
 section {
@@ -247,12 +267,13 @@ section h2.section-heading {
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 40px;
+    color: #f26d64;
 }
 
 section h3.section-subheading {
     margin-bottom: 75px;
     text-transform: none;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     font-style: italic;
     font-weight: 400;
@@ -278,11 +299,13 @@ section h3.section-subheading {
     display: block;
     position: relative;
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 100%;
 }
 
 #guide .guide-item img {
-    height: 235px;
+    height: 255px;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
 }
 
 #guide .guide-item .guide-link .guide-hover {
@@ -290,18 +313,21 @@ section h3.section-subheading {
     width: 100%;
     height: 100%;
     opacity: 0;
-    background: rgba(254,209,54,.9);
+    background: #99d4e9;
+    border-radius: 5px 5px 0 0;
     -webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
     transition: all ease .5s;
 }
 
+
 #guide .guide-item .guide-link .guide-hover:hover {
-    opacity: 1;
+    opacity: .9;
 }
 
 #guide .guide-item .guide-link .guide-hover .guide-hover-content {
     position: absolute;
+    border-radius: 5px;
     top: 50%;
     width: 100%;
     height: 20px;
@@ -323,9 +349,9 @@ section h3.section-subheading {
 #guide .guide-item .guide-caption {
     margin: 0 auto;
     padding: 25px;
-    max-width: 400px;
     text-align: center;
     background-color: #fff;
+    border-radius: 0 0 5px 5px;
 }
 
 #guide .guide-item .guide-caption h4 {
@@ -334,10 +360,9 @@ section h3.section-subheading {
 }
 
 #guide .guide-item .guide-caption p {
-    margin: 0;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin-top: 0;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    font-style: italic;
 }
 
 #guide * {
@@ -365,7 +390,7 @@ section#signup .section-subheading {
     color: #fff;
     margin-bottom: 75px;
     text-transform: none;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     font-style: italic;
     font-weight: 400;
@@ -463,7 +488,7 @@ ul.social-buttons li a:active {
 
 .guide-modal .modal-content p.item-intro {
     margin: 20px 0 30px;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     font-style: italic;
 }
@@ -518,8 +543,7 @@ ul.social-buttons li a:active {
 }
 
 ::selection {
-    text-shadow: none;
-    background: #fed136;
+    background: #99d4e9;
 }
 
 img::selection {
