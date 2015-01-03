@@ -192,10 +192,16 @@ fieldset[disabled] .btn-xl.active {
 }
 .navbar-primary .navbar-toggle {
   background-color: #00629b;
+  -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+    transition: all ease .5s;
 }
 .navbar-primary .navbar-toggle:hover,
 .navbar-primary .navbar-toggle:focus {
   background-color: #99d4e9;
+  -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+    transition: all ease .5s;
 }
 .navbar-primary .navbar-toggle:hover .icon-bar,
 .navbar-primary .navbar-toggle:focus .icon-bar {
