@@ -96,6 +96,9 @@ h6 {
     background-color: #222;
 }
 
+.btn-subscribe {
+    height: 56px;
+}
 .btn-xl {
     padding: 15px 30px;
     border-color: #f26d64;

@@ -6323,6 +6323,9 @@ input[type="button"].btn-block {
 .fade.in {
   opacity: 1;
 }
+.sub-collapse {
+  background-color: #99d5e9;
+}
 .collapse {
   display: none;
 }
@@ -6365,7 +6368,7 @@ tbody.collapse.in {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 160px;
+  min-width: 150px;
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
@@ -17365,15 +17368,8 @@ fieldset[disabled] .cover.overlay .btn-cover.active {
   color: #fff;
 }
 .navbar-primary .navbar-nav > li > a {
-  color: #fff;
+  color: #000;
   font-size: 18px;
-}
-.navbar-primary .navbar-nav > li > a:hover {
-  background: #23a597;
-}
-.navbar-primary .navbar-nav .open > a,
-.navbar-primary .navbar-nav .active > a {
-  background: #219c90;
 }
 .navbar-primary .navbar-nav .open .dropdown-menu {
   border-top: 0;
@@ -17385,7 +17381,7 @@ fieldset[disabled] .cover.overlay .btn-cover.active {
 }
 .navbar-primary .navbar-nav .open .dropdown-menu > li > a,
 .navbar-primary .navbar-nav .open .dropdown-menu > li > a:focus {
-  color: #25ad9f;
+  color: #00629b;
   font-weight: 500;
   padding: 5px 8px;
   border-top: 1px solid #efefef;
@@ -17412,7 +17408,7 @@ fieldset[disabled] .cover.overlay .btn-cover.active {
   display: block;
 }
 .navbar-primary .navbar-toggle {
-  background-color: #219c90;
+  background-color: #00629b;
 }
 .navbar-primary .navbar-toggle:hover,
 .navbar-primary .navbar-toggle:focus {

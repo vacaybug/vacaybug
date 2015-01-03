@@ -16,11 +16,6 @@
         <div class="collapse navbar-collapse" id="main-nav">
             <% if (current_user) %>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden-xs">
-                        <a href="/message">
-                            <i class="fa fa-comments"></i>
-                        </a>
-                    </li>
 
                     <!-- User -->
                     <li class="dropdown">
@@ -28,13 +23,13 @@
                             <img src="<%= current_user.photo_url %>" alt="<%= current_user.username %>" class="img-circle" width="40"> <%= current_user.display_name %> <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a class="backbone" href="/users/<%= current_user.username %>"><i class="fa fa-fw icon-user-1"></i>Profile</a>
+                            <li><a class="backbone" href="/users/<%= current_user.username %>"><i class="fa fa-fw icon-user-1"></i> Profile</a>
                             </li>
-                            <li><a class="backbone" href="user-private-messages.html"><i class="fa fa-fw icon-comment-fill-1"></i>Messages</a>
+                            <li><a class="backbone" href="user-private-messages.html"><i class="fa fa-fw icon-comment-fill-1"></i> Messages</a>
                             </li>
                             <li>
                                 <%= link_to(destroy_user_session_path, :method => :delete) do %>
-                                    <i class="fa fa-fw icon-unlock-fill"></i>Logout
+                                    <i class="fa fa-fw icon-unlock-fill"></i> Logout
                                 <% end %>
                             </li>
                         </ul>
