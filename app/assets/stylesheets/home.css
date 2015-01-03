@@ -297,14 +297,17 @@ section h3.section-subheading {
 }
 
 #guide .guide-item {
-    box-shadow: 0 -7px 16px #000;
+    box-shadow: 0px 1px 5px -3px #888;
+    -webkit-transition: all ease .8s;
+    -moz-transition: all ease .8s;
+    transition: all ease .8s;
 }
 
 #guide .guide-item:hover {
-    box-shadow: 0px 1px 14px -3px #888;
-    -webkit-transition: all ease .5s;
-    -moz-transition: all ease .5s;
-    transition: all ease .5s;
+    box-shadow: 0px 1px 44px -3px #888;
+    -webkit-transition: all ease .8s;
+    -moz-transition: all ease .8s;
+    transition: all ease .8s;
 }
 
 #guide .guide-item .guide-link {
@@ -325,7 +328,6 @@ section h3.section-subheading {
     height: 100%;
     opacity: 0;
     background: #99d4e9;
-    border-radius: 5px 5px 0 0;
     -webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
     transition: all ease .5s;
