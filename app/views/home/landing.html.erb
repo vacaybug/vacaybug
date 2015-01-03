@@ -11,12 +11,12 @@
 
     <title>Welcome to VacayBug</title>
 
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
     <%= stylesheet_link_tag("landing_application", :media => "all") %>
 
     <!-- Custom Fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -31,48 +31,38 @@
 
 <body id="page-top" class="index">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar navbar-primary navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">VacayBug</a>
+                <a class="nav-logo" href="index.html">
+                    <img src="/assets/nav-dark-logo.svg" width="200" height="60">
+                </a>
             </div>
+            
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="main-nav">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#guide">guide</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#signup">Sign Up</a>
-                    </li>
+                    <li><a href="">ABOUT</a></li>
+                    <li class="divider"><a href="">GUIDE</a></li>
+                    <li class="divider"><a href="#signin" data-toggle="modal" id="sign-up">SIGN IN</a></li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid -->
-    </nav>
+    </div>
 
     <!-- Header -->
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-heading">Experience The World Like Locals</div>
-                <a <a href="#signin" data-toggle="modal" class="page-scroll btn btn-xl">Sign In</a>
+                <div class="intro-heading">Experience The World <br><span>Like Locals</span></div>
+                <a href="#signin" data-toggle="modal" class="page-scroll btn btn-xl">Sign In</a>
             </div>
         </div>
     </header>
@@ -125,88 +115,100 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-sm-6 guide-item">
-                    <a href="#guideModal1" class="guide-link" data-toggle="modal">
-                        <div class="guide-hover">
-                            <div class="guide-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                <div class="col-md-4 col-sm-6">
+                    <div class="guide-item">
+                        <a href="#guideModal1" class="guide-link" data-toggle="modal">
+                            <div class="guide-hover">
+                                <div class="guide-hover-content">
+                                    <i class="fa fa-plus fa-3x"></i>
+                                </div>
                             </div>
+                            <img src="/assets/guide/rome.jpg" class="img-responsive" alt="">
+                        </a>
+                        <div class="guide-caption">
+                            <h4>Rome</h4>
+                            <p class="text-muted">Andrea Bocelli</p>
                         </div>
-                        <img src="/assets/guide/rome.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="guide-caption">
-                        <h4>Rome</h4>
-                        <p class="text-muted">Andrea Bocelli</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 guide-item">
-                    <a href="#guideModal2" class="guide-link" data-toggle="modal">
-                        <div class="guide-hover">
-                            <div class="guide-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                <div class="col-md-4 col-sm-6">
+                    <div class="guide-item">
+                        <a href="#guideModal2" class="guide-link" data-toggle="modal">
+                            <div class="guide-hover">
+                                <div class="guide-hover-content">
+                                    <i class="fa fa-plus fa-3x"></i>
+                                </div>
                             </div>
+                            <img src="/assets/guide/mongolia.jpg" class="img-responsive" alt="">
+                        </a>
+                        <div class="guide-caption">
+                            <h4>Mongolia</h4>
+                            <p class="text-muted">Khongor Enkhbold</p>
                         </div>
-                        <img src="/assets/guide/mongolia.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="guide-caption">
-                        <h4>Mongolia</h4>
-                        <p class="text-muted">Khongor Enkhbold</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 guide-item">
-                    <a href="#guideModal3" class="guide-link" data-toggle="modal">
-                        <div class="guide-hover">
-                            <div class="guide-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                <div class="col-md-4 col-sm-6">
+                    <div class="guide-item">
+                        <a href="#guideModal3" class="guide-link" data-toggle="modal">
+                            <div class="guide-hover">
+                                <div class="guide-hover-content">
+                                    <i class="fa fa-plus fa-3x"></i>
+                                </div>
                             </div>
+                            <img src="/assets/guide/sanfrancisco.jpg" class="img-responsive" alt="">
+                        </a>
+                        <div class="guide-caption">
+                            <h4>San Francisco</h4>
+                            <p class="text-muted">Steve Job</p>
                         </div>
-                        <img src="/assets/guide/sanfrancisco.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="guide-caption">
-                        <h4>San Francisco</h4>
-                        <p class="text-muted">Steve Job</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 guide-item">
-                    <a href="#guideModal4" class="guide-link" data-toggle="modal">
-                        <div class="guide-hover">
-                            <div class="guide-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                <div class="col-md-4 col-sm-6">
+                    <div class="guide-item">
+                        <a href="#guideModal4" class="guide-link" data-toggle="modal">
+                            <div class="guide-hover">
+                                <div class="guide-hover-content">
+                                    <i class="fa fa-plus fa-3x"></i>
+                                </div>
                             </div>
+                            <img src="/assets/guide/cuba.jpg" class="img-responsive" alt="">
+                        </a>
+                        <div class="guide-caption">
+                            <h4>Cuba</h4>
+                            <p class="text-muted">Wilian Iralzabal</p>
                         </div>
-                        <img src="/assets/guide/cuba.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="guide-caption">
-                        <h4>Cuba</h4>
-                        <p class="text-muted">Wilian Iralzabal</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 guide-item">
-                    <a href="#guideModal5" class="guide-link" data-toggle="modal">
-                        <div class="guide-hover">
-                            <div class="guide-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                <div class="col-md-4 col-sm-6">
+                    <div class="guide-item">
+                        <a href="#guideModal5" class="guide-link" data-toggle="modal">
+                            <div class="guide-hover">
+                                <div class="guide-hover-content">
+                                    <i class="fa fa-plus fa-3x"></i>
+                                </div>
                             </div>
+                            <img src="/assets/guide/taiwan.jpg" class="img-responsive" alt="">
+                        </a>
+                        <div class="guide-caption">
+                            <h4>Taiwan</h4>
+                            <p class="text-muted">Charles Hsieh</p>
                         </div>
-                        <img src="/assets/guide/taiwan.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="guide-caption">
-                        <h4>Taiwan</h4>
-                        <p class="text-muted">Charles Hsieh</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 guide-item">
-                    <a href="#guideModal6" class="guide-link" data-toggle="modal">
-                        <div class="guide-hover">
-                            <div class="guide-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                <div class="col-md-4 col-sm-6">
+                    <div class="guide-item">
+                        <a href="#guideModal6" class="guide-link" data-toggle="modal">
+                            <div class="guide-hover">
+                                <div class="guide-hover-content">
+                                    <i class="fa fa-plus fa-3x"></i>
+                                </div>
                             </div>
+                            <img src="/assets/guide/santorini.jpg" class="img-responsive" alt="">
+                        </a>
+                        <div class="guide-caption">
+                            <h4>Santorini</h4>
+                            <p class="text-muted">Michael Jordan</p>
                         </div>
-                        <img src="/assets/guide/santorini.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="guide-caption">
-                        <h4>Santorini</h4>
-                        <p class="text-muted">Michael Jordan</p>
                     </div>
                 </div>
             </div>
@@ -221,40 +223,6 @@
                     <h3 class="section-subheading text-muted">Sign up for our emailing list and get notified when it is ready!</h3>
                 </div>
             </div>
-
-            <!-- Begin MailChimp Signup Form -->
-<!--             <link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
-            <style type="text/css">
-                #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-                /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-                   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-            </style>
-            <div id="mc_embed_signup">
-            <form action="//vacaybug.us9.list-manage.com/subscribe/post?u=966c023f999f4d933716e4aa9&amp;id=e22664c95f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                <div id="mc_embed_signup_scroll">
-                <h2>Subscribe to our mailing list</h2>
-            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-            <div class="mc-field-group">
-                <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
-            </label>
-                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-            </div>
-            <div class="mc-field-group">
-                <label for="mce-LNAME">Last Name </label>
-                <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
-            </div>
-                <div id="mce-responses" class="clear">
-                    <div class="response" id="mce-error-response" style="display:none"></div>
-                    <div class="response" id="mce-success-response" style="display:none"></div>
-                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups
-                <div style="position: absolute; left: -5000px;"><input type="text" name="b_966c023f999f4d933716e4aa9_e22664c95f" tabindex="-1" value=""></div>
-                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                </div>
-            </form>
-            </div>
-            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-            End mc_embed_signup-->
-
             <div class="row">
                 <div class="col-lg-12">
                     <div id="mc_embed_signup">
@@ -271,7 +239,7 @@
                                             <div style="position: absolute; left: -5000px;">
                                                 <input type="text" name="b_966c023f999f4d933716e4aa9_e22664c95f" tabindex="-1" value="">
                                             </div>
-                                            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-xl">
+                                            <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-xl btn-subscribe">
                                         </div>
                                     </div>
                                 </div>
@@ -348,9 +316,6 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control input-lg" placeholder="Password">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control input-lg" placeholder="Confirm Password">
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-primary btn-lg btn-block">Sign In</button>
