@@ -49,7 +49,14 @@ jQuery ->
       @render()
 
     save: ->
+      return if @saving
+
+      @saving = true
+      $(".js-save").hide()
+      $(".js-cancel").hide()
       $(".error-message").remove()
+      $(".js-saving").toggleClass('hide')
+
       copy_model = new Vacaybug.UserModel(_.clone(@model.attributes))
 
       $('input.profile-field').each (index, elem) =>
@@ -60,8 +67,6 @@ jQuery ->
 
       copy_model.save null,
         success: (model, resp) =>
-          console.log(copy_model)
-          console.log(model)
           if resp.status
             Vacaybug.flash_message({text: 'Your profile has been successfully updated'})
             changed_attributes = {}
@@ -69,7 +74,6 @@ jQuery ->
               if value != @model.get(attribute)
                 changed_attributes[attribute] = value
 
-            console.log(changed_attributes)
             @editMode = false
             @model.set(changed_attributes)
           else
@@ -82,11 +86,19 @@ jQuery ->
 
         error: (model, resp) =>
           Vacaybug.flash_message({text: 'There was an error while completing your request. Please try again', type: 'alert'})
+
+        complete: =>
+          $(".js-save").show()
+          $(".js-cancel").show()
+
+          @saving = false
           @editMode = false
           @render()
 
 
     cancel: ->
+      return if @saving
+
       @editMode = false
       @render()
 
