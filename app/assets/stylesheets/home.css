@@ -309,14 +309,8 @@ section h3.section-subheading {
 }
 
 #guide .guide-item img {
-<<<<<<< HEAD
-    height: 255px;
     width: 100%;
-    border-radius: 5px 5px 0 0;
-=======
-    width: 360px;
     height: 225px;
->>>>>>> added the guide-item box-shadow for wil
 }
 
 #guide .guide-item .guide-link .guide-hover {
