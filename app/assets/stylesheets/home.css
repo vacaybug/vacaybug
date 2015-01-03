@@ -291,8 +291,14 @@ section h3.section-subheading {
 }
 
 #guide .guide-item {
-    right: 0;
-    margin: 0 0 15px;
+    box-shadow: 0 -7px 16px #000;
+}
+
+#guide .guide-item:hover {
+    box-shadow: 0px 1px 14px -3px #888;
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+    transition: all ease .5s;
 }
 
 #guide .guide-item .guide-link {
@@ -303,9 +309,14 @@ section h3.section-subheading {
 }
 
 #guide .guide-item img {
+<<<<<<< HEAD
     height: 255px;
     width: 100%;
     border-radius: 5px 5px 0 0;
+=======
+    width: 360px;
+    height: 225px;
+>>>>>>> added the guide-item box-shadow for wil
 }
 
 #guide .guide-item .guide-link .guide-hover {
@@ -348,7 +359,8 @@ section h3.section-subheading {
 
 #guide .guide-item .guide-caption {
     margin: 0 auto;
-    padding: 25px;
+    padding: 25px;  
+    max-width: 400px;
     text-align: center;
     background-color: #fff;
     border-radius: 0 0 5px 5px;
