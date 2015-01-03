@@ -247,9 +247,9 @@ header .intro-text span {
 header .intro-text .intro-heading {
     margin-bottom: 25px;
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 70px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 @media(min-width:768px) {
