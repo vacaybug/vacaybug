@@ -8,7 +8,7 @@ jQuery ->
 
     parse: (resp, xhr) ->
       @sync_status = true
-      super(resp, xhr)
+      super(resp.model, xhr)
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.GenericModel = GenericModel

@@ -7,7 +7,9 @@ class Rest::UsersController < ActionController::Base
         @user = find_user(params[:id])
 
         if @user
-            render json: @user.as_json(additional: true, current_user: current_user)
+            render json: {
+                model: @user.as_json(additional: true, current_user: current_user)
+            }
         else
             render 'public/404.html', status: 404, layout: false
         end
@@ -32,10 +34,26 @@ class Rest::UsersController < ActionController::Base
             end
 
             if changed
-                @user.save!
+                begin
+                    @user.save!
+                    render json: {
+                        model: @user,
+                        errors: @user.errors,
+                        status: true
+                    }
+                rescue ActiveRecord::RecordInvalid
+                    render json: {
+                        model: @user,
+                        errors: @user.errors,
+                        status: false
+                    }
+                end
+            else
+                render json: {
+                    model: @user,
+                    status: true
+                }
             end
-
-            render json: {status: true}
         else
             render text: 'Method not allowed', status: 403
         end

@@ -52,12 +52,14 @@ class User < ActiveRecord::Base
     end
 
     def as_json(options = {})
+        options[:except] ||= []
+        options[:except] += [:created_at, :updated_at]
+
         unless options[:current_user] && options[:current_user].id == self.id
             options.merge!({except: [:email]})
         end
 
         options.merge!({methods: [:full_name]})
-
 
         json = super(options)
         json.merge!(additional_attributes(options)) if options[:additional]
