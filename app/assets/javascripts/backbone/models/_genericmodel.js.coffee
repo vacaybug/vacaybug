@@ -6,9 +6,28 @@ jQuery ->
     queryParams: ->
       ""
 
-    parse: (resp, xhr) ->
+    parse: (resp, options) ->
       @sync_status = true
-      super(resp.model, xhr)
+
+      if options.collection
+        super(resp, options)
+      else
+        super(resp.model, options)
+
+  class GenericCollection extends Backbone.Collection
+    url: ->
+      "#{@restURL()}?#{@queryParams()}"
+
+    queryParams: ->
+      ""
+
+    initialize: ->
+
+    parse: (resp, options) ->
+      @sync_status = true
+      @total = resp.total
+      super(resp.models, options)
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.GenericModel = GenericModel
+  Vacaybug.GenericCollection = GenericCollection

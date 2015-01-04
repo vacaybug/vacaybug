@@ -15,16 +15,16 @@
                 <a href="#"><%= model.full_name %></a>
             </div>
             <% if (model.follows) { %>
-                <a href="#" class="btn btn-danger cover-follow pull-right js-unfollow">Unfollow</a>
+                <a href="javascript:void(0)" class="btn btn-danger cover-follow pull-right js-unfollow">Unfollow</a>
             <% } else { %>
-                <a href="#" class="btn btn-info cover-follow pull-right js-follow">Follow</a>
+                <a href="javascript:void(0)" class="btn btn-info cover-follow pull-right js-follow">Follow</a>
             <% } %>
             <ul class="cover-nav nav nav-tabs pull-right" style="left: 650px">
                 <li style="border-right-style: none !important">
-                    <a href="#"><%= model.followers_count %> Followers</a>
+                    <a href="/users/<%= model.username %>/follower"><%= model.followers_count %> Followers</a>
                 </li>
                 <li style="border-right-style: none !important">
-                    <a href="#"><%= model.following_count %> Following</a>
+                    <a href="/users/<%= model.username %>/following"><%= model.following_count %> Following</a>
                 </li>
             </ul>
             <ul class="cover-nav nav nav-tabs" role="tablist">
@@ -149,10 +149,10 @@
             </ul>
             <ul class="cover-nav nav nav-tabs pull-right" style="left: 650px">
                 <li style="border-right-style: none !important">
-                    <a href="#"><%= model.followers_count %> Followers</a>
+                    <a href="/users/<%= model.username %>/follower"><%= model.followers_count %> Followers</a>
                 </li>
                 <li style="border-right-style: none !important">
-                    <a href="#"><%= model.following_count %> Following</a>
+                    <a href="/users/<%= model.username %>/following"><%= model.following_count %> Following</a>
                 </li>
             </ul>
         </div>

@@ -17,6 +17,8 @@ Vacaybug::Application.routes.draw do
     namespace :rest do
         resources :users, only: [:show, :update] do
             member do
+                get :followers
+                get :following
                 put :follow
                 put :unfollow
             end

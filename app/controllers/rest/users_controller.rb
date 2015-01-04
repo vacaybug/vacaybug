@@ -1,7 +1,7 @@
 class Rest::UsersController < ActionController::Base
     include ApplicationHelper
 
-    before_filter :check_logged_in, only: [:follow, :unfollow]
+    before_filter :check_logged_in, only: [:follow, :unfollow, :followers]
 
     def show
         @user = find_user(params[:id])
@@ -103,6 +103,46 @@ class Rest::UsersController < ActionController::Base
                 message: 'You are not following the user'
             }
         end
+    end
+
+    def followers
+        @user = find_user(params[:id])
+        @offset = params[:offset] || 0
+        @limit = params[:limit] || 20
+
+        list = @user.followers.offset(@offset).limit(@limit).as_json
+
+        if current_user
+            ids = Follower.where(:user_id => list.map { |f| f["id"] }, :follower_id => current_user.id).pluck(:user_id)
+            list.map! do |f|
+                f[:follows] = ids.include? (f["id"])
+                f
+            end
+        end
+
+        render json: {
+            models: list
+        }
+    end
+
+    def following
+        @user = find_user(params[:id])
+        @offset = params[:offset] || 0
+        @limit = params[:limit] || 20
+
+        list = @user.following.offset(@offset).limit(@limit).as_json
+
+        if current_user
+            ids = Follower.where(:user_id => list.map { |f| f["id"] }, :follower_id => current_user.id).pluck(:user_id)
+            list.map! do |f|
+                f[:follows] = ids.include? (f["id"])
+                f
+            end
+        end
+
+        render json: {
+            models: list
+        }
     end
 
     private
