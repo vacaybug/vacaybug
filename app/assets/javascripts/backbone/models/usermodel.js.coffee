@@ -24,9 +24,9 @@ jQuery ->
       $.ajax
         url: "/rest/users/#{@get('username')}/unfollow"
         type: 'PUT'
-        success: (data) =>
+        success: (resp) =>
           if resp.status
-            @set({follows: true})
+            @set({follows: false})
           else
             Vacaybug.flash_message({text: resp.message, type: 'alert'})
         error: ->
