@@ -145,6 +145,20 @@ class Rest::UsersController < ActionController::Base
         }
     end
 
+    def upload_photo
+        if current_user
+            current_user.avatar = params[:file]
+            current_user.save
+
+            render json: {
+                status: true,
+                model: current_user
+            }
+        else
+            render text: 'Method not allowed', status: 403
+        end
+    end
+
     private
     
     def find_user id

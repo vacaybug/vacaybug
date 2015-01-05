@@ -50,5 +50,16 @@ Vacaybug::Application.configure do
     password: "ranktravel2014"
   }
 
+  # AWSAccessKeyId=AKIAJGKYDVCM3HA72JBQ
+  # AWSSecretKey=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
+
   Paperclip.options[:command_path] = "/usr/local/bin/"
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'vb-avatar-dev',
+      :access_key_id => 'AKIAJGKYDVCM3HA72JBQ',
+      :secret_access_key => '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'
+    }
+  }
 end

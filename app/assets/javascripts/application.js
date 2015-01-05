@@ -14,10 +14,9 @@
 //= require jquery_ujs
 //= require underscore1
 //= require backbone1
-//= require backbone_rails_sync
-//= require backbone_datalink
 //= require dateformat
 //= require bootstrap-datepicker
+//= require jquery-fileupload/basic
 
 //= require_tree ./backbone/templates
 //= require_tree ./backbone/models

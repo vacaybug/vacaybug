@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     attr_accessible :id, :email, :password, :password_confirmation, :remember_me
     attr_accessible :website, :location, :photo_url, :tag_line, :username, :first_name, :last_name
     attr_accessible :avatar, :birthday
-      has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+      has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing_:style.png"
       validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
     has_many :followers_relation, :class_name => 'Follower', :foreign_key => 'user_id'
@@ -66,6 +66,12 @@ class User < ActiveRecord::Base
 
         json = super(options)
         json.merge!(additional_attributes(options)) if options[:additional]
+        json.merge!({
+            avatar: {
+                thumb: self.avatar.url(:thumb),
+                medium: self.avatar.url(:medium)
+            }
+        })
 
         json
     end

@@ -9,7 +9,7 @@
         </div>
         <div class="cover-info">
             <div class="avatar">
-                <img src="<%= model.photo_url %>" alt="people">
+                <img src="<%= model.avatar.medium %>" alt="people">
             </div>
             <div class="name">
                 <a href="#"><%= model.full_name %></a>
@@ -123,6 +123,7 @@
         </div>
     </div>
 <% } else { %>
+    <!-- Private profile -->
     <div class="cover profile">
         <div class="wrapper">
             <div class="image">
@@ -131,7 +132,7 @@
         </div>
         <div class="cover-info">
             <div class="avatar">
-                <img src="<%= model.photo_url %>" alt="people">
+                <img src="<%= model.avatar.medium %>" alt="people">
             </div>
             <div class="name">
                 <a href="#"><%= model.full_name %></a>
@@ -309,6 +310,20 @@
                                             <div class="col-sm-8"><input class="profile-field" data-field="birth_year" placeholder="Birth Year" value="<%= birth_year %>"></div>
                                         <% } else { %>
                                             <div class="col-sm-8"><%= birth_year %></div>
+                                        <% } %>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-4"><span class="text-muted">Photo:</span></div>
+                                        <div class="avatar">
+                                            <img src="<%= model.avatar.medium %>" class="img-circle" width="100px" height="100px">
+                                        </div>
+                                        <% if (editMode) { %>
+                                            <input id="fileupload" type="file" name="file" class="hide" multiple>
+                                            <label for="fileupload" class="col-sm-offset-4 btn btn-default js-select" style="margin-top: 5px;">
+                                                Select
+                                            </label>
                                         <% } %>
                                     </div>
                                 </li>

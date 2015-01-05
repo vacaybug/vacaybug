@@ -32,6 +32,43 @@ jQuery ->
           birth_year: @birth_year
           birth_date: @birth_date
 
+        # on('fileuploadprocessalways', function (e, data) {
+        # var index = data.index,
+        #     file = data.files[index],
+        #     node = $(data.context.children()[index]);
+        # if (file.preview) {
+        #     node
+        #         .prepend('<br>')
+        #         .prepend(file.preview);
+        # }
+        # if (file.error) {
+        #     node
+        #         .append('<br>')
+        #         .append($('<span class="text-danger"/>').text(file.error));
+        # }
+        # if (index + 1 === data.files.length) {
+        #     data.context.find('button')
+        #         .text('Upload')
+        #         .prop('disabled', !!data.files.error);
+        # }
+
+        $("#fileupload").fileupload(
+          url: "/rest/users/upload_photo" 
+          dataType: "json"
+          autoUpload: false
+          acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
+          maxFileSize: 5000000
+
+          previewMaxWidth: 100
+          previewMaxHeight: 100
+        ).on('fileuploadadd', (e, data) =>
+          $(".js-select").html('Uploading')
+        ).on('fileuploadprocessalways', (e, data) ->
+          # TODO: get it work
+        ).on('fileuploaddone', (e, data) =>
+          @model.set('avatar', data.result.model.avatar)
+        )
+
         $('input.input-birthday').datepicker
           format: "M, dd"
 

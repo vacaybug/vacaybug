@@ -20,7 +20,7 @@
                     <!-- User -->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="<%= current_user.photo_url %>" alt="<%= current_user.username %>" class="img-circle" width="40"> <%= current_user.display_name %> <span class="caret"></span>
+                            <img src="<%= current_user.avatar.url(:thumb) %>" alt="<%= current_user.username %>" class="img-circle" width="40" height="40"> <%= current_user.display_name %> <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a class="backbone" href="/users/<%= current_user.username %>"><i class="fa fa-fw icon-user-1"></i> Profile</a>
