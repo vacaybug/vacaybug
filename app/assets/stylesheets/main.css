@@ -166,14 +166,14 @@ border-radius: 0 0 5px 5px;
 .timeline .btn-follow {
 	position: relative;
 	top: 30px;
-	left: 200px;
+	left: 150px;
 	width: 88px;
 }
 
 .timeline .btn-following {
 	position: relative;
 	top: 30px;
-	left: 200px;
+	left: 150px;
 }
 
 /* USER GUIDE */
@@ -468,6 +468,11 @@ border-radius: 0 0 5px 5px;
 
 .row .message-content .share {
   margin-bottom: 30px;
+}
+
+/* RANDOM */
+.timeline-block .user-box {
+	width: 350px;
 }
 
 /* SEARCH */

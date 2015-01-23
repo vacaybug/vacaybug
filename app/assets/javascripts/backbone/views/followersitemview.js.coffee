@@ -1,6 +1,7 @@
 jQuery ->
   class FollowersItemView extends window.Vacaybug.GenericView
     template: JST["backbone/templates/followers-item"]
+    className: "timeline-block"
 
     events:
       'click .js-follow': 'follow'

@@ -30,3 +30,4 @@
 //= require classie
 //= require cbpAnimatedHeader
 //= require agency
+//= require masonry

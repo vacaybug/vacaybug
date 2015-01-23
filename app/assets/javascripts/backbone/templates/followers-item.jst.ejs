@@ -1,21 +1,19 @@
-<div class="timeline-block">
-    <div class="panel panel-default user-box">
-        <div class="panel-body">
-            <div class="media">
-                <img src="<%= model.get('avatar').thumb %>" alt="<%= model.get('username') %>" class="media-object img-circle pull-left" />
-                <% if (model.get('follows')) { %>
-                    <a href="javascript:void(0)" class="btn btn-info btn-following js-unfollow">Following</a>
-                <% } else { %>
-                    <a href="javascript:void(0)" class="btn btn-default btn-follow js-follow">Follow</a>
-                <% } %>
+<div class="panel panel-default user-box masonry">
+    <div class="panel-body">
+        <div class="media">
+            <img src="<%= model.get('avatar').thumb %>" alt="<%= model.get('username') %>" class="media-object img-circle pull-left" width="60" height="50" />
+            <% if (model.get('follows')) { %>
+                <a href="javascript:void(0)" class="btn btn-info btn-following js-unfollow">Following</a>
+            <% } else { %>
+                <a href="javascript:void(0)" class="btn btn-default btn-follow js-follow">Follow</a>
+            <% } %>
+            <div class="clearfix"></div>
+            <div class="media-body">
+                <a href="/users/<%= model.get('username') %>" class="username pull-left"><%= model.get('full_name') %></a>
                 <div class="clearfix"></div>
-                <div class="media-body">
-                    <a href="/users/<%= model.get('username') %>" class="username pull-left"><%= model.get('full_name') %></a>
-                    <div class="clearfix"></div>
-                    <!-- <div class="profile-icons">
-                        <a href="#" class="text-muted"><i class="fa fa-users"></i> 40 mutual friends</a>
-                    </div> -->
-                </div>
+                <!-- <div class="profile-icons">
+                    <a href="#" class="text-muted"><i class="fa fa-users"></i> 40 mutual friends</a>
+                </div> -->
             </div>
         </div>
     </div>

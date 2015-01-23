@@ -15,6 +15,8 @@ jQuery ->
             model: model
 
           $(".timeline").append(itemView.render().el)
+
+        new Masonry(document.querySelector('.timeline'), {columnWidth: 130,itemSelector: '.timeline-block'});
       @
 
   Vacaybug = window.Vacaybug ? {}
