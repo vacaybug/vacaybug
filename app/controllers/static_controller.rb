@@ -30,4 +30,8 @@ class StaticController < ActionController::Base
 	def home
 		render 'static/home'
 	end
+
+	def privacy
+		render 'static/privacy'
+	end
 end

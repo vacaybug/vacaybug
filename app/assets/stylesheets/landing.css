@@ -416,18 +416,26 @@ section#signup .section-subheading {
 section#signup .form-group {
     margin-bottom: 25px;
 }
-
 section#signup .form-group input {
     padding: 17px;
 }
-
 section#signup .form-group input.form-control {
     height: auto;
 }
-
 section#signup .form-control:focus {
     border-color: #fed136;
     box-shadow: none;
+}
+section#privacy {
+    margin-top: 100px;
+}
+section#privacy p {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+section#privacy address {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 footer {
