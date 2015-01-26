@@ -17,4 +17,8 @@ class HomeController < ActionController::Base
     def backbone
         render 'backbone/dashboard'
     end
+
+    def privacy
+        render 'static/privacy'
+    end
 end

@@ -30,5 +30,6 @@ Vacaybug::Application.routes.draw do
         end
     end
 
+    match 'privacy' => 'home#privacy', via: :get
     match '(*all)' => 'home#backbone', via: :get
 end
