@@ -19,6 +19,6 @@ class HomeController < ActionController::Base
     end
 
     def privacy
-        render 'static/privacy'
+        render 'home/privacy'
     end
 end
