@@ -34,4 +34,8 @@ class StaticController < ActionController::Base
 	def privacy
 		render 'static/privacy'
 	end
+
+	def about
+		render 'static/about'
+	end
 end

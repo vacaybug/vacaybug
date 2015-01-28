@@ -14,6 +14,7 @@ Vacaybug::Application.routes.draw do
     get 'static/search'
     get 'static/home'
     get 'static/privacy'
+    get 'static/about'
 
     namespace :rest do
         resources :users, only: [:show, :update] do
