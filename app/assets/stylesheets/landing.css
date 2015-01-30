@@ -426,6 +426,9 @@ section#signup .form-control:focus {
     border-color: #fed136;
     box-shadow: none;
 }
+
+/* Privacy */
+
 section#privacy {
     margin-top: 100px;
 }
@@ -437,6 +440,65 @@ section#privacy address {
     margin-left: 20px;
     margin-right: 20px;
 }
+
+/* ABOUT  */
+
+section#about {
+    margin-top: 100px;
+    margin-bottom: -30px;
+}
+
+section#about .row .section-title {
+    margin-top: 80px;
+    font-size: 30px;
+    color: #000;
+    text-shadow: 0 0 15px #fff;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #777;
+}
+section#about .row .section-content {
+    font-size: 18px;
+    font-weight: 300;
+    color: #fff;
+    text-shadow: 0 0 15px #202020;
+}
+section#about #header {
+    height: 200px;
+}
+section#about #explore {
+    height: 450px;
+    background-color: #99d4e9;
+    background-image: url(../assets/about-explore-cover.jpg);
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+section#about #dream {
+    height: 450px;
+    background-color: #99d4e9;
+    background-image: url(../assets/about-dream-cover.jpg);
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+section#about #discover {
+    height: 450px;
+    background-color: #99d4e9;
+    background-image: url(../assets/about-discovery-cover.jpg);
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
 
 footer {
     padding: 25px 0;
