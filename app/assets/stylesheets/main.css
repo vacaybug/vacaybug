@@ -344,6 +344,9 @@ border-radius: 0 0 5px 5px;
 
 /* MESSAGE */
 
+#message {
+	margin-top: 30px;
+}
 .row .messages-list .list-group-item {
   padding: 0;
 }
@@ -358,7 +361,7 @@ border-radius: 0 0 5px 5px;
 .row .messages-list .list-group-item.active:hover {
   background: #25ad9f;
 }
-.row .messages-list .list-group-item .media-body {
+.row .messages-list .list-group-item .media-body {	
   padding: 5px;
 }
 .row .messages-list .list-group-item .media-body .user {

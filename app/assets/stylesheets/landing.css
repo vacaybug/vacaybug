@@ -429,8 +429,9 @@ section#signup .form-control:focus {
 
 /* Privacy */
 
-section#privacy {
+section#privacy, section#about, section#terms {
     margin-top: 100px;
+    margin-bottom: -30px;
 }
 section#privacy p {
     margin-left: 20px;
@@ -442,11 +443,6 @@ section#privacy address {
 }
 
 /* ABOUT  */
-
-section#about {
-    margin-top: 100px;
-    margin-bottom: -30px;
-}
 
 section#about .row .section-title {
     margin-top: 80px;
@@ -463,7 +459,7 @@ section#about .row .section-content {
     text-shadow: 0 0 15px #202020;
 }
 section#about #header {
-    height: 200px;
+    height: 150px;
 }
 section#about #explore {
     height: 450px;
@@ -498,7 +494,6 @@ section#about #discover {
     background-size: cover;
     -o-background-size: cover;
 }
-
 
 footer {
     padding: 25px 0;

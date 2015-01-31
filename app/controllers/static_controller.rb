@@ -38,4 +38,8 @@ class StaticController < ActionController::Base
 	def about
 		render 'static/about'
 	end
+
+	def terms
+		render 'static/terms'
+	end
 end
