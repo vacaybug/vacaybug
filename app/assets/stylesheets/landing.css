@@ -429,7 +429,7 @@ section#signup .form-control:focus {
 
 /* Privacy */
 
-section#privacy, section#about, section#terms {
+section#privacy, section#aboutus, section#terms {
     margin-top: 100px;
     margin-bottom: -30px;
 }
@@ -444,7 +444,7 @@ section#privacy address {
 
 /* ABOUT  */
 
-section#about .row .section-title {
+section#aboutus .row .section-title {
     margin-top: 50px;
     font-size: 30px;
     color: #000;
@@ -452,16 +452,16 @@ section#about .row .section-title {
     padding-bottom: 20px;
     border-bottom: 2px solid #777;
 }
-section#about .row .section-content {
+section#aboutus .row .section-content {
     font-size: 16px;
     font-weight: 300;
     color: #fff;
     text-shadow: 0 0 15px #202020;
 }
-section#about #header {
+section#aboutus #header {
     height: 150px;
 }
-section#about #explore {
+section#aboutus #explore {
     height: 450px;
     background-color: #99d4e9;
     background-image: url(../assets/about-explore-cover.jpg);
@@ -472,7 +472,7 @@ section#about #explore {
     background-size: cover;
     -o-background-size: cover;
 }
-section#about #dream {
+section#aboutus #dream {
     height: 450px;
     background-color: #99d4e9;
     background-image: url(../assets/about-dream-cover.jpg);
@@ -483,7 +483,7 @@ section#about #dream {
     background-size: cover;
     -o-background-size: cover;
 }
-section#about #discover {
+section#aboutus #discover {
     height: 450px;
     background-color: #99d4e9;
     background-image: url(../assets/about-discovery-cover.jpg);
