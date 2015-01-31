@@ -280,7 +280,7 @@ section h2.section-heading {
 }
 
 section h3.section-subheading {
-    margin-bottom: 75px;
+    margin-bottom: 50px;
     text-transform: none;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
@@ -419,11 +419,11 @@ section#signup .form-group {
 section#signup .form-group input {
     padding: 17px;
 }
-section#signup .form-group input.form-control {
+section#signup .form-group      .form-control {
     height: auto;
 }
 section#signup .form-control:focus {
-    border-color: #fed136;
+    border-color: #00629b;
     box-shadow: none;
 }
 
@@ -445,7 +445,7 @@ section#privacy address {
 /* ABOUT  */
 
 section#about .row .section-title {
-    margin-top: 80px;
+    margin-top: 50px;
     font-size: 30px;
     color: #000;
     text-shadow: 0 0 15px #fff;
@@ -453,7 +453,7 @@ section#about .row .section-title {
     border-bottom: 2px solid #777;
 }
 section#about .row .section-content {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     color: #fff;
     text-shadow: 0 0 15px #202020;
