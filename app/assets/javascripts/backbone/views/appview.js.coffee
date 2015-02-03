@@ -8,7 +8,11 @@ jQuery ->
     initialize: ->
 
     setView: (view) ->
+      $(@el).addClass('container')
       @view = view
+
+      if @view instanceof Vacaybug.GuideView
+        $(@el).removeClass('container')
       @render()
 
     render: ->

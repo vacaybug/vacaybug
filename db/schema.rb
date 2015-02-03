@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141226233727) do
+ActiveRecord::Schema.define(:version => 20150131235834) do
 
   create_table "followers", :force => true do |t|
     t.integer  "user_id"
@@ -24,6 +24,50 @@ ActiveRecord::Schema.define(:version => 20141226233727) do
   add_index "followers", ["follower_id", "user_id"], :name => "index_followers_on_follower_id_and_user_id", :unique => true
   add_index "followers", ["follower_id"], :name => "index_followers_on_follower_id"
   add_index "followers", ["user_id"], :name => "index_followers_on_user_id"
+
+  create_table "guide_place_associations", :force => true do |t|
+    t.integer "guide_id"
+    t.integer "place_id"
+  end
+
+  add_index "guide_place_associations", ["guide_id"], :name => "index_guide_place_associations_on_guide_id"
+  add_index "guide_place_associations", ["place_id"], :name => "index_guide_place_associations_on_place_id"
+
+  create_table "guides", :force => true do |t|
+    t.integer  "privacy"
+    t.string   "country"
+    t.string   "city"
+    t.string   "region"
+    t.integer  "geonames_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+  end
+
+  add_index "guides", ["user_id"], :name => "index_guides_on_user_id"
+
+  create_table "places", :force => true do |t|
+    t.text     "fs_data"
+    t.string   "phone"
+    t.string   "title"
+    t.text     "address"
+    t.integer  "geonames_id"
+    t.string   "country"
+    t.string   "region"
+    t.string   "city"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "user_guide_associations", :force => true do |t|
+    t.integer "user_id"
+    t.integer "guide_id"
+  end
+
+  add_index "user_guide_associations", ["guide_id"], :name => "index_user_guide_associations_on_guide_id"
+  add_index "user_guide_associations", ["user_id"], :name => "index_user_guide_associations_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

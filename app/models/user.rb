@@ -18,7 +18,15 @@ class User < ActiveRecord::Base
     has_many :followers, through: :followers_relation, source: :follower
     has_many :following, through: :following_relation, source: :followee
 
-    validates :username, format: { with: /\A[a-zA-Z0-9_]+\Z/, message: 'should only contain letters, numbers and underscore character' }, uniqueness: { case_sensitive: false },
+    has_many :guide_associations, :class_name => 'UserGuideAssociation', :dependent => :destroy
+    has_many :guides, through: :guide_associations
+
+    validates :username,
+        format: {
+            with: /\A[a-zA-Z0-9_]+\Z/,
+            message: 'should only contain letters, numbers and underscore character'
+        },
+        uniqueness: { case_sensitive: false },
         length: { in: 3..16 }
     validate :validate_birthday
 

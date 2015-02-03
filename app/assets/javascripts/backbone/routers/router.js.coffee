@@ -7,10 +7,16 @@ jQuery ->
 
       "users/:user/follower": "follower"
       "users/:user/following": "following"
+
+      "guides/:id": "guide"
+
+      # "*notFound": "notFound"
     
     initialize: ->
 
     show404: ->
+      $("body").html("Not found")
+      alert('Found nothing brotha')
 
     profile: (user) ->
       model = new Vacaybug.UserModel({username: user})
@@ -64,6 +70,20 @@ jQuery ->
         Vacaybug.appView.setView(view)
       else
         @show404()
+
+    guide: (id) ->
+      guide = new Vacaybug.GuideModel({id: id})
+      guide.fetch
+        error: =>
+          @show404()
+
+      view = new Vacaybug.GuideView
+        model: guide
+
+      Vacaybug.appView.setView(view)
+
+    notFound: ->
+      @show404()
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.Router = Router

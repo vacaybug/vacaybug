@@ -21,6 +21,8 @@ Vacaybug::Application.routes.draw do
     get 'static/error'
     get 'static/guidepdf'
 
+    # restful api
+    # MODELS ONLY
     namespace :rest do
         resources :users, only: [:show, :update] do
             collection do
@@ -34,6 +36,19 @@ Vacaybug::Application.routes.draw do
                 put :unfollow
             end
         end
+
+        resources :guides do
+            resources :places do
+            end
+        end
+    end
+
+    # all apis will go here
+    namespace :api do
+        # four square apis
+        namespace :fs do
+            get :search_places
+        end 
     end
 
     match 'privacy' => 'home#privacy', via: :get

@@ -31,3 +31,6 @@
 //= require cbpAnimatedHeader
 //= require agency
 //= require masonry
+//= require typeahead
+//= require geonames
+//= require jquery-ui

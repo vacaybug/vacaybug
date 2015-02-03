@@ -73,4 +73,9 @@ Vacaybug::Application.configure do
       :secret_access_key => 'rH/vI8/glEIT1pyaWF6QkRh/pM6fC3yH4pKjARwi'
     }
   }
+
+  config.foursquare = {
+    client_id: "KKO2PEWC5ZNO4K0UJRVOMQNW3NED5DEKHIO2XAOCSHJ4KKVL",
+    client_secret: "ZULRBN0E4YQAWSHRYPZASZYMAKXNBHN5WAAXOXQRWMXOJEOO"
+  }
 end
