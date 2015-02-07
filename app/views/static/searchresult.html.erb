@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VacayBug | Search</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= render 'generic/header.html.erb' %>
+</head>
+<body>
+	<%= render 'generic/navigation.html.erb' %>
+	<%= render 'generic/navigation-sub.html.erb' %>
+	
+	<div class="navbar-sort">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-lg-offset-3 col-sm-6 col-sm-offset-3">
+					<div class="btn-group" role="group" aria-label="...">
+					  <button type="button" class="btn btn-default">Popular</button>
+					  <button type="button" class="btn btn-default">Relevant</button>
+					  <button type="button" class="btn btn-default">Recent</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container search-content">
+		<div class="row">
+			<div class="col-md-4 col-sm-6">
+			   <div class="guide-item">
+			   	<div class="guide-caption">
+			         <h4>Rome Trip</h4>
+			      </div>
+			       <a href="#guideModal1" class="guide-link" data-toggle="modal">
+			           <div class="guide-hover">
+			               <div class="guide-hover-content">
+			                   <i class="fa fa-plus fa-3x"></i>
+			               </div>
+			           </div>
+			           <img src="/assets/guide/rome.jpg" class="img-responsive" alt="">
+			       </a>
+			       <div class="guide-caption">
+			       		<p class="guide-author"><span>Posted by: </span><a href="">chsieh6</a></p>
+			       		<p class="guide-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor impedit ipsum laborum maiores tempore veritatis</p>
+			       		<ul class="guide-socialMeta">
+			           		<li><a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a></li>
+			           		<li><a href="" class="text-muted"><i class="fa fa-comment"></i> 5</a></li>
+			           		<li><a href="" class="text-muted"><i class="fa fa-refresh"></i> 10</a></li>
+			           		<li class="pull-right"><p class="text-muted">3 days</p></li>
+			           </ul>
+			      </div>
+			   </div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			   <div class="guide-item">
+			   	<div class="guide-caption">
+			         <h4>Mongolia Trip</h4>
+			      </div>
+			       <a href="#guideModal2" class="guide-link" data-toggle="modal">
+			           <div class="guide-hover">
+			               <div class="guide-hover-content">
+			                   <i class="fa fa-plus fa-3x"></i>
+			               </div>
+			           </div>
+			           <img src="/assets/guide/mongolia.jpg" class="img-responsive" alt="">
+			       </a>
+			       <div class="guide-caption">
+			           <p class="guide-author"><span>Posted by: </span><a href="">kenkhbold</a></p>
+			       		<p class="guide-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor impedit ipsum laborum maiores tempore veritatis</p>
+			       		<ul class="guide-socialMeta">
+			           		<li><a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a></li>
+			           		<li><a href="" class="text-muted"><i class="fa fa-comment"></i> 5</a></li>
+			           		<li><a href="" class="text-muted"><i class="fa fa-refresh"></i> 10</a></li>
+			           		<li class="pull-right"><p class="text-muted">5 days</p></li>
+			           </ul>
+			       </div>
+			   </div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			   <div class="guide-item">
+			   	<div class="guide-caption">
+			         <h4>San Francisco Trip</h4>
+			      </div>
+			       <a href="#guideModal3" class="guide-link" data-toggle="modal">
+			           <div class="guide-hover">
+			               <div class="guide-hover-content">
+			                   <i class="fa fa-plus fa-3x"></i>
+			               </div>
+			           </div>
+			           <img src="/assets/guide/sanfrancisco.jpg" class="img-responsive" alt="">
+			       </a>
+			       <div class="guide-caption">
+			           <p class="guide-author"><span>Posted by: </span><a href="">mjordan</a></p>
+			       		<p class="guide-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor impedit ipsum laborum maiores tempore veritatis</p>
+			       		<ul class="guide-socialMeta">
+			           		<li><a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a></li>
+			           		<li><a href="" class="text-muted"><i class="fa fa-comment"></i> 5</a></li>
+			           		<li><a href="" class="text-muted"><i class="fa fa-refresh"></i> 10</a></li>
+			           		<li class="pull-right"><p class="text-muted">10 days</p></li>
+			           </ul>
+			       </div>
+			   </div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			   <div class="guide-item">
+			   	<div class="guide-caption">
+			         <h4>Cuba Trip</h4>
+			      </div>
+			       <a href="#guideModal4" class="guide-link" data-toggle="modal">
+			           <div class="guide-hover">
+			               <div class="guide-hover-content">
+			                   <i class="fa fa-plus fa-3x"></i>
+			               </div>
+			           </div>
+			           <img src="/assets/guide/cuba.jpg" class="img-responsive" alt="">
+			       </a>
+			       <div class="guide-caption">
+			           <p class="guide-author"><span>Posted by: </span><a href="">wiralzabal</a></p>
+			       		<p class="guide-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor impedit ipsum laborum maiores tempore veritatis</p>
+			       		<ul class="guide-socialMeta">
+			           		<li><a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a></li>
+			           		<li><a href="" class="text-muted"><i class="fa fa-comment"></i> 5</a></li>
+			           		<li><a href="" class="text-muted"><i class="fa fa-refresh"></i> 10</a></li>
+			           		<li class="pull-right"><p class="text-muted">11 days</p></li>
+			           </ul>
+			       </div>
+			   </div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			   <div class="guide-item">
+			   	<div class="guide-caption">
+			         <h4>Taipei Trip</h4>
+			      </div>
+			       <a href="#guideModal5" class="guide-link" data-toggle="modal">
+			           <div class="guide-hover">
+			               <div class="guide-hover-content">
+			                   <i class="fa fa-plus fa-3x"></i>
+			               </div>
+			           </div>
+			           <img src="/assets/guide/taiwan.jpg" class="img-responsive" alt="">
+			       </a>
+			       <div class="guide-caption">
+			           <p class="guide-author"><span>Posted by: </span><a href="">jchan</a></p>
+			       		<p class="guide-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor impedit ipsum laborum maiores tempore veritatis</p>
+			       		<ul class="guide-socialMeta">
+			           		<li><a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a></li>
+			           		<li><a href="" class="text-muted"><i class="fa fa-comment"></i> 5</a></li>
+			           		<li><a href="" class="text-muted"><i class="fa fa-refresh"></i> 10</a></li>
+			           		<li class="pull-right"><p class="text-muted">11 days</p></li>
+			           </ul>
+			       </div>
+			   </div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			   <div class="guide-item">
+			   	<div class="guide-caption">
+			         <h4>Santorini Trip</h4>
+			      </div>
+			       <a href="#guideModal6" class="guide-link" data-toggle="modal">
+			           <div class="guide-hover">
+			               <div class="guide-hover-content">
+			                   <i class="fa fa-plus fa-3x"></i>
+			               </div>
+			           </div>
+			           <img src="/assets/guide/santorini.jpg" class="img-responsive" alt="">
+			       </a>
+			       <div class="guide-caption">
+			           <p class="guide-author"><span>Posted by: </span><a href="">kperry</a></p>
+			       		<p class="guide-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor impedit ipsum laborum maiores tempore veritatis</p>
+			       		<ul class="guide-socialMeta">
+			           		<li><a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a></li>
+			           		<li><a href="" class="text-muted"><i class="fa fa-comment"></i> 5</a></li>
+			           		<li><a href="" class="text-muted"><i class="fa fa-refresh"></i> 10</a></li>
+			           		<li class="pull-right"><p class="text-muted">13 days</p></li>
+			           </ul>
+			       </div>
+			   </div>
+			</div>
+		</div>
+	</div>
+
+	<%= render 'generic/footer.html.erb' %>
+</body>
+</html>

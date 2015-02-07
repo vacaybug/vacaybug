@@ -12,7 +12,7 @@ Vacaybug::Application.routes.draw do
     get 'static/signup'
     get 'static/message'
     get 'static/search'
-    get 'static/search2'
+    get 'static/searchresult'
     get 'static/home'
     get 'static/privacy'
     get 'static/about'
