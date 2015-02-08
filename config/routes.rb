@@ -5,6 +5,7 @@ Vacaybug::Application.routes.draw do
 
     root :to => 'home#index'
 
+    get 'static/profile'
     get 'static/guide'
     get 'static/follower'
     get 'static/following'

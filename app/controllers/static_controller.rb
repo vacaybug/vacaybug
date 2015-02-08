@@ -1,4 +1,8 @@
 class StaticController < ActionController::Base
+	def profile
+		render 'static/profile'
+	end
+	
 	def guide
 		render 'static/guide'
 	end

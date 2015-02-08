@@ -9,6 +9,10 @@ body {
 	background-color: #ededed;
 }
 
+body #wrapper {
+	padding-bottom: 0px;
+}
+
 div.flash-notification {
     top: 80px;
     position: fixed;
@@ -551,10 +555,6 @@ border-radius: 0 0 5px 5px;
 	font-size: 18px;
 }
 
-.search-content {
-	margin-top: 80px;
-}
-
 
 /* FOOTER */
 
@@ -611,7 +611,7 @@ ul.social-buttons li a:active {
 	text-transform: none;
 }
 
-.search-content .guide-item {
+.guide-item {
 	margin-bottom: 15px;
 	box-shadow: 0px 1px 5px -3px #888;
 	-webkit-transition: all ease .8s;
@@ -619,26 +619,26 @@ ul.social-buttons li a:active {
 	transition: all ease .8s;
 }
 
-.search-content .guide-item:hover {
+.guide-item:hover {
 	box-shadow: 0px 1px 44px -3px #888;
 	-webkit-transition: all ease .8s;
 	-moz-transition: all ease .8s;
 	transition: all ease .8s;
 }
 
-.search-content .guide-item .guide-link {
+.guide-item .guide-link {
 	display: block;
 	position: relative;
 	margin: 0 auto;
 	max-width: 100%;
 }
 
-.search-content .guide-item img {
+.guide-item img {
 	width: 100%;
 	height: 225px;
 }
 
-.search-content .guide-item .guide-link .guide-hover {
+.guide-item .guide-link .guide-hover {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -650,11 +650,11 @@ ul.social-buttons li a:active {
 }
 
 
-.search-content .guide-item .guide-link .guide-hover:hover {
+.guide-item .guide-link .guide-hover:hover {
 	opacity: .9;
 }
 
-.search-content .guide-item .guide-link .guide-hover .guide-hover-content {
+.guide-item .guide-link .guide-hover .guide-hover-content {
 	position: absolute;
 	border-radius: 5px;
 	top: 50%;
@@ -666,16 +666,16 @@ ul.social-buttons li a:active {
 	color: #fff;
 }
 
-.search-content .guide-item .guide-link .guide-hover .guide-hover-content i {
+.guide-item .guide-link .guide-hover .guide-hover-content i {
 	margin-top: -12px;		
 }
 
-.search-content .guide-item .guide-link .guide-hover .guide-hover-content h3,
-.search-content .guide-item .guide-link .guide-hover .guide-hover-content h4 {
+.guide-item .guide-link .guide-hover .guide-hover-content h3,
+.guide-item .guide-link .guide-hover .guide-hover-content h4 {
 	margin: 0;
 }
 
-.search-content .guide-item .guide-caption {
+.guide-item .guide-caption {
 	margin: 0 auto;
 	padding: 10px;  
 	max-width: 400px;
@@ -683,12 +683,12 @@ ul.social-buttons li a:active {
 	border-radius: 0 0 5px 5px;
 }
 
-.search-content .guide-item .guide-caption h4 {
+.guide-item .guide-caption h4 {
 	margin: 0px;
 	text-transform: none;
 }
 
-.search-content .guide-item .guide-caption .guide-author {
+.guide-item .guide-caption .guide-author {
 	margin-top: 0px;
 	margin-bottom: 0px;
 	padding-bottom: 5px;
@@ -696,25 +696,97 @@ ul.social-buttons li a:active {
 	font-size: 14px;
 	border-bottom: solid 1px #A9A9A9;
 }
-.search-content .guide-item .guide-caption .guide-author span{
+.guide-item .guide-caption .guide-author span{
 	margin-top: 0;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 }
-.search-content .guide-item .guide-caption .guide-content {
+.guide-item .guide-caption .guide-content {
 	margin-top: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
-.search-content .guide-item .guide-caption .guide-socialMeta{
+.guide-item .guide-caption .guide-socialMeta{
 	margin-left: -50px;
 	margin-bottom: 0px;
 	list-style-type: none;
 }
-.search-content .guide-item .guide-caption .guide-socialMeta li{
+.guide-item .guide-caption .guide-socialMeta li{
 	display: inline-block;
 	margin: 0px 10px;
 }
-.search-content .guide-item .guide-caption .guide-socialMeta li a{
+.guide-item .guide-caption .guide-socialMeta li a{
 	text-decoration: none;
 	margin-bottom: 0px;
+}
+
+/* Guide Modal */
+
+.guide-modal .modal-content {
+    padding: 5px 0px 100px 0px;
+    min-height: 100%;
+    border: 0;
+    border-radius: 0;
+    background-clip: border-box;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+
+}
+
+.guide-modal .modal-content h2 {
+    margin-bottom: 15px;
+    font-size: 3em;
+}
+
+.guide-modal .modal-content p.item-intro {
+    margin: 20px 0 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.guide-modal .modal-content ul.list-inline {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.guide-modal .close-modal {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.guide-modal .close-modal:hover {
+    opacity: .3;
+}
+
+.guide-modal .close-modal .lr {
+    z-index: 1051;
+    width: 1px;
+    height: 75px;
+    margin-left: 35px;
+    background-color: #222;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.guide-modal .close-modal .lr .rl {
+    z-index: 1052;
+    width: 1px;
+    height: 75px;
+    background-color: #222;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.guide-modal .modal-content .guide-container h3 {
+	color: #fff;
+	padding: 20px 0px;
+	margin-bottom: 20px;
+	background-color: #00ced1;
 }
