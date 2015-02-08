@@ -790,3 +790,36 @@ ul.social-buttons li a:active {
 	margin-bottom: 20px;
 	background-color: #00ced1;
 }
+
+/* Error 404 */
+#error {
+	height: 600px;
+	background-image: url(../assets/error-cover.png);
+	background-position: center center;
+	background-repeat: none;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+}
+
+#error .container .col-lg-6 {
+	padding: 40px;
+	margin-top: 130px;
+	border-radius: 10px;
+	background-color:rgba(0, 0, 0, 0.5);
+}
+
+#error .container h1 {
+	margin-bottom: 40px;
+	font-size: 45px;
+	color: #fff;
+	text-shadow: 0 0 15px #202020;
+}
+
+#error .container h3 {
+	font-size: 28px;
+	color: #fff;
+	text-shadow: 0 0 15px #202020;
+	line-height: 120%;	
+}

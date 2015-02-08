@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= render "generic/header" %>
+    <title>Vacaybug | 404</title>
+
+    <!-- Stylesheets -->
+    <%= stylesheet_link_tag("application") %>
+
+    <!-- Javascripts -->
+    <%= javascript_include_tag("application") %>
+
+</head>
+<body>
+    <%= render 'generic/navigation.html.erb' %>
+    <%= render 'generic/navigation-sub.html.erb' %>
+
+    <div id="error">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3">
+                    <h1 class="text-center">Page not found!</h1>
+                    <h3>We really want to help find the best trip possible! Please try <a href="/signin">sign in</a> to create an itinerary or <a href="/search">search</a> for an itinerary!</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <%= render "generic/footer" %>
+</body>
+<html>

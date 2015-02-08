@@ -2,7 +2,7 @@ class StaticController < ActionController::Base
 	def profile
 		render 'static/profile'
 	end
-	
+
 	def guide
 		render 'static/guide'
 	end
@@ -49,5 +49,9 @@ class StaticController < ActionController::Base
 
 	def terms
 		render 'static/terms'
+	end
+
+	def error
+		render 'static/error'
 	end
 end
