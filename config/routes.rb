@@ -19,6 +19,7 @@ Vacaybug::Application.routes.draw do
     get 'static/about'
     get 'static/terms'
     get 'static/error'
+    get 'static/guidepdf'
 
     namespace :rest do
         resources :users, only: [:show, :update] do

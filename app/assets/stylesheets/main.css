@@ -823,3 +823,100 @@ ul.social-buttons li a:active {
 	text-shadow: 0 0 15px #202020;
 	line-height: 120%;	
 }
+
+/* GUIDE-PDF */
+#guide-pdf {
+	width: 1436px;	
+	background-color: #fff;
+	padding-bottom: 0px;
+}
+#guide-pdf .pdf-heading {
+	margin-top: 10px;
+	margin-bottom: 50px;
+	padding: 15px 0px 10px 0px;
+	background-color: #98d6ec;
+	text-transform: uppercase;
+	font-size: 50px;
+	color: #fff;
+	font-weight: 400;
+	line-height: 90%;
+}
+#guide-pdf .pdf-heading span {
+	text-transform: none;
+	font-size: 35px;
+}
+#guide-pdf #pdf-content {
+	background-color: #fff;
+	padding: 0px 15px;
+}
+#guide-pdf #pdf-content .pdf-item {
+	width: 20%;
+	float: left;
+	margin: 0px 35px 20px 35px;
+	border: solid 2px #00629b;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+#guide-pdf #pdf-content .pdf-item .pdf-item-caption {
+	background-color: #00629b;
+	margin-bottom: 10px;
+}
+#guide-pdf #pdf-content .pdf-item .pdf-item-caption .item-number {
+	margin-top: 7px;
+	margin-left: 10px;
+	font-size: 16px;
+	font-weight: 600;
+	color:#fff;
+}
+#guide-pdf #pdf-content .pdf-item .pdf-item-caption h5 {
+	margin: 0px 15px 0px 0px;
+	padding: 8px 0px;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #fff;
+}
+#guide-pdf #pdf-content .pdf-item .pdf-item-caption h5 span{
+	font-weight: 400;
+	text-transform: none;
+}
+#guide-pdf #pdf-content .pdf-item .pdf-item-content {
+	padding: 0px 20px
+}
+#guide-pdf #pdf-content .pdf-item .pdf-item-content .address {
+	color: #00629b;
+	padding-bottom: 10px;
+	border-bottom: solid 2px #00629b;
+}
+#guide-pdf #pdf-content .pdf-item .pdf-item-content .logos {
+	float: left;
+	margin: 0px 8px 10px 8px;
+}
+#guide-pdf .map-img{
+	margin-top: 30px;
+	box-shadow: 0 0px 8px #000;
+}
+#guide-pdf .map-caption {
+	position: absolute;
+	top: 1260px;
+	right:0;
+	width: 400px;
+	height: 400px;
+	padding: 30px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background:rgba(255,255,255, 0.8);
+}
+#guide-pdf .map-caption h1{
+	color: #f26d65;
+	font-weight: 400;
+	padding-bottom: 20px;
+	border-bottom: 2px solid #f26d65;
+}
+#guide-pdf .map-caption h2{
+	color: #00629b;
+}  
+#guide-pdf .map-caption h3{
+	color: #000;
+	font-weight: 400;
+	font-size: 20px;
+}    

@@ -54,4 +54,8 @@ class StaticController < ActionController::Base
 	def error
 		render 'static/error'
 	end
+
+	def guidepdf
+		render 'static/guidepdf'
+	end
 end
