@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150131235834) do
+ActiveRecord::Schema.define(:version => 20150209015124) do
 
   create_table "followers", :force => true do |t|
     t.integer  "user_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20150131235834) do
   create_table "guide_place_associations", :force => true do |t|
     t.integer "guide_id"
     t.integer "place_id"
+    t.integer "order"
   end
 
   add_index "guide_place_associations", ["guide_id"], :name => "index_guide_place_associations_on_guide_id"
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20150131235834) do
     t.string   "city"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "fs_id"
   end
 
   create_table "user_guide_associations", :force => true do |t|
