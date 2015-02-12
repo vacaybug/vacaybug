@@ -47,28 +47,43 @@ div.flash-notification .flash-notice {
 
 /* NAVBAR */
 
-.navbar-primary {
+.navbar-pdf {
 	background-color: #fff;
 	padding: 10px 0px;
 	box-shadow: 0 -7px 16px #000;
 }
 
+.navbar-primary {
+	background-color: #203141;
+	padding: 10px 0px;
+	box-shadow: 0 -7px 16px #000;
+}
+
+.navbar-primary .navbar-nav .img-square {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px; 
+}
+
 .navbar-primary .nav-search {
+	margin-left: 50px;
    -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
    border-radius: 5px;
-   width: 20em;
+   width: 450px;
    height: 40px;
 }
-
-.navbar-primary .nav-search:hover {
-	-webkit-border-radius: 5px;
-   -moz-border-radius: 5px;
-   border-radius: 5px;
-   width: 30em;
+.navbar-primary .nav-search::-moz-placeholder {
+	color: #bbbcbc;
 }
-
+.navbar-primary .nav-search::-ms-input-placeholder {
+	color: #bbbcbc;
+}
+.navbar-primary .nav-search::-webkit-input-placeholder {
+	color: #bbbcbc;
+}
 .navbar-primary .fa-search {
+	color: #bbbcbc;
 	position: relative;
 	top: 0px;
 	right: 30px;
@@ -83,7 +98,26 @@ div.flash-notification .flash-notice {
 	padding: 8px 15px;
 }
 
-.navbar-subnav {
+.navbar-primary .navbar-nav > li > a:hover,
+.navbar-primary .navbar-nav > li > a:focus {
+	color: #fff;
+	background-color: #203141;
+}
+
+.navbar-primary .navbar-nav > li > a {
+	color: #98d6ec;
+	font-weight: 500;
+	font-size: 14px;
+	transition-property: color;
+	transition-duration: .3s;
+	transition-timing-function: linear;
+}
+
+.navbar-primary .navbar-nav > li.active > a {
+	color: #fff;
+}
+
+/*.navbar-subnav {
 	background-color: #99d5e9;
  	border: none;
  	padding: 1px;
@@ -98,7 +132,7 @@ div.flash-notification .flash-notice {
   	transition-property: color;
   	transition-duration: .5s;
   	transition-timing-function: linear;
-}
+}*/
 
 /* USER PROFILE */
 
@@ -114,7 +148,6 @@ border-radius: 0 0 5px 5px;
   border-radius: 50%;
   border: 3px solid #fff;
 }
-
 
 .cover.profile .cover-info .cover-follow {
 	margin-right: 20px;
@@ -165,12 +198,12 @@ border-radius: 0 0 5px 5px;
 	color: #fff;
 }
 
-.panel-default:hover {
+/*.panel-default:hover {
 	box-shadow: 0px 1px 44px -3px #888;
 	-webkit-transition: all ease .8s;
 	-moz-transition: all ease .8s;
 	transition: all ease .8s;
-}
+}*/
 
 /* FOLLOWER | FOLLOWERING */
 
