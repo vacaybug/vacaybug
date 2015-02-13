@@ -6,7 +6,7 @@ body {
 	font-size: 14px;
 	line-height: 1.42857143;*/
 	color: #333333;
-	background-color: #ededed;
+	background-color: #f7f7f7;
 }
 
 body #wrapper {
@@ -72,14 +72,17 @@ div.flash-notification .flash-notice {
    border-radius: 5px;
    width: 450px;
    height: 40px;
-}
+}	
 .navbar-primary .nav-search::-moz-placeholder {
+	font-weight: 500;
 	color: #bbbcbc;
 }
 .navbar-primary .nav-search::-ms-input-placeholder {
+	font-weight: 500;
 	color: #bbbcbc;
 }
 .navbar-primary .nav-search::-webkit-input-placeholder {
+	font-weight: 500;
 	color: #bbbcbc;
 }
 .navbar-primary .fa-search {
@@ -136,17 +139,25 @@ div.flash-notification .flash-notice {
 
 /* USER PROFILE */
 
-.cover.profile {
-position: relative;
-border: 1px solid #efefef;
-border-radius: 0 0 5px 5px;
+.profile {
+	margin-top: 30px;
 }
-
+.cover.profile {
+	position: relative;
+	border: 1px solid #efefef;
+	border-radius: 0 0 5px 5px;
+}
+.cover.profile .wrapper .image .img-responsive {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
 .cover.profile .cover-info .avatar img {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  border: 3px solid #fff;
+	width: 110px;
+	height: 110px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px; 
 }
 
 .cover.profile .cover-info .cover-follow {
