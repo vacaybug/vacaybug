@@ -35,10 +35,10 @@ Vacaybug::Application.routes.draw do
                 put :follow
                 put :unfollow
             end
-        end
 
-        resources :guides do
-            resources :places do
+            resources :guides do
+                resources :places do
+                end
             end
         end
     end

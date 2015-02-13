@@ -13,7 +13,11 @@ jQuery ->
       @listenTo @model, 'change', @render
       @listenTo @model, 'sync', @render
       @activeTab = 'passport'
+      @isPrivate = @model.get('username') == Vacaybug.current_user.get('username')
       @editMode = false
+
+      @guides = new Vacaybug.GuideCollection
+        
 
     createGuide: (event) ->
       guide = new Vacaybug.GuideModel
@@ -36,7 +40,7 @@ jQuery ->
     render: ->
       return @ unless @model.sync_status
 
-      if (@model.get('id') == Vacaybug.current_user.get('id'))
+      if @isPrivate
         @template = JST["backbone/templates/profile-private"]
       else
         @template = JST["backbone/templates/profile-public"]

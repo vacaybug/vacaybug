@@ -2,8 +2,20 @@ class Rest::GuidesController < ActionController::Base
     include ApplicationHelper
 
     before_filter :check_logged_in
+    before_filter :check_permission
+
+    def index
+        user = User.find_by_username(params[:user_id]) || not_found
+        guides = user.guides
+
+        render json: {
+            model: guides
+        }
+    end
 
     def create
+        user = User.find_by_username(params[:user_id]) || not_found
+
     	guide = Guide.create(
     		country: params[:country],
     		region: params[:region],
@@ -48,5 +60,10 @@ class Rest::GuidesController < ActionController::Base
         render json: {
             model: guide
         }
+    end
+
+    def check_permission
+        user = User.find_by_username(params[:user_id])
+        render403
     end
 end

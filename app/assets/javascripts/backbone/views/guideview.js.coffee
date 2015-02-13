@@ -59,7 +59,7 @@ jQuery ->
                   for venue in resp.venues
                     name = venue.name + " - " + venue.location.formattedAddress[0]  + ", " + venue.location.formattedAddress[1]
                     matches.push({value: name, data: venue})
-                  callback(matches)  
+                  callback(matches)
             ), 300)
         }
       ).bind('typeahead:selected', (obj, selected, name) =>

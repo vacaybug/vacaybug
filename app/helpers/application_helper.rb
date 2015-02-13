@@ -20,4 +20,12 @@ module ApplicationHelper
     def title(page_title)
         content_for(:title) { page_title }
     end
+
+    def not_found
+        raise ActionController::RoutingError.new('Not Found')
+    end
+
+    def render403
+        render text: 'Method not allowed', status: 403
+    end
 end
