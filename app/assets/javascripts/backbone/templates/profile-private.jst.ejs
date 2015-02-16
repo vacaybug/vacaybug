@@ -16,7 +16,7 @@
                 <a href="#passport" role="tab" data-toggle="tab"><i class="fa fa-briefcase"></i> Passport</a>
             </li>
             <li class="<%= activeTab == 'wishlist' ? 'active' : '' %> js-tab" data-tab='wishlist'>
-                <a href="#wishlist" role="tab" data-toggle="tab"><i class="fa fa-globe"></i> Wishlist</a>
+                <a href="#wishlist" role="tab" data-toggle="tab"><i class="fa fa-list"></i> Wishlist</a>
             </li>
             <li class="<%= activeTab == 'about' ? 'active' : '' %> js-tab" data-tab='about'>
                 <a href="#about" role="tab" data-toggle="tab"><i class="fa fa-info-circle"></i> About</a>
@@ -30,7 +30,7 @@
                 <a href="/users/<%= model.username %>/following"><%= model.following_count %> Following</a>
             </li>
         </ul>
-        <a class="btn btn-primary pull-right" href="#guideModal" data-toggle="modal">Create guide</a>
+        <a class="btn pull-right new-guide-btn" href="#guideModal" data-toggle="modal">Create a guide</a>
     </div>
 </div>
 <div class="panel">
@@ -55,14 +55,14 @@
                                 <img src="/assets/guide/rome.jpg" class="img-responsive" alt="">
                             </a>
                             <div class="guide-caption">
-                                <!-- <p class="guide-author"><span>Posted by: </span><a href="">chsieh6</a></p> -->
                                 <p class="guide-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor impedit ipsum laborum maiores tempore veritatis</p>
-                                    <ul class="guide-socialMeta">
-                                        <li><a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a></li>
-                                        <li><a href="" class="text-muted"><i class="fa fa-comment"></i> 5</a></li>
-                                        <li><a href="" class="text-muted"><i class="fa fa-refresh"></i> 10</a></li>
-                                        <li class="pull-right"><p class="text-muted">3 days</p></li>
-                                   </ul>
+                                <hr>
+                                <ul class="guide-socialMeta">
+                                    <li><a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a></li>
+                                    <li><a href="" class="text-muted"><i class="fa fa-comment"></i> 5</a></li>
+                                    <li><a href="" class="text-muted"><i class="fa fa-refresh"></i> 10</a></li>
+                                    <li class="pull-right"><p class="text-muted">3 days</p></li>
+                               </ul>
                             </div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
         </div>
         <div class="tab-pane <%= activeTab == 'wishlist' ? 'active in' : ''%> fade" id="wishlist">
             <div class="tab-heading">
-                <i class="fa fa-globe"></i> My Wishlist - I Want to Go...
+                <i class="fa fa-list"></i> My Wishlist - I Want to Go...
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -244,18 +244,13 @@
 </div>
 <div class="modal fade" id="guideModal" tabindex="-1" role="dialog" aria-labelledby="guideModal" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content modal-city">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Tell us little more</h4>
+                <h4 class="modal-title" id="myModalLabel">Where are you going?</h4>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <label for="city">City: </label>
-                        <input type="text" class="typeahead js-modal-city" name="city" />
-                    </div>
-                </div>
+                <input type="text" class="typeahead js-modal-city" name="city" placeholder="Type in a city"/>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

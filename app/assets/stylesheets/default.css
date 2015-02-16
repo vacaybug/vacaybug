@@ -11506,7 +11506,7 @@ body > .container > .media {
 .btn-white.active,
 .open > .dropdown-toggle.btn-white {
   color: #444444;
-  background-color: #e6e6e6;
+  /*background-color: #e6e6e6;*/
   border-color: #d0d0d0;
 }
 .btn-white:active,

@@ -1,5 +1,9 @@
 /* GENERAL */
 
+.vb-passport {
+	background-image: '../assets/svg/passport-static-icon.svg';
+}
+
 body {
 /*	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
@@ -64,7 +68,10 @@ div.flash-notification .flash-notice {
 	-moz-border-radius: 5px;
 	border-radius: 5px; 
 }
-
+.navbar-nav > li > a.dropdown-toggle img {
+margin-top: 8px;
+margin-right: 3px;
+}
 .navbar-primary .nav-search {
 	margin-left: 50px;
    -webkit-border-radius: 5px;
@@ -139,13 +146,12 @@ div.flash-notification .flash-notice {
 
 /* USER PROFILE */
 
-.profile {
-	margin-top: 30px;
-}
 .cover.profile {
-	position: relative;
-	border: 1px solid #efefef;
-	border-radius: 0 0 5px 5px;
+	margin-top: 30px;
+	border: 1px solid #d4d4d4;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px; 
 }
 .cover.profile .wrapper .image .img-responsive {
   width: 100%;
@@ -159,22 +165,33 @@ div.flash-notification .flash-notice {
 	-moz-border-radius: 5px;
 	border-radius: 5px; 
 }
-
 .cover.profile .cover-info .cover-follow {
 	margin-right: 20px;
 	margin-top: 11px;  
 }
-
 .cover.profile .cover-info .cover-new-guide {
 	margin-right: 20px;
 	margin-top: 11px;  
 }
-
 .cover.profile .cover-info .cover-nav > li.active > a {
 	color: #666;
 	font-weight: 600;
 }
-
+.cover.profile .cover-info .new-guide-btn {
+	width: 135px;
+	height: 35px;
+	margin-top: 10px;
+	margin-right: 30px;
+	background-color: #f26d65;
+	border: none;
+	color: #fff;
+}
+.panel {
+	border: 1px solid #d4d4d4;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px; 
+}
 .panel .tab-content .tab-heading {
 	font-size: 14px;
 	padding: 20px;
@@ -182,10 +199,9 @@ div.flash-notification .flash-notice {
 	margin-bottom: 10px;
 	color: #fff;
 	font-weight: 600;
-	background-color: #f26d64;
-	border-radius: 5px 5px 0 0;
+	background-color: #00629b;
+	border-radius: 9px 9px 0 0;
 }
-
 .modal .modal-header {
 	font-size: 14px;
 	padding:10px;
@@ -193,7 +209,6 @@ div.flash-notification .flash-notice {
 	font-weight: 500;
 	background-color: #25ad9f;
 }
-
 @media (min-width: 767px) {
 	.modal .modal-dialog {
 		position: absolute;
@@ -208,13 +223,6 @@ div.flash-notification .flash-notice {
 	padding:10px;
 	color: #fff;
 }
-
-/*.panel-default:hover {
-	box-shadow: 0px 1px 44px -3px #888;
-	-webkit-transition: all ease .8s;
-	-moz-transition: all ease .8s;
-	transition: all ease .8s;
-}*/
 
 /* FOLLOWER | FOLLOWERING */
 
@@ -558,8 +566,8 @@ div.flash-notification .flash-notice {
 
 .navbar-sort {
 	width: 100%;
-	padding: 20px 0px;
-	background-color: #ededed;
+	padding: 30px 0px 20px 0px;
+	background-color: #f7f7f7;
 	position: fixed;
 	z-index: 1000;
 }
@@ -618,6 +626,9 @@ div.flash-notification .flash-notice {
 	border-radius: 10px;
 	height: 50px;
 	font-size: 18px;
+}
+.container.search-result {
+	margin-top: 100px;
 }
 
 
@@ -678,19 +689,17 @@ ul.social-buttons li a:active {
 
 .guide-item {
 	margin-bottom: 15px;
-	box-shadow: 0px 1px 5px -3px #888;
-	-webkit-transition: all ease .8s;
-	-moz-transition: all ease .8s;
-	transition: all ease .8s;
+	border: 1px solid #d4d4d4;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px; 
+
 }
-
-/* FOOTER */
-
 .guide-item:hover {
 	box-shadow: 0px 1px 44px -3px #888;
-	-webkit-transition: all ease .8s;
-	-moz-transition: all ease .8s;
-	transition: all ease .8s;
+	-webkit-transition: all ease .5s;
+	-moz-transition: all ease .5s;
+	transition: all ease .5s;
 }
 
 .guide-item .guide-link {
@@ -741,27 +750,23 @@ ul.social-buttons li a:active {
 .guide-item .guide-link .guide-hover .guide-hover-content h4 {
 	margin: 0;
 }
-
 .guide-item .guide-caption {
 	margin: 0 auto;
-	padding: 10px;  
 	max-width: 400px;
-	background-color: #fff;
-	border-radius: 0 0 5px 5px;
 }
-
 .guide-item .guide-caption h4 {
-	margin: 0px;
+	margin: 5px;
+	padding: 10px; 
 	text-transform: none;
 }
 
 .guide-item .guide-caption .guide-author {
 	margin-top: 0px;
 	margin-bottom: 0px;
-	padding-bottom: 5px;
+	padding: 10px 15px 10px 15px;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
-	border-bottom: solid 1px #A9A9A9;
+	border-bottom: solid 1px #d4d4d4;
 }
 .guide-item .guide-caption .guide-author span{
 	margin-top: 0;
@@ -769,17 +774,24 @@ ul.social-buttons li a:active {
 	font-size: 14px;
 }
 .guide-item .guide-caption .guide-content {
-	margin-top: 5px;
+	margin-bottom: 0px;
+	padding: 10px 15px;
+}
+.guide-item .guide-caption hr {
+	margin-top: 0px;
 	margin-bottom: 10px;
+	border: 0;
+	border-top: 1px solid #d4d4d4;
 }
 .guide-item .guide-caption .guide-socialMeta{
-	margin-left: -50px;
-	margin-bottom: 0px;
+	margin-left: -40px;
+	margin-right: 5px;
+	margin-bottom: 10px;
 	list-style-type: none;
 }
 .guide-item .guide-caption .guide-socialMeta li{
 	display: inline-block;
-	margin: 0px 10px;
+	margin: 0px 15px;
 }
 .guide-item .guide-caption .guide-socialMeta li a{
 	text-decoration: none;
@@ -990,6 +1002,15 @@ ul.social-buttons li a:active {
 
 /* TYPEAHEAD */
 
+.js-modal-city {
+	width: 100%;
+	margin: 15px 0px;
+	padding: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	font-size: 18px;
+}
 span.twitter-typeahead .tt-dropdown-menu {
 	position: absolute;
 	top: 100%;
