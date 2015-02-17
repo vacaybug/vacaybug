@@ -1,9 +1,4 @@
 /* GENERAL */
-
-.vb-passport {
-	background-image: '../assets/svg/passport-static-icon.svg';
-}
-
 body {
 /*	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
@@ -122,27 +117,9 @@ margin-right: 3px;
 	transition-duration: .3s;
 	transition-timing-function: linear;
 }
-
 .navbar-primary .navbar-nav > li.active > a {
 	color: #fff;
 }
-
-/*.navbar-subnav {
-	background-color: #99d5e9;
- 	border: none;
- 	padding: 1px;
-  	margin: 10px 0 -1px;
-}
-
-.navbar-subnav .navbar-nav > li > a {
-  color: #1c1e2b;
-  font-weight: 500;
-  padding-top: 2px;
-  padding-bottom: 0px;
-  	transition-property: color;
-  	transition-duration: .5s;
-  	transition-timing-function: linear;
-}*/
 
 /* USER PROFILE */
 
@@ -241,73 +218,55 @@ margin-right: 3px;
 
 /* USER GUIDE */
 
-.navbar-title {
-	margin: 0px;
-	background-color: #00ced1;
-}
-
-.navbar-title .navbar-brand{
-	color:#fff;
-	text-align: center;
-	font-size: 30px;
-	font-weight: bold;
-}
-
-.btn-guide-delete, .btn-guide-export {
-	margin-left: 10px;
+.city-guide-heading {
 	margin-top: 10px;
+	margin-bottom: 25px;
+	padding: 15px 0px 10px 0px;
+	background-color: #98d6ec;
+	text-transform: uppercase;
+	font-size: 40px;
+	color: #fff;
+	font-weight: 400;
+	line-height: 90%;
 }
-
-@media (max-width: 767px) {
-	.navbar-title .navbar-brand {
-		color:#fff;
-		text-align: center;
-		font-size: 20px;
-		font-weight: bold;
-	}
-
-	.navbar .btn-guide-delete, .btn-guide-export {
-		margin-right: 15px;
-		margin-top: 10px;
-	}
+.city-guide-heading span {
+	text-transform: none;
+	font-size: 30px;
 }
-
-.header{
-	background-attachment: scroll;
-	background-image: url(../assets/profile-cover.png);
+.container.guide-map {
+	padding: 0px 15px 0px 0px;
+	margin-bottom: 0px;
+	border: 1px solid #d4d4d4;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-image: url('/assets/guide/map.png');
 	background-position: center center;
 	background-repeat: none;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
 	-o-background-size: cover;
-	height: 400px;
-	width: 80%;
-	display: inline-block;
 }
-
-.guide-description {
-	height:400px;
-	width: 20%;
-	display: inline-block;
-	background-color: #282828;
+.guide-map .col-md-3.guide-description {
+	padding: 0px;
+	background:rgba(255,255,255, 0.7);
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
-
-.guide-description textarea {
-	color: #fff;
-	background-color: #282828;
-	border: none;
-	resize: none;
-	width: 100%;
-	padding-left: 15px;
-	padding-right: 15px;
+.guide-map .guide-description textarea {
+	color: #000;
+	width: 87%;
+	min-height: 300px;
+	margin: 20px;
+	padding: 15px;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 1.5em;
-	border-bottom: 1px solid #fff
+	border: 3px dashed #98d6ec;
+	background:rgba(255,255,255, 0.7);
 }
-
-.guide-description input {
+.guide-map .guide-description input {
 	color: #fff;
 	background-color: #282828;
 	padding: 4px 20px 12px;
@@ -318,8 +277,38 @@ margin-right: 3px;
 	line-height: 1.5em;
 	border-bottom: 1px solid #fff
 }
-
-.guide-description-save {
+.guide-map .guide-description hr {
+	margin: 0 auto;
+	border-top: 1px solid #f26d65;
+}
+.guide-map .guide-description .btn-guide-delete {
+	float: left;
+	margin: 10px 20px 10px 32px;
+	font-weight: 600;
+	background-color: #f26d65;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border: 1px solid #f26d65;
+}
+.guide-map .guide-description .btn-guide-delete:hover {
+	background-color: #ec281d;
+	border: 1px solid #ec281d;
+}
+.guide-map .guide-description .btn-guide-export {
+	margin: 10px 0px 0px 0px;
+	font-weight: 600;
+	background-color: #00629b;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px; 
+	border: 1px solid #00629b;
+}
+.guide-map .guide-description .btn-guide-export:hover {
+	background-color: #003d60;
+	border: 1px solid #003d60;
+}
+.guide-map .guide-description-save {
 	color: white;
 	background-color: #282828;
 	border: none;
@@ -328,40 +317,61 @@ margin-right: 3px;
 	top: 235px;
 	left: 225px;
 }
-
 .guide-container {
 	margin-top: 25px;
+	background-color: #fff;
+	border: 1px solid #d4d4d4;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px; 
 }
-
 .guide-container .guide-searchbar {
-	margin-top: 30px;
-	margin-bottom: 20px;
+	padding: 30px 0px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid #d4d4d4;
 }
-
-.guide-container .guide-searchbar::-webkit-input-placeholder {
-  color:    #787878;
+.guide-container .guide-searchbar .form-control {
+	background-color: #fcfcfc;
 }
+.guide-container .guide-item {
 
-.guide-container .guide-searchbar:-moz-placeholder {
-  color:    #787878;
 }
-
-.guide-container .guide-searchbar::-moz-placeholder {
-  color:    #787878;
+.guide-container .guide-item .guide-img {
+	width: 100%;
+	height: 180px;
 }
-
-.guide-container .guide-searchbar:-ms-input-placeholder {
-  color:    #787878;
+.guide-container .guide-item .guide-caption .number-icon {
+	color: #fff;
+	background-color: #98d6ec;
+	padding: 0px 9px;
+	margin-top: 5px;
+	margin-left: 10px;
+	margin-right: 0px;
+	font-size: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px; 
 }
-
-.guide-container .panel-body .review {
+.guide-container .guide-item .guide-caption textarea {
+	margin: 15px 15px 10px 15px;
+	padding: 10px;
+	width: 230px;
+	height: 80px;
 	font-size: 12px;
-	font-weight: bold;
+	font-weight: 500;
+	border: 2px dashed #98d6ec;
+	background-color: #fbfefe;
 }
-
-.guide-container .panel-body .review-rating {
-	margin-top: 8px;
-	font-size: 12px;
+.guide-container .guide-item hr {
+	margin-top: 0px;
+	margin-bottom: 5px;
+	border-top: 1px solid #d4d4d4;
+}
+.guide-container .guide-item .logo {
+	margin: 0px 0px 7px 33px;
+	display: inline;
+	width: 30%;
+	height: 30%
 }
 
 /* LOGIN */
@@ -631,7 +641,6 @@ margin-right: 3px;
 	margin-top: 100px;
 }
 
-
 /* FOOTER */
 
 footer {
@@ -680,12 +689,7 @@ ul.social-buttons li a:active {
     background-color: #00629b;
 }
 
-/* GUIDE */
-
-.guide-heading {
-	margin: 15px 0;
-	text-transform: none;
-}
+/* GUIDE ITEM */
 
 .guide-item {
 	margin-bottom: 15px;
@@ -693,7 +697,6 @@ ul.social-buttons li a:active {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px; 
-
 }
 .guide-item:hover {
 	box-shadow: 0px 1px 44px -3px #888;
@@ -701,19 +704,16 @@ ul.social-buttons li a:active {
 	-moz-transition: all ease .5s;
 	transition: all ease .5s;
 }
-
 .guide-item .guide-link {
 	display: block;
 	position: relative;
 	margin: 0 auto;
 	max-width: 100%;
 }
-
 .guide-item img {
 	width: 100%;
 	height: 225px;
 }
-
 .guide-item .guide-link .guide-hover {
 	position: absolute;
 	width: 100%;
@@ -724,12 +724,9 @@ ul.social-buttons li a:active {
 	-moz-transition: all ease .5s;
 	transition: all ease .5s;
 }
-
-
 .guide-item .guide-link .guide-hover:hover {
 	opacity: .9;
 }
-
 .guide-item .guide-link .guide-hover .guide-hover-content {
 	position: absolute;
 	border-radius: 5px;
@@ -741,11 +738,9 @@ ul.social-buttons li a:active {
 	font-size: 20px;
 	color: #fff;
 }
-
 .guide-item .guide-link .guide-hover .guide-hover-content i {
 	margin-top: -12px;		
 }
-
 .guide-item .guide-link .guide-hover .guide-hover-content h3,
 .guide-item .guide-link .guide-hover .guide-hover-content h4 {
 	margin: 0;
@@ -759,7 +754,6 @@ ul.social-buttons li a:active {
 	padding: 10px; 
 	text-transform: none;
 }
-
 .guide-item .guide-caption .guide-author {
 	margin-top: 0px;
 	margin-bottom: 0px;
@@ -780,7 +774,6 @@ ul.social-buttons li a:active {
 .guide-item .guide-caption hr {
 	margin-top: 0px;
 	margin-bottom: 10px;
-	border: 0;
 	border-top: 1px solid #d4d4d4;
 }
 .guide-item .guide-caption .guide-socialMeta{
