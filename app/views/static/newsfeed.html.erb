@@ -11,7 +11,7 @@
 	<%= render 'generic/navigation.html.erb' %>
 	<!-- Homepage Newfeed -->
     <div class="container">
-        <div class="timeline row" data-toggle="gridalicious">
+        <div id="timeline">
             <div class="timeline-block">
                 <div class="panel panel-default share">
                     <div class="panel-heading title">
@@ -220,7 +220,7 @@
                     <div class="panel-body">
                         Just updated a guide - <a href="#">Taiwan</a>
                     </div>
-                    <a href="#"><img src="assets/guide/taiwan.jpg" class="img-responsive"></a>
+                    <a href="#"><img src="/assets/guide/taiwan.jpg" class="img-responsive"></a>
                     <div class="view-all-comments">
                         <a href="#"> 5 Likes</a>
                         <a href="#"> - 1 Comments</a>
@@ -345,8 +345,8 @@
                             <div class="input-group">
                                 <input type="text" class="form-control" />
                                 <span class="input-group-addon">
-                   <a href=""><i class="fa fa-photo"></i></a>
-                </span>
+                                <a href=""><i class="fa fa-photo"></i></a>
+                                </span>
                             </div>
                         </li>
                     </ul>
@@ -354,6 +354,18 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //initialize
+            $("#timeline").imagesLoaded(function(){
+                $("#timeline").masonry({
+                    itemSelector: '.timeline-block',
+                    isFitWidth: true
+                });
+            });
+        });
+    </script>
+
 	<%= render 'generic/footer.html.erb' %>
 </body>
 </html>

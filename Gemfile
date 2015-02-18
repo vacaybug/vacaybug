@@ -29,6 +29,7 @@ gem 'rails-backbone'
 
 gem "paperclip", "~> 4.2"
 gem "jquery-fileupload-rails"
+gem "jquery-turbolinks"
 gem "aws-sdk"
 gem "test-unit"
 gem "httparty"

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
 //= require underscore1
 //= require backbone1
 //= require dateformat
@@ -31,6 +32,8 @@
 //= require cbpAnimatedHeader
 //= require agency
 //= require masonry
+//= require imagesloaded.min
 //= require typeahead
 //= require geonames
 //= require jquery-ui
+
