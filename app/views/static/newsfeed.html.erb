@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VacayBug | Newsfeed</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= render 'generic/header.html.erb' %>
+</head>
+<body>
+	<%= render 'generic/navigation.html.erb' %>
+	<!-- Homepage Newfeed -->
+    <div class="container">
+        <div class="timeline row" data-toggle="gridalicious">
+            <div class="timeline-block">
+                <div class="panel panel-default share">
+                    <div class="panel-heading title">
+                        What&acute;s new
+                    </div>
+                    <div class="panel-body">
+                        <textarea name="status" class="form-control share-text" rows="3" placeholder="Share your status..."></textarea>
+                    </div>
+                    <div class="panel-footer share-buttons">
+                        <a href="#">
+                            <i class="fa fa-link"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-photo"></i>
+                        </a>
+                        <button type="submit" class="btn btn-primary btn-xs pull-right display-none" href="#">Post</button>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-block">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="media">
+                            <a href="" class="pull-left">
+                                <img src="/assets/people/50/guy-5.jpg" class="media-object">
+                            </a>
+                            <div class="media-body">
+                                <a href="">Khongor Enkhbold</a>
+                                <span>on 15th January, 2014</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        Just uploaded a guide - <a>Mongolia</a>
+                    </div>
+                    <a href="#"><img src="/assets/guide/mongolia.jpg" class="img-responsive"></a>
+                    <div class="view-all-comments">
+                        <a href="#"> 5 Likes</a>
+                        <a href="#"> - 1 Comments</a>
+                        <a href="#"> - Share</a>
+                     </div>
+                    <ul class="comments">
+                        <li>
+                            <div class="media">
+                                <a href="" class="pull-left">
+                                    <img src="/assets/people/50/woman-5.jpg" class="media-object">
+                                </a>
+                                <div class="media-body">
+                                    <a href="" class="comment-author">Mary</a>
+                                    <span>Wow</span>
+                                    <div class="comment-date">2 days</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="comment-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-addon">
+                   <a href=""><i class="fa fa-photo"></i></a>
+                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-block">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="media">
+                            <a href="" class="pull-left">
+                                <img src="/assets/people/50/woman-5.jpg" class="media-object">
+                            </a>
+                            <div class="media-body">
+                                <a href="">Mary Jane</a>
+                                <span>on 15th January, 2014</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        Just uploaded a guide - <a>Rome</a>
+                    </div>
+                    <a href="#"><img src="/assets/guide/rome.jpg" class="img-responsive"></a>
+                    <div class="view-all-comments">
+                        <a href="#"> 5 Likes</a>
+                        <a href="#"> - 10 Comments</a>
+                        <a href="#"> - Share</a>
+                    </div>
+                    <ul class="comments">
+                        <li>
+                            <div class="media">
+                                <a href="" class="pull-left">
+                                    <img src="/assets/people/50/guy-5.jpg" class="media-object">
+                                </a>
+                                <div class="media-body">
+                                    <a href="" class="comment-author">Khongor Enkhbold</a>
+                                    <span>Awesome! I was just there last month!</span>
+                                    <div class="comment-date">21st September</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="media">
+                                <a href="" class="pull-left">
+                                    <img src="/assets/people/50/woman-5.jpg" class="media-object">
+                                </a>
+                                <div class="media-body">
+                                    <a href="" class="comment-author">Mary</a>
+                                    <span>Really?! Did you upload your itinerary?</span>
+                                    <div class="comment-date">2 days</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="media">
+                                <a href="" class="pull-left">
+                                    <img src="/assets/people/50/guy-5.jpg" class="media-object">
+                                </a>
+                                <div class="media-body">
+                                    <a href="" class="comment-author">Khongor Enkhbold</a>
+                                    <span>Yup I did, check out my passport</span>
+                                    <div class="comment-date">14 min</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="comment-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-addon">
+                   <a href=""><i class="fa fa-photo"></i></a>
+                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-block">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="media">
+                            <a href="" class="pull-left">
+                                <img src="/assets/people/50/guy-2.jpg" class="media-object">
+                            </a>
+                            <div class="media-body">
+                                <a href="">Joe Smith</a>
+                                <span>on 15th January, 2014</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>I'm going to San Francisco in September, any suggestions?</p>
+                    </div>
+                    <div class="view-all-comments">
+                        <a href="#"> 2 Likes</a>
+                        <a href="#"> - 5 Comments</a>
+                        <a href="#"> - Share</a>
+                     </div>
+                    <ul class="comments">
+                        <li>
+                            <div class="media">
+                                <a href="" class="pull-left">
+                                    <img src="/assets/people/50/woman-5.jpg" class="media-object">
+                                </a>
+                                <div class="media-body">
+                                    <a href="" class="comment-author">Mary</a>
+                                    <span>You should totally check out Golden Gate Bridge</span>
+                                    <div class="comment-date">2 days</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="media">
+                                <a href="" class="pull-left">
+                                    <img src="/assets/people/50/guy-5.jpg" class="media-object">
+                                </a>
+                                <div class="media-body">
+                                    <a href="" class="comment-author">Bill</a>
+                                    <span>You should check out the SF guide in my profile</span>
+                                    <div class="comment-date">14 min</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="comment-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-addon">
+                   <a href=""><i class="fa fa-photo"></i></a>
+                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-block">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="media">
+                            <a href="" class="pull-left">
+                                <img src="/assets/people/50/guy-5.jpg" class="media-object">
+                            </a>
+                            <div class="media-body">
+                                <a href="">Charles Hsieh</a>
+                                <span>on 15th January, 2014</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        Just updated a guide - <a href="#">Taiwan</a>
+                    </div>
+                    <a href="#"><img src="assets/guide/taiwan.jpg" class="img-responsive"></a>
+                    <div class="view-all-comments">
+                        <a href="#"> 5 Likes</a>
+                        <a href="#"> - 1 Comments</a>
+                        <a href="#"> - Share</a>
+                     </div>
+                     <ul class="comments">
+                        <li>
+                            <div class="media">
+                                <a href="" class="pull-left">
+                                    <img src="/assets/people/50/woman-5.jpg" class="media-object">
+                                </a>
+                                <div class="media-body">
+                                    <a href="" class="comment-author">Mary</a>
+                                    <span>Have fun!</span>
+                                    <div class="comment-date">2 days</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="comment-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-addon">
+                   <a href=""><i class="fa fa-photo"></i></a>
+                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-block">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="media">
+                            <a href="" class="pull-left">
+                                <img src="/assets/people/50/woman-5.jpg" class="media-object">
+                            </a>
+                            <div class="media-body">
+                                <a href="">Mary Jane</a>
+                                <span>on 15th January, 2014</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        Just uploaded a guide - <a href="#">Cuba</a>
+                    </div>
+                    <img src="/assets/guide/cuba.jpg" class="img-responsive">
+                    <div class="view-all-comments">
+                        <a href="#"> Likes</a>
+                        <a href="#"> - Comment</a>
+                        <a href="#"> - Share</a>
+                    </div>
+                    <ul class="comments">
+                        <li class="comment-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-addon">
+                   <a href=""><i class="fa fa-photo"></i></a>
+                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="timeline-block">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="media">
+                            <a href="" class="pull-left">
+                                <img src="/assets/people/50/guy-2.jpg" class="media-object">
+                            </a>
+                            <div class="media-body">
+                                <a href="">Joe Smith</a>
+                                <span>on 15th January, 2014</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>Only went to 10 out 25..time to get packing!</p>
+                        <div class="boxed">
+                            <a href="#" class="h4 margin-none">World's Best Places to Visit</a>
+                            <div class="media">
+                                <a href="#" class="media-object pull-left">
+                                    <img src="http://static.travel.usnews.com/images/destinations/86/paris_edited_116x130.jpg" alt="" width="80" />
+                                </a>
+                                <div class="media-body">
+                                    <p>To help you choose where to go on your next vacation, U.S. News compiled a list of worldwide destinations...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="view-all-comments">
+                        <a href="#"> 3 Likes</a>
+                        <a href="#"> - 2 Comments</a>
+                        <a href="#"> - Share</a>
+                    </div>
+                    <ul class="comments">
+                        <li>
+                            <div class="media">
+                                <a href="" class="pull-left">
+                                    <img src="/assets/people/50/guy-5.jpg" class="media-object">
+                                </a>
+                                <div class="media-body">
+                                    <a href="" class="comment-author">Bill D.</a>
+                                    <span>I only went to 3!</span>
+                                    <div class="comment-date">21st September</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="media">
+                                <a href="" class="pull-left">
+                                    <img src="/assets/people/50/woman-5.jpg" class="media-object">
+                                </a>
+                                <div class="media-body">
+                                    <a href="" class="comment-author">Mary</a>
+                                    <span>Ha! I went to 15!</span>
+                                    <div class="comment-date">2 days</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="comment-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-addon">
+                   <a href=""><i class="fa fa-photo"></i></a>
+                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+	<%= render 'generic/footer.html.erb' %>
+</body>
+</html>

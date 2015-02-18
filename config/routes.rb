@@ -20,6 +20,7 @@ Vacaybug::Application.routes.draw do
     get 'static/terms'
     get 'static/error'
     get 'static/guidepdf'
+    get 'static/newsfeed'
 
     # restful api
     # MODELS ONLY

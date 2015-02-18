@@ -58,4 +58,8 @@ class StaticController < ActionController::Base
 	def guidepdf
 		render 'static/guidepdf'
 	end
+
+	def newsfeed
+		render 'static/newsfeed'
+	end
 end
