@@ -572,7 +572,8 @@ div.flash-notification .flash-notice {
 
 .navbar-sort {
 	width: 100%;
-	padding: 30px 0px 20px 0px;
+	margin-top: 10px;
+	padding: 20px 0px;
 	background-color: #f7f7f7;
 	position: fixed;
 	z-index: 1000;
@@ -583,10 +584,23 @@ div.flash-notification .flash-notice {
 }
 
 .navbar-sort .btn-group button {
+	background-color: #fff;
+	color: #00629b;
 	height: 40px;
 	width: 33%;
-}
+	border: 1px solid #00629b;
 
+}
+.navbar-sort .btn-group button:hover {
+	background-color: #00629b;
+	color: #fff;
+	border-right: 1px solid #fff;
+	border-left: 1px solid #fff;
+}
+.navbar-sort .btn-group .btn.active {
+	background-color: #00629b;
+	color: #fff;
+}
 .navbar-sort .btn-group .btn-default {
 	color: #fff;
 	background-color: #428bca;
@@ -649,7 +663,7 @@ div.flash-notification .flash-notice {
 	color: #bbbcbc;
 }
 .container.search-result {
-	margin-top: 100px;
+	margin-top: 98px;
 }
 
 /* NEWSFEED */
@@ -717,13 +731,14 @@ ul.social-buttons li a:active {
 	border: 1px solid #d4d4d4;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
-	border-radius: 10px; 
+	border-radius: 10px;
+	background-color: #fff;
 }
 .guide-item:hover {
-	box-shadow: 0px 1px 44px -3px #888;
-	-webkit-transition: all ease .5s;
-	-moz-transition: all ease .5s;
-	transition: all ease .5s;
+	box-shadow: 0px 0px 10px 0px #888;
+	-webkit-transition: all ease .3s;
+	-moz-transition: all ease .3s;
+	transition: all ease .3s;
 }
 .guide-item .guide-link {
 	display: block;
@@ -787,6 +802,7 @@ ul.social-buttons li a:active {
 	margin-top: 0;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
+	font-weight: 600;
 }
 .guide-item .guide-caption .guide-content {
 	margin-bottom: 0px;
