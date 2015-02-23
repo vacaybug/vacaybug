@@ -180,7 +180,24 @@ div.flash-notification .flash-notice {
 	padding:10px;
 	color: #fff;
 	font-weight: 500;
-	background-color: #25ad9f;
+	background-color: #00629b;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+.modal .modal-body {
+	padding: 25px;
+}
+.modal .modal-body button.btn-cancel {
+	width: 150px;
+	margin-left: 19%;
+	background-color: #f26d65;
+	color: #fff;
+}
+.modal .modal-body button.btn-continue {
+	width: 150px;
+	margin-left: 6%;
+	background-color: #00629b;
+	color: #fff;
 }
 @media (min-width: 767px) {
 	.modal .modal-dialog {
@@ -189,6 +206,20 @@ div.flash-notification .flash-notice {
 		left: 50%;
 		margin-left: -300px;
 		margin-right: -300px;
+	}
+}
+@media (max-width: 482px) {
+	.modal .modal-body button.btn-cancel {
+		width: 150px;
+		margin-left:7%;
+		background-color: #f26d65;
+		color: #fff;
+	}
+	.modal .modal-body button.btn-continue {
+		width: 150px;
+		margin-left: 7%;
+		background-color: #00629b;
+		color: #fff;
 	}
 }
 
@@ -585,29 +616,21 @@ div.flash-notification .flash-notice {
 
 .navbar-sort .btn-group button {
 	background-color: #fff;
-	color: #00629b;
+	color: #25ABE1;
 	height: 40px;
 	width: 33%;
-	border: 1px solid #00629b;
+	border: 1px solid #25ABE1;
 
 }
 .navbar-sort .btn-group button:hover {
-	background-color: #00629b;
+	background-color: #25ABE1;
 	color: #fff;
 	border-right: 1px solid #fff;
 	border-left: 1px solid #fff;
 }
 .navbar-sort .btn-group .btn.active {
-	background-color: #00629b;
+	background-color: #25ABE1;
 	color: #fff;
-}
-.navbar-sort .btn-group .btn-default {
-	color: #fff;
-	background-color: #428bca;
-}
-.navbar-sort .btn-group .btn-default:hover {
-	color: #fff;
-	background-color: #000;
 }
 
 .search-container {
@@ -1034,12 +1057,11 @@ ul.social-buttons li a:active {
 
 .js-modal-city {
 	width: 100%;
-	margin: 15px 0px;
 	padding: 10px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	font-size: 18px;
+	font-size: 15px;
 }
 span.twitter-typeahead .tt-dropdown-menu {
 	position: absolute;
@@ -1050,7 +1072,6 @@ span.twitter-typeahead .tt-dropdown-menu {
 	float: left;
 	min-width: 160px;
 	padding: 5px 0;
-	margin: 2px 0 0;
 	list-style: none;
 	font-size: 14px;
 	text-align: left;
