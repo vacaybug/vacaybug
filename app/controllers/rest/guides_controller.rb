@@ -2,7 +2,7 @@ class Rest::GuidesController < ActionController::Base
     include ApplicationHelper
 
     before_filter :check_logged_in
-    before_filter :check_permission
+    before_filter :check_permission, only: [:delete, :update]
 
     def index
         user = User.find_by_username(params[:user_id]) || not_found
@@ -14,8 +14,6 @@ class Rest::GuidesController < ActionController::Base
     end
 
     def create
-        user = User.find_by_username(params[:user_id]) || not_found
-
     	guide = Guide.create(
     		country: params[:country],
     		region: params[:region],
@@ -39,7 +37,7 @@ class Rest::GuidesController < ActionController::Base
 
     def update
         guide = Guide.find(params[:id])
-        if guide.user_id != current_user.id
+        if guide.user_id.to_i != current_user.id
             render text: 'Method not allowed', status: 403
             return
         end
@@ -62,8 +60,15 @@ class Rest::GuidesController < ActionController::Base
         }
     end
 
+    def delete
+        guide = Guide.find(params[:id])
+        guide.destroy
+    end
+
     def check_permission
-        user = User.find_by_username(params[:user_id])
-        render403
+        guide = Guide.find(params[:id])
+        if guide.user_id.to_i != current_user.id
+            render403
+        end
     end
 end

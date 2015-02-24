@@ -9,7 +9,7 @@ jQuery ->
       "users/:user/following": "following"
 
       "users/:user/guides/:id": "guide"
-      "guides/:id": "guide"
+      "guides/:id": "my_guide"
 
       # "*notFound": "notFound"
     
@@ -75,7 +75,6 @@ jQuery ->
     guide: (user, id) ->
       guide = new Vacaybug.GuideModel
         id: id
-        username: user
       guide.fetch
         error: =>
           @show404()
@@ -85,18 +84,11 @@ jQuery ->
 
       Vacaybug.appView.setView(view)
 
-    guide: (user, id) ->
-      guide = new Vacaybug.GuideModel
-        id: id
-        username: user
-      guide.fetch
-        error: =>
-          @show404()
-
-      view = new Vacaybug.GuideView
-        model: guide
-
-      Vacaybug.appView.setView(view)
+    my_guide: (id) ->
+      if Vacaybug.current_user
+        @guide(Vacaybug.current_user.get('username'), id)
+      else
+        @show404()
 
     notFound: ->
       @show404()

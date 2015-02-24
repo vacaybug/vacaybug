@@ -2,9 +2,9 @@ jQuery ->
   class GuideModel extends window.Vacaybug.GenericModel
     restURL: ->
       if @get('id')
-        "/rest/users/#{@get('user_id')}/guides/#{@get('id')}"
+        "/rest/guides/#{@get('id')}"
       else
-        "/rest/users/#{@Get('user_id')}/guides"
+        "/rest/guides"
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.GuideModel = GuideModel
@@ -12,7 +12,11 @@ jQuery ->
   class GuideCollection extends window.Vacaybug.GenericCollection
     model: window.Vacaybug.GuideModel
 
+    initialize: (options) ->
+      @username = options.username
+      super(options)
+
     restURL: ->
-      "/rest/users/#{@get('user_id')}/guides/#{@get('guide_id')}"
+      "/rest/users/#{@username}/guides"
 
   Vacaybug.GuideCollection = GuideCollection

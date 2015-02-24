@@ -3,6 +3,13 @@ class Rest::UsersController < ActionController::Base
 
     before_filter :check_logged_in, only: [:follow, :unfollow, :followers]
 
+    def guides
+        @user = find_user(params[:id])
+        render json: {
+            models: @user.guides
+        }
+    end
+
     def show
         @user = find_user(params[:id])
 

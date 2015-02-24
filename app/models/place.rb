@@ -15,10 +15,20 @@ class Place < ActiveRecord::Base
 		{ prefix: item["prefix"], suffix: item["suffix"] }
 	end
 
+	def get_note guide
+		note = Note.where(user_id: guide.user_id, place_id: self.id).first
+		if note
+			note.note
+		else
+			""
+		end
+	end
+
 	def as_json(options = {})
 	    options.merge!({methods: [:photo], except: [:fs_data]})
 
 	    json = super(options)
+	    json["note"] = get_note(options[:guide]) if options[:guide]
 	    json
 	end
 end

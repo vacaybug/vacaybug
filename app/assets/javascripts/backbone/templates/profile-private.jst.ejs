@@ -40,33 +40,38 @@
                 <i class="fa fa-briefcase"></i> My Passport - I've Been to...
             </div>
             <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="guide-item">
-                            <div class="guide-caption">
-                                 <h4>Rome Trip</h4>
-                            </div>
-                            <a href="#rome" class="guide-link" data-toggle="modal">
-                                <div class="guide-hover">
-                                    <div class="guide-hover-content">
-                                        <i class="fa fa-plus fa-3x"></i>
+                <% if (guides.sync_status) { %>
+                    <% _.each(_.groupBy(guides.models, function(value, index) { return parseInt(index / 3); }), function(row) { %>
+                        <div class="row">
+                            <% _.each(row, function(guide) { %>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="guide-item">
+                                        <div class="guide-caption">
+                                            <h4><%= _.escape(guide.get('title')) %></h4>
+                                        </div>
+                                        <a href="javascript:void(0)" class="guide-link js-guide-item" data-id="<%= guide.get('id') %>">
+                                            <div class="guide-hover">
+                                                <div class="guide-hover-content">
+                                                    <i class="fa fa-plus fa-3x"></i>
+                                                </div>
+                                            </div>
+                                            <img src="/assets/guide/rome.jpg" class="img-responsive" alt="">
+                                        </a>
+                                        <div class="guide-caption">
+                                            <p class="guide-content"><%= _.escape(guide.get('description')) %></p>
+                                            <ul class="guide-socialMeta">
+                                                <li><a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a></li>
+                                                <li><a href="" class="text-muted"><i class="fa fa-comment"></i> 5</a></li>
+                                                <li><a href="" class="text-muted"><i class="fa fa-refresh"></i> 10</a></li>
+                                                <li class="pull-right"><p class="text-muted">3 days</p></li>
+                                           </ul>
+                                        </div>
                                     </div>
                                 </div>
-                                <img src="/assets/guide/rome.jpg" class="img-responsive" alt="">
-                            </a>
-                            <div class="guide-caption">
-                                <p class="guide-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor impedit ipsum laborum maiores tempore veritatis</p>
-                                <hr>
-                                <ul class="guide-socialMeta">
-                                    <li><a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a></li>
-                                    <li><a href="" class="text-muted"><i class="fa fa-comment"></i> 5</a></li>
-                                    <li><a href="" class="text-muted"><i class="fa fa-refresh"></i> 10</a></li>
-                                    <li class="pull-right"><p class="text-muted">3 days</p></li>
-                               </ul>
-                            </div>
+                            <% }); %>
                         </div>
-                    </div>
-                </div>
+                    <% }); %>
+                <% } %>
             </div>
         </div>
         <div class="tab-pane <%= activeTab == 'wishlist' ? 'active in' : ''%> fade" id="wishlist">
@@ -254,170 +259,6 @@
                 <hr>
                 <button type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-continue js-continue" disabled="disabled">Continue</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="guide-modal modal" id="rome" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container guide-container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="text-center">San Francisco Trip</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <span class="fa-stack pull-left margin-right-10">
-                                <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                <i class="fa fa-inverse fa-stack-1x">1</i>
-                            </span>
-                            <h4 class="margin-top-3">Ferry Building</h4>
-                        </div>
-                        <a href="#">
-                            <img src="/assets/guide/taiwan.jpg" alt="image" class="img-responsive" />
-                        </a>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor impedit ipsum laborum maiores tempore veritatis....</p>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <h5 class="review">Yelp</h5>
-                                    <h5 class="review">TripAdvisor</h5>
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="rating review-rating">
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                    </div>
-                                    <div class="rating review-rating">
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <span class="fa-stack pull-left margin-right-10">
-                                <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                <i class="fa fa-inverse fa-stack-1x">2</i>
-                            </span>
-                            <h4 class="margin-top-3">Pier 39</h4>
-                        </div>
-                        <a href="#">
-                            <img src="/assets/guide/taiwan.jpg" alt="image" class="img-responsive" />
-                        </a>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor impedit ipsum laborum maiores tempore veritatis....</p>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <h5 class="review">Yelp</h5>
-                                    <h5 class="review">TripAdvisor</h5>
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="rating review-rating">
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                    </div>
-                                    <div class="rating review-rating">
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <span class="fa-stack pull-left margin-right-10">
-                                <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                <i class="fa fa-inverse fa-stack-1x">3</i>
-                            </span>
-                            <h4 class="margin-top-3">Chinatown</h4>
-                        </div>
-                        <a href="#">
-                            <img src="/assets/guide/taiwan.jpg" alt="image" class="img-responsive" />
-                        </a>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor impedit ipsum laborum maiores tempore veritatis....</p>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <h5 class="review">Yelp</h5>
-                                    <h5 class="review">TripAdvisor</h5>
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="rating review-rating">
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                    </div>
-                                    <div class="rating review-rating">
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <span class="fa-stack pull-left margin-right-10">
-                                <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                                <i class="fa fa-inverse fa-stack-1x">4</i>
-                            </span>
-                            <h4 class="margin-top-3">Golden Gate Bakery</h4>
-                        </div>
-                        <a href="#">
-                            <img src="/assets/guide/taiwan.jpg" alt="image" class="img-responsive" />
-                        </a>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor impedit ipsum laborum maiores tempore veritatis....</p>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <h5 class="review">Yelp</h5>
-                                    <h5 class="review">TripAdvisor</h5>
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="rating review-rating">
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                    </div>
-                                    <div class="rating review-rating">
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                        <span class="star filled"></span>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

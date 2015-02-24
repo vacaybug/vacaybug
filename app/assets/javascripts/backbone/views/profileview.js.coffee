@@ -8,6 +8,7 @@ jQuery ->
       'click .js-save': 'save'
       'click .js-tab': 'clickTab'
       'click .js-continue': 'createGuide'
+      'click .js-guide-item': '_openModal'
 
     initialize: (options) ->
       @listenTo @model, 'change', @render
@@ -17,7 +18,17 @@ jQuery ->
       @editMode = false
 
       @guides = new Vacaybug.GuideCollection
-        
+        username: @model.get('username')
+      @guides.fetch()
+
+      @listenTo @guides, 'sync', @render
+      @listenTo @guides, 'change', @render
+
+    _openModal: (e) ->
+      guide_id = $(e.currentTarget).attr('data-id')
+      modal = new Vacaybug.GuideModalView
+        guide: @guides.where({id: parseInt(guide_id)})[0]
+      modal.render()
 
     createGuide: (event) ->
       guide = new Vacaybug.GuideModel
@@ -54,6 +65,7 @@ jQuery ->
 
       $(@el).html @template
         model: @model.toJSON()
+        guides: @guides
         activeTab: @activeTab
         editMode: @editMode
         birth_year: @birth_year

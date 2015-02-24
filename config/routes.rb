@@ -33,13 +33,16 @@ Vacaybug::Application.routes.draw do
             member do
                 get :followers
                 get :following
+                # I apologize for this :'(
+                get :guides
+
                 put :follow
                 put :unfollow
             end
+        end
 
-            resources :guides do
-                resources :places do
-                end
+        resources :guides do
+            resources :places do
             end
         end
     end

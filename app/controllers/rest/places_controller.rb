@@ -7,18 +7,26 @@ class Rest::PlacesController < ActionController::Base
 
     def index
         guide = Guide.find(params[:guide_id])
+        models = []
 
-        # assocs = guide.place_associations
+        assocs = guide.place_associations.order('`order` ASC')
+        assocs.each do |assoc|
+            model = assoc.place.as_json(guide: guide)
+            model["order"] = assoc.order
+            models << model
+        end
 
         render json: {
-            models: guide.places
+            models: models
         }
     end
 
     def show
-        place = Place.find(params[:place_id])
+        guide = Guide.find(params[:guide_id])
+        place = Place.find(params[:id])
+
         render json: {
-            model: place
+            model: place.as_json(guide: guide)
         }
     end
 
@@ -44,11 +52,11 @@ class Rest::PlacesController < ActionController::Base
             })
         end
 
-        # order = guide.place_associations.count + 1
+        order = guide.place_associations.count + 1
 
         assoc = guide.place_associations.create(
-            place_id: place.id
-            # order: order
+            place_id: place.id,
+            order: order
         )
 
         render json: {
@@ -57,9 +65,51 @@ class Rest::PlacesController < ActionController::Base
     end
 
     def update
+        @place = Place.find(params[:id])
+        allowed_fields = []
+        changed = false
+
+        allowed_fields.each do |field|
+            if params.has_key?(field) and @user[field] != params[field]
+                puts "sending #{field} #{params[field]}"
+                changed = true
+                @place.send("#{field}=", params[field])
+            end
+        end
+
+        # editing note is little bit hacky :D
+        note = Note.find_note(current_user.id, @place.id)
+        if params[:note] != note.note
+            note.note = params[:note]
+            note.save
+        end
+
+        if changed
+            begin
+                @place.save!
+                render json: {
+                    model: @place,
+                    errors: @place.errors,
+                    status: true
+                }
+            rescue ActiveRecord::RecordInvalid
+                render json: {
+                    model: @place,
+                    errors: @place.errors,
+                    status: false
+                }
+            end
+        else
+            render json: {
+                model: @place,
+                status: true
+            }
+        end
     end
 
     def delete
+        @place = Place.find(params[:id])
+        @place.destroy
     end
 
     private

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150209015124) do
+ActiveRecord::Schema.define(:version => 20150223155229) do
 
   create_table "followers", :force => true do |t|
     t.integer  "user_id"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(:version => 20150209015124) do
   end
 
   add_index "guides", ["user_id"], :name => "index_guides_on_user_id"
+
+  create_table "notes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "place_id"
+    t.string   "note"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "notes", ["place_id"], :name => "index_notes_on_place_id"
+  add_index "notes", ["user_id"], :name => "index_notes_on_user_id"
 
   create_table "places", :force => true do |t|
     t.text     "fs_data"
