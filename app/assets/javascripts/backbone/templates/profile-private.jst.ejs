@@ -1,12 +1,13 @@
 <div class="cover profile">
     <div class="wrapper">
-        <div class="image">
-            <img src="/assets/profile-cover.png" alt="people" class="img-responsive">
+        <div class="map-container" style="height: 300px">
         </div>
     </div>
     <div class="cover-info">
         <div class="avatar">
             <img src="<%= model.avatar.medium %>" alt="people">
+            <input id="fileupload" type="file" name="file" class="hide" multiple>
+            <span class="text-content"><label for="fileupload">Change Photo</label></span>
         </div>
         <div class="name">
             <a href="#"><%= model.full_name %></a>
@@ -47,7 +48,7 @@
                                 <div class="col-md-4 col-sm-6">
                                     <div class="guide-item">
                                         <div class="guide-caption">
-                                            <h4><%= _.escape(guide.get('title')) %></h4>
+                                            <h4><a class="backbone" href="/guides/<%= guide.get('id') %>"><%= _.escape(guide.get('title')) %></a></h4>
                                         </div>
                                         <a href="javascript:void(0)" class="guide-link js-guide-item" data-id="<%= guide.get('id') %>">
                                             <div class="guide-hover">
@@ -190,20 +191,6 @@
                                         <div class="col-sm-8"><input class="profile-field" data-field="birth_year" placeholder="Birth Year" value="<%= birth_year %>"></div>
                                     <% } else { %>
                                         <div class="col-sm-8"><%= birth_year %></div>
-                                    <% } %>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-4"><span class="text-muted">Photo:</span></div>
-                                    <div class="avatar">
-                                        <img src="<%= model.avatar.medium %>" class="img-circle" width="100px" height="100px">
-                                    </div>
-                                    <% if (editMode) { %>
-                                        <input id="fileupload" type="file" name="file" class="hide" multiple>
-                                        <label for="fileupload" class="col-sm-offset-4 btn btn-default js-select" style="margin-top: 5px;">
-                                            Select
-                                        </label>
                                     <% } %>
                                 </div>
                             </li>

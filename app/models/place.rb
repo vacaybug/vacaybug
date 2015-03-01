@@ -10,7 +10,7 @@ class Place < ActiveRecord::Base
 
 	def photo
 		item = fs_data["photos"][0]
-		return null if !item
+		return nil if !item
 
 		{ prefix: item["prefix"], suffix: item["suffix"] }
 	end
@@ -29,6 +29,7 @@ class Place < ActiveRecord::Base
 
 	    json = super(options)
 	    json["note"] = get_note(options[:guide]) if options[:guide]
+	    json["location"] = fs_data["location"]
 	    json
 	end
 end

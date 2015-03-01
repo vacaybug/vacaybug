@@ -2,39 +2,22 @@
     <div class="row">
         <% _.each(row, function(model) { %>
             <div class="col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <span class="fa-stack pull-left margin-right-10">
-                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fa fa-inverse fa-stack-1x"><%= model.get('order') %></i>
-                        </span>
-                        <h4 class="margin-top-3"><%= model.get('title') %></h4>
+                <div class="guide-item">
+                    <div class="guide-caption">
+                        <span class="pull-left number-icon"><%= model.get('order') %></span>
+                        <h4 class="text-center"><%= _.escape(model.get('title')) %></h4>
                     </div>
                     <a href="#">
-                        <img src="<%= model.get('photo').prefix %>300x200<%= model.get('photo').suffix%>" alt="image" class="img-responsive" width="100%" />
+                        <% if (model.get('photo')) { %>
+                            <img src="<%= model.get('photo').prefix %>300x200<%= model.get('photo').suffix%>" alt="image" class="img-responsive" width="100%" />
+                        <% } %>
                     </a>
-                    <div class="panel-body">
-                        <p><%= _.escape(model.get('note')) %></p>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <h5 class="review">Yelp</h5>
-                                <h5 class="review">TripAdvisor</h5>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="rating review-rating">
-                                    <span class="star filled"></span>
-                                    <span class="star filled"></span>
-                                    <span class="star filled"></span>
-                                </div>
-                                <div class="rating review-rating">
-                                    <span class="star filled"></span>
-                                    <span class="star filled"></span>
-                                    <span class="star filled"></span>
-                                    <span class="star filled"></span>
-                                </div>
-                            </div>  
-                        </div>
+                    <div class="guide-caption">
+                        <textarea placeholder="Create note here..."></textarea>
                     </div>
+                    <hr>
+                    <a href="#"><img src="/assets/guide/yelp.png" class="yelp-logo"></a>
+                    <a href="#"><img src="/assets/guide/tripadvisor.png" class="tripadvisor-logo"></a>
                 </div>
             </div>
         <% }); %>

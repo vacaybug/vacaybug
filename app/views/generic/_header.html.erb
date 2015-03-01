@@ -8,5 +8,6 @@
   Vacaybug = window.Vacaybug || {};
   Vacaybug.PREFETCH_DATA = <%= raw @prefetch_data.to_json.gsub('</', '<\/') %>;
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
 <%= csrf_meta_tags %>

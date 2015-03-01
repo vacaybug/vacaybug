@@ -9,6 +9,7 @@ jQuery ->
       'click .js-tab': 'clickTab'
       'click .js-continue': 'createGuide'
       'click .js-guide-item': '_openModal'
+      'click .js-change-photo': 'changePhoto'
 
     initialize: (options) ->
       @listenTo @model, 'change', @render
@@ -24,6 +25,32 @@ jQuery ->
       @listenTo @guides, 'sync', @render
       @listenTo @guides, 'change', @render
 
+    initializeMap: ->
+      mapOptions = {}
+      map = new google.maps.Map($('.map-container')[0], mapOptions)
+      window.map = map
+
+      if @guides.sync_status
+        if @guides.models.length > 0
+          bounds = new google.maps.LatLngBounds()
+          for guide in @guides.models
+            position = new google.maps.LatLng(parseFloat(guide.get('gn_data')['lat']), parseFloat(guide.get('gn_data')['lng']))
+            bounds.extend(position)
+
+            marker = new google.maps.Marker
+              position: position
+              map: map
+              icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=|33CCFF|000000"
+
+          map.fitBounds(bounds)
+        else
+          centerAddress = 'California, United States'
+          geocoder = new google.maps.Geocoder();
+          geocoder.geocode { 'address': centerAddress }, (results, status) ->
+            if status == google.maps.GeocoderStatus.OK
+              if status != google.maps.GeocoderStatus.ZERO_RESULTS
+                map.setCenter results[0].geometry.location
+
     _openModal: (e) ->
       guide_id = $(e.currentTarget).attr('data-id')
       modal = new Vacaybug.GuideModalView
@@ -36,6 +63,7 @@ jQuery ->
         region:      if @selected.data.name != @selected.data.adminName1 then @selected.data.adminName1 else ''
         city:        @selected.data.name
         geonames_id: @selected.data.geonameId
+        gn_data:     @selected.data
 
       elem = $(event.currentTarget)
       elem.attr("disabled", "disabled")
@@ -70,6 +98,8 @@ jQuery ->
         editMode: @editMode
         birth_year: @birth_year
         birth_date: @birth_date
+
+      @initializeMap()
 
       $("#fileupload").fileupload(
         url: "/rest/users/upload_photo"

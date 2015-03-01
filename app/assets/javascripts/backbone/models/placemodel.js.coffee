@@ -3,8 +3,8 @@ jQuery ->
 
   class PlaceModel extends window.Vacaybug.GenericModel
     getGuideId: ->
-      if @guide_id
-        @guide_id
+      if @get('guide_id')
+        @get('guide_id')
       else
         @collection.guide_id
 

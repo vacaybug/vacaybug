@@ -1,22 +1,23 @@
-<div class="header pull-left"></div>
-<div class="guide-description">
-    <input class="js-guide-title" value="<%= model.get('title') %>"/>
-    <button class="guide-description-save" style="visibility: hidden"><i class="fa fa-check"></i> Save</button>
-    <textarea class="js-guide-description" rows="10" placeholder="your awesome story"><%= model.get('description') %></textarea>
-    <div>
-		<button class="btn btn-danger btn-guide-export">Delete Guide</button>
-		<button class="btn btn-warning btn-guide-delete">Export to PDF</button>
-	</div>
+<h1 class="city-guide-heading text-center"><%= model.get('title') %></h1>
+<div class="container guide-map">
+    <div class="map-container" style="height:395px">
+    </div>
+    <!-- style="position: absolute; top: 0px; right: 15px; width: 100%" -->
+    <div class="row" >
+        <div class="col-md-3 col-md-offset-9 guide-description">
+            <textarea placeholder="Create a purpose here...."><%= model.get('description') %></textarea>
+            <hr>
+            <button class="btn btn-danger btn-guide-delete">Delete Guide</button>
+            <button class="btn btn-warning btn-guide-export">Export PDF</button>
+        </div>
+    </div>
 </div>
-<div class="clearfix"></div>
 <div class="container guide-container">
-    <div class="panel panel-default">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <input type="text" class="form-control input-lg guide-searchbar js-search-places" placeholder="Search by landmark, restaurant, anything :)">
-            </div>
+    <div class="row guide-searchbar">
+        <div class="col-md-8 col-md-offset-2">
+            <input type="text" class="js-search-places form-control input-lg" placeholder="Search by landmark, restaurant, anything :)">
         </div>
-        <div class="panel-body places-container">
-        </div>
+    </div>
+    <div class="places-container">
     </div>
 </div>

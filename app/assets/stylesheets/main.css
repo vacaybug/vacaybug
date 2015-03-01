@@ -296,13 +296,14 @@ div.flash-notification .flash-notice {
 	font-size: 30px;
 }
 .container.guide-map {
+	position: relative;
 	padding: 0px 15px 0px 0px;
 	margin-bottom: 0px;
 	border: 1px solid #d4d4d4;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	background-image: url('/assets/guide/map.png');
+	/*background-image: url('/assets/guide/map.png');*/
 	background-position: center center;
 	background-repeat: none;
 	-webkit-background-size: cover;
@@ -435,7 +436,12 @@ div.flash-notification .flash-notice {
 	width: 30%;
 	height: 30%
 }
-
+.guide-container .guide-item .yelp-logo, .guide-container .guide-item .tripadvisor-logo {
+	margin: 0px 0px 7px 33px;
+	display: inline;
+	width: 30%;
+	height: 17px
+}
 /* LOGIN */
 
 .sign-up {
@@ -1184,3 +1190,27 @@ span.twitter-typeahead {
 	top: 28px !important;
 }
 
+.avatar:hover span.text-content {
+	opacity: 1;
+}
+
+.avatar label {
+	cursor: pointer;
+}
+
+span.text-content {
+	background: rgba(0,0,0,0.5);
+	color: white;
+	cursor: pointer;
+	display: table;
+	left: 0;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	opacity: 0;
+	text-align: center;
+	-webkit-transition: opacity 500ms;
+	-moz-transition: opacity 500ms;
+	-o-transition: opacity 500ms;
+	transition: opacity 500ms;
+}

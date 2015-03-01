@@ -16,6 +16,34 @@ jQuery ->
       @placesView = new Vacaybug.PlacesView
         collection: @places
 
+      @listenTo @places, 'sync', @initializeMap
+
+    initializeMap: ->
+      mapOptions = {}
+      map = new google.maps.Map($('.map-container')[0], mapOptions)
+
+      if @places.sync_status
+        if @places.models.length > 0
+          bounds = new google.maps.LatLngBounds()
+          for place in @places.models
+            position = new google.maps.LatLng(place.get('location')['lat'], place.get('location')['lng'])
+            bounds.extend(position)
+
+            marker = new google.maps.Marker
+              position: position
+              map: map
+              title: place.get('title')
+              icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=#{place.get('order')}|33CCFF|000000"
+
+          map.fitBounds(bounds)
+        else
+          centerAddress = @model.get('city') + " " + @model.get('region') + " " + @model.get('country')
+          geocoder = new google.maps.Geocoder();
+          geocoder.geocode { 'address': centerAddress }, (results, status) ->
+            if status == google.maps.GeocoderStatus.OK
+              if status != google.maps.GeocoderStatus.ZERO_RESULTS
+                map.setCenter results[0].geometry.location
+
     saveDescription: ->
       title = $(".js-guide-title").val()
       description = $(".js-guide-description").val()
@@ -34,6 +62,8 @@ jQuery ->
 
       $(@el).html @template
         model: @model
+
+      @initializeMap()
 
       @$('.places-container').html(@placesView.render().el)
 
@@ -66,7 +96,9 @@ jQuery ->
         place = new Vacaybug.PlaceModel
           guide_id: @model.get('id')
           fs_data: selected.data
-        place.save()
+        place.save null,
+          success: (model) =>
+            @places.add(place)
       )
       @
 
