@@ -16,7 +16,7 @@ jQuery ->
 
           $(".timeline").append(itemView.render().el)
 
-        new Masonry(document.querySelector('.timeline'), {columnWidth: 130,itemSelector: '.timeline-block'});
+        new Masonry(document.querySelector('.timeline'), {isFitWidth: true,itemSelector: '.timeline-block'});
       @
 
   Vacaybug = window.Vacaybug ? {}

@@ -63,6 +63,10 @@ div.flash-notification .flash-notice {
 	-moz-border-radius: 5px;
 	border-radius: 5px; 
 }
+.navbar-nav > li > a.dropdown-toggle img {
+	margin-top: 8px;
+	margin-right: 0px;
+}
 .navbar-primary .nav-search {
 	margin-left: 50px;
    -webkit-border-radius: 5px;
@@ -230,17 +234,49 @@ div.flash-notification .flash-notice {
 
 /* FOLLOWER | FOLLOWERING */
 
+.follower-header {
+	margin-top: 60px;
+	font-size: 32px;
+	color: #00629b;
+}
+.follower-subheader {
+	font-size: 16px;
+	color: #777777;
+}
+.timeline {
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.timeline .panel-body {
+	padding: 0px;
+}
+.timeline .panel-body .user-img {
+	border-top-left-radius: 9px;
+	border-bottom-left-radius: 9px;
+	border-right: 1px solid #d4d4d4;
+}
+.timeline .panel-body .user-info {
+	border-right: 1px solid #d4d4d4;
+	width: 39%;
+	padding: 20px 0px;
+	height: 100px;
+}
+.timeline .panel-body .user-info .username {
+	font-weight: 500;
+  	font-size: 16px;
+  	color: #000;
+}
+.timeline .panel-body .user-info .user-follower {
+  	font-size: 13px;
+}
 .timeline .btn-follow {
-	position: relative;
-	top: 30px;
-	left: 150px;
-	width: 88px;
+	width: 90px;
+	margin: 33px 13px;
 }
 
 .timeline .btn-following {
-	position: relative;
-	top: 30px;
-	left: 150px;
+	width: 90px;
+	margin: 33px 13px;
 }
 
 /* USER GUIDE */
@@ -594,11 +630,6 @@ div.flash-notification .flash-notice {
   margin-bottom: 30px;
 }
 
-/* RANDOM */
-.timeline-block .user-box {
-	width: 350px;
-}
-
 /* SEARCH */
 
 .navbar-sort {
@@ -648,7 +679,7 @@ div.flash-notification .flash-notice {
 	padding: 0px;
 	margin-top: 150px;
 	border-radius: 10px;
-	background-color:rgba(255, 255, 255, 0.3);
+	background-color:rgba(255, 255, 255, 0.2);
 	text-shadow: 0 0 15px #000;
 }
 

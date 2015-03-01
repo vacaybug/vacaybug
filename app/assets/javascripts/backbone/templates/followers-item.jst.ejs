@@ -1,20 +1,14 @@
-<div class="panel panel-default user-box masonry">
+<div class="panel panel-default user-box">
     <div class="panel-body">
-        <div class="media">
-            <img src="<%= model.get('avatar').thumb %>" alt="<%= model.get('username') %>" class="media-object img-circle pull-left" width="60" height="50" />
-            <% if (model.get('follows')) { %>
-                <a href="javascript:void(0)" class="btn btn-info btn-following js-unfollow">Following</a>
-            <% } else { %>
-                <a href="javascript:void(0)" class="btn btn-default btn-follow js-follow">Follow</a>
-            <% } %>
-            <div class="clearfix"></div>
-            <div class="media-body">
-                <a href="/users/<%= model.get('username') %>" class="username pull-left"><%= model.get('full_name') %></a>
-                <div class="clearfix"></div>
-                <!-- <div class="profile-icons">
-                    <a href="#" class="text-muted"><i class="fa fa-users"></i> 40 mutual friends</a>
-                </div> -->
-            </div>
+        <img src="<%= model.get('avatar').thumb %>" alt="<%= model.get('username') %>" class="user-img img-square pull-left" height="100"/>
+        <div class="user-info text-center pull-left">
+            <a href="/users/<%= model.get('username') %>" class="username"><%= model.get('full_name') %></a>
+            <a href="#" class="user-follower">40 followers</a>
         </div>
+        <% if (model.get('follows')) { %>
+            <a href="javascript:void(0)" class="btn btn-info btn-following js-unfollow">Following</a>
+        <% } else { %>
+            <a href="javascript:void(0)" class="btn btn-default btn-follow js-follow">Follow</a>
+        <% } %>
     </div>
 </div>
