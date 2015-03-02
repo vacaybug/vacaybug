@@ -10,15 +10,22 @@
 <body>
 	<%= render 'generic/navigation.html.erb' %>
 	<!-- Homepage Newfeed -->
-    <div class="container">
-        <div id="timeline">
+    <div class="container" id="wrapper">
+        <div id="newsfeed">
             <div class="timeline-block">
-                <div class="panel panel-default share">
-                    <div class="panel-heading title">
-                        What&acute;s new
+                <div class="panel panel-default newsfeed share">
+                    <div class="panel-heading">
+                        <div class="media">
+                            <a href="" class="pull-left">
+                                <img src="/assets/people/50/guy-5.jpg" width="50" class="media-object">
+                            </a>
+                            <div class="media-body">
+                                <p class="newsfeed-status">What's new Charles?</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="panel-body">
-                        <textarea name="status" class="form-control share-text" rows="3" placeholder="Share your status..."></textarea>
+                        <textarea name="status" class="form-control share-text" rows="5" placeholder="Share your status..."></textarea>
                     </div>
                     <div class="panel-footer share-buttons">
                         <a href="#">
@@ -32,15 +39,15 @@
                 </div>
             </div>
             <div class="timeline-block">
-                <div class="panel panel-default">
+                <div class="panel panel-default newsfeed">
                     <div class="panel-heading">
                         <div class="media">
                             <a href="" class="pull-left">
                                 <img src="/assets/people/50/guy-5.jpg" class="media-object">
                             </a>
                             <div class="media-body">
-                                <a href="">Khongor Enkhbold</a>
-                                <span>on 15th January, 2014</span>
+                                <a href="" class="newsfeed-user">Khongor Enkhbold</a>
+                                <span class="newsfeed-date">January 15th, 2014 at 4:57pm</span>
                             </div>
                         </div>
                     </div>
@@ -49,9 +56,9 @@
                     </div>
                     <a href="#"><img src="/assets/guide/mongolia.jpg" class="img-responsive"></a>
                     <div class="view-all-comments">
-                        <a href="#"> 5 Likes</a>
-                        <a href="#"> - 1 Comments</a>
-                        <a href="#"> - Share</a>
+                        <a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a>
+                        <a href="" class="text-muted margin-left-25"><i class="fa fa-comment"></i> 5</a>
+                        <a href="" class="text-muted margin-left-25"><i class="fa fa-refresh"></i> 10</a>
                      </div>
                     <ul class="comments">
                         <li>
@@ -61,32 +68,27 @@
                                 </a>
                                 <div class="media-body">
                                     <a href="" class="comment-author">Mary</a>
-                                    <span>Wow</span>
+                                    <span class="comment-content">Wow</span>
                                     <div class="comment-date">2 days</div>
                                 </div>
                             </div>
                         </li>
                         <li class="comment-form">
-                            <div class="input-group">
-                                <input type="text" class="form-control" />
-                                <span class="input-group-addon">
-                   <a href=""><i class="fa fa-photo"></i></a>
-                </span>
-                            </div>
+                            <input type="text" class="form-control" placeholder="Write a comment..." />
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="timeline-block">
-                <div class="panel panel-default">
+                <div class="panel panel-default newsfeed">
                     <div class="panel-heading">
                         <div class="media">
                             <a href="" class="pull-left">
                                 <img src="/assets/people/50/woman-5.jpg" class="media-object">
                             </a>
                             <div class="media-body">
-                                <a href="">Mary Jane</a>
-                                <span>on 15th January, 2014</span>
+                                <a href="" class="newsfeed-user">Mary Jane</a>
+                                <span class="newsfeed-date">January 15th, 2014 at 4:57pm</span>
                             </div>
                         </div>
                     </div>
@@ -95,9 +97,9 @@
                     </div>
                     <a href="#"><img src="/assets/guide/rome.jpg" class="img-responsive"></a>
                     <div class="view-all-comments">
-                        <a href="#"> 5 Likes</a>
-                        <a href="#"> - 10 Comments</a>
-                        <a href="#"> - Share</a>
+                        <a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a>
+                        <a href="" class="text-muted margin-left-25"><i class="fa fa-comment"></i> 5</a>
+                        <a href="" class="text-muted margin-left-25"><i class="fa fa-refresh"></i> 10</a>
                     </div>
                     <ul class="comments">
                         <li>
@@ -137,26 +139,21 @@
                             </div>
                         </li>
                         <li class="comment-form">
-                            <div class="input-group">
-                                <input type="text" class="form-control" />
-                                <span class="input-group-addon">
-                   <a href=""><i class="fa fa-photo"></i></a>
-                </span>
-                            </div>
+                            <input type="text" class="form-control" placeholder="Write a comment..." />
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="timeline-block">
-                <div class="panel panel-default">
+                <div class="panel panel-default newsfeed">
                     <div class="panel-heading">
                         <div class="media">
                             <a href="" class="pull-left">
                                 <img src="/assets/people/50/guy-2.jpg" class="media-object">
                             </a>
                             <div class="media-body">
-                                <a href="">Joe Smith</a>
-                                <span>on 15th January, 2014</span>
+                                <a href="" class="newsfeed-user">Joe Smith</a>
+                                <span class="newsfeed-date">January 15th, 2014 at 4:57pm</span>
                             </div>
                         </div>
                     </div>
@@ -164,9 +161,9 @@
                         <p>I'm going to San Francisco in September, any suggestions?</p>
                     </div>
                     <div class="view-all-comments">
-                        <a href="#"> 2 Likes</a>
-                        <a href="#"> - 5 Comments</a>
-                        <a href="#"> - Share</a>
+                        <a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a>
+                        <a href="" class="text-muted margin-left-25"><i class="fa fa-comment"></i> 5</a>
+                        <a href="" class="text-muted margin-left-25"><i class="fa fa-refresh"></i> 10</a>
                      </div>
                     <ul class="comments">
                         <li>
@@ -194,26 +191,21 @@
                             </div>
                         </li>
                         <li class="comment-form">
-                            <div class="input-group">
-                                <input type="text" class="form-control" />
-                                <span class="input-group-addon">
-                   <a href=""><i class="fa fa-photo"></i></a>
-                </span>
-                            </div>
+                            <input type="text" class="form-control" placeholder="Write a comment..." />
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="timeline-block">
-                <div class="panel panel-default">
+                <div class="panel panel-default newsfeed">
                     <div class="panel-heading">
                         <div class="media">
                             <a href="" class="pull-left">
                                 <img src="/assets/people/50/guy-5.jpg" class="media-object">
                             </a>
                             <div class="media-body">
-                                <a href="">Charles Hsieh</a>
-                                <span>on 15th January, 2014</span>
+                                <a href="" class="newsfeed-user">Charles Hsieh</a>
+                                <span class="newsfeed-date">January 15th, 2014 at 4:57pm</span>
                             </div>
                         </div>
                     </div>
@@ -222,9 +214,9 @@
                     </div>
                     <a href="#"><img src="/assets/guide/taiwan.jpg" class="img-responsive"></a>
                     <div class="view-all-comments">
-                        <a href="#"> 5 Likes</a>
-                        <a href="#"> - 1 Comments</a>
-                        <a href="#"> - Share</a>
+                        <a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a>
+                        <a href="" class="text-muted margin-left-25"><i class="fa fa-comment"></i> 5</a>
+                        <a href="" class="text-muted margin-left-25"><i class="fa fa-refresh"></i> 10</a>
                      </div>
                      <ul class="comments">
                         <li>
@@ -240,26 +232,21 @@
                             </div>
                         </li>
                         <li class="comment-form">
-                            <div class="input-group">
-                                <input type="text" class="form-control" />
-                                <span class="input-group-addon">
-                   <a href=""><i class="fa fa-photo"></i></a>
-                </span>
-                            </div>
+                            <input type="text" class="form-control" placeholder="Write a comment..." />
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="timeline-block">
-                <div class="panel panel-default">
+                <div class="panel panel-default newsfeed">
                     <div class="panel-heading">
                         <div class="media">
                             <a href="" class="pull-left">
                                 <img src="/assets/people/50/woman-5.jpg" class="media-object">
                             </a>
                             <div class="media-body">
-                                <a href="">Mary Jane</a>
-                                <span>on 15th January, 2014</span>
+                                <a href="" class="newsfeed-user">Mary Jane</a>
+                                <span class="newsfeed-date">January 15th, 2014 at 4:57pm</span>
                             </div>
                         </div>
                     </div>
@@ -268,53 +255,48 @@
                     </div>
                     <img src="/assets/guide/cuba.jpg" class="img-responsive">
                     <div class="view-all-comments">
-                        <a href="#"> Likes</a>
-                        <a href="#"> - Comment</a>
-                        <a href="#"> - Share</a>
+                        <a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a>
+                        <a href="" class="text-muted margin-left-25"><i class="fa fa-comment"></i> 5</a>
+                        <a href="" class="text-muted margin-left-25"><i class="fa fa-refresh"></i> 10</a>
                     </div>
                     <ul class="comments">
                         <li class="comment-form">
-                            <div class="input-group">
-                                <input type="text" class="form-control" />
-                                <span class="input-group-addon">
-                   <a href=""><i class="fa fa-photo"></i></a>
-                </span>
-                            </div>
+                            <input type="text" class="form-control" placeholder="Write a comment..." />
                         </li>
                     </ul>
                 </div>
             </div>            
             <div class="timeline-block">
-                <div class="panel panel-default">
+                <div class="panel panel-default newsfeed">
                     <div class="panel-heading">
                         <div class="media">
                             <a href="" class="pull-left">
                                 <img src="/assets/people/50/guy-2.jpg" class="media-object">
                             </a>
                             <div class="media-body">
-                                <a href="">Joe Smith</a>
-                                <span>on 15th January, 2014</span>
+                                <a href="" class="newsfeed-user">Joe Smith</a>
+                                <span class="newsfeed-date">January 15th, 2014 at 4:57pm</span>
                             </div>
                         </div>
                     </div>
                     <div class="panel-body">
                         <p>Only went to 10 out 25..time to get packing!</p>
                         <div class="boxed">
-                            <a href="#" class="h4 margin-none">World's Best Places to Visit</a>
+                            <a href="#" class="box-header margin-none">World's Best Places to Visit</a>
                             <div class="media">
-                                <a href="#" class="media-object pull-left">
-                                    <img src="http://static.travel.usnews.com/images/destinations/86/paris_edited_116x130.jpg" alt="" width="80" />
+                                <a href="#" class="pull-left">
+                                    <img src="http://static.travel.usnews.com/images/destinations/86/paris_edited_116x130.jpg" alt="" width="120" class="media-object"/>
                                 </a>
                                 <div class="media-body">
-                                    <p>To help you choose where to go on your next vacation, U.S. News compiled a list of worldwide destinations...</p>
+                                    <p class="box-content">To help you choose where to go on your next vacation, U.S. News compiled a list of worldwide destinations...</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="view-all-comments">
-                        <a href="#"> 3 Likes</a>
-                        <a href="#"> - 2 Comments</a>
-                        <a href="#"> - Share</a>
+                        <a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a>
+                        <a href="" class="text-muted margin-left-25"><i class="fa fa-comment"></i> 5</a>
+                        <a href="" class="text-muted margin-left-25"><i class="fa fa-refresh"></i> 10</a>
                     </div>
                     <ul class="comments">
                         <li>
@@ -342,12 +324,7 @@
                             </div>
                         </li>
                         <li class="comment-form">
-                            <div class="input-group">
-                                <input type="text" class="form-control" />
-                                <span class="input-group-addon">
-                                <a href=""><i class="fa fa-photo"></i></a>
-                                </span>
-                            </div>
+                            <input type="text" class="form-control" placeholder="Write a comment..." />
                         </li>
                     </ul>
                 </div>
@@ -357,8 +334,8 @@
     <script type="text/javascript">
         $(document).ready(function(){
             //initialize
-            $("#timeline").imagesLoaded(function(){
-                $("#timeline").masonry({
+            $("#newsfeed").imagesLoaded(function(){
+                $("#newsfeed").masonry({
                     itemSelector: '.timeline-block',
                     isFitWidth: true
                 });

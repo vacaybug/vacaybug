@@ -4,7 +4,7 @@ body {
 	font-weight: 300;
 	font-size: 14px;
 	line-height: 1.42857143;*/
-	color: #333333;
+	color: #000000;
 	background-color: #f7f7f7;
 }
 
@@ -105,12 +105,12 @@ div.flash-notification .flash-notice {
 
 .navbar-primary .navbar-nav > li > a:hover,
 .navbar-primary .navbar-nav > li > a:focus {
-	color: #fff;
+	color: #98d6ec;
 	background-color: #203141;
 }
 
 .navbar-primary .navbar-nav > li > a {
-	color: #98d6ec;
+	color: #fff;
 	font-weight: 500;
 	font-size: 14px;
 	transition-property: color;
@@ -118,7 +118,7 @@ div.flash-notification .flash-notice {
 	transition-timing-function: linear;
 }
 .navbar-primary .navbar-nav > li.active > a {
-	color: #fff;
+	color: #98d6ec;
 }
 
 /* USER PROFILE */
@@ -726,24 +726,119 @@ div.flash-notification .flash-notice {
 
 /* NEWSFEED */
 
-#timeline {
+#newsfeed {
 	margin: 0 auto;
-	margin-top: 30px;
+	margin-top: 40px;
+}
+#newsfeed .media .media-object {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 .timeline-block {
 	margin: 3px 10px 2px 10px;
 	width: 360px;
 }
+.timeline-block .newsfeed .panel-heading {
+	padding: 5px;
+	color: #000;
+	background-color: #fff;
+	border-bottom: 1px solid #d4d4d4;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;	
+}
+.timeline-block .newsfeed .panel-heading .media .newsfeed-user {
+	font-size: 14px;
+	font-weight: 500;
+	color: #000;
+}
+.timeline-block .newsfeed .panel-heading .media .newsfeed-date {
+	font-size: 12px;
+	font-weight: 500;
+	color: #777777;
+}
+.timeline-block .newsfeed .panel-heading .media .media-body .newsfeed-status {
+	font-size: 20px;
+	font-weight: 400;
+}
+.timeline-block .newsfeed .panel-body {
+	padding: 10px 20px;
+}
+.timeline-block .newsfeed .panel-body .form-control.share-text {
+	padding: 10px;
+	border: 3px dashed #98d6ec;
+}
+.timeline-block .newsfeed .panel-body .boxed {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #d4d4d4;
+}
+.timeline-block .newsfeed .panel-body .boxed .box-header {
+	color: #00629b;
+	font-size: 18px;
+	font-weight: 500;
+}
+.timeline-block .newsfeed .panel-body .boxed .box-content {
+	font-size: 12px;
+	font-weight: 400;
+}
+.timeline-block .newsfeed .panel-footer {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;	
+}
+.timeline-block .newsfeed .view-all-comments {
+	padding: 8px 25px;
+	border-bottom: 1px solid #d4d4d4;
+	background-color: #fff;
+}
+.timeline-block .newsfeed .view-all-comments a {
+	color: #bbbcbc;
+}
+.timeline-block .newsfeed .view-all-comments a:hover {
+	text-decoration: none;
+	color: #00629b;
+}
+.timeline-block .newsfeed .view-all-comments .margin-left-25 {
+	margin-left: 25px;
+}
+.timeline-block .newsfeed ul.comments a.comment-author {
+	color: #00629b;
+	font-weight: 400;
+	font-size: 14px;
+}
+.timeline-block .newsfeed ul.comments .comment-date {
+	color: #777777;
+}
+.timeline-block .newsfeed ul.comments li {
+	background-color: #f7f7f7;
+}
+.timeline-block .newsfeed ul.comments li.comment-form {
+	background-color: #fff;
+	padding: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.timeline-block .newsfeed ul.comments li.comment-form input{
+	font-size: 12px;
+	padding: 10px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background-color: #f7f7f7;
+}
+
 /* FOOTER */
 
 footer {
     padding: 25px 0;
     text-align: center;
+    background-color: #203141;
 }
 
 footer span.copyright {
     text-transform: uppercase;
-    color: #00629b;
+    color: #fff;
     text-transform: none;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     line-height: 40px;
@@ -756,11 +851,12 @@ footer ul.quicklinks {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     line-height: 40px;
 }
-
+footer ul.quicklinks li a {
+    color: #fff;
+}
 ul.social-buttons {
     margin-bottom: 0;
 }
-
 ul.social-buttons li a {
     display: block;
     width: 40px;
@@ -769,8 +865,8 @@ ul.social-buttons li a {
     font-size: 20px;
     line-height: 40px;
     outline: 0;
-    color: #fff;
-    background-color: #99d4e9;
+    color: #203141;
+    background-color: #fff;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     transition: all .3s;
@@ -779,7 +875,8 @@ ul.social-buttons li a {
 ul.social-buttons li a:hover,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
-    background-color: #00629b;
+	color: #fff;
+	background-color: #99d4e9;	
 }
 
 /* GUIDE ITEM */
