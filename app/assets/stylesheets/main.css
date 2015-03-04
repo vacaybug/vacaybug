@@ -941,9 +941,13 @@ ul.social-buttons li a:active {
 	max-width: 400px;
 }
 .guide-item .guide-caption h4 {
+	text-align: center;
 	margin: 5px;
 	padding: 10px; 
 	text-transform: none;
+}
+.guide-item .guide-caption h4 a {
+	color: #4d4d4d;
 }
 .guide-item .guide-caption .guide-author {
 	margin-top: 0px;
@@ -1053,6 +1057,77 @@ ul.social-buttons li a:active {
 	padding: 20px 0px;
 	margin-bottom: 20px;
 	background-color: #00ced1;
+}
+
+/* LIKE, COMMENT MODAL */
+.comment-modal .modal-content {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.comment-modal .modal-content .modal-body {
+  padding: 10px 0px 0px 0px;
+}
+.comment-modal .modal-content .modal-body ul.comments {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid #efefef;
+  margin-bottom: 0;
+}
+.comment-modal .modal-content .modal-body ul.comments .media-object{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.comment-modal .modal-content .modal-body ul.comments .btn-follow {
+	float: right;
+	position: relative;
+	bottom: 42px;
+	right: 15px;
+	width: 90px;
+	color: #fff;
+	background-color: #98d6ec;
+}
+.comment-modal .modal-content .modal-body ul.comments .btn-follow:hover {
+	background-color: #00629b;
+}
+.comment-modal .modal-content .modal-body ul.comments .btn-following {
+	float: right;
+	position: relative;
+	bottom: 42px;
+	right: 15px;
+	width: 90px;
+	color: #fff;
+	background-color: #00629b;
+}
+.comment-modal .modal-content .modal-body ul.comments .btn-following:hover {
+	background-color: #98d6ec;
+}
+.comment-modal .modal-content .modal-body ul.comments li {
+  border-bottom: 3px solid #fff;
+  background: #fcfcfc;
+  padding: 5px;
+}
+.comment-modal .modal-content .modal-body ul.comments li.comment-form {
+	background-color: #fff;
+	padding: 10px;
+}
+.comment-modal .modal-content .modal-body ul.comments li.comment-form input{
+	font-size: 12px;
+	padding: 10px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background-color: #f7f7f7;
+}
+.comment-modal .modal-content .modal-body ul.comments a.comment-author {
+  font-weight: 500;
+  font-size: 14px;
+  color: #00629b;
+}
+.comment-modal .modal-content .modal-body ul.comments .comment-date {
+  color: #777777;
+  font-size: 12px;
 }
 
 /* Error 404 */

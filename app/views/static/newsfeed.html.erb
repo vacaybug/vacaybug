@@ -56,8 +56,8 @@
                     </div>
                     <a href="#"><img src="/assets/guide/mongolia.jpg" class="img-responsive"></a>
                     <div class="view-all-comments">
-                        <a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a>
-                        <a href="" class="text-muted margin-left-25"><i class="fa fa-comment"></i> 5</a>
+                        <a href="" class="text-muted" data-toggle="modal" data-target="#like"><i class="fa fa-heart"></i> 40</a>
+                        <a href="" class="text-muted margin-left-25" data-toggle="modal" data-target="#comment"><i class="fa fa-comment"></i> 5</a>
                         <a href="" class="text-muted margin-left-25"><i class="fa fa-refresh"></i> 10</a>
                      </div>
                     <ul class="comments">
@@ -325,6 +325,90 @@
                         </li>
                         <li class="comment-form">
                             <input type="text" class="form-control" placeholder="Write a comment..." />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Like & Comment Modal -->
+    <div class="comment-modal modal fade" id="comment" tabindex="-1" role="dialog" aria-labelledby="guideModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">5 comments on this post</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="comments">
+                        <li>
+                            <div class="media">
+                                <a href="" class="pull-left">
+                                    <img src="/assets/people/50/guy-5.jpg" class="media-object">
+                                </a>
+                                <div class="media-body">
+                                    <a href="" class="comment-author">Bill D.</a>
+                                    <span>I only went to 3!</span>
+                                    <div class="comment-date">21st September</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="media">
+                                <a href="" class="pull-left">
+                                    <img src="/assets/people/50/woman-5.jpg" class="media-object">
+                                </a>
+                                <div class="media-body">
+                                    <a href="" class="comment-author">Mary</a>
+                                    <span>Ha! I went to 15!</span>
+                                    <div class="comment-date">2 days</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="comment-form">
+                            <input type="text" class="form-control" placeholder="Write a comment..." />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="comment-modal modal fade" id="like" tabindex="-1" role="dialog" aria-labelledby="guideModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">People Who Like This Post</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="comments">
+                        <li>
+                            <div class="media">
+                                <a href="" class="pull-left">
+                                    <img src="/assets/people/50/guy-5.jpg" class="media-object">
+                                </a>
+                                <div class="media-body">
+                                    <a href="" class="comment-author">Bill D.</a>
+                                    <div class="comment-date">21st September</div>
+                                </div>
+                                <div class="clearfix"></div>
+                                
+                            </div>
+                            <a href="#" class="btn btn-default btn-follow js-follow">Follow</a>
+                        </li>
+                        <li>
+                            <div class="media">
+                                <a href="" class="pull-left">
+                                    <img src="/assets/people/50/woman-5.jpg" class="media-object">
+                                </a>
+                                <div class="media-body">
+                                    <a href="" class="comment-author">Mary</a>
+                                    <div class="comment-date">2 days</div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-default btn-following js-follow">Following</a>
                         </li>
                     </ul>
                 </div>
