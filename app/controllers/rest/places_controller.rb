@@ -9,10 +9,10 @@ class Rest::PlacesController < ActionController::Base
         guide = Guide.find(params[:guide_id])
         models = []
 
-        assocs = guide.place_associations.order('`order` ASC')
+        assocs = guide.place_associations.order('order_num ASC')
         assocs.each do |assoc|
             model = assoc.place.as_json(guide: guide)
-            model["order"] = assoc.order
+            model["order_num"] = assoc.order_num
             models << model
         end
 
@@ -56,13 +56,13 @@ class Rest::PlacesController < ActionController::Base
 
         assoc = guide.place_associations.create(
             place_id: place.id,
-            order: order
+            order_num: order
         )
 
         place.gen_yelp
 
         render json: {
-            model: place.as_json().merge({order: order})
+            model: place.as_json().merge({order_num: order})
         }
     end
 
@@ -111,12 +111,12 @@ class Rest::PlacesController < ActionController::Base
 
     def destroy
         @assoc = GuidePlaceAssociation.where(place_id: params[:id], guide_id: params[:guide_id]).first
-        order = @assoc.order
+        order = @assoc.order_num
 
         @assoc.destroy
 
-        GuidePlaceAssociation.where(guide_id: params[:guide_id]).where('`order` > ?', order).each do |assoc|
-            assoc.order = assoc.order - 1
+        GuidePlaceAssociation.where(guide_id: params[:guide_id]).where('order_num > ?', order).each do |assoc|
+            assoc.order_num = assoc.order_num - 1
             assoc.save
         end
 

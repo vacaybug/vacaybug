@@ -15,13 +15,13 @@ jQuery ->
       if (confirm('Are you sure you want to delete this place?'))
         place_id = $(e.currentTarget).attr('data-id')
         model = @collection.where({id: parseInt(place_id)})[0]
-        order = model.get('order')
+        order = model.get('order_num')
         model.destroy
           success: =>
             _.each @collection.models, (model) =>
-              if model.get('order') > order
-                new_order = model.get('order') - 1
-                model.set('order', new_order)
+              if model.get('order_num') > order
+                new_order = model.get('order_num') - 1
+                model.set('order_num', new_order)
 
     render: ->
       return @ unless @collection.sync_status

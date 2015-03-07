@@ -36,7 +36,7 @@ jQuery ->
               position: position
               map: map
               title: place.get('title')
-              icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=#{place.get('order')}|33CCFF|000000"
+              icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=#{place.get('order_num')}|33CCFF|000000"
 
           map.fitBounds(bounds)
         else
