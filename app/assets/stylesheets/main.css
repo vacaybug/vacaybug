@@ -304,9 +304,9 @@ div.flash-notification .flash-notice {
 /* USER GUIDE */
 
 .city-guide-heading {
-	margin-top: 10px;
+	margin-top: 8px;
 	margin-bottom: 25px;
-	padding: 15px 0px 10px 0px;
+	padding: 20px 0px;
 	background-color: #98d6ec;
 	text-transform: uppercase;
 	font-size: 40px;
@@ -325,13 +325,12 @@ div.flash-notification .flash-notice {
 }
 .container.guide-map {
 	position: relative;
-	padding: 0px 15px 0px 0px;
+	padding: 0px;
 	margin-bottom: 0px;
 	border: 1px solid #d4d4d4;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	/*background-image: url('/assets/guide/map.png');*/
 	background-position: center center;
 	background-repeat: none;
 	-webkit-background-size: cover;
@@ -339,23 +338,21 @@ div.flash-notification .flash-notice {
 	background-size: cover;
 	-o-background-size: cover;
 }
-.guide-map .col-md-3.guide-description {
-	padding: 0px;
+.container.guide-map .map-container {
+	height: 400px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+.guide-map .guide-description {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 25%;
+	height: 100%;
 	background:rgba(255,255,255, 0.7);
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
-}
-.guide-map .guide-description .guide-content {
-	color: #000;
-	width: 87%;
-	min-height: 300px;
-	margin: 20px;
-	padding: 15px;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 1.5em;
-	border: 3px dashed #98d6ec;
-	background:rgba(255,255,255, 0.7);
 }
 .guide-map .guide-description textarea {
 	color: #000;
