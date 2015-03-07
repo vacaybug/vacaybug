@@ -87,7 +87,7 @@ jQuery ->
                 success: (resp) ->
                   matches = []
                   for venue in resp.venues
-                    name = venue.name + " - " + venue.location.formattedAddress[0]  + ", " + venue.location.formattedAddress[1]
+                    name = venue.name + " - " + venue.location.formattedAddress.join(", ")
                     matches.push({value: name, data: venue})
                   callback(matches)
             ), 300)

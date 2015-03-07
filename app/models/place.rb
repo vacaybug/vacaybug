@@ -27,21 +27,29 @@ class Place < ActiveRecord::Base
 	end
 
 	def gen_yelp
-		location = {
-			latitude: self.fs_data["location"]["lat"],
-			longitude: self.fs_data["location"]["lng"]
-		}
+		require 'yelp'
 
-		response = Yelp.client.search_by_coordinates(location, {
-			term: self.title,
-			limit: 1
-		})
-
-		if response.businesses && response.businesses[0]
-			self.yelp = {
-				rating: response.businesses[0].rating,
-				url: response.businesses[0].url
+		begin
+			location = {
+				latitude: self.fs_data["location"]["lat"],
+				longitude: self.fs_data["location"]["lng"]
 			}
+
+			response = Yelp.client.search_by_coordinates(location, {
+				term: self.title,
+				limit: 1
+			})
+
+			if response.businesses && response.businesses[0]
+				self.yelp = {
+					rating: response.businesses[0].rating,
+					url: response.businesses[0].url
+				}
+
+				self.save
+			end
+		rescue
+			self.yelp = nil
 
 			self.save
 		end

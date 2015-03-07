@@ -59,6 +59,8 @@ class Rest::PlacesController < ActionController::Base
             order: order
         )
 
+        place.gen_yelp
+
         render json: {
             model: place.as_json().merge({order: order})
         }

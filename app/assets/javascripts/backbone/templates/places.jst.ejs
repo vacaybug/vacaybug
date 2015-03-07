@@ -5,19 +5,21 @@
                 <div class="guide-item">
                     <div class="guide-caption">
                         <span class="pull-left number-icon"><%= model.get('order') %></span>
-                        <h4 class="text-center"><%= _.escape(model.get('title')) %></h4>
+                        <h4 class="text-center text-break-ellipsis"><%= _.escape(model.get('title')) %></h4>
                     </div>
                     <a href="#">
                         <% if (model.get('photo')) { %>
                             <img src="<%= model.get('photo').prefix %>300x200<%= model.get('photo').suffix%>" alt="image" class="img-responsive" width="100%" />
+                        <% } else { %>
+                            <img src="someimage" alt="image" class="img-responsive" width="100%" />
                         <% } %>
                     </a>
                     <div class="guide-caption">
                         <textarea placeholder="Create note here..."></textarea>
                     </div>
-                    <% if (model.get('yelp') && false) { %>
+                    <% if (model.get('yelp')) { %>
                         <hr>
-                        <a href="<%= model.get('yelp').url %>" target="_blank">
+                        <a href="<%= model.get('yelp').url %>" target="_blank" style="text-align:center; display:block;">
                             <img src="/assets/guide/yelp.png" style="width: 34px; height: 17px" >
                             <div class="rating rating-<%= parseInt(model.get('yelp').rating) %><%= parseInt(model.get('yelp').rating) != model.get('yelp').rating ? '-half' : ''%>" style="display: inline-block">
                                 <i class="star-1">★</i>

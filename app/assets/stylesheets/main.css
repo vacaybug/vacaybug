@@ -1408,3 +1408,9 @@ span.text-content {
 	-o-transition: opacity 500ms;
 	transition: opacity 500ms;
 }
+
+.text-break-ellipsis {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
