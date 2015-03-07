@@ -6,6 +6,7 @@ jQuery ->
       "input .js-guide-title": "onDescriptionChange"
       "input .js-guide-description": "onDescriptionChange"
       "click .guide-description-save": "saveDescription"
+      "click .btn-guide-delete": "deleteGuide"
 
     initialize: (options) ->
       @listenTo @model, 'sync', @render
@@ -47,6 +48,12 @@ jQuery ->
             if status == google.maps.GeocoderStatus.OK
               if status != google.maps.GeocoderStatus.ZERO_RESULTS
                 map.setCenter results[0].geometry.location
+
+    deleteGuide: ->
+      if confirm('Are you sure you want to delete this guide?')
+        @model.destroy
+          success: ->
+            Vacaybug.router.navigate('/profile', {trigger: true, replace: true})
 
     saveDescription: ->
       title = $(".js-guide-title").val()
