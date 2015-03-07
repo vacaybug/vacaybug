@@ -5,7 +5,7 @@ module FsHelper
     	url += "&client_id=#{Rails.configuration.foursquare[:client_id]}"
     	url += "&client_secret=#{Rails.configuration.foursquare[:client_secret]}"
     	url += "&query=#{CGI.escape(query)}"
-    	url += "&near=#{near_location}"
+    	url += "&near=#{CGI.escape(near_location)}"
 
     	response = HTTParty.get(url)
     	JSON.parse(response.body)["response"]

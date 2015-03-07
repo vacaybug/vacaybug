@@ -60,7 +60,7 @@ class Rest::PlacesController < ActionController::Base
         )
 
         render json: {
-            model: place.as_json().merge({"order": order})
+            model: place.as_json().merge({order: order})
         }
     end
 
