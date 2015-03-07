@@ -10,6 +10,7 @@ jQuery ->
       'click .js-continue': 'createGuide'
       'click .js-guide-item': '_openModal'
       'click .js-change-photo': 'changePhoto'
+      'click .js-delete-guide': 'deleteGuide'
 
     initialize: (options) ->
       @listenTo @model, 'change', @render
@@ -24,9 +25,11 @@ jQuery ->
 
       @listenTo @guides, 'sync', @render
       @listenTo @guides, 'change', @render
+      @listenTo @guides, 'remove', @render
+      @listenTo @guides, 'add', @render
 
     initializeMap: ->
-      mapOptions = {}
+      mapOptions = {zoom: 5}
       map = new google.maps.Map($('.map-container')[0], mapOptions)
       window.map = map
 
@@ -56,6 +59,12 @@ jQuery ->
       modal = new Vacaybug.GuideModalView
         guide: @guides.where({id: parseInt(guide_id)})[0]
       modal.render()
+
+    deleteGuide: (e) ->
+      if (confirm('Are you sure you want to delete this guide?'))
+        guide_id = $(e.currentTarget).attr('data-id')
+        model = @guides.where({id: parseInt(guide_id)})[0]
+        model.destroy()
 
     createGuide: (event) ->
       guide = new Vacaybug.GuideModel

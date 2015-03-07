@@ -17,13 +17,15 @@ jQuery ->
         collection: @places
 
       @listenTo @places, 'sync', @initializeMap
+      @listenTo @places, 'add', @initializeMap
+      @listenTo @places, 'change', @initializeMap
+      @listenTo @places, 'remove', @initializeMap
 
     initializeMap: ->
-      mapOptions = {}
-      map = new google.maps.Map($('.map-container')[0], mapOptions)
-
       if @places.sync_status
         if @places.models.length > 0
+          mapOptions = {}
+          map = new google.maps.Map($('.map-container')[0], mapOptions)
           bounds = new google.maps.LatLngBounds()
           for place in @places.models
             position = new google.maps.LatLng(place.get('location')['lat'], place.get('location')['lng'])
@@ -37,6 +39,8 @@ jQuery ->
 
           map.fitBounds(bounds)
         else
+          mapOptions = {zoom: 5}
+          map = new google.maps.Map($('.map-container')[0], mapOptions)
           centerAddress = @model.get('city') + " " + @model.get('region') + " " + @model.get('country')
           geocoder = new google.maps.Geocoder();
           geocoder.geocode { 'address': centerAddress }, (results, status) ->

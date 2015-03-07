@@ -47,8 +47,11 @@
                             <% _.each(row, function(guide) { %>
                                 <div class="col-md-4 col-sm-6">
                                     <div class="guide-item">
-                                        <div class="guide-caption">
-                                            <h4><a class="backbone" href="/guides/<%= guide.get('id') %>"><%= _.escape(guide.get('title')) %></a></h4>
+                                        <div class="guide-caption" style="position: relative">
+                                            <h4>
+                                                <a class="backbone" href="/guides/<%= guide.get('id') %>"><%= _.escape(guide.get('title')) %></a>
+                                                <a class="js-delete-guide pull-right delete" data-id="<%= guide.get('id') %>">&times;</a>
+                                            </h4>
                                         </div>
                                         <a href="javascript:void(0)" class="guide-link js-guide-item" data-id="<%= guide.get('id') %>">
                                             <div class="guide-hover">

@@ -3,7 +3,7 @@ class Rest::PlacesController < ActionController::Base
     include FsHelper
 
     before_filter :check_logged_in
-    before_filter :check_guide_permission, only: [:create, :update, :delete]
+    before_filter :check_guide_permission, only: [:create, :update, :destroy]
 
     def index
         guide = Guide.find(params[:guide_id])
@@ -109,9 +109,18 @@ class Rest::PlacesController < ActionController::Base
         end
     end
 
-    def delete
-        @place = Place.find(params[:id])
-        @place.destroy
+    def destroy
+        @assoc = GuidePlaceAssociation.where(place_id: params[:id], guide_id: params[:guide_id]).first
+        order = @assoc.order
+
+        @assoc.destroy
+
+        GuidePlaceAssociation.where(guide_id: params[:guide_id]).where('`order` > ?', order).each do |assoc|
+            assoc.order = assoc.order - 1
+            assoc.save
+        end
+
+        render json: {}
     end
 
     private

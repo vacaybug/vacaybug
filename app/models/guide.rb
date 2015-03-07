@@ -2,7 +2,7 @@ class Guide < ActiveRecord::Base
 	attr_accessible :privacy, :country, :city, :region, :geonames_id, :user_id, :title, :description, :gn_data
 	serialize :gn_data, JSON
 
-	has_many :place_associations, :class_name => 'GuidePlaceAssociation', :dependent => :destroy
+	has_many :place_associations, :class_name => 'GuidePlaceAssociation'
     has_many :places, through: :place_associations
 
 	belongs_to :user
@@ -14,6 +14,7 @@ class Guide < ActiveRecord::Base
 
 	def delete_associations
 		UserGuideAssociation.find_by_guide_id(self.id).destroy
+		GuidePlaceAssociation.where(guide_id: self.id).destroy_all
 	end
 
 	def setup_params

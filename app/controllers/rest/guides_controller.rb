@@ -2,7 +2,7 @@ class Rest::GuidesController < ActionController::Base
     include ApplicationHelper
 
     before_filter :check_logged_in
-    before_filter :check_permission, only: [:delete, :update]
+    before_filter :check_permission, only: [:destroy, :update]
 
     def index
         user = User.find_by_username(params[:user_id]) || not_found
@@ -61,9 +61,12 @@ class Rest::GuidesController < ActionController::Base
         }
     end
 
-    def delete
+    def destroy
         guide = Guide.find(params[:id])
         guide.destroy
+
+        render json: {
+        }
     end
 
     def check_permission
