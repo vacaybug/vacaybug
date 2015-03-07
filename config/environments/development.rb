@@ -67,4 +67,11 @@ Vacaybug::Application.configure do
     client_id: "KKO2PEWC5ZNO4K0UJRVOMQNW3NED5DEKHIO2XAOCSHJ4KKVL",
     client_secret: "ZULRBN0E4YQAWSHRYPZASZYMAKXNBHN5WAAXOXQRWMXOJEOO"
   }
+  
+  config.yelp = {
+    consumer_key: "JAC855vwqAC3IFGOlXaPcA",
+    consumer_secret: "wtOcHg-gl16K7hNmrtYYKEUfMLs",
+    token: "rTfHUlxS7c4OEL9FSswxFKydiYCgTUta",
+    token_secret: "m_lOnKxyrLvKPFYvaeoHA3gpDFQ"
+  }
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150301210848) do
+ActiveRecord::Schema.define(:version => 20150301231139) do
 
   create_table "followers", :force => true do |t|
     t.integer  "user_id"
@@ -70,9 +70,11 @@ ActiveRecord::Schema.define(:version => 20150301210848) do
     t.string   "country"
     t.string   "region"
     t.string   "city"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "fs_id"
+    t.text     "yelp"
+    t.text     "trip_advisor"
   end
 
   create_table "user_guide_associations", :force => true do |t|

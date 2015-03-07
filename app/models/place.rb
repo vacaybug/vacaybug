@@ -1,6 +1,8 @@
 class Place < ActiveRecord::Base
-	attr_accessible :phone, :title, :address, :geonames_id, :country, :region, :city, :fs_data, :fs_id
+	attr_accessible :phone, :title, :address, :geonames_id, :country, :region, :city, :fs_data, :fs_id, :yelp
 	serialize :fs_data, JSON
+	serialize :yelp, JSON
+	serialize :trip_advisor, JSON
 
 	after_destroy :delete_associations
 
@@ -21,6 +23,27 @@ class Place < ActiveRecord::Base
 			note.note
 		else
 			""
+		end
+	end
+
+	def gen_yelp
+		location = {
+			latitude: self.fs_data["location"]["lat"],
+			longitude: self.fs_data["location"]["lng"]
+		}
+
+		response = Yelp.client.search_by_coordinates(location, {
+			term: self.title,
+			limit: 1
+		})
+
+		if response.businesses && response.businesses[0]
+			self.yelp = {
+				rating: response.businesses[0].rating,
+				url: response.businesses[0].url
+			}
+
+			self.save
 		end
 	end
 
