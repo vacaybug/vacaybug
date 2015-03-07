@@ -43,6 +43,14 @@ div.flash-notification .flash-notice {
 .margin-right-10 {
 	margin-right: 10px;
 }
+.btn-save {
+	background-color: #00629b;
+	color: #fff;
+}
+.btn-cancel {
+	background-color: #f26d65;
+	color: #fff;
+}
 
 /* NAVBAR */
 
@@ -303,21 +311,36 @@ div.flash-notification .flash-notice {
 
 /* USER GUIDE */
 
-.city-guide-heading {
+.guide-heading {
 	margin-top: 8px;
 	margin-bottom: 25px;
-	padding: 20px 0px;
+	padding: 10px 0px;
 	background-color: #98d6ec;
 	text-transform: uppercase;
 	font-size: 40px;
-	color: #fff;
 	font-weight: 400;
 	line-height: 90%;
 }
 @media (max-width: 768px) {
-	.city-guide-heading {
+	.guide-heading {
 		margin-top: 5px;
 	}
+}
+.guide-heading .city-guide-heading {
+	margin: 10px 0px;
+	color: #fff;
+}
+.guide-heading .btn-save {
+	font-size: 10px;
+	position: absolute;
+	top: 105px;
+	right: 500px;
+}
+.guide-heading .btn-cancel {
+	font-size: 10px;
+	position: absolute;
+	top: 105px;
+	right: 420px;
 }
 .city-guide-heading span {
 	text-transform: none;
@@ -366,20 +389,27 @@ div.flash-notification .flash-notice {
 	border: 3px dashed #98d6ec;
 	background:rgba(255,255,255, 0.7);
 }
-.guide-map .guide-description input {
-	color: #fff;
-	background-color: #282828;
-	padding: 4px 20px 12px;
-	border: none;
-	width: 100%;
-	font-size: 20px;
-	font-weight: bold;
-	line-height: 1.5em;
-	border-bottom: 1px solid #fff
-}
 .guide-map .guide-description hr {
 	margin: 0 auto;
 	border-top: 1px solid #f26d65;
+}
+.guide-map .guide-description .btn-save {
+	background-color: #00629b;
+	color: #fff;
+	font-size: 12px;
+	text-transform: uppercase;
+	position: absolute;
+	bottom: 90px;
+	right: 60px;
+}
+.guide-map .guide-description .btn-cancel {
+	background-color: #f26d65;
+	color: #fff;
+	font-size: 12px;
+	text-transform: uppercase;
+	position: absolute;
+	bottom: 90px;
+	left: 60px;
 }
 .guide-map .guide-description .btn-guide-delete {
 	float: left;
@@ -430,8 +460,14 @@ div.flash-notification .flash-notice {
 	margin-bottom: 30px;
 	border-bottom: 1px solid #d4d4d4;
 }
-.guide-container .guide-searchbar .form-control {
-	background-color: #fcfcfc;
+.guide-container .guide-searchbar input {
+	font-size: 17px;
+	padding: 15px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border: 1px solid #d4d4d4;
+	background-color: #fff;
 }
 .guide-container .guide-item {
 
@@ -868,7 +904,7 @@ div.flash-notification .flash-notice {
 /* FOOTER */
 
 footer {
-    margin-top: 25px;	
+    margin-top: 30px;	
     padding: 25px 0;
     text-align: center;
     background-color: #203141;

@@ -1,11 +1,15 @@
-<h1 class="city-guide-heading text-center"><%= model.get('title') %></h1>
+<div class="guide-heading">
+    <h1 class="city-guide-heading text-center"><%= model.get('title') %></h1>
+    <a class="btn btn-save" href="javascript:void(0)"><i class="fa fa-check"></i> Save</a>
+    <a class="btn btn-cancel" href="javascript:void(0)"><i class="fa fa-times"></i> Cancel</a>
+</div>
 <div class="container guide-map">
     <div class="map-container">
     </div>
     <div class="guide-description">
-        <textarea placeholder="Create a purpose here...."><%= model.get('description') %></textarea>
-        <a class="btn btn-default js-save" href="javascript:void(0)"><i class="fa fa-check"></i> Save</a>
-        <a class="btn btn-default js-cancel" href="javascript:void(0)"><i class="fa fa-times"></i> Cancel</a>
+        <textarea maxlength="250" placeholder="Create a purpose here...."><%= model.get('description') %></textarea>
+        <a class="btn btn-save" href="javascript:void(0)"><i class="fa fa-check"></i> Save</a>
+        <a class="btn btn-cancel" href="javascript:void(0)"><i class="fa fa-times"></i> Cancel</a>
         <hr>
         <button class="btn btn-danger btn-guide-delete">Delete Guide</button>
         <button class="btn btn-warning btn-guide-export">Export PDF</button>
