@@ -65,15 +65,74 @@ div.flash-notification .flash-notice {
 	padding: 10px 0px;
 	box-shadow: 0 -7px 16px #000;
 }
-
-.navbar-primary .navbar-nav .img-square {
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px; 
+.navbar-nav > li > a.dropdown-toggle {
+	background-color: inherit;
 }
 .navbar-nav > li > a.dropdown-toggle img {
 	margin-top: 8px;
 	margin-right: 0px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px; 
+}
+.navbar-primary .navbar-nav .open .dropdown-menu {
+	margin: 15px 0px 0px 0px;
+	border: 2px solid #d4d4d4;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	box-shadow: none;
+	padding: 0;
+}
+.navbar-primary .navbar-nav .open .dropdown-menu li a {
+	padding: 8px;
+	border: none;
+	color: #7d888e;
+}
+.navbar-primary .navbar-nav .open .dropdown-menu li a:hover {
+	background-color: #f5f5f5;
+	color: #203141;
+}
+.navbar-primary .navbar-nav .open .dropdown-menu .menu-profile {
+	border-bottom: 1px solid #d4d4d4;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+.navbar-primary .navbar-nav .open .dropdown-menu .menu-delete {
+	border-top: 1px solid #d4d4d4;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.navbar-primary .navbar-nav .top:before 
+{
+	content: "";
+	position: absolute;
+	border-width: 20px 20px 0;
+	border-style: solid;
+	border-color: #d4d4d4 transparent;
+	display: block;
+	width: 0;
+	top: -15px;
+	bottom: auto;
+	left: auto;
+	right: 20px;
+	border-width: 0 15px 15px;
+}
+
+.navbar-primary .navbar-nav .top:after 
+{
+	content: "";
+	position: absolute;
+	border-width: 13px 13px 0;
+	border-style: solid;
+	border-color: #fff transparent;
+	display: block;
+	width: 0;
+	top: -13px;
+	bottom: auto;
+	left: auto;
+	right: 22px;
+	border-width: 0 13px 13px;
 }
 .navbar-primary .navbar-form {
 	margin: 0 auto;
@@ -143,10 +202,12 @@ div.flash-notification .flash-notice {
 	-moz-border-radius: 10px;
 	border-radius: 10px; 
 }
-.cover.profile .wrapper .image .img-responsive {
-  width: 100%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+.cover.profile .map-container {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	height: 350px;
+	border-bottom: 1px solid #d4d4d4;
+	margin-bottom: 2px;
 }
 .cover.profile .cover-info .avatar img {
 	width: 110px;
@@ -155,17 +216,20 @@ div.flash-notification .flash-notice {
 	-moz-border-radius: 5px;
 	border-radius: 5px; 
 }
-.cover.profile .cover-info .cover-follow {
-	margin-right: 20px;
-	margin-top: 11px;  
-}
-.cover.profile .cover-info .cover-new-guide {
-	margin-right: 20px;
-	margin-top: 11px;  
+.cover.profile .cover-info .name a {
+	font-size: 30px;
+	text-decoration: none;
+	text-shadow: 0 0 5px #202020;
+	color: #fff; 
 }
 .cover.profile .cover-info .cover-nav > li.active > a {
 	color: #666;
 	font-weight: 600;
+	background-color: #f5f5f5;
+}
+.cover.profile .cover-info .cover-nav li a:hover {
+	color: #666;
+	background-color: #f5f5f5;
 }
 .cover.profile .cover-info .new-guide-btn {
 	width: 135px;
@@ -1132,12 +1196,19 @@ ul.social-buttons li a:active {
 }
 
 .guide-item .delete {
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
 	visibility: hidden;
-	color: red !important;
+	background-color: #f26d65;
+	color: #fff !important;
 	text-decoration: none;
 	cursor: pointer;
 	position: absolute;
-	right: 10px;
+	top: -17px;
+	right: -11px;
+	width: 22px;
+	height: 22px;
 }
 
 .guide-item:hover .delete {
