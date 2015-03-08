@@ -23,6 +23,8 @@ jQuery ->
       @listenTo @places, 'remove', @initializeMap
 
     initializeMap: ->
+      return if $('.map-container').length == 0
+
       if @places.sync_status
         if @places.models.length > 0
           mapOptions = {}

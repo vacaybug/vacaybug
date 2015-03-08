@@ -29,6 +29,8 @@ jQuery ->
       @listenTo @guides, 'add', @render
 
     initializeMap: ->
+      return if $('.map-container').length == 0
+
       mapOptions = {zoom: 5}
       map = new google.maps.Map($('.map-container')[0], mapOptions)
       window.map = map

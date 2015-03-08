@@ -28,8 +28,6 @@
 //= require_self
 
 //= require bootstrap.min
-//= require classie
-//= require cbpAnimatedHeader
 //= require agency
 //= require masonry
 //= require imagesloaded.min
