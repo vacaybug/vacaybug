@@ -384,6 +384,7 @@ div.flash-notification .flash-notice {
 	font-size: 40px;
 	font-weight: 400;
 	line-height: 90%;
+	height: 80px;
 }
 @media (max-width: 768px) {
 	.guide-heading {
@@ -391,20 +392,28 @@ div.flash-notification .flash-notice {
 	}
 }
 .guide-heading .city-guide-heading {
-	margin: 10px 0px;
+	max-width: 550px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
 	color: #fff;
+}
+.guide-heading input {
+	color: #000;
+	font-size: 18px;
+	padding-right: 150px;
 }
 .guide-heading .btn-save {
 	font-size: 10px;
 	position: absolute;
 	top: 105px;
-	right: 500px;
+	right: 530px;
 }
 .guide-heading .btn-cancel {
 	font-size: 10px;
 	position: absolute;
 	top: 105px;
-	right: 420px;
+	right: 450px;
 }
 .city-guide-heading span {
 	text-transform: none;
@@ -441,7 +450,7 @@ div.flash-notification .flash-notice {
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
-.guide-map .guide-description textarea {
+.guide-map .guide-description div {
 	color: #000;
 	width: 87%;
 	min-height: 300px;
@@ -452,6 +461,16 @@ div.flash-notification .flash-notice {
 	line-height: 1.5em;
 	border: 3px dashed #98d6ec;
 	background:rgba(255,255,255, 0.7);
+}
+.guide-map .guide-description textarea {
+	color: #000;
+	width: 100%;
+	max-height: 248px;
+	padding: 0px;
+	margin: 0px;
+	border: none;
+	background:rgba(255, 255, 255, 0.0);
+	resize: none;
 }
 .guide-map .guide-description hr {
 	margin: 0 auto;

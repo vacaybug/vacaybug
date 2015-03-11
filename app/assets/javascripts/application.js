@@ -34,4 +34,4 @@
 //= require typeahead
 //= require geonames
 //= require jquery-ui
-
+//= require jeditable

@@ -3,8 +3,6 @@ jQuery ->
     template: JST["backbone/templates/guide"]
 
     events:
-      "input .js-guide-title": "onDescriptionChange"
-      "input .js-guide-description": "onDescriptionChange"
       "click .guide-description-save": "saveDescription"
       "click .btn-guide-delete": "deleteGuide"
 
@@ -57,16 +55,28 @@ jQuery ->
           success: ->
             Vacaybug.router.navigate('/profile', {trigger: true, replace: true})
 
-    saveDescription: ->
-      title = $(".js-guide-title").val()
-      description = $(".js-guide-description").val()
+    initInputs: ->
+      $('.guide-description-div').editable (value, settings) =>
+        @model.set('description', value)
+        @model.save()
+        value
+      , {
+        type    : 'textarea',
+        submit  : '<button type="submit" class="btn btn-save"><i class="fa fa-check"></i> Save</button>',
+        cancel  : '<button class="btn btn-cancel"><i class="fa fa-times"></i> Cancel</button>',
+        onblur  : 'ignore',
+      }
 
-      @model.set({"title": title, "description": description})
-      @model.save()
-      $(".guide-description-save").css("visibility", "hidden")
-
-    onDescriptionChange: ->
-      $(".guide-description-save").css("visibility", "visible")
+      $('.city-guide-heading').editable (value, settings) =>
+        @model.set('title', value)
+        @model.save()
+        value
+      , {
+        type    : 'text',
+        submit  : '<button type="submit" class="btn btn-save"><i class="fa fa-check"></i> Save</button>',
+        cancel  : '<button class="btn btn-cancel"><i class="fa fa-times"></i> Cancel</button>',
+        onblur  : 'ignore',
+      }
 
     render: ->
       return @ unless @model.sync_status
@@ -77,6 +87,7 @@ jQuery ->
         model: @model
 
       @initializeMap()
+      @initInputs()
 
       @$('.places-container').html(@placesView.render().el)
 

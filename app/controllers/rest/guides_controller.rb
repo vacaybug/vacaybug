@@ -15,6 +15,7 @@ class Rest::GuidesController < ActionController::Base
 
     def create
     	guide = Guide.create(
+            description: params[:description],
     		country: params[:country],
     		region: params[:region],
     		city: params[:city],

@@ -12,6 +12,7 @@ jQuery ->
       @listenTo @collection, 'remove', @render
 
     deleteGuide: (e) ->
+      console.log('hi')
       if (confirm('Are you sure you want to delete this place?'))
         place_id = $(e.currentTarget).attr('data-id')
         model = @collection.where({id: parseInt(place_id)})[0]

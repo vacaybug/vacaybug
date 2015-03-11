@@ -70,6 +70,7 @@ jQuery ->
 
     createGuide: (event) ->
       guide = new Vacaybug.GuideModel
+        description: $(".trip-description").val()
         country:     @selected.data.countryName
         region:      if @selected.data.name != @selected.data.adminName1 then @selected.data.adminName1 else ''
         city:        @selected.data.name
@@ -82,7 +83,7 @@ jQuery ->
 
       guide.save null,
         success: (model, resp) ->
-          Vacaybug.router.navigate("/guides/#{guide.get('id')}", true)
+          Vacaybug.router.navigate("/guides/#{guide.get('id')}", {trigger: true})
         error: ->
           elem.removeAttr("disabled")
           elem.html("Continue")
