@@ -10,8 +10,10 @@ jQuery ->
       @listenTo @collection, 'change', @render
       @listenTo @collection, 'add', @render
       @listenTo @collection, 'remove', @render
+      @isPrivate = options.isPrivate
 
     initInputs: ->
+      return if !@isPrivate
       _.each @collection.models, (model) =>
         $(".guide-caption[data-id=#{model.get('id')}] .guide-caption-div").editable (value, settings) =>
           model.set('note', value)
@@ -41,6 +43,7 @@ jQuery ->
 
       $(@el).html @template
         collection: @collection
+        isPrivate: @isPrivate
 
       @initInputs()
       @

@@ -16,7 +16,7 @@ jQuery ->
       @listenTo @model, 'change', @render
       @listenTo @model, 'sync', @render
       @activeTab = 'passport'
-      @isPrivate = @model.get('username') == Vacaybug.current_user.get('username')
+      @isPrivate = Vacaybug.current_user && @model.get('username') == Vacaybug.current_user.get('username')
       @editMode = false
 
       @guides = new Vacaybug.GuideCollection
@@ -91,10 +91,7 @@ jQuery ->
     render: ->
       return @ unless @model.sync_status
 
-      if @isPrivate
-        @template = JST["backbone/templates/profile-private"]
-      else
-        @template = JST["backbone/templates/profile-public"]
+      @template = JST["backbone/templates/profile"]
 
       @birth_year = null
       @birth_date = null
@@ -110,6 +107,7 @@ jQuery ->
         editMode: @editMode
         birth_year: @birth_year
         birth_date: @birth_date
+        isPrivate: @isPrivate
 
       @initializeMap()
 

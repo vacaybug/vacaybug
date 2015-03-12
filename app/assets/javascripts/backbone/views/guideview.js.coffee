@@ -9,11 +9,13 @@ jQuery ->
     initialize: (options) ->
       @listenTo @model, 'sync', @render
 
+      @isPrivate = Vacaybug.current_user && @model.get('username') == Vacaybug.current_user.get('username')
       @places = new Vacaybug.PlaceCollection
         guide_id: @model.get('id')
       @places.fetch()
       @placesView = new Vacaybug.PlacesView
         collection: @places
+        isPrivate: @isPrivate
 
       @listenTo @places, 'sync', @initializeMap
       @listenTo @places, 'add', @initializeMap
@@ -56,6 +58,8 @@ jQuery ->
             Vacaybug.router.navigate('/profile', {trigger: true, replace: true})
 
     initInputs: ->
+      return if !@isPrivate
+
       $('.guide-description-div').editable (value, settings) =>
         @model.set('description', value)
         @model.save(null, {silent: true})
@@ -85,6 +89,7 @@ jQuery ->
 
       $(@el).html @template
         model: @model
+        isPrivate: @isPrivate
 
       @initializeMap()
       @initInputs()

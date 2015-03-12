@@ -13,12 +13,14 @@
             <li class="<%= activeTab == 'passport' ? 'active' : '' %> js-tab" data-tab='passport'>
                 <a href="#passport" role="tab" data-toggle="tab"><i class="fa fa-briefcase"></i> Passport</a>
             </li>
-            <li class="<%= activeTab == 'wishlist' ? 'active' : '' %> js-tab" data-tab='wishlist'>
-                <a href="#wishlist" role="tab" data-toggle="tab"><i class="fa fa-list"></i> Wishlist</a>
-            </li>
-            <li class="<%= activeTab == 'about' ? 'active' : '' %> js-tab" data-tab='about'>
-                <a href="#about" role="tab" data-toggle="tab"><i class="fa fa-info-circle"></i> About</a>
-            </li>
+            <% if (isPrivate) { %>
+                <li class="<%= activeTab == 'wishlist' ? 'active' : '' %> js-tab" data-tab='wishlist'>
+                    <a href="#wishlist" role="tab" data-toggle="tab"><i class="fa fa-list"></i> Wishlist</a>
+                </li>
+                <li class="<%= activeTab == 'about' ? 'active' : '' %> js-tab" data-tab='about'>
+                    <a href="#about" role="tab" data-toggle="tab"><i class="fa fa-info-circle"></i> About</a>
+                </li>
+            <% } %>
         </ul>
         <ul class="cover-nav nav nav-tabs pull-right" style="left: 650px">
             <li style="border-right-style: none !important">
@@ -47,7 +49,9 @@
                                         <div class="guide-caption" style="position: relative">
                                             <h4>
                                                 <a class="backbone" href="/guides/<%= guide.get('id') %>"><%= _.escape(guide.get('title')) %></a>
-                                                <a class="js-delete-guide pull-right delete" data-id="<%= guide.get('id') %>">&times;</a>
+                                                <% if (isPrivate) { %>
+                                                    <a class="js-delete-guide pull-right delete" data-id="<%= guide.get('id') %>">&times;</a>
+                                                <% } %>
                                             </h4>
                                         </div>
                                         <a href="javascript:void(0)" class="guide-link js-guide-item" data-id="<%= guide.get('id') %>">
