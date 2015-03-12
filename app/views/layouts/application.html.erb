@@ -5,11 +5,11 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <%= render 'generic/header.html.erb' %>
+  <%= render 'generic/header' %>
 </head>
 <body>
-	<%= render 'generic/navigation.html.erb' %>
+	<%= render 'generic/navigation' %>
 	<%= yield %>
-	<%= render 'generic/footer.html.erb' %>
+	<%= render 'generic/footer' %>
 </body>
 </html>
