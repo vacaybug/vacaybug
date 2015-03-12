@@ -12,12 +12,8 @@ jQuery ->
       @listenTo @places, 'sync', @render
 
     renderModal: ->
-      $(@el).html @template
-        guide: @guide
-        place: @places
-
-      $('body').append(@el)
-      @$('.modal').modal()
+      $('body').append("<div id='somecrazymodal'></div>")
+      @setElement($('#somecrazymodal'))
       @modalRendered = true
 
     render: ->
@@ -27,6 +23,8 @@ jQuery ->
       $(@el).html @template
         places: @places
         guide: @guide
+
+      @$('.modal').modal('show')
       @
 
   Vacaybug = window.Vacaybug ? {}
