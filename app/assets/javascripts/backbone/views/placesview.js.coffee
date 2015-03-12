@@ -15,7 +15,7 @@ jQuery ->
       _.each @collection.models, (model) =>
         $(".guide-caption[data-id=#{model.get('id')}] .guide-caption-div").editable (value, settings) =>
           model.set('note', value)
-          model.save()
+          model.save(null, {silent: true})
           value
         , {
           type    : 'textarea',

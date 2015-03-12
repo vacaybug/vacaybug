@@ -58,7 +58,7 @@ jQuery ->
     initInputs: ->
       $('.guide-description-div').editable (value, settings) =>
         @model.set('description', value)
-        @model.save()
+        @model.save(null, {silent: true})
         value
       , {
         type    : 'textarea',
@@ -69,7 +69,7 @@ jQuery ->
 
       $('.city-guide-heading').editable (value, settings) =>
         @model.set('title', value)
-        @model.save()
+        @model.save(null, {silent: true})
         value
       , {
         type    : 'text',
@@ -89,7 +89,7 @@ jQuery ->
       @initializeMap()
       @initInputs()
 
-      @$('.places-container').html(@placesView.render().el)
+      @placesView.setElement(@$('.places-container')).render()
 
       timeout = null
       $(".js-search-places").typeahead(
