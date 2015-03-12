@@ -80,10 +80,10 @@ class Rest::PlacesController < ActionController::Base
         end
 
         # editing note is little bit hacky :D
-        note = Note.find_note(current_user.id, @place.id)
-        if params[:note] != note.note
-            note.note = params[:note]
-            note.save
+        gp = GuidePlaceAssociation.where(place_id: params[:id], guide_id: params[:guide_id]).first
+        if params[:note] != gp.note
+            gp.note = params[:note]
+            gp.save
         end
 
         if changed

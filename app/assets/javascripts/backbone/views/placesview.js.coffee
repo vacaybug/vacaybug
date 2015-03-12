@@ -11,8 +11,20 @@ jQuery ->
       @listenTo @collection, 'add', @render
       @listenTo @collection, 'remove', @render
 
+    initInputs: ->
+      _.each @collection.models, (model) =>
+        $(".guide-caption[data-id=#{model.get('id')}] .guide-caption-div").editable (value, settings) =>
+          model.set('note', value)
+          model.save()
+          value
+        , {
+          type    : 'textarea',
+          submit  : '<button type="submit" class="btn-none"><i class="fa fa-check"></i> Save</button>',
+          cancel  : '<button class="btn-none"><i class="fa fa-times"></i> Cancel</button>',
+          onblur  : 'ignore',
+        }
+
     deleteGuide: (e) ->
-      console.log('hi')
       if (confirm('Are you sure you want to delete this place?'))
         place_id = $(e.currentTarget).attr('data-id')
         model = @collection.where({id: parseInt(place_id)})[0]
@@ -29,6 +41,8 @@ jQuery ->
 
       $(@el).html @template
         collection: @collection
+
+      @initInputs()
       @
 
   Vacaybug = window.Vacaybug ? {}

@@ -17,8 +17,8 @@
                             <img src="someimage" alt="image" class="img-responsive" width="100%" />
                         <% } %>
                     </a>
-                    <div class="guide-caption">
-                        <textarea placeholder="Create note here..."></textarea>
+                    <div class="guide-caption" data-id="<%= model.get('id') %>">
+                        <div class="guide-caption-div"><%= _.escape(model.get('note')) %></div>
                     </div>
                     <% if (model.get('yelp')) { %>
                         <hr>

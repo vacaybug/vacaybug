@@ -18,11 +18,11 @@ class Place < ActiveRecord::Base
 	end
 
 	def get_note guide
-		note = Note.where(user_id: guide.user_id, place_id: self.id).first
-		if note
-			note.note
+		g = GuidePlaceAssociation.where(guide_id: guide.id, place_id: self.id).first
+		if g
+			g.note
 		else
-			""
+			nil
 		end
 	end
 
