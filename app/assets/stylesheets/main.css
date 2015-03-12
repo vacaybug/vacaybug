@@ -577,7 +577,7 @@ div.flash-notification .flash-notice {
 .guide-container .guide-item .guide-caption div {
 	margin: 15px 15px 10px 15px;
 	width: 230px;
-	height: 80px;
+	height: 115px;
 	font-size: 12px;
 	font-weight: 500;
 	padding: 10px;
@@ -591,6 +591,7 @@ div.flash-notification .flash-notice {
 	padding: 0px;
 	background-color: #fbfefe;
 	padding-bottom: 10px;
+	resize: none;
 }
 .guide-container .guide-item hr {
 	margin-top: 0px;
@@ -1135,6 +1136,7 @@ ul.social-buttons li a:active {
 .guide-item .guide-caption .guide-content {
 	margin-bottom: 0px;
 	padding: 10px 15px;
+	height: 120px;
 }
 .guide-item .guide-caption hr {
 	margin-top: 0px;
