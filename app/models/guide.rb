@@ -22,4 +22,8 @@ class Guide < ActiveRecord::Base
 			self.title = self.city + " trip"
 		end
 	end
+
+	def as_json (options)
+		super(methods: [:user])
+	end
 end

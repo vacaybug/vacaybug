@@ -8,14 +8,11 @@ jQuery ->
 
     initialize: (options) ->
       @listenTo @model, 'sync', @render
-
-      @isPrivate = Vacaybug.current_user && @model.get('username') == Vacaybug.current_user.get('username')
       @places = new Vacaybug.PlaceCollection
         guide_id: @model.get('id')
       @places.fetch()
       @placesView = new Vacaybug.PlacesView
         collection: @places
-        isPrivate: @isPrivate
 
       @listenTo @places, 'sync', @initializeMap
       @listenTo @places, 'add', @initializeMap
@@ -85,6 +82,8 @@ jQuery ->
     render: ->
       return @ unless @model.sync_status
 
+      @isPrivate = Vacaybug.current_user && @model.get('user').username == Vacaybug.current_user.get('username')
+      @placesView.isPrivate = @isPrivate
       location = "#{@model.get('city')}, #{@model.get('region')}, #{@model.get('country')}"
 
       $(@el).html @template
