@@ -1,199 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>VacayBug | Privacy</title>
-
-    <link rel="icon" type="image/png" href="/assets/favicon.png">
-    <%= stylesheet_link_tag("landing_application", :media => "all") %>
-
-    <!-- Custom Fonts -->
-
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <div class="navbar navbar-primary navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="nav-logo" href="/">
-                    <img src="/assets/nav-dark-logo.svg" width="200" height="60">
-                </a>
-            </div>
-            
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="main-nav">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="">ABOUT</a></li>
-                    <li class="divider"><a href="">GUIDE</a></li>
-                    <li class="divider"><a href="#signin" data-toggle="modal" id="sign-up">SIGN IN</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Privacy Section -->
-    <section id="aboutus">
-        <div id="header">
+    <%= render 'generic/home_header' %>
+    <body id="page-top">
+        <div class="navbar navbar-primary navbar-fixed-top" role="navigation">
             <div class="container">
-                <div class="row" id="header">
-                    <div class="col-lg-12">
-                        <h2 class="section-heading text-center">About Us</h2>
-                        <h3 class="section-subheading text-muted text-center"><em>“Twenty years from now you will be more disappointed by the things you didn’t do than by the ones you did do. So throw off the bowlines, sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.”</em> - Mark Twain</h3>
-                    </div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="nav-logo" href="/">
+                        <img src="/assets/nav-dark-logo.svg" width="200" height="60">
+                    </a>
                 </div>
-            </div>
-        </div>
-        <div id="explore">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-lg-offset-1">
-                        <h2 class="section-title text-center">Explore</h2>
-                        <h3 class="section-content">At VacayBug our vision is to create best travel experience for individuals by giving them access to holistic itineraries created by locals or likeminded people. Furthermore, we believe traditional itineraries are boring we want to allow our member to tell an unique story through their itineraries. After all, we like to think no two trips are the exactly the same</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="dream">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-lg-offset-7">
-                        <h2 class="section-title text-center">Dream</h2>
-                        <h3 class="section-content">VacayBug founders grow up from across the world - Taiwan, Mongolia and Cuba. They shared the same struggle when traveling - travel planning. They spend hours of research on the web and books to come up with the perfect itinerary but only to find out the perfect itinerary comes from family or friends who had been there. They decided to come together from LinkedIn, Facebook and Kifi, so they can come up with a way to revolutionaries travel planning</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="discover">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-lg-offset-1">
-                        <h2 class="section-title text-center">Discover</h2>
-                        <h3 class="section-content">Did you ever regret not visiting that perfect italian restaurant when you were in Rome, or a tuck-away viewpoint that oversees entire San Francisco? VacayBug wants you to travel like locals so you don’t miss out discovering places, and make sure you built your memories on the best a place can offer</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; VacayBug 2014</span>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">About Us</a>
-                        </li>
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="main-nav">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/">ABOUT</a></li>
+                        <li class="divider"><a href="/">GUIDE</a></li>
+                        <li class="divider"><a href="#signin" data-toggle="modal" id="sign-up">SIGN IN</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-    </footer>
-
-    <!-- Modals -->
-    <!-- Sign In Modal -->
-    <div class="guide-modal modal fade" id="signin" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
+        <!-- Header -->
+        <header id="aboutus">
+            <div class="container about-us">
+                <div class="intro-text">
+                    <div class="intro-heading">Travel the world and love it</div>
+                    <div class="intro-subheading"><em>“Twenty years from now you will be more disappointed by the things you didn’t do than by the ones you did do. So throw off the bowlines, sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.”</em> - Mark Twain</div>
+                    <a href="#overview" class="page-scroll btn btn-xl">Learn more about VacayBug</a>
+                </div>
+            </div>
+        </header>
+        <!-- Overview Section -->
+        <section id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="aboutus-section-title">
+                            About VacayBug
+                        </div>
+                        <div class="aboutus-section-content">
+                            At VacayBug our vision is to create best travel experience for individuals by giving them access to holistic itineraries created by locals or likeminded people. Furthermore, we believe traditional itineraries are boring we want to allow our member to tell an unique story through their itineraries. After all, we like to think no two trips are the exactly the same
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </section>
+        <!-- Explore Section -->
+        <section id="explore">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="aboutus-section-title">
+                            Explore
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="aboutus-section-content">
+                            VacayBug founders grew up across the world - Taiwan, Mongolia and Cuba. They shared the same struggle when traveling - travel planning. They spend hours of research on the web and books to come up with the perfect itinerary but only to find out the perfect itinerary comes from family or friends who had been there. They decided to come together from LinkedIn, Facebook and Kifi, so they can come up with a way to revolutionaries travel planning
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </section>
+        <!-- Dream Section -->
+        <section id="dream">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="aboutus-section-content">
+                            Did you ever regret not visiting that perfect italian restaurant when you were in Rome, or a tuck-away viewpoint that oversees entire San Francisco? VacayBug wants you to travel like locals so you don’t miss out discovering places, and make sure you built your memories on the best a place can offer
+                        </div>
+                    </div> 
+                    <div class="col-md-6">
+                        <div class="aboutus-section-title">
+                            Dream
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+        <!-- Discover Section -->
+        <section id="discover">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2>VacayBug Login</h2>
-                            <p class="item-intro text-muted">Adventure Starts Here</p>
-                            <form class="col-md-12">
-                                <div class="row text-center">
-                                    <div class="col-md-4 col-sm-12">
-                                        <button type="button" class="btn btn-primary btn-block">Facebook</button>
+                    <div class="col-md-6">
+                        <div class="aboutus-section-title">
+                            Discover
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="aboutus-section-content">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </section>
+
+        <%= render 'generic/footer' %>
+
+        <!-- Modals -->
+        <!-- Use the modals below to showcase details about your guide projects! -->
+
+        <!-- Sign In Modal -->
+        <div class="guide-modal modal fade" id="signin" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>VacayBug Login</h2>
+                                <p class="item-intro text-muted">Adventure Starts Here</p>
+                                <form class="col-md-12">
+                                    <div class="row text-center">
+                                        <div class="col-md-4 col-sm-12">
+                                            <button type="button" class="btn btn-primary btn-block">Facebook</button>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12">
+                                            <button type="button" class="btn btn-info btn-block">Twitter</button>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12">
+                                            <button type="button" class="btn btn-danger btn-block">Google+</button>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4 col-sm-12">
-                                        <button type="button" class="btn btn-info btn-block">Twitter</button>
+                                    <hr />
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" placeholder="Email">
                                     </div>
-                                    <div class="col-md-4 col-sm-12">
-                                        <button type="button" class="btn btn-danger btn-block">Google+</button>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control input-lg" placeholder="Password">
                                     </div>
-                                </div>
-                                <hr />
-                                <div class="form-group">
-                                    <input type="text" class="form-control input-lg" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control input-lg" placeholder="Password">
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary btn-lg btn-block">Sign In</button>
-                                </div>
-                            </form>
-                            <form action="http://www.vacaybug.us9.list-manage.com/subscribe/post?u=966c023f999f4d933716e4aa9&amp;id=e22664c95f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate col-md-12" target="_blank" novalidate>
-                                <p class="item-intro text-muted">Don't have an account? VacayBug is still in Beta, request an invite</p>
-                                <div class="form-group col-md-8">
-                                    <input type="email" name="EMAIL" class="form-control required email" placeholder="Your Email *" id="mce-EMAIL">
-                                </div>
-                                <div style="position: absolute; left: -5000px;">
-                                    <input type="text" name="b_966c023f999f4d933716e4aa9_e22664c95f" tabindex="-1" value="">
-                                </div>
-                                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-default btn-invite col-md-4">
-                            </form>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Return Home</button>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-lg btn-block">Sign In</button>
+                                    </div>
+                                </form>
+                                <form action="http://www.vacaybug.us9.list-manage.com/subscribe/post?u=966c023f999f4d933716e4aa9&amp;id=e22664c95f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate col-md-12" target="_blank" novalidate>
+                                    <p class="item-intro text-muted">Don't have an account? VacayBug is still in Beta, request an invite</p>
+                                    <div class="form-group col-md-8">
+                                        <input type="email" name="EMAIL" class="form-control required email" placeholder="Your Email *" id="mce-EMAIL">
+                                    </div>
+                                    <div style="position: absolute; left: -5000px;">
+                                        <input type="text" name="b_966c023f999f4d933716e4aa9_e22664c95f" tabindex="-1" value="">
+                                    </div>
+                                    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-default btn-invite col-md-4">
+                                </form>
+                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Return Home</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <!-- Vacaybug -->
-    <%= javascript_include_tag("application", :media => "all") %>
-    
-</body>
-
+        <!-- Plugin JavaScript -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <!-- Vacaybug -->
+        <%= javascript_include_tag("application", :media => "all") %>
+    </body>
 </html>

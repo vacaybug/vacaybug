@@ -232,7 +232,6 @@ header {
     background-size: cover;
     -o-background-size: cover;
 }
-
 header .intro-text {
     padding-top: 100px;
     padding-bottom: 50px;
@@ -241,7 +240,6 @@ header .intro-text {
 header .intro-text span {
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
-
 }
 
 header .intro-text .intro-heading {
@@ -444,57 +442,77 @@ section#privacy address {
 
 /* ABOUT  */
 
-section#aboutus .row .section-title {
-    margin-top: 50px;
-    font-size: 30px;
-    color: #000;
-    text-shadow: 0 0 15px #fff;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #777;
+header#aboutus {
+    background-image: url(../assets/about-header.jpg);
+    background-position: 0% -200%;
 }
-section#aboutus .row .section-content {
-    font-size: 16px;
-    font-weight: 300;
+header#aboutus .intro-text .intro-heading {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 60px;
+    font-weight: 600;
+}
+header#aboutus .intro-text .intro-subheading {
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+}
+section .aboutus-section-title {
+    margin: 30px 0px 20px 0px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    color: #f26d65;
+}
+section .aboutus-section-content {
+    margin: 30px 0px 20px 0px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #777777;
+}
+section#explore,
+section#dream, 
+section#discover {
+    height: 450px;
+    padding-top: 110px;
+    background-color: #fff;
+}
+section#explore .aboutus-section-title,
+section#dream .aboutus-section-title,
+section#discover .aboutus-section-title {
+    padding-top: 50px;
+}
+section#overview {
+    height: 450px;
+    padding-top: 75px;
+}
+section#explore {
+    background-color: #f9f9f9;
+    border-top: 1px solid #d8d8d8;
+}
+section#dream {
+    background-attachment: scroll;
+    background-image: url(../assets/about-footer.jpg);
+    background-position: center top;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+section#dream .aboutus-section-content {
     color: #fff;
-    text-shadow: 0 0 15px #202020;
 }
-section#aboutus #header {
-    height: 150px;
-}
-section#aboutus #explore {
-    height: 450px;
-    background-color: #99d4e9;
-    background-image: url(../assets/about-explore-cover.jpg);
-    background-position: center center;
-    background-repeat: none;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
-section#aboutus #dream {
-    height: 450px;
-    background-color: #99d4e9;
-    background-image: url(../assets/about-dream-cover.jpg);
-    background-position: center center;
-    background-repeat: none;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
-section#aboutus #discover {
-    height: 450px;
-    background-color: #99d4e9;
-    background-image: url(../assets/about-discovery-cover.jpg);
-    background-position: center center;
-    background-repeat: none;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+section#discover {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #d8d8d8;
 }
 
+/* FOOTER */
 footer {
     padding: 25px 0;
     text-align: center;
