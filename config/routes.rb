@@ -46,6 +46,8 @@ Vacaybug::Application.routes.draw do
             resources :places do
             end
         end
+
+        match 'search' => 'search', via: :get
     end
 
     # all apis will go here
@@ -53,7 +55,7 @@ Vacaybug::Application.routes.draw do
         # four square apis
         namespace :fs do
             get :search_places
-        end 
+        end
     end
 
     match 'privacy' => 'home#privacy', via: :get

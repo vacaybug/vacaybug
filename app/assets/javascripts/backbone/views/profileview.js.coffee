@@ -168,6 +168,11 @@ jQuery ->
       $(".typeahead").on('input', (event) =>
         $(".js-continue").attr("disabled", "disabled")
       )
+
+      @guidesView ||= new Vacaybug.GuidesView
+        collection: @guides
+        isPrivate: @isPrivate
+      @guidesView.setElement($('.guides')[0]).render()
       @
 
     follow: ->

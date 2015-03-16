@@ -39,44 +39,7 @@
             <div class="tab-heading">
                 <i class="fa fa-briefcase"></i> My Passport - I've Been to...
             </div>
-            <div class="panel-body">
-                <% if (guides.sync_status) { %>
-                    <% _.each(_.groupBy(guides.models, function(value, index) { return parseInt(index / 3); }), function(row) { %>
-                        <div class="row">
-                            <% _.each(row, function(guide) { %>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="guide-item">
-                                        <div class="guide-caption" style="position: relative">
-                                            <h4>
-                                                <a class="backbone" href="/guides/<%= guide.get('id') %>"><%= _.escape(guide.get('title')) %></a>
-                                                <% if (isPrivate) { %>
-                                                    <a class="js-delete-guide pull-right delete" data-id="<%= guide.get('id') %>">&times;</a>
-                                                <% } %>
-                                            </h4>
-                                        </div>
-                                        <a href="javascript:void(0)" class="guide-link js-guide-item" data-id="<%= guide.get('id') %>">
-                                            <div class="guide-hover">
-                                                <div class="guide-hover-content">
-                                                    <i class="fa fa-plus fa-3x"></i>
-                                                </div>
-                                            </div>
-                                            <img src="/assets/guide/rome.jpg" class="img-responsive" alt="">
-                                        </a>
-                                        <div class="guide-caption">
-                                            <p class="guide-content"><%= _.escape(guide.get('description')) %></p>
-                                            <ul class="guide-socialMeta">
-                                                <li><a href="" class="text-muted"><i class="fa fa-heart"></i> 40</a></li>
-                                                <li><a href="" class="text-muted"><i class="fa fa-comment"></i> 5</a></li>
-                                                <li><a href="" class="text-muted"><i class="fa fa-refresh"></i> 10</a></li>
-                                                <li class="pull-right"><p class="text-muted">3 days</p></li>
-                                           </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            <% }); %>
-                        </div>
-                    <% }); %>
-                <% } %>
+            <div class="panel-body guides">
             </div>
         </div>
         <div class="tab-pane <%= activeTab == 'wishlist' ? 'active in' : ''%> fade" id="wishlist">

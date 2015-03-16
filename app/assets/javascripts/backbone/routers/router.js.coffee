@@ -11,6 +11,9 @@ jQuery ->
       "users/:user/guides/:id": "guide"
       "guides/:id": "my_guide"
 
+      "search/:query": "searchResult"
+      "search": "search"
+
       # "*notFound": "notFound"
     
     initialize: ->
@@ -89,6 +92,18 @@ jQuery ->
         @guide(Vacaybug.current_user.get('username'), id)
       else
         @show404()
+
+    searchResult: (query) ->
+      collection = new Vacaybug.SearchResultCollection({query: query})
+      collection.fetch()
+      view = new Vacaybug.SearchResultView({collection: collection})
+
+      Vacaybug.appView.setView(view)
+
+    search: ->
+      $('#wrapper').addClass('search-container')
+      view = new Vacaybug.SearchView()
+      Vacaybug.appView.setView(view)
 
     notFound: ->
       @show404()
