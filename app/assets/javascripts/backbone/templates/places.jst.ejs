@@ -23,8 +23,8 @@
                         <div class="guide-caption-div"><%= _.escape(model.get('note')) %></div>
                     </div>
                     <hr>
-                    <p class="text-break-ellipsis"><%= model.get('location').formattedAddress.join(",") %></p>
-                    <p class="text-break-ellipsis"><%= model.get('phone') %></p>
+                    <p class="place-location text-break-ellipsis"><%= model.get('location').formattedAddress.join(", ") %></p>
+                    <p class="place-phone text-break-ellipsis"><%= model.get('phone') %></p>
                     <% if (model.get('yelp')) { %>
                         <hr>
                         <a href="<%= model.get('yelp').url %>" target="_blank" style="text-align:center; display:block;">

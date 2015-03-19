@@ -638,6 +638,7 @@ span.text-content {
 }
 .guide-container {
 	margin-top: 25px;
+	margin-bottom: 40px;
 	background-color: #fff;
 	border: 1px solid #d4d4d4;
 	-webkit-border-radius: 10px;
@@ -1138,7 +1139,6 @@ ul.social-buttons li a {
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	transition: all .3s;
-	padding-top: 10px;
 }
 
 ul.social-buttons li a:hover,
@@ -1256,7 +1256,22 @@ ul.social-buttons li a:active {
 	text-decoration: none;
 	margin-bottom: 0px;
 }
-
+.guide-item .place-location {
+	text-align: center;
+	font-size: 12px;
+	font-weight: 500;
+	padding: 0px 20px;
+	color: #00629b;
+	margin: 0 auto;
+}
+.guide-item .place-phone {
+	text-align: center;
+	font-size: 12px;
+	font-weight: 500;
+	padding: 5px 20px;
+	color:#00629b;
+	margin: 0 auto;
+}
 /* Guide Modal */
 
 .guide-modal .modal-content {
