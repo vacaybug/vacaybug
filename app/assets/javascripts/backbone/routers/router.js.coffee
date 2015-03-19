@@ -20,7 +20,6 @@ jQuery ->
 
     show404: ->
       $("body").html("Not found")
-      alert('Found nothing brotha')
 
     profile: (user) ->
       model = new Vacaybug.UserModel({username: user})
@@ -101,7 +100,6 @@ jQuery ->
       Vacaybug.appView.setView(view)
 
     search: ->
-      $('#wrapper').addClass('search-container')
       view = new Vacaybug.SearchView()
       Vacaybug.appView.setView(view)
 

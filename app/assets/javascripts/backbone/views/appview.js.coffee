@@ -10,15 +10,14 @@ jQuery ->
     # if you did something special for
     # some view, it is best place to free it up
     # for other views
-    beforeNavigate: ->
-      $('#wrapper').removeClass('search-container')
-      $('')
 
     bindEvents: ->
       $(".js-top-search").keydown(@_searchKeyDown)
-      $('.search-result-navbar').remove()
 
     setView: (view) ->
+      @old_view = @view
+      @old_view.remove() if @old_view
+
       $(@el).addClass('container')
       @view = view
 
@@ -27,7 +26,6 @@ jQuery ->
       @render()
 
     render: ->
-      @beforeNavigate()
       $(@el).html(@view.render().el)
       @bindEvents()
 

@@ -4,11 +4,14 @@ jQuery ->
     className: 'row search-result'
 
     events:
-      'keydown .js-searchbar': 'keydown'
       'click .js-guide-item': '_openModal'
 
     initialize: (options) ->
       @listenTo @collection, 'sync', @render
+
+    remove: ->
+      $('.search-result-navbar').remove()
+      super()
 
     _openModal: (e) ->
       guide_id = $(e.currentTarget).attr('data-id')
