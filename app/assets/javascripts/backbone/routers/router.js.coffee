@@ -11,7 +11,6 @@ jQuery ->
       "users/:user/guides/:id": "guide"
       "guides/:id": "my_guide"
 
-      "search/:query": "searchResult"
       "search": "search"
 
       # "*notFound": "notFound"
@@ -92,15 +91,14 @@ jQuery ->
       else
         @show404()
 
-    searchResult: (query) ->
-      collection = new Vacaybug.SearchResultCollection({query: query})
-      collection.fetch()
-      view = new Vacaybug.SearchResultView({collection: collection})
-
-      Vacaybug.appView.setView(view)
-
     search: ->
-      view = new Vacaybug.SearchView()
+      geonames_id = $.getParameterByName('id')
+      query = $.getParameterByName('query')
+
+      collection = new Vacaybug.SearchResultCollection({query: query, id: geonames_id})
+      collection.fetch()
+
+      view = new Vacaybug.SearchResultView({collection: collection})
       Vacaybug.appView.setView(view)
 
     notFound: ->

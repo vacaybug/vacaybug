@@ -1,4 +1,4 @@
-<% if (collection.sync_status) { %>
+<% if (collection.sync_status && collection.models.length > 0) { %>
     <% _.each(_.groupBy(collection.models, function(value, index) { return parseInt(index / 3); }), function(row) { %>
         <div class="row">
             <% _.each(row, function(guide) { %>
@@ -32,4 +32,8 @@
             <% }); %>
         </div>
     <% }); %>
+<% } else { %>
+    <div class="row">
+        <h3 class="text-center">NO RESULT</h3>
+    </div>
 <% } %>

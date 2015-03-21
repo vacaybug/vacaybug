@@ -18,13 +18,13 @@
 //= require dateformat
 //= require bootstrap-datepicker
 //= require jquery-fileupload/basic
+//= require backbone/util
 
 //= require_tree ./backbone/templates
 //= require_tree ./backbone/models
 //= require_tree ./backbone/views
 //= require backbone/routers/router
 //= require backbone/vacaybug
-//= require backbone/util
 //= require_self
 
 //= require bootstrap.min

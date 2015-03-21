@@ -6,13 +6,39 @@ jQuery ->
       'click a.backbone': 'navigate'
 
     initialize: ->
+      $(".js-top-search input").typeahead(
+        {
+          hint: true,
+          highlight: true,
+          minLength: 3
+        },
+        {
+          displayKey: 'value',
+          source: (query, callback) ->
+            if (timeout)
+              clearTimeout(timeout)
+
+            timeout = setTimeout((->
+              matches = []
+              $.ajax
+                url: "http://api.geonames.org/search?name_startsWith=#{encodeURIComponent(query)}&username=vacaybug&maxRows=10&featureClass=P&order=population&type=json"
+                success: (resp) ->
+                  matches = []
+                  for location in resp.geonames
+                    name = location.toponymName
+                    name += ", #{location.adminName1}" if location.adminName1 != location.toponymName
+                    name += ", #{location.countryName}"
+                    matches.push({value: name, data: location})
+                  callback(matches)
+            ), 300)
+        }
+      ).bind('typeahead:selected', (event, selected, name) =>
+        Vacaybug.router.navigate("/search?query=#{encodeURIComponent(selected.value)}&id=#{selected.data.geonameId}", true)
+      )
 
     # if you did something special for
     # some view, it is best place to free it up
     # for other views
-
-    bindEvents: ->
-      $(".js-top-search").keydown(@_searchKeyDown)
 
     setView: (view) ->
       @old_view = @view
@@ -27,20 +53,12 @@ jQuery ->
 
     render: ->
       $(@el).html(@view.render().el)
-      @bindEvents()
 
     navigate: (e) ->
       e.preventDefault()
       e.stopPropagation()
 
       Vacaybug.router.navigate($(e.currentTarget).attr('href'), true)
-
-    _searchKeyDown: (e) ->
-      if (e.keycode || e.which) == 13
-        query = $('.js-top-search input').val()
-        console.log(query)
-        if query
-          Vacaybug.router.navigate("/search/#{query}", true)
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.AppView = AppView

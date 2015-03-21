@@ -102,6 +102,12 @@ jQuery ->
 
     $("#notification").flash_message options
 
+  $.getParameterByName = (name) ->
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]")
+    regex = new RegExp("[\\?&]" + name + "=([^&#]*)")
+    results = regex.exec(location.search);
+    return if results == null then "" else decodeURIComponent(results[1].replace(/\+/g, " "));
+
   Vacaybug.flash_message = flash_message
   window.Vacaybug ||= Vacaybug
   window.TxtOverlay = TxtOverlay

@@ -8,6 +8,7 @@ jQuery ->
 
     initialize: (options) ->
       @listenTo @collection, 'sync', @render
+      @key = 'popular'
 
     remove: ->
       $('.search-result-navbar').remove()
@@ -20,18 +21,27 @@ jQuery ->
       modal.render()
 
     renderNavBar: ->
+      return if @navBarRendered
+      @navBarRendered = true
+
       html = '
         <div class="row navbar-sort search-result-navbar">
-          <div class="col-md-6 col-lg-offset-3 col-sm-6 col-sm-offset-3">
+          <div class="col-md-6 col-lg-offset-4 col-sm-6 col-sm-offset-3">
             <div class="btn-group" role="group" aria-label="...">
-              <button type="button" class="btn active">Popular</button>
-              <button type="button" class="btn">Relevant</button>
-              <button type="button" class="btn">Recent</button>
+              <button type="button" class="js-search-key btn active" data-key="popular">Popular</button>
+              <button type="button" class="js-search-key btn" data-key="recent">Recent</button>
             </div>
           </div>
         </div>
       '
       $(html).insertBefore($('#wrapper'))
+      $('.js-search-key').on 'click', (event) =>
+        key = $(event.currentTarget).attr('data-key')
+        @key = key
+        $('.js-search-key').removeClass('active')
+        $(".js-search-key[data-key=#{key}]").addClass('active')
+        @collection.key = key
+        @collection.fetch()
 
     render: ->
       return @ if !@collection.sync_status

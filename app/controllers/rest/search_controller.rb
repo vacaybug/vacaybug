@@ -3,12 +3,31 @@ class Rest::SearchController < ActionController::Base
 
     before_filter :check_logged_in
 
+    def search_recent geonames_id
+    	render json: {
+            models: Guide.where(geonames_id: geonames_id).order('id desc')
+        }
+    end
+
+    def search_popular geonames_id
+    	render json: {
+    		models: Guide.where(geonames_id: geonames_id).order('popularity desc')
+    	}
+    end
+
     def search
         query = params[:query]
+        geonames_id = params[:id]
+        key = params[:key]
 
-        render json: {
-            models: Guide.all,
-            query: query
-        }
+        if key == 'popular'
+        	search_popular(geonames_id)
+        elsif key == 'recent'
+        	search_recent(geonames_id)
+        else
+        	render json: {
+        		models: []
+        	}
+        end
     end
 end

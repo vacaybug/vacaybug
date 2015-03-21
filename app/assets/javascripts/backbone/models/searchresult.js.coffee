@@ -8,10 +8,12 @@ jQuery ->
     	"/rest/search"
 
     queryParams: ->
-    	"#{super()}&query=#{@query}"
+    	"#{super()}&query=#{encodeURIComponent(@query)}&id=#{@id}&key=#{@key}"
 
     initialize: (options) ->
+      @key = 'popular'
       @query = options.query
+      @id = options.id
       super(options)
 
   Vacaybug.SearchResultCollection = SearchResultCollection
