@@ -11,17 +11,23 @@
 	<%= render 'generic/navigation.html.erb' %>
 
 	<div class="container" id="message">
-		<div class="media messages-container row">
+		<div class="messages-container row">
 			<div class="messages-list col-md-4">
+				<ul class="message-navbar">
+					<li><a href="" class="inbox"><i class="fa fa-comments"></i> Inbox</a></li>
+					<li><a href="" class="unread">Unread (2)</a></li>
+				</ul>
+				<a href="" class="btn btn-default compose"><i class="fa fa-plus-square-o"></i> Compose</a>
+				<div class="clearfix"></div>
 				<div class="panel panel-default">
 					<ul class="list-group">
-					   <li class="list-group-item active">
+					   <li class="list-group-item">
 					       <a href="#">
 								<div class="media">
 								   <div class="media-object pull-left">
 								       <img src="/assets/people/110/woman-5.jpg" width="50" alt="" />
 								   </div>
-								   <div class="media-body col-md-9">
+								   <div class="media-body">
 								       <span class="date">Today</span>
 								       <span class="user">Mary D.</span>
 								       <div class="message">Are we ok to meet...</div>
@@ -35,7 +41,7 @@
 							      <div class="media-object pull-left">
 							          <img src="/assets/people/110/guy-3.jpg" height="50" alt="" />
 							      </div>
-							      <div class="media-body col-md-9">
+							      <div class="media-body">
 							          <span class="date">Sat</span>
 							          <span class="user">Adrian T.</span>
 							          <div class="message">Looking forward to...</div>
@@ -47,50 +53,65 @@
 				</div>
 			</div>
 			<div class="message-content col-md-8">
-				<div class="panel panel-default share">
-					<div class="input-group">
-					   <div class="input-group-btn">
-					       <a class="btn btn-primary" href="#">
-					           <i class="fa fa-envelope"></i> Send
+				<h1>Message with<span> Kelly Rowland</span></h1>
+				<div class="panel panel-default">
+					<ul class="list-group">
+					   <li class="list-group-item">
+					       <a href="#">
+								<div class="media">
+								   <div class="media-object pull-left">
+								       <img src="/assets/people/110/woman-5.jpg" width="50" alt="" />
+								   </div>
+								   <div class="media-body">
+								       <span class="date">Today</span>
+								       <span class="user">Mary D.</span>
+								       <div class="message">Hi Bill, Is it ok if we schedule the meeting tomorrow? Hi Bill, Is it ok if we schedule the meeting tomorrow?Hi Bill, Is it ok if we schedule the meeting tomorrow?Hi Bill, Is it ok if we schedule the meeting tomorrow?</div>
+								   </div>
+								</div>
 					       </a>
-					   </div>
-					   <textarea class="form-control share-text" placeholder="Write message..." row=""></textarea>
-					</div>
+					   </li>
+					   <li class="list-group-item self">
+							<a href="#">
+							  <div class="media">
+							      <div class="media-object pull-left">
+							          <img src="/assets/people/110/guy-3.jpg" height="50" alt="" />
+							      </div>
+							      <div class="media-body">
+							          <span class="date">Sat</span>
+							          <span class="user">Me</span>
+							          <div class="message">Are we still on for Today?</div>
+							      </div>
+							  </div>
+							</a>
+						</li>
+						<li class="list-group-item">
+					       <a href="#">
+								<div class="media">
+								   <div class="media-object pull-left">
+								       <img src="/assets/people/110/woman-5.jpg" width="50" alt="" />
+								   </div>
+								   <div class="media-body">
+								       <span class="date">Today</span>
+								       <span class="user">Mary D.</span>
+								       <div class="message">Yes, absolutely!</div>
+								   </div>
+								</div>
+					       </a>
+					   </li>
+					</ul>
 				</div>
-				<div class="media row">
-				  <div class="col-sm-2 col-xs-2">
-				      <a href="#">
-				          <img src="/assets/people/110/woman-5.jpg" alt="" />
-				      </a>
-				  </div>
-					<div class="panel panel-default col-sm-10 col-xs-10">
-					    <div class="panel-heading panel-heading-white">
-					        <div class="pull-right">
-					            <small class="text-muted">2 min ago</small>
-					        </div>
-					        <a href="#">Mary D.</a>
-					    </div>
-					    <div class="panel-body">
-					        Hi Bill, Is it ok if we schedule the meeting tomorrow? Hi Bill, Is it ok if we schedule the meeting tomorrow?Hi Bill, Is it ok if we schedule the meeting tomorrow?Hi Bill, Is it ok if we schedule the meeting tomorrow?
-					    </div>
+				<div class="panel panel-default share">
+					<div class="panel-body">
+						<textarea name="status" class="form-control share-text" rows="6" placeholder="Write a reply"></textarea>
 					</div>
-				</div>
-				<div class="media row">
-					<div class="col-sm-2 col-xs-2">
+					<div class="panel-footer share-buttons">
 						<a href="#">
-					  		<img src="/assets/people/110/guy-5.jpg" width="60" alt="" />
+						    <i class="fa fa-link"></i>
 						</a>
-					</div>
-					<div class="panel panel-default col-sm-10 col-xs-10">
-					    <div class="panel-heading panel-heading-white">
-					        <div class="pull-right">
-					            <small class="text-muted">10 min ago</small>
-					        </div>
-					        <a href="#">Me</a> 	
-					    </div>
-					    <div class="panel-body">
-					        Are we still on for Today?
-					    </div>
+						<a href="#">
+						    <i class="fa fa-photo"></i>
+						</a>
+						<button type="submit" class="btn btn-default reply pull-right" href="#">Reply</button>
 					</div>
 				</div>
 			</div>

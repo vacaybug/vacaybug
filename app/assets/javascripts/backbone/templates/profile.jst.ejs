@@ -15,11 +15,14 @@
             </li>
             <% if (isPrivate) { %>
                 <li class="<%= activeTab == 'wishlist' ? 'active' : '' %> js-tab" data-tab='wishlist'>
-                    <a href="#wishlist" role="tab" data-toggle="tab"><i class="fa fa-list"></i> Wishlist</a>
+                    <a href="#wishlist" role="tab" data-toggle="tab"><i class="fa fa-map-marker"></i> Wishlist</a>
                 </li>
                 <li class="<%= activeTab == 'about' ? 'active' : '' %> js-tab" data-tab='about'>
                     <a href="#about" role="tab" data-toggle="tab"><i class="fa fa-info-circle"></i> About</a>
                 </li>
+<!--                 <li class="story">
+                    <a href="#" role="tab"><i class="fa fa-book"></i> Story<br><span>*Coming Soon*</span></a>
+                </li> -->
             <% } %>
         </ul>
         <ul class="cover-nav nav nav-tabs pull-right" style="left: 650px">
