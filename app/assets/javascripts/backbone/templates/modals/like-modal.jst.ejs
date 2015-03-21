@@ -1,0 +1,47 @@
+<div class="comment-modal modal fade" id="like" tabindex="-1" role="dialog" aria-labelledby="guideModal" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">People Who Like This Post</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="comments" style="max-height: 300px; overflow: scroll">
+                    <% _.each(collection.models, function(model) { %>
+                        <li class="item" data-id="<%= model.get('id') %>">
+                        </li>
+                    <% }); %>
+<!--                     <li>
+                        <div class="media">
+                            <a href="" class="pull-left">
+                                <img src="/assets/people/50/guy-5.jpg" class="media-object">
+                            </a>
+                            <div class="media-body">
+                                <a href="" class="comment-author">Bill D.</a>
+                                <div class="comment-date">21st September</div>
+                            </div>
+                            <div class="clearfix"></div>
+                            
+                        </div>
+                        <a href="#" class="btn btn-default btn-follow js-follow">Follow</a>
+                    </li>
+                    <li>
+                        <div class="media">
+                            <a href="" class="pull-left">
+                                <img src="/assets/people/50/woman-5.jpg" class="media-object">
+                            </a>
+                            <div class="media-body">
+                                <a href="" class="comment-author">Mary</a>
+                                <div class="comment-date">2 days</div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-default btn-following js-follow">Following</a>
+                    </li> -->
+                </ul>
+                <% if (collection.has_more) { %>
+                    <p class="text-center"><a class="js-more" href="javascript:void(0)">See more</a></p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>

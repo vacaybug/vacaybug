@@ -23,8 +23,6 @@ jQuery ->
         username: @model.get('username')
       @guides.fetch()
 
-      @listenTo @guides, 'sync', @render
-      @listenTo @guides, 'change', @render
       @listenTo @guides, 'remove', @render
       @listenTo @guides, 'add', @render
 

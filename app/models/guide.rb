@@ -5,6 +5,8 @@ class Guide < ActiveRecord::Base
 	has_many :place_associations, :class_name => 'GuidePlaceAssociation'
     has_many :places, through: :place_associations
 
+    has_many :likes
+
 	belongs_to :user
 
 	after_destroy :delete_associations
@@ -23,7 +25,11 @@ class Guide < ActiveRecord::Base
 		end
 	end
 
+	def likes_count
+		self.likes.count
+	end
+
 	def as_json (options)
-		super(methods: [:user])
+		super(methods: [:user, :likes_count])
 	end
 end

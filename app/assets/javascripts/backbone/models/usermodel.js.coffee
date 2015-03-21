@@ -49,3 +49,21 @@ jQuery ->
     setType: (@type) ->
 
   Vacaybug.FollowersCollection = FollowersCollection
+
+  class LikedPeopleCollection extends window.Vacaybug.GenericCollection
+    model: Vacaybug.UserModel
+
+    restURL: ->
+      "/rest/guides/#{@guide_id}/people_liked"
+
+    queryParams: ->
+      "#{super()}&offset=#{@next_offset}"
+
+    setGuideId: (@guide_id) ->
+
+    parse: (resp, options) ->
+      @has_more = resp.has_more
+      @next_offset = resp.next_offset
+      super(resp, options)
+
+  Vacaybug.LikedPeopleCollection = LikedPeopleCollection

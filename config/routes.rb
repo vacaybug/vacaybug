@@ -43,7 +43,16 @@ Vacaybug::Application.routes.draw do
         end
 
         resources :guides do
+            member do
+                get :people_liked
+            end
             resources :places do
+            end
+        end
+
+        resources :likes do
+            collection do
+                get :like_guide
             end
         end
 

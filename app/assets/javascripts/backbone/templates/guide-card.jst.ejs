@@ -1,0 +1,31 @@
+<div class="col-md-4 col-sm-6">
+    <div class="guide-item">
+        <div class="guide-caption" style="position: relative">
+            <h4>
+                <a class="backbone" href="/guides/<%= model.get('id') %>"><%= _.escape(model.get('title')) %></a>
+                <% if (model.get('user').id == Vacaybug.current_user.id) { %>
+                    <a class="js-delete-guide pull-right delete" data-id="<%= model.get('id') %>">&times;</a>
+                <% } %>
+            </h4>
+        </div>
+        <a href="javascript:void(0)" class="guide-link js-guide-item" data-id="<%= model.get('id') %>">
+            <div class="guide-hover">
+                <span class="js-like">Like</span>
+                <span class="js-share">Share</span>
+                <div class="guide-hover-content">
+                    <i class="fa fa-plus fa-3x"></i>
+                </div>
+            </div>
+            <img src="/assets/guide/rome.jpg" class="img-responsive" alt="">
+        </a>
+        <div class="guide-caption">
+            <p class="guide-content"><%= _.escape(model.get('description')) %></p>
+            <ul class="guide-socialMeta">
+                <li><a href="javascript:void(0)" class="js-show-likes text-muted"><i class="fa fa-heart"></i> <%= model.get('likes_count') %></a></li>
+<!--                 <li><a href="" class="text-muted"><i class="fa fa-comment"></i> 5</a></li>
+                <li><a href="" class="text-muted"><i class="fa fa-refresh"></i> 10</a></li> -->
+                <li class="pull-right"><p class="text-muted"><%= $.timeago(model.get('created_at')) %></p></li>
+           </ul>
+        </div>
+    </div>
+</div>

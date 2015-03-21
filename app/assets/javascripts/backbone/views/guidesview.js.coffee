@@ -15,6 +15,13 @@ jQuery ->
       $(@el).html @template
         collection: @collection
         isPrivate: @isPrivate
+
+      _.each @collection.models, (@model) =>
+        container = @$(".guide-card-container[data-id=#{@model.get('id')}]")[0]
+        view = new Vacaybug.GuideCardView
+          model: @model
+          isPrivate: @isPrivate
+        view.setElement(container).render()
       @
 
   Vacaybug = window.Vacaybug ? {}

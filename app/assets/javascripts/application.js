@@ -35,3 +35,4 @@
 //= require geonames
 //= require jquery-ui
 //= require jeditable
+//= require timeago

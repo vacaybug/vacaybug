@@ -1,0 +1,17 @@
+<div class="media">
+    <a href="" class="pull-left">
+        <img src="<%= model.get('avatar').thumb %>" class="media-object" width="50">
+    </a>
+    <div class="media-body">
+        <a href="/users/<%= model.get('username') %>" class="backbone comment-author"><%= model.get('full_name') %></a>
+        <div class="comment-date"><%= $.timeago(model.get('liked_date')) %></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<% if (model.get('id') != Vacaybug.current_user.id) { %>
+    <% if (model.get('follows')) { %>
+        <a href="javascript:void(0)" class="btn btn-default btn-following js-unfollow">Following</a>
+    <% } else { %>
+        <a href="javascript:void(0)" class="btn btn-default btn-follow js-follow">Follow</a>
+    <% } %>
+<% } %>

@@ -33,7 +33,15 @@
                 <a href="/users/<%= model.username %>/following"><%= model.following_count %> Following</a>
             </li>
         </ul>
-        <a class="btn pull-right new-guide-btn" href="#guideModal" data-toggle="modal">Create a guide</a>
+        <% if (isPrivate) { %>
+            <a class="btn pull-right new-guide-btn" href="#guideModal" data-toggle="modal">Create a guide</a>
+        <% } else { %>
+            <% if (model.follows) { %>
+                <a href="javascript:void(0)" class="btn btn-danger cover-follow pull-right js-unfollow">Unfollow</a>
+            <% } else { %>
+                <a href="javascript:void(0)" class="btn btn-info cover-follow pull-right js-follow">Follow</a>
+            <% } %>
+        <% } %>
     </div>
 </div>
 <div class="panel">
