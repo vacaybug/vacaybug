@@ -169,7 +169,7 @@ jQuery ->
 
       @guidesView ||= new Vacaybug.GuidesView
         collection: @guides
-        isPrivate: @isPrivate
+        where: 'profile'
       @guidesView.setElement($('.guides')[0]).render()
       @
 

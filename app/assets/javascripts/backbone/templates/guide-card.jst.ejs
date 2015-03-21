@@ -3,7 +3,7 @@
         <div class="guide-caption" style="position: relative">
             <h4>
                 <a class="backbone" href="/guides/<%= model.get('id') %>"><%= _.escape(model.get('title')) %></a>
-                <% if (model.get('user').id == Vacaybug.current_user.id) { %>
+                <% if (model.get('user').id == Vacaybug.current_user.id && where == 'profile') { %>
                     <a class="js-delete-guide pull-right delete" data-id="<%= model.get('id') %>">&times;</a>
                 <% } %>
             </h4>

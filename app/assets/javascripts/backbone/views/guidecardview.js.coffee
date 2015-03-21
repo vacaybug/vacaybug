@@ -7,6 +7,7 @@ jQuery ->
       'click .js-show-likes': 'showLikes'
 
     initialize: (options) ->
+      @where = options.where
       @listenTo @model, 'change', @render
 
     render: ->
@@ -14,6 +15,7 @@ jQuery ->
 
       $(@el).html @template
         model: @model
+        where: @where
       @
 
     like: (e) ->

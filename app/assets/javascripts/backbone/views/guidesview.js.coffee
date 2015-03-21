@@ -3,7 +3,7 @@ jQuery ->
     template: JST["backbone/templates/guides"]
 
     initialize: (options) ->
-      @isPrivate = options.isPrivate
+      @where = options.where
 
       @listenTo @collection, 'sync', @render
       @listenTo @collection, 'add', @render
@@ -14,13 +14,12 @@ jQuery ->
 
       $(@el).html @template
         collection: @collection
-        isPrivate: @isPrivate
 
       _.each @collection.models, (@model) =>
         container = @$(".guide-card-container[data-id=#{@model.get('id')}]")[0]
         view = new Vacaybug.GuideCardView
           model: @model
-          isPrivate: @isPrivate
+          where: @where
         view.setElement(container).render()
       @
 

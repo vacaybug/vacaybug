@@ -48,6 +48,12 @@ jQuery ->
 
       $(@el).html @template
         collection: @collection
+
+      view = new Vacaybug.GuidesView
+        collection: @collection
+        where: 'search'
+      view.setElement(@$('.guides-container')).render()
+
       @renderNavBar()
       @
 
