@@ -1,5 +1,7 @@
 jQuery ->
   class ProfileView extends window.Vacaybug.GenericView
+    showSpinner: true
+
     events:
       'click .js-follow': 'follow'
       'click .js-unfollow': 'unfollow'
@@ -23,10 +25,11 @@ jQuery ->
         username: @model.get('username')
       @guides.fetch()
 
-      @listenTo @guides, 'remove', @render
-      @listenTo @guides, 'add', @render
+      @listenTo @guides, 'remove', @renderMap
+      @listenTo @guides, 'add', @renderMap
+      super()
 
-    initializeMap: ->
+    renderMap: ->
       return if $('.map-container').length == 0
 
       mapOptions = {zoom: 5}
@@ -81,7 +84,9 @@ jQuery ->
 
       guide.save null,
         success: (model, resp) ->
-          Vacaybug.router.navigate("/guides/#{guide.get('id')}", {trigger: true})
+          window.location = "/guides/#{guide.get('id')}"
+          # TODO figure out why the scroll is hanging
+          # Vacaybug.router.navigate("/guides/#{guide.get('id')}", {trigger: true})
         error: ->
           elem.removeAttr("disabled")
           elem.html("Continue")
@@ -107,7 +112,7 @@ jQuery ->
         birth_date: @birth_date
         isPrivate: @isPrivate
 
-      @initializeMap()
+      @renderMap()
 
       $("#fileupload").fileupload(
         url: "/rest/users/upload_photo"

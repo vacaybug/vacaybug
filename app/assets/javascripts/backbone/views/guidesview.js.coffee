@@ -1,12 +1,12 @@
 jQuery ->
   class GuidesView extends window.Vacaybug.GenericView
     template: JST["backbone/templates/guides"]
+    showSpinner: true
 
     initialize: (options) ->
       @where = options.where
 
       @listenTo @collection, 'sync', @render
-      @listenTo @collection, 'add', @render
       @listenTo @collection, 'remove', @render
 
     render: ->
