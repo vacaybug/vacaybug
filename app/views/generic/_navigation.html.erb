@@ -14,14 +14,14 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="main-nav">
-            <ul class="nav navbar-nav navbar-left">
-                <form class="navbar-form js-top-search" role="search" action="javascript:void(0)">
-                    <input type="text" class="form-control nav-search" placeholder="Search for your next getaway...">
-                    <i class="fa fa-search"></i>
-                </form>
-            </ul>
             <!-- User -->
             <% if (current_user) %>
+                <ul class="nav navbar-nav navbar-left">
+                    <form class="navbar-form js-top-search" role="search" action="javascript:void(0)">
+                        <input type="text" class="form-control nav-search" placeholder="Search for your next getaway...">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="/newsfeed"><i class="fa fa-globe"></i> Newsfeed</a>
@@ -50,7 +50,10 @@
                     </li>
                 </ul>
             <% else %>
-                <a class="btn btn-default btn-login navbar-right" href="/login">Login</a>
+                <form class="navbar-form navbar-right">
+                    <a class="btn btn-default pull-right" href="/login">Log in</a>
+                    <h5>Already have an account?</h5>
+                </form>
             <% end %>
         </div>
     </div>

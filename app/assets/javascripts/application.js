@@ -28,7 +28,6 @@
 //= require_self
 
 //= require bootstrap.min
-//= require agency
 //= require masonry
 //= require imagesloaded.min
 //= require typeahead

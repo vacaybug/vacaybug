@@ -12,8 +12,6 @@ body {
 body a {
     cursor: pointer;
 }
-
-
 #sign-up {
     color: #f26d64;
 }
@@ -656,4 +654,46 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #fed136;
+}
+.btn-warning {
+    background-color: #f26d64;
+    color: #fff;
+    border-color: #f26d64;
+}
+.btn-warning:hover {
+    background-color: #f5776e;
+    border-color: #f5776e;
+}
+.btn-primary {
+    background-color: #00629b;
+    color: #fff;
+    border-color: #00629b;
+}
+.btn-primary:hover {
+    background-color: #00629b;
+    color: #fff;
+    border-color: #00629b;
+}
+.btn-success {
+    background-color: #25ABE1;
+    color: #fff;
+    border-color: #25ABE1;
+}
+.btn-success:hover {
+    background-color: #25ABE1;
+    color: #fff;
+    border-color: #25ABE1;
+}
+.btn-default {
+    background-color: #fff;
+    color: #00629b !important;
+    border-color: #00629b !important;
+}
+.btn-default:hover {
+    background-color: #00629b;
+    color: #fff !important;
+    border-color: #00629b;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
 }

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%= render 'generic/home_header' %>
     <head>
-        <title>VacayBug | Privacy</title>
+        <%= render 'generic/home_header' %>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>VacayBug - Privacy</title>
     </head>
     <body id="page-top" class="index">
         <div class="navbar navbar-primary navbar-fixed-top" role="navigation">
@@ -20,11 +22,10 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="main-nav">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/">ABOUT</a></li>
-                        <li class="divider"><a href="/">GUIDE</a></li>
-                        <li class="divider"><a href="#signin" data-toggle="modal" id="sign-up">SIGN IN</a></li>
-                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <a href="#signup" class="page-scroll btn btn-warning">Join VacayBug Free</a>
+                        <a href="#signin" class="btn btn-default" data-toggle="modal" id="sign-up">Log In</a>
+                    </form>
                 </div>
             </div>
         </div>

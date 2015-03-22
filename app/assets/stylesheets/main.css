@@ -57,6 +57,23 @@ div.flash-notification .flash-notice {
 	position: relative;
 	bottom: 20px;
 }
+.btn-warning {
+	background-color: #f26d65;
+	color: #fff;
+}
+.btn-primary {
+	background-color: #00629b;
+	color: #fff;
+}
+.btn-success {
+	background-color: #25ABE1;
+	color: #fff;
+}
+.btn-default {
+	background-color: #fff;
+	color: #00629b;
+	border: 1px solid #00629b;
+}
 
 /* TYPEAHEAD */
 
@@ -242,16 +259,16 @@ span.text-content {
 }
 .navbar-primary .navbar-form {
 	margin: 0 auto;
-	padding-top: 11px;
+	padding-top: 10px;
 	padding-bottom: 0px;
    width: 400px;
 }
-.navbar-primary .nav-search {
+.navbar-primary .form-control.nav-search {
    -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
    border-radius: 5px;
    width: 100%;
-   padding-left: 25px;
+   padding: 20px 0px 20px 25px;
 }	
 .navbar-primary .nav-search::-moz-placeholder {
 	font-weight: 500;
@@ -268,7 +285,7 @@ span.text-content {
 .navbar-primary .fa-search {
 	color: #bbbcbc;
 	position: relative;
-	bottom: 25px;
+	bottom: 32px;
 	left: 8px;
 }
 
@@ -297,6 +314,26 @@ span.text-content {
 }
 .navbar-primary .navbar-nav > li.active > a {
 	color: #98d6ec;
+}
+.navbar-primary .navbar-form h5 {
+	float: right;
+	font-size: 15px;
+	font-weight: 500;
+	color: #fff;
+	margin-right: 15px;
+}
+.btn-default {
+    background-color: #00629b;
+    color: #fff;
+    border-color: #00629b;
+}
+.btn-default:hover {
+    background-color: #fff;
+    color: #00629b;
+    border-color: #00629b;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
 }
 
 /* USER PROFILE */
@@ -1004,18 +1041,17 @@ span.text-content {
 /* SEARCH */
 
 .navbar-sort {
-	width: 100%;
+	width: 101%;
 	margin-top: 8px;
 	padding: 20px 0px;
 	background-color: #f7f7f7;
 	position: fixed;
 	z-index: 1000;
+	background: rgba(247,247,247,0.8);
 }
-
 .navbar-sort .btn-group {
 	display: inline;
 }
-
 .navbar-sort .btn-group button {
 	background-color: #fff;
 	color: #25ABE1;
