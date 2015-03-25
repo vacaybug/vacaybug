@@ -7,7 +7,7 @@
             </div>
             <% if (collection.models.length > 0) { %>
                 <div class="modal-body">
-                    <ul class="comments" style="max-height: 300px; overflow: scroll">
+                    <ul class="comments">
                         <% _.each(collection.models, function(model) { %>
                             <li class="item" data-id="<%= model.get('id') %>">
                             </li>

@@ -7,11 +7,7 @@
             </div>
         </div>
         <div class="container guide-container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="text-center"><%= _.escape(guide.get('title')) %></h3>
-                </div>
-            </div>
+            <h3 class="text-center"><%= _.escape(guide.get('title')) %></h3>
             <% _.each(_.groupBy(places.models, function(val, index) { return parseInt(index / 4); }), function(row) { %>
                 <div class="row">
                     <% _.each(row, function(model) { %>

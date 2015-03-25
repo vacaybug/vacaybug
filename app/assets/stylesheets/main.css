@@ -60,14 +60,25 @@ div.flash-notification .flash-notice {
 .btn-warning {
 	background-color: #f26d65;
 	color: #fff;
+	border-color: #f26d65;
+}
+.btn-warning:hover {
+    background-color: #f5776e;
+    border-color: #f5776e;
 }
 .btn-primary {
 	background-color: #00629b;
 	color: #fff;
+	border-color: #00629b;
+}
+.btn-primary:hover {
+    background-color: #1971a5;
+    border-color: #1971a5;
 }
 .btn-success {
 	background-color: #25ABE1;
 	color: #fff;
+	border-color: #25ABE1;
 }
 .btn-default {
 	background-color: #fff;
@@ -182,11 +193,13 @@ span.text-content {
 	padding: 10px 0px;
 	box-shadow: 0 -7px 16px #000;
 }
-
 .navbar-primary {
 	background-color: #203141;
 	padding: 10px 0px;
 	box-shadow: 0 -7px 16px #000;
+}
+.navbar-primary .navbar-header .nav-logo img {
+	margin-top: 4px;
 }
 .navbar-nav > li > a.dropdown-toggle {
 	background-color: inherit;
@@ -259,6 +272,7 @@ span.text-content {
 }
 .navbar-primary .navbar-form {
 	margin: 0 auto;
+	margin-top: 2px;
 	padding-top: 10px;
 	padding-bottom: 0px;
    width: 400px;
@@ -268,7 +282,7 @@ span.text-content {
    -moz-border-radius: 5px;
    border-radius: 5px;
    width: 100%;
-   padding: 20px 0px 20px 25px;
+   padding: 17px 0px 17px 25px;
 }	
 .navbar-primary .nav-search::-moz-placeholder {
 	font-weight: 500;
@@ -285,7 +299,7 @@ span.text-content {
 .navbar-primary .fa-search {
 	color: #bbbcbc;
 	position: relative;
-	bottom: 32px;
+	bottom: 26px;
 	left: 8px;
 }
 
@@ -1312,13 +1326,21 @@ ul.social-buttons li a:active {
 	width: 100%;
 	height: 100%;
 	opacity: 0;
-	background: #99d4e9;
 	-webkit-transition: all ease .5s;
 	-moz-transition: all ease .5s;
 	transition: all ease .5s;
 }
+.guide-item .guide-link .guide-hover .js-like {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.guide-item .guide-link .guide-hover .js-share {
+	margin-top: 10px;
+	margin-left: 5px;
+}
 .guide-item .guide-link .guide-hover:hover {
 	opacity: .9;
+	background: #99d4e9;
 }
 .guide-item .guide-link .guide-hover .guide-hover-content {
 	position: absolute;
@@ -1473,11 +1495,15 @@ ul.social-buttons li a:active {
 .guide-modal .modal-content .guide-container h3 {
 	color: #fff;
 	padding: 20px 0px;
-	margin-bottom: 20px;
-	background-color: #00ced1;
+	margin: 0px -15px 20px -15px;
+	background-color: #98d6ec;
+	border-top-left-radius: 9px;
+	border-top-right-radius: 9px;
+	border-bottom: 1px solid #d4d4d4;
 }
 
 .guide-item .delete {
+	font-size: 19px;
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
 	border-radius: 50px;
@@ -1488,9 +1514,9 @@ ul.social-buttons li a:active {
 	cursor: pointer;
 	position: absolute;
 	top: -17px;
-	right: -11px;
-	width: 22px;
-	height: 22px;
+	right: -12px;
+	width: 25px;
+	height: 25px;
 }
 
 .guide-item:hover .delete {
@@ -1511,6 +1537,11 @@ ul.social-buttons li a:active {
   padding: 0;
   border-top: 1px solid #efefef;
   margin-bottom: 0;
+  max-height: 300px;
+  overflow: scroll;
+}
+.comment-modal .modal-content .modal-body ul.comments::-webkit-scrollbar { 
+  display: none;
 }
 .comment-modal .modal-content .modal-body ul.comments .media-object{
 	-webkit-border-radius: 10px;
@@ -1524,10 +1555,12 @@ ul.social-buttons li a:active {
 	right: 15px;
 	width: 90px;
 	color: #fff;
-	background-color: #98d6ec;
+	background-color: #00629b;
+	border-color: #00629b;
 }
 .comment-modal .modal-content .modal-body ul.comments .btn-follow:hover {
-	background-color: #00629b;
+	background-color: #98d6ec;
+	border-color: #98d6ec;
 }
 .comment-modal .modal-content .modal-body ul.comments .btn-following {
 	float: right;
@@ -1536,15 +1569,17 @@ ul.social-buttons li a:active {
 	right: 15px;
 	width: 90px;
 	color: #fff;
-	background-color: #00629b;
+	background-color: #98d6ec;
+	border-color: #98d6ec;
 }
 .comment-modal .modal-content .modal-body ul.comments .btn-following:hover {
-	background-color: #98d6ec;
+	background-color: #00629b;
+	border-color: #00629b;
 }
 .comment-modal .modal-content .modal-body ul.comments li {
   border-bottom: 3px solid #fff;
   background: #fcfcfc;
-  padding: 5px;
+  padding: 10px;
 }
 .comment-modal .modal-content .modal-body ul.comments li.comment-form {
 	background-color: #fff;
