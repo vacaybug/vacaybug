@@ -1,5 +1,5 @@
 class Like < ActiveRecord::Base
-	attr_accessible :user_id, :guide_id
+	attr_accessible :user_id, :story_id
 	belongs_to :user
-	belongs_to :guide
+	belongs_to :story
 end

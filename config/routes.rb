@@ -43,16 +43,23 @@ Vacaybug::Application.routes.draw do
         end
 
         resources :guides do
-            member do
-                get :people_liked
-            end
             resources :places do
             end
         end
 
-        resources :likes do
+        resources :stories, only: [:create, :delete] do
+            member do
+                get :people_liked
+                put :like
+
+                get :comments
+                put :add_comment
+            end
+        end
+
+        resources :newsfeed do
             collection do
-                get :like_guide
+                get :stories
             end
         end
 

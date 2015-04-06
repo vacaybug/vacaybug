@@ -1,35 +1,46 @@
 class Guide < ActiveRecord::Base
-	attr_accessible :privacy, :country, :city, :region, :geonames_id, :user_id, :title, :description, :gn_data
-	serialize :gn_data, JSON
+    attr_accessible :privacy, :country, :city, :region, :geonames_id, :user_id, :title, :description, :gn_data
+    serialize :gn_data, JSON
 
-	has_many :place_associations, :class_name => 'GuidePlaceAssociation'
+    has_many :place_associations, :class_name => 'GuidePlaceAssociation'
     has_many :places, through: :place_associations
 
-    has_many :likes
+    has_one :story, class_name: "Story",  foreign_key: :resource_id, dependent: :destroy
 
-	belongs_to :user
+    belongs_to :user
 
-	after_destroy :delete_associations
-	before_save    :setup_params
+    after_destroy :delete_associations
+    before_save :setup_params
+    after_create :create_story
 
     validates_length_of :description, maximum: 1000
 
-	def delete_associations
-		UserGuideAssociation.find_by_guide_id(self.id).destroy
-		GuidePlaceAssociation.where(guide_id: self.id).destroy_all
-	end
+    def as_json (options={})
+        options[:methods] ||= [:user, :story]
+        super(options)
+    end
 
-	def setup_params
-		if self.title.nil?
-			self.title = self.city + " trip"
-		end
-	end
+    def story_attributes
+        self.as_json(methods: [:user])
+    end
 
-	def likes_count
-		self.likes.count
-	end
+    private
 
-	def as_json (options)
-		super(methods: [:user, :likes_count])
-	end
+    def create_story
+        Story.create({
+            story_type: Story::TYPES::GUIDE,
+            resource_id: self.id
+        })
+    end
+
+    def setup_params
+        if self.title.nil?
+            self.title = self.city + " trip"
+        end
+    end
+
+    def delete_associations
+        UserGuideAssociation.find_by_guide_id(self.id).destroy
+        GuidePlaceAssociation.where(guide_id: self.id).destroy_all
+    end
 end

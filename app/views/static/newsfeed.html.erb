@@ -11,7 +11,7 @@
 	<%= render 'generic/navigation.html.erb' %>
 	<!-- Homepage Newfeed -->
     <div class="container" id="wrapper">
-        <div id="newsfeed">
+        <div class="newsfeed-container">
             <div class="timeline-block">
                 <div class="panel panel-default newsfeed share">
                     <div class="panel-heading">
@@ -418,8 +418,8 @@
     <script type="text/javascript">
         $(document).ready(function(){
             //initialize
-            $("#newsfeed").imagesLoaded(function(){
-                $("#newsfeed").masonry({
+            $(".newsfeed-container").imagesLoaded(function(){
+                $(".newsfeed-container").masonry({
                     itemSelector: '.timeline-block',
                     isFitWidth: true
                 });

@@ -1,6 +1,7 @@
 jQuery ->
-  class GuideCardView extends window.Vacaybug.StoryView
-    template: JST["backbone/templates/guide-card"]
+  class StoryGuideView extends window.Vacaybug.StoryView
+    template: JST["backbone/templates/story/guide"]
+    className: "timeline-block"
 
     events:
       'click .js-like': 'like'
@@ -8,33 +9,29 @@ jQuery ->
       'click .js-show-comments': 'showComments'
 
     initialize: (options) ->
-      @where = options.where
+      @listenTo @model, 'sync', @render
       @listenTo @model, 'change', @render
-
-      @story = new Vacaybug.StoryModel(@model.get('story'))
-      @story.set('data', @model.attributes)
 
     render: ->
       return @ unless @model.sync_status
 
       $(@el).html @template
         model: @model
-        story: @story
-        where: @where
       @
 
     like: (e) ->
       e.preventDefault()
       e.stopPropagation()
-      @story.like (count) =>
-        @story.set('likes_count', count)
-        @render()
+      @model.like (count) =>
+        @model.set('likes_count', count)
 
     showLikes: (e) ->
-      @story.showLikes()
+      e.preventDefault()
+      e.stopPropagation()
+      @model.showLikes()
 
     showComments: (e) ->
-      @story.showComments()
+      @model.showComments()
 
   Vacaybug = window.Vacaybug ? {}
-  Vacaybug.GuideCardView = GuideCardView
+  Vacaybug.StoryGuideView = StoryGuideView

@@ -54,12 +54,12 @@ jQuery ->
     model: Vacaybug.UserModel
 
     restURL: ->
-      "/rest/guides/#{@guide_id}/people_liked"
+      "/rest/stories/#{@story_id}/people_liked"
 
     queryParams: ->
       "#{super()}&offset=#{@next_offset}"
 
-    setGuideId: (@guide_id) ->
+    setStoryId: (@story_id) ->
 
     parse: (resp, options) ->
       @has_more = resp.has_more

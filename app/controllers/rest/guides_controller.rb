@@ -76,28 +76,4 @@ class Rest::GuidesController < ActionController::Base
             render403
         end
     end
-
-    def people_liked
-        offset = params[:offset] || 0
-        limit = 10
-
-        guide = Guide.find(params[:id])
-        likes = guide.likes.where('id > ?', offset)
-        has_more = likes.count > limit
-        likes = likes.limit(limit)
-        if has_more
-            next_offset = likes.last.id
-        else
-            next_offset = nil
-        end
-
-        render json: {
-            models: likes.map do |like|
-                user = like.user.as_json({additional: true, current_user: current_user})
-                user.merge({liked_date: like.created_at})
-            end,
-            has_more: has_more,
-            next_offset: next_offset
-        }
-    end
 end

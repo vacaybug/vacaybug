@@ -1,0 +1,47 @@
+<div class="panel panel-default newsfeed">
+    <div class="panel-heading">
+        <div class="media">
+            <a href="" class="pull-left">
+                <img src="<%= model.get('data').user.avatar.thumb %>" class="media-object avatar-thumb">
+            </a>
+            <div class="media-body">
+                <a href="/users/<%= model.get('data').user.username %>" class="backbone newsfeed-user"><%= model.get('data').user.full_name %></a>
+                <span class="newsfeed-date"><%= $.timeago(model.get('created_at')) %></span>
+            </div>
+        </div>
+    </div>
+    <div style="position: relative">
+        <div class="guide-hover">
+            <span class="js-like btn btn-warning">Like</span>
+            <span class="js-share btn btn-primary">Share</span>
+            <div class="guide-hover-content">
+                <i class="fa fa-plus fa-3x"></i>
+            </div>
+        </div>
+        <div class="panel-body">
+            Just uploaded a guide - <a href="/guides/<%= model.get('data').id %>"><%= model.get('data').title %></a>
+        </div>
+        <a href="#"><img src="/assets/guide/mongolia.jpg" class="img-responsive"></a>
+    </div>
+    <div class="view-all-comments">
+        <a href="javascript:void(0)" class="js-show-likes text-muted" data-toggle="modal"><i class="fa fa-heart"></i> <%= model.get('likes_count') %></a>
+        <a href="javascript:void(0)" class="js-show-comments text-muted margin-left-25" data-toggle="modal"><i class="fa fa-comment"></i> <%= model.get('comments_count') %></a>
+     </div>
+    <ul class="comments">
+        <li>
+            <div class="media">
+                <a href="" class="pull-left">
+                    <img src="/assets/people/50/woman-5.jpg" class="media-object">
+                </a>
+                <div class="media-body">
+                    <a href="" class="comment-author">Mary</a>
+                    <span class="comment-content">Wow</span>
+                    <div class="comment-date">2 days</div>
+                </div>
+            </div>
+        </li>
+        <li class="comment-form">
+            <input type="text" class="form-control" placeholder="Write a comment..." />
+        </li>
+    </ul>
+</div>

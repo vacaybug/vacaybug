@@ -1,6 +1,6 @@
 jQuery ->
-  class LikeModalView extends window.Vacaybug.GenericView
-    template: JST['backbone/templates/modals/like-modal']
+  class CommentModalView extends window.Vacaybug.GenericView
+    template: JST['backbone/templates/modals/comment-modal']
 
     events:
       'click .js-more': 'seeMore'
@@ -8,11 +8,19 @@ jQuery ->
     initialize: (options) ->
       @modalRendered = false
 
-      @collection = new Vacaybug.LikedPeopleCollection()
+      @collection = new Vacaybug.CommentsCollection()
       @collection.setStoryId(options.story_id)
       @collection.fetch()
 
       @listenTo @collection, 'sync', @render
+
+    getTitle: ->
+      if @collection.models.length == 0
+        "Be the first one to comment on this story!"
+      else if @collection.models.length == 1
+        "1 comment on this post"
+      else
+        "#{@collection.total_count} comments on this post"
 
     renderModal: ->
       id = Math.floor((Math.random() * 10000000) + 1);
@@ -26,16 +34,17 @@ jQuery ->
 
       $(@el).html @template
         collection: @collection
+        title: @getTitle()
 
       _.each @collection.models, (model) =>
-        view = new Vacaybug.LikedPeopleItemView({model: model})
+        view = new Vacaybug.CommentModalItemView({model: model})
         view.setElement(@$(".item[data-id=#{model.get('id')}]")).render()
 
       @$('.modal').modal('show')
       @
 
     seeMore: ->
-      newCollection = new Vacaybug.LikedPeopleCollection()
+      newCollection = new Vacaybug.CommentsCollection()
       newCollection.setStoryId(@collection.story_id)
       newCollection.next_offset = @collection.next_offset
       newCollection.fetch
@@ -43,7 +52,7 @@ jQuery ->
           _.each c.models, (model) =>
             @collection.add(model)
             @$('.comments').append("<li class='item' data-id='#{model.get('id')}'></li>")
-            view = new Vacaybug.LikedPeopleItemView({model: model})
+            view = new Vacaybug.CommentModalItemView({model: model})
             view.setElement(@$(".item[data-id=#{model.get('id')}]")).render()
 
           @collection.has_more = c.has_more
@@ -52,4 +61,4 @@ jQuery ->
             @$('.js-more').remove()
 
   Vacaybug = window.Vacaybug ? {}
-  Vacaybug.LikeModalView = LikeModalView
+  Vacaybug.CommentModalView = CommentModalView

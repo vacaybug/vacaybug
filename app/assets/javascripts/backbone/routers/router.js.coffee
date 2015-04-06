@@ -13,6 +13,8 @@ jQuery ->
 
       "search": "search"
 
+      "newsfeed": "newsfeed"
+
       # "*notFound": "notFound"
     
     initialize: ->
@@ -99,6 +101,13 @@ jQuery ->
       collection.fetch()
 
       view = new Vacaybug.SearchResultView({collection: collection})
+      Vacaybug.appView.setView(view)
+
+    newsfeed: ->
+      collection = new Vacaybug.NewsfeedStoryCollection()
+      collection.fetch()
+      view = new Vacaybug.NewsfeedView({collection: collection})
+
       Vacaybug.appView.setView(view)
 
     notFound: ->
