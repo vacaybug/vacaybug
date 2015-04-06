@@ -1238,13 +1238,13 @@ span.text-content {
 .timeline-block .newsfeed ul.comments li {
 	background-color: #f7f7f7;
 }
-.timeline-block .newsfeed ul.comments li.comment-form {
+.timeline-block .newsfeed .comment-form {
 	background-color: #fff;
 	padding: 10px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
-.timeline-block .newsfeed ul.comments li.comment-form input{
+.timeline-block .newsfeed .comment-form input{
 	font-size: 12px;
 	padding: 10px;
 	-webkit-border-radius: 8px;
@@ -1591,11 +1591,11 @@ ul.social-buttons li a:active {
   background: #fcfcfc;
   padding: 10px;
 }
-.comment-modal .modal-content .modal-body ul.comments li.comment-form {
+.comment-modal .modal-content .modal-body .comment-form {
 	background-color: #fff;
 	padding: 10px;
 }
-.comment-modal .modal-content .modal-body ul.comments li.comment-form input{
+.comment-modal .modal-content .modal-body .comment-form input{
 	font-size: 12px;
 	padding: 10px;
 	-webkit-border-radius: 8px;

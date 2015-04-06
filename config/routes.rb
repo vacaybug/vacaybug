@@ -48,11 +48,13 @@ Vacaybug::Application.routes.draw do
         end
 
         resources :stories, only: [:create, :delete] do
+            resources :comments, only: [:index, :create] do
+            end
+
             member do
                 get :people_liked
                 put :like
 
-                get :comments
                 put :add_comment
             end
         end

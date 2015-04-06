@@ -4,6 +4,7 @@ jQuery ->
 
     events:
       'click .js-more': 'seeMore'
+      'keydown .comment-form input': 'addComment'
 
     initialize: (options) ->
       @modalRendered = false
@@ -59,6 +60,13 @@ jQuery ->
           @collection.next_offset = c.next_offset
           if !@collection.has_more
             @$('.js-more').remove()
+
+    addComment: (e) ->
+      text = @$(".comment-form input").val()
+      if (e.keyCode || e.which) == 13
+        @model.addComment text, (comment) =>
+          @collection.add(comment)
+          @collection.total_count += 1
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.CommentModalView = CommentModalView
