@@ -426,7 +426,7 @@ section#signup .form-control:focus {
 /* Privacy */
 
 section#privacy, section#aboutus, section#terms {
-    margin-top: 100px;
+    margin-top: 80px;
     margin-bottom: -30px;
 }
 section#privacy p {
@@ -442,7 +442,12 @@ section#privacy address {
 
 header#aboutus {
     background-image: url(../assets/about-header.jpg);
-    background-position: 0% -200%;
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 header#aboutus .intro-text .intro-heading {
     margin-bottom: 20px;
