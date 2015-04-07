@@ -36,6 +36,7 @@ gem "httparty"
 gem 'yelp', require: 'yelp'
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
+gem 'rinku', :require => 'rails_rinku'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

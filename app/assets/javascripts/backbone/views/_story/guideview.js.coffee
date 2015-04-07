@@ -25,7 +25,7 @@ jQuery ->
                 </a>
                 <div class='media-body'>
                     <a href='/#{comment.get('user').username}' class='backbone comment-author'>#{_.escape(comment.get('user').full_name)}</a>
-                    <span class='comment-content'>#{_.escape(comment.get('text'))}</span>
+                    <span class='comment-content'>#{comment.get('text')}</span>
                     <div class='comment-date'>#{$.timeago(comment.get('created_at'))}</div>
                 </div>
             </div>

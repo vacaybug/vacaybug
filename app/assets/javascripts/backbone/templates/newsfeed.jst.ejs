@@ -3,10 +3,10 @@
         <div class="panel-heading">
             <div class="media">
                 <a href="" class="pull-left">
-                    <img src="/assets/people/50/guy-5.jpg" width="50" class="media-object">
+                    <img src="<%= Vacaybug.current_user.get('avatar').thumb %>" class="media-object avatar-thumb">
                 </a>
                 <div class="media-body">
-                    <p class="newsfeed-status">What's new Charles?</p>
+                    <p class="newsfeed-status">What's new <%= Vacaybug.current_user.get('first_name') || Vacaybug.current_user.get('username') %>?</p>
                 </div>
             </div>
         </div>
