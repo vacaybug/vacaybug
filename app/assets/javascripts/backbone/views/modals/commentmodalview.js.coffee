@@ -29,6 +29,25 @@ jQuery ->
       @setElement($("##{id}"))
       @modalRendered = true
 
+    appendComment: (model) ->
+      view = new Vacaybug.CommentModalItemView({model: model})
+      item_container = $("<li class='item' data-id='#{model.get('id')}'></li>")
+      @$(".comments").append(item_container)
+      view.setElement(item_container).render()
+
+    renderBody: ->
+      body = @$(".modal-body")
+      body.html('')
+      body.append('<ul class="comments" style="max-height: 300px; overflow: scroll"></ul>')
+      if @collection.models.length == 0
+        body.append('<h4 class="text-center js-empty">Be the first one to comment on this story!</h4>')
+      if @collection.has_more
+        body.append('<p class="text-center"><a class="js-more" href="javascript:void(0)">See more</a></p>')
+      body.append('<div class="comment-form"><input type="text" class="form-control" placeholder="Write a comment..." /></div>')
+
+      _.each @collection.models, (model) =>
+        @appendComment(model)
+
     render: ->
       @renderModal() if !@modalRendered
       return if !@collection.sync_status
@@ -37,9 +56,7 @@ jQuery ->
         collection: @collection
         title: @getTitle()
 
-      _.each @collection.models, (model) =>
-        view = new Vacaybug.CommentModalItemView({model: model})
-        view.setElement(@$(".item[data-id=#{model.get('id')}]")).render()
+      @renderBody()
 
       @$('.modal').modal('show')
       @
@@ -65,8 +82,9 @@ jQuery ->
       text = @$(".comment-form input").val()
       if (e.keyCode || e.which) == 13
         @model.addComment text, (comment) =>
-          @collection.add(comment)
+          @collection.models.push(comment)
           @collection.total_count += 1
+          @renderBody()
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.CommentModalView = CommentModalView

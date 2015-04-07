@@ -45,7 +45,12 @@ jQuery ->
     render: ->
       return @ unless @model.sync_status
 
-      @comments ||= new Vacaybug.CommentsCollection(@model.get('comments_preview'))
+      if !@comments
+        @comments = new Vacaybug.CommentsCollection(@model.get('comments_preview'))
+        @listenTo @comments, 'add', @renderComments
+        @listenTo @model, 'comment_added', (data) =>
+          @comments.add(data.comment)
+          $('.newsfeed-container').masonry()
 
       $(@el).html @template
         model: @model
@@ -70,9 +75,7 @@ jQuery ->
     addComment: (e) ->
       text = @$(".comment-form input").val()
       if (e.keyCode || e.which) == 13
-        @model.addComment text, (comment) =>
-          @comments.add(comment)
-          $('.newsfeed-container').masonry()
+        @model.addComment(text)
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.StoryGuideView = StoryGuideView
