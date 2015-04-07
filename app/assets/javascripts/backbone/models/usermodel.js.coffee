@@ -57,7 +57,7 @@ jQuery ->
       "/rest/stories/#{@story_id}/people_liked"
 
     queryParams: ->
-      "#{super()}&offset=#{@next_offset}"
+      "#{super()}&offset=#{@next_offset || 0}"
 
     setStoryId: (@story_id) ->
 
