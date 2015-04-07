@@ -14,6 +14,8 @@ jQuery ->
       @story = new Vacaybug.StoryModel(@model.get('story'))
       @story.set('data', @model.attributes)
 
+      @listenTo @story, 'change', @render
+
     render: ->
       return @ unless @model.sync_status
 
