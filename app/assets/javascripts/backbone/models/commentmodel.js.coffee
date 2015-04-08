@@ -17,7 +17,9 @@ jQuery ->
       "/rest/stories/#{@story_id}/comments"
 
     queryParams: ->
-      "#{super()}&offset=#{@next_offset || 0}"
+      query = "#{super()}"
+      query += "&offset=#{@next_offset}" if @next_offset
+      query
 
     setStoryId: (@story_id) ->
 

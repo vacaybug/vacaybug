@@ -26,14 +26,13 @@ jQuery ->
       modal = new Vacaybug.CommentModalView({story_id: @get('id'), model: @})
       modal.render()
 
-    addComment: (text, callback) ->
+    addComment: (text) ->
       return if text == null || text.length == 0
       comment = new Vacaybug.CommentModel({story_id: @get('id'), text: text})
       comment.save null,
         success: =>
           @set('comments_count', @get('comments_count') + 1)
           @trigger('comment_added', {comment: comment})
-          callback(comment)
 
   Vacaybug.StoryModel = StoryModel
 

@@ -15,8 +15,12 @@ jQuery ->
 
     renderComments: ->
       @$(".comments").html('')
+      
+      if @model.get('comments_count') > 3
+        html = $("<li><a href='javascript:void(0)' class='js-show-comments'>View more comments</a></li>")
+        @$('.comments').append(html)
 
-      _.each @comments.models.slice(0, 3), (comment) =>
+      _.each @comments.models.slice(@comments.models.length - 3), (comment) =>
         html = $("
           <li>
             <div class='media'>
@@ -30,10 +34,6 @@ jQuery ->
                 </div>
             </div>
           </li>")
-        @$('.comments').append(html)
-
-      if @model.get('comments_count') > 3
-        html = $("<li><a href='javascript:void(0)' class='js-show-comments'>Show more comments</a></li>")
         @$('.comments').append(html)
 
       html = $("

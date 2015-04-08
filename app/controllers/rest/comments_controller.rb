@@ -4,16 +4,20 @@ class Rest::CommentsController < ActionController::Base
     before_filter :check_logged_in
 
     def index
-        offset = params[:offset] || 0
         limit = 10
 
         story = Story.find(params[:story_id])
         total_count = story.comments.count
-        comments = story.comments.where('id > ?', offset)
+        comments = story.comments
+        if params[:offset]
+            comments = comments.where('id < ?', params[:offset])
+        end
+        comments = comments.order('id desc')
+
         has_more = comments.count > limit
-        comments = comments.limit(limit)
+        comments = comments.limit(limit).reverse
         if has_more
-            next_offset = comments.last.id
+            next_offset = comments.first.id
         else
             next_offset = nil
         end

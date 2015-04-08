@@ -27,7 +27,7 @@ class Story < ActiveRecord::Base
         json.merge!({
             likes_count: self.likes.count,
             comments_count: self.comments.count,
-            comments_preview: self.comments.slice(0, 10)
+            comments_preview: self.comments.order('id desc').slice(0, 10).reverse
         })
         if options[:include_resource]
             json.merge!(data: resource.story_attributes)

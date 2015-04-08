@@ -15,6 +15,11 @@ jQuery ->
 
       @listenTo @collection, 'sync', @render
 
+      @listenTo @model, 'comment_added', (data) =>
+        @collection.models.push(data.comment)
+        @collection.total_count += 1
+        @renderBody()
+
     getTitle: ->
       if @collection.models.length == 0
         "Be the first one to comment on this story!"
@@ -38,11 +43,11 @@ jQuery ->
     renderBody: ->
       body = @$(".modal-body")
       body.html('')
+      if @collection.has_more
+        body.append('<p class="text-center"><a class="js-more" href="javascript:void(0)">See more</a></p>')
       body.append('<ul class="comments" style="max-height: 300px; overflow: scroll"></ul>')
       if @collection.models.length == 0
         body.append('<h4 class="text-center js-empty">Be the first one to comment on this story!</h4>')
-      if @collection.has_more
-        body.append('<p class="text-center"><a class="js-more" href="javascript:void(0)">See more</a></p>')
       body.append('<div class="comment-form"><input type="text" class="form-control" placeholder="Write a comment..." /></div>')
 
       _.each @collection.models, (model) =>
@@ -67,9 +72,9 @@ jQuery ->
       newCollection.next_offset = @collection.next_offset
       newCollection.fetch
         success: (c) =>
-          _.each c.models, (model) =>
-            @collection.add(model)
-            @$('.comments').append("<li class='item' data-id='#{model.get('id')}'></li>")
+          _.each c.models.reverse(), (model) =>
+            @collection.add(model, {at: 0})
+            @$('.comments').prepend("<li class='item' data-id='#{model.get('id')}'></li>")
             view = new Vacaybug.CommentModalItemView({model: model})
             view.setElement(@$(".item[data-id=#{model.get('id')}]")).render()
 
@@ -81,10 +86,7 @@ jQuery ->
     addComment: (e) ->
       text = @$(".comment-form input").val()
       if (e.keyCode || e.which) == 13
-        @model.addComment text, (comment) =>
-          @collection.models.push(comment)
-          @collection.total_count += 1
-          @renderBody()
+        @model.addComment(text)
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.CommentModalView = CommentModalView
