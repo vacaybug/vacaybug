@@ -8,7 +8,7 @@ jQuery ->
       return @ unless @model.sync_status
 
       if @model.get('story_type') == 1
-        @view = new Vacaybug.StoryGuideView
+        @view ||= new Vacaybug.StoryGuideView
           model: @model
 
       @view.render()

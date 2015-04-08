@@ -21,11 +21,22 @@
         <div class="guide-caption">
             <p class="guide-content"><%= _.escape(model.get('description')) %></p>
             <ul class="guide-socialMeta">
-                <li><a href="javascript:void(0)" class="js-show-likes text-muted"><i class="fa fa-heart"></i> <%= story.get('likes_count') %></a></li>
+                <li><a href="javascript:void(0)" class="js-like text-muted"><i class="fa fa-heart"></i> <%= story.get('likes_count') %></a></li>
                 <li><a href="javascript:void(0)" class="js-show-comments text-muted"><i class="fa fa-comment"></i> <%= story.get('comments_count') %></a></li>
-                <!-- <li><a href="" class="text-muted"><i class="fa fa-refresh"></i> 10</a></li> -->
+                <li><a href="javascript:void(0)" class="js-share text-muted"><i class="fa fa-refresh"></i> 10</a></li>
                 <li class="pull-right"><p class="text-muted"><%= $.timeago(model.get('created_at')) %></p></li>
-           </ul>
+            </ul>
+            <% if (story.get('likes_count') > 0) { %>
+                <div class="guide-footer">
+                    <span class="js-show-likes cursor-pointer">
+                        <% if (story.get('likes_count') == 1) { %>
+                            View 1 like
+                        <% } else { %>
+                            View <%= story.get('likes_count') %> likes
+                        <% } %>
+                    </span>  
+                </div>
+            <% } %>
         </div>
     </div>
 </div>

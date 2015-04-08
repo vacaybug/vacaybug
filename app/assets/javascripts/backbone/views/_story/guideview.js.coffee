@@ -13,14 +13,30 @@ jQuery ->
       @listenTo @model, 'sync', @render
       @listenTo @model, 'change', @render
 
+    getViewLikesLink: ->
+      if @model.get('likes_count') > 0
+        if @model.get('likes_count') == 1
+          text = 'View 1 like'
+        else
+          text = "View #{@model.get('likes_count')} likes"
+        "<span class='js-show-likes cursor-pointer' style='margin-right: 25px'>#{text}</span>"
+      else
+        ""
+
+    getViewCommentsLink: ->
+      if @model.get('comments_count') > 3
+        "<span class='margin-left-25 js-show-comments cursor-pointer'>View #{@model.get('comments_count')} comments</span>"
+      else
+        ""
+
     renderComments: ->
       @$(".comments").html('')
-      
-      if @model.get('comments_count') > 3
-        html = $("<li><a href='javascript:void(0)' class='js-show-comments'>View more comments</a></li>")
-        @$('.comments').append(html)
 
-      _.each @comments.models.slice(@comments.models.length - 3), (comment) =>
+      html = @getViewLikesLink() + @getViewCommentsLink()
+      if html.length > 0
+        @$('.comments').append($("<li>#{html}</li>"))
+
+      _.each @comments.models.slice(Math.max(@comments.models.length - 3, 0)), (comment) =>
         html = $("
           <li>
             <div class='media'>

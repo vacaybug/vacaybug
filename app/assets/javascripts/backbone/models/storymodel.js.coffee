@@ -32,6 +32,7 @@ jQuery ->
       comment.save null,
         success: =>
           @set('comments_count', @get('comments_count') + 1)
+          console.log('triggering')
           @trigger('comment_added', {comment: comment})
 
   Vacaybug.StoryModel = StoryModel
