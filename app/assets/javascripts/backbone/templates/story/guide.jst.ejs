@@ -5,7 +5,7 @@
                 <img src="<%= model.get('data').user.avatar.thumb %>" class="media-object avatar-thumb">
             </a>
             <div class="media-body">
-                <a href="/users/<%= model.get('data').user.username %>" class="backbone newsfeed-user"><%= model.get('data').user.first_name %></a>
+                <a href="/users/<%= model.get('data').user.username %>" class="backbone newsfeed-user"><%= model.get('data').user.full_name %></a>
                 <span class="newsfeed-date"><%= $.timeago(model.get('created_at')) %></span>
             </div>
         </div>
