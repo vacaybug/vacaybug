@@ -18,6 +18,7 @@ jQuery ->
       @listenTo @model, 'comment_added', (data) =>
         @collection.models.push(data.comment)
         @collection.total_count += 1
+        @$(".modal-title").html(@getTitle())
         @renderBody()
 
     getTitle: ->
