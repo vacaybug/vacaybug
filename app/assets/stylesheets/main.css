@@ -4,6 +4,9 @@ body {
 	color: #000000;
 	background-color: #f7f7f7;
 }
+body::-webkit-scrollbar { 
+  display: none;
+}
 h1,
 h2,
 h3,
@@ -47,6 +50,15 @@ div.flash-notification .flash-notice {
 
 .margin-right-10 {
 	margin-right: 10px;
+}
+.margin-left-10 {
+	margin-left: 10px;
+}
+.margin-left-15 {
+	margin-left: 15px;
+}
+.margin-left-25 {
+	margin-left: 25px;
 }
 .btn-save {
 	background-color: #00629b;
@@ -512,13 +524,24 @@ span.text-content {
 /* FOLLOWER | FOLLOWERING */
 
 .follower-header {
-	margin-top: 60px;
+	margin-top: 40px;
+	font-size: 32px;
+	color: #00629b;
+}
+.follower-network-header {
+	margin-top: 30px;
 	font-size: 32px;
 	color: #00629b;
 }
 .follower-subheader {
 	font-size: 16px;
 	color: #777777;
+}
+.timeline.follower {
+	margin: 0 auto;
+	margin-top: 40px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #d4d4d4; 
 }
 .timeline {
 	margin: 0 auto;
@@ -979,9 +1002,6 @@ span.text-content {
 	margin-left: 10px;
 	color: #00629b;
 }
-.panel.share {
-	padding: 0px 30px;
-}
 .panel.share .panel-body {
 	padding: 0px;
 }
@@ -1217,7 +1237,8 @@ span.text-content {
 }
 .timeline-block .newsfeed .panel-footer {
 	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;	
+	border-bottom-right-radius: 10px;
+	padding-left: 20px;
 }
 .timeline-block .newsfeed .view-all-comments {
 	padding: 8px 25px;
@@ -1230,9 +1251,6 @@ span.text-content {
 .timeline-block .newsfeed .view-all-comments a:hover {
 	text-decoration: none;
 	color: #00629b;
-}
-.timeline-block .newsfeed .view-all-comments .margin-left-25 {
-	margin-left: 25px;
 }
 .timeline-block .newsfeed ul.comments a.comment-author {
 	color: #00629b;

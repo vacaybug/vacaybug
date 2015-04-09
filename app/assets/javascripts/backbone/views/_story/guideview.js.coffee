@@ -19,13 +19,13 @@ jQuery ->
           text = 'View 1 like'
         else
           text = "View #{@model.get('likes_count')} likes"
-        "<span class='js-show-likes cursor-pointer' style='margin-right: 25px'>#{text}</span>"
+        "<a class='js-show-likes cursor-pointer margin-left-10'>#{text}</a>"
       else
         ""
 
     getViewCommentsLink: ->
       if @model.get('comments_count') > 3
-        "<span class='margin-left-25 js-show-comments cursor-pointer'>View #{@model.get('comments_count')} comments</span>"
+        "<a class='js-show-comments cursor-pointer margin-left-25'>View #{@model.get('comments_count')} comments</a>"
       else
         ""
 
