@@ -443,6 +443,13 @@ span.text-content {
 .modal .modal-body {
 	padding: 25px;
 }
+.modal .modal-body .btn-trip-type .btn-group {
+	border: 1px solid #fff;
+}
+.modal .modal-body .btn-trip-type .btn-group button span {
+	font-size: 15px;
+	font-weight: 800;
+}
 .modal .modal-body button.btn-cancel {
 	width: 150px;
 	margin-left: 19%;
@@ -458,7 +465,7 @@ span.text-content {
 @media (min-width: 767px) {
 	.modal .modal-dialog {
 		position: absolute;
-		top: 20%;
+		top: 10%;
 		left: 50%;
 		margin-left: -300px;
 		margin-right: -300px;
@@ -1340,13 +1347,28 @@ ul.social-buttons li a:active {
 	-moz-transition: all ease .5s;
 	transition: all ease .5s;
 }
-.guide-hover .js-like {
-	margin-top: 10px;
-	margin-left: 10px;
+.guide-hover.newsfeed {
+	height: 85%;
 }
 .guide-hover .js-share {
+	float: right;
 	margin-top: 10px;
-	margin-left: 5px;
+	margin-right: 5px;
+}
+.guide-hover .js-wishlist {
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+.guide-hover .js-passport {
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+.guide-hover .js-save {
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
 }
 .guide-hover:hover {
 	opacity: .9;

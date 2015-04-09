@@ -14,6 +14,13 @@
         <div class="panel-body">
             Just uploaded a guide - <a href="/guides/<%= model.get('data').id %>"><%= model.get('data').title %></a>
         </div>
+        <div class="guide-hover newsfeed">
+            <span class="js-save btn btn-warning">Add</span>
+            <span class="js-share btn btn-primary">Share</span>
+            <div class="guide-hover-content">
+                <i class="fa fa-plus fa-3x"></i>
+            </div>
+        </div>
         <a href="#"><img src="/assets/guide/mongolia.jpg" class="img-responsive"></a>
     </div>
     <div class="view-all-comments">

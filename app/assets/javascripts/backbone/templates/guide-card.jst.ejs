@@ -10,7 +10,14 @@
         </div>
         <a href="javascript:void(0)" class="guide-link js-guide-item" data-id="<%= model.get('id') %>">
             <div class="guide-hover">
-                <span class="js-like btn btn-warning">Like</span>
+                <% if (model.get('user').id == Vacaybug.current_user.get('id')) { %>
+                    <!-- If guide.category == passport then show  -->
+                    <span class="js-wishlist btn btn-warning">Wishlist</span>
+                    <!-- If guide.category == wishlist then show -->
+                    <span class="js-passport btn btn-warning">Passport</span>
+                <% } else { %>
+                    <span class="js-save btn btn-warning">Add</span>
+                <% } %>
                 <span class="js-share btn btn-primary">Share</span>
                 <div class="guide-hover-content">
                     <i class="fa fa-plus fa-3x"></i>
