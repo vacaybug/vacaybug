@@ -65,6 +65,8 @@ jQuery ->
       @renderBody()
 
       @$('.modal').modal('show')
+      @$('.modal').on 'hidden.bs.modal', =>
+        @remove()
       @
 
     seeMore: ->

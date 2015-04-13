@@ -12,6 +12,9 @@
     </div>
     <div class="panel-body">
         <p><%= model.get('data').content %></p>
+        <% if (model.get('data').image) { %>
+            <img src="<%= model.get('data').image.medium %>" class="img-responsive">
+        <% } %>
     </div>
     <div class="view-all-comments">
         <a href="javascript:void(0)" class="js-like text-muted" data-toggle="modal"><i class="fa fa-heart"></i> <%= model.get('likes_count') %></a>

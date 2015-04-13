@@ -11,7 +11,12 @@ class Post < ActiveRecord::Base
 
     def image
         if self.image_id
-            Image.find(self.image_id).image
+            im = Image.find(self.image_id)
+            {
+                large: im.image.url(:large),
+                medium: im.image.url(:medium),
+                thumb: im.image.url(:thumb)
+            }
         else
             nil
         end

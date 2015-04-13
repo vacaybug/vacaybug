@@ -1830,3 +1830,24 @@ img.avatar-thumb {
 .cursor-pointer {
 	cursor: pointer;
 }
+
+.image-preview {
+	margin-top: 15px;
+	opacity: 0.7;
+	border: solid 1px lightgray;
+	width: 150px;
+}
+
+.image-preview:hover {
+	opacity: 1;
+	border: solid 1px lightgray;
+	width: 150px;
+}
+
+.dz-default.dz-message {
+	display: none;
+}
+
+.dz-preview {
+	display: none;
+}

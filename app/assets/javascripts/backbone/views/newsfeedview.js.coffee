@@ -5,6 +5,8 @@ jQuery ->
 
     events:
       'click .js-post': 'postStatus'
+      'click .js-upload-photo': 'uploadPhoto'
+      'click .js-delete-image': 'deletePhoto'
 
     initialize: (options) ->
       @listenTo @collection, 'sync', @render
@@ -13,7 +15,22 @@ jQuery ->
       itemView = new Vacaybug.StoryView({model: story})
       $(".newsfeed.share").parent().after(itemView.render().el)
       $(".newsfeed-container").masonry("reloadItems")
-      $(".newsfeed-container").masonry()
+      $(".newsfeed-container").imagesLoaded () =>
+        $(".newsfeed-container").masonry()
+
+    deletePhoto: ->
+      @imageObject = null
+      @$(".image-preview").hide()
+
+    uploadPhoto: ->
+      uploader = new Vacaybug.ImageUploaderModalView()
+      uploader.render()
+      uploader.on 'done', (obj) =>
+        @imageObject = obj.data
+        @$(".image-preview img").attr("src", obj.data.image.thumb)
+        @$(".image-preview").show()
+        $(".newsfeed-container").imagesLoaded () =>
+          $(".newsfeed-container").masonry()
 
     render: ->
       return @ unless @collection.sync_status
@@ -37,6 +54,7 @@ jQuery ->
       data = {
         raw_content: content
       }
+      data.image_id = @imageObject.id if @imageObject
 
       if content.length > 0
         elem.html("Posting&hellip;")
@@ -50,6 +68,7 @@ jQuery ->
             story.sync_status = true
             @addStory(story)
             @$(".js-status").val("")
+            @deletePhoto()
 
             elem.html("Post")
             elem.removeAttr("disabled")

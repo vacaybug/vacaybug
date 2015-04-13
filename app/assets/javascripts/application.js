@@ -17,7 +17,6 @@
 //= require backbone1
 //= require dateformat
 //= require bootstrap-datepicker
-//= require jquery-fileupload/basic
 //= require backbone/util
 
 //= require_tree ./backbone/templates
@@ -35,3 +34,4 @@
 //= require jquery-ui
 //= require jeditable
 //= require timeago
+//= require dropzone

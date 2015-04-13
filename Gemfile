@@ -30,7 +30,7 @@ gem 'rails-backbone'
 gem "paperclip", "~> 4.2"
 gem "jquery-fileupload-rails"
 gem "jquery-turbolinks"
-gem "aws-sdk"
+gem 'aws-sdk', '< 2.0'
 gem "test-unit"
 gem "httparty"
 gem 'yelp', require: 'yelp'

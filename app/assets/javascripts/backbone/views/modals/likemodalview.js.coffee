@@ -32,6 +32,8 @@ jQuery ->
         view.setElement(@$(".item[data-id=#{model.get('id')}]")).render()
 
       @$('.modal').modal('show')
+      @$('.modal').on 'hidden.bs.modal', =>
+        @remove()
       @
 
     seeMore: ->

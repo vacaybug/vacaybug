@@ -25,6 +25,8 @@ jQuery ->
         guide: @guide
 
       @$('.modal').modal('show')
+      @$('.modal').on 'hidden.bs.modal', =>
+        @remove()
       @
 
   Vacaybug = window.Vacaybug ? {}

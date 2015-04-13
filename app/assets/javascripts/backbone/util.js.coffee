@@ -81,6 +81,7 @@ jQuery ->
         @setMap @map_
       return
 
+    window.TxtOverlay = TxtOverlay
   catch e
     # :(
 
@@ -118,5 +119,5 @@ jQuery ->
     return if results == null then "" else decodeURIComponent(results[1].replace(/\+/g, " "));
 
   Vacaybug.flash_message = flash_message
+
   window.Vacaybug ||= Vacaybug
-  window.TxtOverlay = TxtOverlay

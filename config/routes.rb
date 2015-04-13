@@ -62,6 +62,12 @@ Vacaybug::Application.routes.draw do
             end
         end
 
+        resources :images do
+            collection do
+                post :create_from_url
+            end
+        end
+
         resources :newsfeed do
             collection do
                 get :stories

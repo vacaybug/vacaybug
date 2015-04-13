@@ -12,16 +12,19 @@
         </div>
         <div class="panel-body">
             <textarea name="status" class="form-control share-text js-status" rows="5" placeholder="Share your status..."></textarea>
+            <div class="image-preview" style="display: none">
+                <span class="js-delete-image pull-right cursor-pointer"><i class="fa fa-times"></i></span>
+                <img src='' width='150'>
+            </div>
         </div>
-        <span class="js-post btn btn-primary pull-right" style="margin-right: 20px">Post</span>
         <div class="panel-footer share-buttons">
 <!--             <a href="#">
                 <i class="fa fa-link"></i>
             </a> -->
-            <a href="javascript:void(0)">
+            <a href="javascript:void(0)" class="js-upload-photo">
                 <i class="fa fa-photo"></i>
             </a>
-            <button type="submit" class="btn btn-primary btn-xs pull-right display-none" href="#">Post</button>
+            <span class="js-post btn btn-primary pull-right" style="margin-right: 20px; margin-top: -10px">Post</span>
         </div>
     </div>
 </div>
