@@ -85,8 +85,13 @@ jQuery ->
     # :(
 
   $.fn.flash_message = (options) ->
+    if options.type == "notice"
+      default_text = ''
+    else
+      default_text = 'There was an error while completing your request. Please try again'
+
     options = $.extend(
-      text: ""
+      text: default_text
       time: 5000
       how: "before"
       class_name: ""

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150406033015) do
+ActiveRecord::Schema.define(:version => 20150412221926) do
 
   create_table "comments", :force => true do |t|
     t.integer  "story_id"
@@ -65,6 +65,15 @@ ActiveRecord::Schema.define(:version => 20150406033015) do
   add_index "guides", ["popularity"], :name => "index_guides_on_popularity"
   add_index "guides", ["user_id"], :name => "index_guides_on_user_id"
 
+  create_table "images", :force => true do |t|
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "likes", :force => true do |t|
     t.integer  "story_id"
     t.integer  "user_id"
@@ -101,6 +110,15 @@ ActiveRecord::Schema.define(:version => 20150406033015) do
     t.string   "fs_id"
     t.text     "yelp"
     t.text     "trip_advisor"
+  end
+
+  create_table "posts", :force => true do |t|
+    t.integer  "image_id"
+    t.text     "raw_content"
+    t.text     "content"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
 
   create_table "stories", :force => true do |t|

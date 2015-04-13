@@ -47,6 +47,9 @@ Vacaybug::Application.routes.draw do
             end
         end
 
+        resources :posts, only: [:create] do
+        end
+
         resources :stories, only: [:create, :delete] do
             resources :comments, only: [:index, :create] do
             end

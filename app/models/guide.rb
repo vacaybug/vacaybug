@@ -5,13 +5,12 @@ class Guide < ActiveRecord::Base
     has_many :place_associations, :class_name => 'GuidePlaceAssociation'
     has_many :places, through: :place_associations
 
-    has_one :story, class_name: "Story",  foreign_key: :resource_id, dependent: :destroy
-
     belongs_to :user
 
     after_destroy :delete_associations
     before_save :setup_params
     after_create :create_story
+    after_destroy :destroy_story
 
     validates_length_of :description, maximum: 1000
 
@@ -24,6 +23,10 @@ class Guide < ActiveRecord::Base
         self.as_json(methods: [:user])
     end
 
+    def story
+        Story.where(resource_id: self.id, story_type: Story::TYPES::GUIDE).first
+    end
+
     private
 
     def create_story
@@ -31,6 +34,10 @@ class Guide < ActiveRecord::Base
             story_type: Story::TYPES::GUIDE,
             resource_id: self.id
         })
+    end
+
+    def destroy_story
+        self.story.destroy
     end
 
     def setup_params

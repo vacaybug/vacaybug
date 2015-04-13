@@ -7,7 +7,7 @@ class Story < ActiveRecord::Base
 
     module TYPES
         GUIDE = 1
-        STATUS = 2
+        POST = 2
         SHARE = 3
     end
 
@@ -15,13 +15,14 @@ class Story < ActiveRecord::Base
         case self.story_type
         when TYPES::GUIDE
             Guide.find(resource_id)
+        when TYPES::POST
+            Post.find(resource_id)
         else
             nil
         end
     end
 
     def as_json(options={})
-        puts options
         options[:except] = [:data]
         json = super(options)
         json.merge!({

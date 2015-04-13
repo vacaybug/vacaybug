@@ -5,7 +5,7 @@ class Rest::NewsfeedController < ActionController::Base
 
     def stories
         render json: {
-            models: Story.all.as_json(include_resource: true)
+            models: Story.order('id desc').all.as_json(include_resource: true)
         }
     end
 end

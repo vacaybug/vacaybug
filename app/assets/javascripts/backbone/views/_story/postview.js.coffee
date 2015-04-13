@@ -1,6 +1,6 @@
 jQuery ->
-  class StoryGuideView extends window.Vacaybug.StoryView
-    template: JST["backbone/templates/story/guide"]
+  class StoryPostView extends window.Vacaybug.StoryView
+    template: JST["backbone/templates/story/post"]
     className: "timeline-block"
 
     events:
@@ -30,4 +30,4 @@ jQuery ->
       @
 
   Vacaybug = window.Vacaybug ? {}
-  Vacaybug.StoryGuideView = StoryGuideView
+  Vacaybug.StoryPostView = StoryPostView
