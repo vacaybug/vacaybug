@@ -463,7 +463,6 @@ header#aboutus .intro-text .intro-subheading {
     font-weight: 500;
 }
 section .aboutus-section-title {
-    margin: 30px 0px 20px 0px;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     font-size: 50px;
@@ -471,29 +470,30 @@ section .aboutus-section-title {
     color: #f26d65;
 }
 section .aboutus-section-content {
-    margin: 30px 0px 20px 0px;
+    margin: 20px 0px;
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 100;
     color: #777777;
+    line-height: 32px;
 }
 section#explore,
 section#dream, 
 section#discover {
-    height: 450px;
-    padding-top: 110px;
+    padding: 5em 0;
     background-color: #fff;
 }
 section#explore .aboutus-section-title,
 section#dream .aboutus-section-title,
 section#discover .aboutus-section-title {
-    padding-top: 50px;
+    padding: 2em 0;
 }
 section#overview {
     height: 450px;
     padding-top: 75px;
 }
-section#explore {
+section#explore,
+section#discover {
     background-color: #f9f9f9;
     border-top: 1px solid #d8d8d8;
 }
@@ -509,10 +509,6 @@ section#dream {
 }
 section#dream .aboutus-section-content {
     color: #fff;
-}
-section#discover {
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #d8d8d8;
 }
 
 /* FOOTER */
