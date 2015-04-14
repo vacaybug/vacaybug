@@ -83,10 +83,9 @@ jQuery ->
       elem.html("Saving&hellip;")
 
       guide.save null,
-        success: (model, resp) ->
-          window.location = "/guides/#{guide.get('id')}"
-          # TODO figure out why the scroll is hanging
-          # Vacaybug.router.navigate("/guides/#{guide.get('id')}", {trigger: true})
+        success: (model, resp) =>
+          $('body').removeClass('modal-open')
+          Vacaybug.router.navigate("/guides/#{guide.get('id')}", {trigger: true})
         error: ->
           elem.removeAttr("disabled")
           elem.html("Continue")
@@ -113,23 +112,6 @@ jQuery ->
         isPrivate: @isPrivate
 
       @renderMap()
-
-      $("#fileupload").fileupload(
-        url: "/rest/users/upload_photo"
-        dataType: "json"
-        autoUpload: false
-        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
-        maxFileSize: 5000000
-
-        previewMaxWidth: 100
-        previewMaxHeight: 100
-      ).on('fileuploadadd', (e, data) =>
-        $(".js-select").html('Uploading')
-      ).on('fileuploadprocessalways', (e, data) ->
-        # TODO: get it work
-      ).on('fileuploaddone', (e, data) =>
-        @model.set('avatar', data.result.model.avatar)
-      )
 
       $('input.input-birthday').datepicker
         format: "M, dd"

@@ -2,6 +2,10 @@ jQuery ->
   class GuideModalView extends window.Vacaybug.GenericView
     template: JST['backbone/templates/modals/guide-modal']
 
+    removeModal: ->
+      @$('.modal').modal('hide')
+      @remove()
+
     initialize: (options) ->
       @modalRendered = false
       @guide = options.guide
@@ -26,7 +30,7 @@ jQuery ->
 
       @$('.modal').modal('show')
       @$('.modal').on 'hidden.bs.modal', =>
-        @remove()
+        @removeModal()
       @
 
   Vacaybug = window.Vacaybug ? {}
