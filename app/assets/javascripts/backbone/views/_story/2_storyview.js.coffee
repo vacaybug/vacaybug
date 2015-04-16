@@ -45,7 +45,7 @@ jQuery ->
 
       html = $("
         <li class='comment-form'>
-          <input type='text' class='form-control' placeholder='Write a comment...'' />
+          <input type='text' class='form-control' maxlength='300' placeholder='Write a comment...'' />
         </li>")
       @$('.comments').append(html)
 

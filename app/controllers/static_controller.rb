@@ -62,4 +62,16 @@ class StaticController < ActionController::Base
 	def newsfeed
 		render 'static/newsfeed'
 	end
+
+	def confirmation
+		render 'static/mailer/confirmation'
+	end
+
+	def password
+		render 'static/mailer/password'
+	end
+
+	def beta
+		render 'static/mailer/beta'
+	end
 end

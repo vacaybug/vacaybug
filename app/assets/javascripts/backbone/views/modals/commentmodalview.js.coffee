@@ -49,7 +49,7 @@ jQuery ->
       body.append('<ul class="comments" style="max-height: 300px; overflow: scroll"></ul>')
       if @collection.models.length == 0
         body.append('<h4 class="text-center js-empty">Be the first one to comment on this story!</h4>')
-      body.append('<div class="comment-form"><input type="text" class="form-control" placeholder="Write a comment..." /></div>')
+      body.append('<div class="comment-form"><input type="text" maxlength="300" class="form-control" placeholder="Write a comment..." /></div>')
 
       _.each @collection.models, (model) =>
         @appendComment(model)

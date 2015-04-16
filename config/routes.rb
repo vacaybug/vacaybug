@@ -22,6 +22,9 @@ Vacaybug::Application.routes.draw do
     get 'static/guidepdf'
     get 'static/guide_static'
     get 'static/newsfeed'
+    get 'static/confirmation'
+    get 'static/password'
+    get 'static/beta'
 
     # restful api
     # MODELS ONLY
