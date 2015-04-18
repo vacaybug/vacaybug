@@ -43,11 +43,11 @@ Vacaybug::Application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "gmail.com",
+    domain: "vacaybug.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "travelrank2014",
-    password: "ranktravel2014"
+    user_name: "charles@hackerrank.com",
+    password: "q1w2e3r4T%"
   }
 
   # AWSAccessKeyId=AKIAJGKYDVCM3HA72JBQ

@@ -586,10 +586,10 @@ span.text-content {
 	padding: 10px 0px;
 	background-color: #98d6ec;
 	text-transform: uppercase;
+	text-align: center;
 	font-size: 40px;
 	font-weight: 400;
 	line-height: 90%;
-	height: 80px;
 }
 @media (max-width: 768px) {
 	.guide-heading {
@@ -597,10 +597,15 @@ span.text-content {
 	}
 }
 .guide-heading .city-guide-heading {
-	max-width: 550px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 10px;
+	width: 50%;
+	margin: 10px auto;
+	color: #fff;
+}
+.guide-heading .guide-author{
+	font-style: italic;
+	color: #fff;
+}
+.guide-heading .guide-author a {
 	color: #fff;
 }
 .guide-heading input {
@@ -612,13 +617,13 @@ span.text-content {
 	font-size: 10px;
 	position: absolute;
 	top: 105px;
-	right: 530px;
+	right: 445px;
 }
 .guide-heading .btn-cancel {
 	font-size: 10px;
 	position: absolute;
 	top: 105px;
-	right: 450px;
+	right: 370px;
 }
 .city-guide-heading span {
 	text-transform: none;
