@@ -38,6 +38,9 @@ gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 gem 'rinku', :require => 'rails_rinku'
 
+# omniauth
+gem 'omniauth-facebook'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150419171155) do
+ActiveRecord::Schema.define(:version => 20150419184340) do
 
   create_table "comments", :force => true do |t|
     t.integer  "story_id"
@@ -180,6 +180,8 @@ ActiveRecord::Schema.define(:version => 20150419171155) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

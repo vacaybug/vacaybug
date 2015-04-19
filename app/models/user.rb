@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
     # :token_authenticatable, :confirmable,
     # :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable, :confirmable,  
-        :recoverable, :rememberable, :trackable, :validatable
+        :recoverable, :rememberable, :trackable, :validatable,
+        :omniauthable, :omniauth_providers => [:facebook]
+
 
     # Setup accessible (or protected) attributes for your model
     attr_accessible :id, :email, :password, :password_confirmation, :remember_me, :unconfirmed_email
@@ -86,6 +88,19 @@ class User < ActiveRecord::Base
 
     def newsfeed_stories
         NewsfeedAssociation.where(user_id: self.id)
+    end
+
+    def self.from_omniauth(auth)
+        where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+            puts auth.info
+            sleep 3
+            user.email = auth.info.email
+            user.password = Devise.friendly_token[10,20]
+            user.username = "user#{rand.to_s[2..11]}"   # assuming the user model has a name
+            user.first_name = auth.info.first_name
+            user.last_name = auth.info.last_name
+            # user.avatar = auth.info.image # assuming the user model has an image
+        end
     end
 
     private
