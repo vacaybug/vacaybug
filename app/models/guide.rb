@@ -1,5 +1,5 @@
 class Guide < ActiveRecord::Base
-    attr_accessible :privacy, :country, :city, :region, :geonames_id, :user_id, :title, :description, :gn_data
+    attr_accessible :privacy, :country, :city, :region, :geonames_id, :user_id, :title, :description, :gn_data, :guide_type
     serialize :gn_data, JSON
 
     has_many :place_associations, :class_name => 'GuidePlaceAssociation'
@@ -14,6 +14,13 @@ class Guide < ActiveRecord::Base
 
     validates_length_of :description, maximum: 1000
 
+    module TYPES
+        PASSPORT = 1
+        WISHLIST = 2
+    end
+
+    validates :guide_type, :inclusion => {:in => [TYPES::PASSPORT, TYPES::WISHLIST]}
+
     def as_json (options={})
         options[:methods] ||= [:user, :story]
         super(options)
@@ -27,17 +34,37 @@ class Guide < ActiveRecord::Base
         Story.where(resource_id: self.id, story_type: Story::TYPES::GUIDE).first
     end
 
+    def add_place place
+        order = self.place_associations.count + 1
+
+        assoc = self.place_associations.create(
+            place_id: place.id,
+            order_num: order
+        )
+        order
+    end
+
+    def calculate_popularity
+        score = (self.story.likes.count + self.story.comments.count)
+        self.popularity = score
+        self.save
+    end
+
     private
 
     def create_story
         Story.create({
+            user_id: self.user_id,
             story_type: Story::TYPES::GUIDE,
             resource_id: self.id
         })
     end
 
     def destroy_story
-        self.story.destroy
+        begin
+            self.story.destroy
+        rescue
+        end
     end
 
     def setup_params

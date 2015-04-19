@@ -1,12 +1,13 @@
 jQuery ->
   class StoryPostView extends window.Vacaybug.StoryView
     template: JST["backbone/templates/story/post"]
-    className: "timeline-block"
+    className: 'timeline-block'
 
     events:
       'click .js-like': 'like'
       'click .js-show-likes': 'showLikes'
       'click .js-show-comments': 'showComments'
+      'click .js-delete-story' : 'deleteStory'
       'keydown .comment-form input': 'addComment'
 
     initialize: (options) ->
@@ -21,13 +22,19 @@ jQuery ->
         @listenTo @comments, 'add', @renderComments
         @listenTo @model, 'comment_added', (data) =>
           @comments.add(data.comment)
-          $('.newsfeed-container').masonry()
+          $('.newsfeed-items').masonry()
 
       $(@el).html @template
         model: @model
 
       @renderComments()
       @
+
+    deleteStory: ->
+      if confirm('Are you sure you want to delete this story?')
+        @model.destroy()
+        $(".newsfeed-items").masonry("remove", @el)
+        $(".newsfeed-items").masonry("layout")
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.StoryPostView = StoryPostView

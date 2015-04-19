@@ -30,6 +30,9 @@ Vacaybug::Application.routes.draw do
     # MODELS ONLY
     namespace :rest do
         resources :users, only: [:show, :update] do
+            resources :guides, only: [:index] do
+            end
+
             collection do
                 post :upload_photo
             end
@@ -37,8 +40,6 @@ Vacaybug::Application.routes.draw do
             member do
                 get :followers
                 get :following
-                # I apologize for this :'(
-                get :guides
 
                 put :follow
                 put :unfollow
@@ -46,6 +47,10 @@ Vacaybug::Application.routes.draw do
         end
 
         resources :guides do
+            member do
+                post :duplicate
+            end
+
             resources :places do
             end
         end
@@ -53,7 +58,7 @@ Vacaybug::Application.routes.draw do
         resources :posts, only: [:create] do
         end
 
-        resources :stories, only: [:create, :delete] do
+        resources :stories, only: [:create, :destroy] do
             resources :comments, only: [:index, :create] do
             end
 

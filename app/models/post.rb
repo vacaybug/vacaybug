@@ -44,6 +44,7 @@ class Post < ActiveRecord::Base
 
     def create_story
         Story.create({
+            user_id: self.user_id,
             story_type: Story::TYPES::POST,
             resource_id: self.id
         })

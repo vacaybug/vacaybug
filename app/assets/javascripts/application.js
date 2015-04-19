@@ -35,3 +35,4 @@
 //= require jeditable
 //= require timeago
 //= require dropzone
+//= require jscroll

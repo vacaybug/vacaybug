@@ -58,7 +58,16 @@ jQuery ->
       e.preventDefault()
       e.stopPropagation()
 
-      Vacaybug.router.navigate($(e.currentTarget).attr('href'), true)
+      url = $(e.currentTarget).attr('href')
+
+      if (event.ctrlKey || event.shiftKey || event.metaKey || event.which == 2)
+        window.open(url, '_blank')
+      else
+        Vacaybug.router.navigate(url, {trigger: true})
+
+    setNavbarTab: (tab) ->
+      $(".navbar-tab").removeClass('active')
+      $(".navbar-tab[data-tab=#{tab}]").addClass('active')
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.AppView = AppView

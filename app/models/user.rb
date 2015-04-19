@@ -84,6 +84,10 @@ class User < ActiveRecord::Base
         json
     end
 
+    def newsfeed_stories
+        NewsfeedAssociation.where(user_id: self.id)
+    end
+
     private
 
     def validate_birthday

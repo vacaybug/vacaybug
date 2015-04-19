@@ -3,12 +3,6 @@ class Rest::StoriesController < ActionController::Base
 
     before_filter :check_logged_in
 
-    def index
-        render json: {
-            models: Story.all.as_json(include_resource: true)
-        }
-    end
-
     def like
         story = Story.find_by_id(params[:id]) || not_found
         change = 0
@@ -20,6 +14,10 @@ class Rest::StoriesController < ActionController::Base
         else
             Like.create(user_id: current_user.id, story_id: story.id)
             change = 1
+        end
+
+        if story.story_type == Story::TYPES::GUIDE
+            story.resource.calculate_popularity
         end
 
         render json: {
@@ -50,5 +48,24 @@ class Rest::StoriesController < ActionController::Base
             has_more: has_more,
             next_offset: next_offset
         }
+    end
+
+    def destroy
+        story = Story.find_by_id(params[:id]) || not_found
+        if story.user_id == current_user.id
+            # delete all newsfeed association
+            NewsfeedAssociation.where(story_id: story.id).destroy_all
+
+            if story.story_type == Story::TYPES::POST
+                story.resource.destroy
+                story.destroy
+            end
+
+            render json: {
+                status: true
+            }
+        else
+            render403
+        end
     end
 end

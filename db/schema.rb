@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150412221926) do
+ActiveRecord::Schema.define(:version => 20150418230325) do
 
   create_table "comments", :force => true do |t|
     t.integer  "story_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20150412221926) do
     t.text     "description"
     t.text     "gn_data"
     t.integer  "popularity",  :default => 0
+    t.integer  "guide_type"
   end
 
   add_index "guides", ["geonames_id"], :name => "index_guides_on_geonames_id"
@@ -84,6 +85,16 @@ ActiveRecord::Schema.define(:version => 20150412221926) do
   add_index "likes", ["story_id", "user_id"], :name => "index_likes_on_guide_id_and_user_id"
   add_index "likes", ["story_id"], :name => "index_likes_on_guide_id"
   add_index "likes", ["user_id"], :name => "index_likes_on_user_id"
+
+  create_table "newsfeed_associations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "story_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "newsfeed_associations", ["story_id"], :name => "index_newsfeed_associations_on_story_id"
+  add_index "newsfeed_associations", ["user_id"], :name => "index_newsfeed_associations_on_user_id"
 
   create_table "notes", :force => true do |t|
     t.integer  "user_id"
@@ -127,9 +138,11 @@ ActiveRecord::Schema.define(:version => 20150412221926) do
     t.text     "data"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
 
   add_index "stories", ["resource_id"], :name => "index_stories_on_resource_id"
+  add_index "stories", ["user_id"], :name => "index_stories_on_user_id"
 
   create_table "user_guide_associations", :force => true do |t|
     t.integer "user_id"

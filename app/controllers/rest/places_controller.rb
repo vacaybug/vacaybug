@@ -50,16 +50,10 @@ class Rest::PlacesController < ActionController::Base
                 city:     fs_data["location"]["city"],
                 region:   fs_data["location"]["state"]
             })
+            place.gen_yelp
         end
 
-        order = guide.place_associations.count + 1
-
-        assoc = guide.place_associations.create(
-            place_id: place.id,
-            order_num: order
-        )
-
-        place.gen_yelp
+        order = guide.add_place(place)
 
         render json: {
             model: place.as_json().merge({order_num: order})

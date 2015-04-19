@@ -1,39 +1,42 @@
-<div class="panel panel-default newsfeed">
+<div class="panel panel-default newsfeed newsfeed-item">
     <div class="panel-heading">
         <div class="media">
-            <a href="" class="pull-left">
+            <a href="" class="backbone pull-left">
                 <img src="<%= model.get('data').user.avatar.thumb %>" class="media-object avatar-thumb">
             </a>
             <div class="media-body">
-                <a href="/users/<%= model.get('data').user.username %>" class="backbone newsfeed-user"><%= model.get('data').user.full_name %></a>
+                <a href="/users/<%= model.get('data').user.username %>" class="backbone newsfeed-user"><%= guide.get('user').full_name %></a>
                 <span class="newsfeed-date"><%= $.timeago(model.get('created_at')) %></span>
             </div>
+            <% if (guide.get('user').id == Vacaybug.current_user.id) { %>
+                <a class="js-delete-story pull-right delete" data-id="<%= model.get('id') %>">&times;</a>
+            <% } %>
         </div>
     </div>
     <div style="position: relative">
         <div class="panel-body">
-            Just uploaded a guide - <a href="/guides/<%= model.get('data').id %>"><%= model.get('data').title %></a>
+            Just uploaded a guide - <a href="/guides/<%= guide.get('id') %>" class="backbone"><%= guide.get('title') %></a>
         </div>
         <div class="guide-hover newsfeed">
-            <% if (model.get('data').user.id == Vacaybug.current_user.get('id')) { %>
-                <!-- If guide.category == passport then show  -->
-                <span class="js-wishlist btn btn-warning">Wishlist</span>
-                <!-- If guide.category == wishlist then show -->
-                <span class="js-passport btn btn-warning">Passport</span>
+            <% if (guide.get('user').id == Vacaybug.current_user.get('id')) { %>
+                <% if (guide.get('guide_type') == 1) { %>
+                    <span class="js-wishlist btn btn-warning">Wishlist</span>
+                <% } else { %>
+                    <span class="js-passport btn btn-warning">Passport</span>
+                <% } %>
             <% } else { %>
                 <span class="js-save btn btn-warning">Add</span>
             <% } %>
-            <span class="js-share btn btn-primary">Share</span>
+            <!-- <span class="js-share btn btn-primary">Share</span> -->
             <div class="guide-hover-content">
-                <i class="fa fa-plus fa-3x"></i>
             </div>
         </div>
         <a href="#"><img src="/assets/guide/mongolia.jpg" class="img-responsive"></a>
     </div>
     <div class="view-all-comments">
-        <a href="javascript:void(0)" class="js-like text-muted" data-toggle="modal"><i class="fa fa-heart"></i> <%= model.get('likes_count') %></a>
+        <a href="javascript:void(0)" class="js-like text-muted <%= model.get('liked') ? 'active' : '' %>" data-toggle="modal"><i class="fa fa-heart"></i> <%= model.get('likes_count') %></a>
         <a href="javascript:void(0)" class="js-show-comments text-muted margin-left-25" data-toggle="modal"><i class="fa fa-comment"></i> <%= model.get('comments_count') %></a>
-        <a href="javascript:void(0)" class="js-share text-muted margin-left-25"><i class="fa fa-refresh"></i> 10</a>
+        <!-- <a href="javascript:void(0)" class="js-share text-muted margin-left-25"><i class="fa fa-refresh"></i> 10</a> -->
     </div>
     <ul class="comments">
     </ul>

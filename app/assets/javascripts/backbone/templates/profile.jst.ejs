@@ -50,41 +50,14 @@
             <div class="tab-heading">
                 <i class="fa fa-briefcase"></i> My Passport - I've Been to...
             </div>
-            <div class="panel-body guides">
+            <div class="panel-body passport">
             </div>
         </div>
         <div class="tab-pane <%= activeTab == 'wishlist' ? 'active in' : ''%> fade" id="wishlist">
             <div class="tab-heading">
                 <i class="fa fa-list"></i> My Wishlist - I Want to Go...
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <h4 class="margin-none">Santorini</h4>
-                            </div>
-                            <a href="#">
-                                <img src="/assets/guide/santorini.jpg" alt="image" class="img-responsive">
-                            </a>
-                            <div class="panel-detail">
-                                <ul class="icon-list">
-                                    <li><i class="fa fa-calendar fa-fw"></i> <a href="#">1 Week</a>
-                                    </li>
-                                    <li><i class="fa fa-users fa-fw"></i> <a href="#"> 2 People</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="panel-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor impedit ipsum laborum maiores tempore veritatis....</p>
-                                <div>
-                                    <a href="#" class="btn btn-primary btn-xs pull-right">read</a>
-                                    <a href="#" class="text-muted"> <i class="fa fa-comments"></i> 6</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="panel-body wishlist">
             </div>
         </div>
         <div class="tab-pane <%= activeTab == 'about' ? 'active in' : '' %> fade" id="about">
@@ -220,16 +193,18 @@
                 <h4 class="modal-title" id="myModalLabel">Where are you going?</h4>
             </div>
             <div class="modal-body">
-                <input type="text" class="typeahead form-control js-modal-city" name="city" placeholder="Type in a city name"/>
+                <img width="20" class="typeahead-spinner hidden" src="/assets/spinner.gif"
+                    style="float: left; position: absolute; top: 36px; left: 5px;">
+                <input type="text" class="typeahead form-control js-modal-city" name="city" placeholder="Type in a city name" />
                 <hr>
                 <h5>Trip Type</h5>
                 <div class="btn-group btn-group-justified btn-trip-type" role="group">
-                  <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-success"><span>Passport</span><br/>- Where you've been -</button>
-                  </div>
-                  <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-success"><span>Wishlist</span><br/>- Where you wish to go -</button>
-                  </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="trip-type-choice active btn btn-success" value="passport"><span>Passport</span><br/>- Where you've been -</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="trip-type-choice btn btn-success" value="wishlist"><span>Wishlist</span><br/>- Where you wish to go -</button>
+                    </div>
                 </div>
                 <hr>
                 <h5>Trip Description</h5>

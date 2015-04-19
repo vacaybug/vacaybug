@@ -3,13 +3,6 @@ class Rest::UsersController < ActionController::Base
 
     before_filter :check_logged_in, only: [:follow, :unfollow, :followers]
 
-    def guides
-        @user = find_user(params[:id])
-        render json: {
-            models: @user.guides
-        }
-    end
-
     def show
         @user = find_user(params[:id])
 
@@ -163,16 +156,6 @@ class Rest::UsersController < ActionController::Base
             }
         else
             render text: 'Method not allowed', status: 403
-        end
-    end
-
-    private
-    
-    def find_user id
-        if id.to_i.to_s == id.to_s # by id
-            User.find_by_id(id)
-        else
-            User.find_by_username(id)
         end
     end
 end

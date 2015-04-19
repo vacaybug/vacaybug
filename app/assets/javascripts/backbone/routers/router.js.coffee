@@ -29,6 +29,7 @@ jQuery ->
       view = new Vacaybug.ProfileView
         model: model
       Vacaybug.appView.setView(view)
+      Vacaybug.appView.setNavbarTab('profile')
 
     my_profile: ->
       if Vacaybug.current_user
@@ -102,6 +103,7 @@ jQuery ->
 
       view = new Vacaybug.SearchResultView({collection: collection})
       Vacaybug.appView.setView(view)
+      Vacaybug.appView.setNavbarTab('search')
 
     newsfeed: ->
       collection = new Vacaybug.NewsfeedStoryCollection()
@@ -109,6 +111,7 @@ jQuery ->
       view = new Vacaybug.NewsfeedView({collection: collection})
 
       Vacaybug.appView.setView(view)
+      Vacaybug.appView.setNavbarTab('newsfeed')
 
     notFound: ->
       @show404()

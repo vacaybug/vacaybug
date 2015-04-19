@@ -180,6 +180,10 @@ span.twitter-typeahead .tt-suggestion.tt-cursor {
 	background-color: #428bca;
 }
 span.twitter-typeahead {
+	background-color: #fff;
+	background-repeat: no-repeat;
+	background-position: 98%;
+	background-size: 20px;
 	width: 100%;
 }
 .input-group span.twitter-typeahead {
@@ -1302,6 +1306,9 @@ span.text-content {
 	text-decoration: none;
 	color: #00629b;
 }
+.timeline-block .newsfeed .view-all-comments a.active {
+  color: #00629b;
+}
 .timeline-block .newsfeed ul.comments a.comment-author {
 	color: #00629b;
 	font-weight: 400;
@@ -1606,7 +1613,7 @@ ul.social-buttons li a:active {
 	border-bottom: 1px solid #d4d4d4;
 }
 
-.guide-item .delete {
+.guide-item .delete, .newsfeed-item .delete {
 	font-size: 19px;
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
@@ -1623,7 +1630,7 @@ ul.social-buttons li a:active {
 	height: 25px;
 }
 
-.guide-item:hover .delete {
+.guide-item:hover .delete, .newsfeed-item:hover .delete {
 	visibility: visible;
 }
 

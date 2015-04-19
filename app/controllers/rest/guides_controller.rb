@@ -5,15 +5,27 @@ class Rest::GuidesController < ActionController::Base
     before_filter :check_permission, only: [:destroy, :update]
 
     def index
-        user = User.find_by_username(params[:user_id]) || not_found
-        guides = user.guides
+        @user = find_user(params[:user_id])
+        if params[:type] == 'passport'
+            @type = Guide::TYPES::PASSPORT
+        else
+            @type = Guide::TYPES::WISHLIST
+        end
 
         render json: {
-            model: guides
+            models: @user.guides.where(guide_type: @type).order('id desc')
         }
     end
 
     def create
+        if params[:guide_type] == 'passport'
+            guide_type = Guide::TYPES::PASSPORT
+        elsif params[:guide_type] == 'wishlist'
+            guide_type = Guide::TYPES::WISHLIST
+        else
+            guide_type = nil
+        end
+
     	guide = Guide.create(
             description: params[:description],
     		country: params[:country],
@@ -21,7 +33,8 @@ class Rest::GuidesController < ActionController::Base
     		city: params[:city],
     		geonames_id: params[:geonames_id],
             user_id: current_user.id,
-            gn_data: params[:gn_data]
+            gn_data: params[:gn_data],
+            guide_type: guide_type
     	)
 
     	current_user.guide_associations.create(:guide_id => guide.id)
@@ -33,46 +46,67 @@ class Rest::GuidesController < ActionController::Base
 
     def show
         render json: {
-            model: Guide.find(params[:id])
+            model: Guide.find(params[:id]).as_json
         }
     end
 
     def update
-        guide = Guide.find(params[:id])
-        if guide.user_id.to_i != current_user.id
-            render text: 'Method not allowed', status: 403
-            return
-        end
-
-        allowed_fields = [:privacy, :title, :description]
+        allowed_fields = [:title, :description, :guide_type]
         changed = false
 
         allowed_fields.each do |field|
-            if params.has_key?(field) and guide[field] != params[field]
+            if params.has_key?(field) and @guide[field] != params[field]
                 puts "sending #{field} #{params[field]}"
                 changed = true
-                guide.send("#{field}=", params[field])
+                @guide.send("#{field}=", params[field])
             end
         end
 
-        guide.save
+        @guide.save
 
         render json: {
-            model: guide
+            model: @guide
         }
     end
 
     def destroy
-        guide = Guide.find(params[:id])
-        guide.destroy
+        @guide.destroy
 
         render json: {
         }
     end
 
+    def duplicate
+        @guide = Guide.find(params[:id])
+
+        if @guide.user_id != current_user.id # user can't copy his/her own guide
+            # TODO: maybe move it to guide.rb
+            copy_guide = Guide.create(
+                description: @guide.description,
+                country: @guide.country,
+                region: @guide.region,
+                city: @guide.city,
+                geonames_id: @guide.geonames_id,
+                user_id: current_user.id,
+                gn_data: @guide.gn_data,
+                guide_type: Guide::TYPES::WISHLIST
+            )
+            current_user.guide_associations.create(:guide_id => copy_guide.id)
+
+            @guide.places.each do |place|
+                copy_guide.add_place(place)
+            end
+        end
+
+        render json: {
+        }
+    end
+
+    private
+
     def check_permission
-        guide = Guide.find(params[:id])
-        if guide.user_id.to_i != current_user.id
+        @guide = Guide.find(params[:id])
+        if @guide.user_id.to_i != current_user.id
             render403
         end
     end

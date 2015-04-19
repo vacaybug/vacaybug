@@ -53,8 +53,9 @@ jQuery ->
       e.preventDefault()
       e.stopPropagation()
       @model.like (count) =>
+        @model.set('liked', !@model.get('liked'))
         @model.set('likes_count', count)
-        $('.newsfeed-container').masonry()
+        $('.newsfeed-items').masonry()
 
     showLikes: (e) ->
       e.preventDefault()

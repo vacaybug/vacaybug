@@ -1,6 +1,6 @@
 <div class="guide-heading">
     <h1 class="city-guide-heading"><%= _.escape(model.get('title')) %></h1>
-    <h4 class="guide-author">By <a href="/users/<%= model.get('username') %>"><%= model.get('user').full_name %></a></h4>
+    <h4 class="guide-author">By <a class="backbone" href="/users/<%= model.get('user').username %>"><%= model.get('user').full_name %></a></h4>
 </div>
 <div class="container guide-map">
     <div class="map-container">
@@ -8,7 +8,11 @@
     <div class="guide-description">
         <div maxlength="250" class="guide-description-div" placeholder="Create a purpose here...."><%= _.escape(model.get('description')) %></div>
         <hr>
-        <button class="btn btn-danger btn-guide-delete">Delete Guide</button>
+        <% if (model.get('user').id == Vacaybug.current_user.id) { %>
+            <button class="btn btn-danger btn-guide-delete">Delete Guide</button>
+        <% } else { %>
+            <button class="btn btn-danger btn-guide-delete" style="visibility: hidden">Delete Guide</button>
+        <% } %>
         <button class="btn btn-warning btn-guide-export">Export PDF</button>
     </div>
 </div>

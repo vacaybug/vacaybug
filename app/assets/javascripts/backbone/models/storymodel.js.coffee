@@ -42,4 +42,14 @@ jQuery ->
     restURL: ->
     	"/rest/newsfeed/stories"
 
+    queryParams: ->
+      query = "#{super()}"
+      if @next_offset
+        query += "&offset=#{@next_offset}"
+      query
+
+    parse: (resp, options) ->
+      @next_offset = resp.next_offset
+      super(resp, options)
+
   Vacaybug.NewsfeedStoryCollection = NewsfeedStoryCollection

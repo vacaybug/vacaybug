@@ -5,6 +5,14 @@ module ApplicationHelper
         end
     end
 
+    def find_user id
+        if id.to_i.to_s == id.to_s # by id
+            User.find_by_id(id)
+        else
+            User.find_by_username(id)
+        end
+    end
+
     def resource_name
         :user
     end

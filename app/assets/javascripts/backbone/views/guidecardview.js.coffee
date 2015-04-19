@@ -6,8 +6,11 @@ jQuery ->
       'click .js-like': 'like'
       'click .js-show-likes': 'showLikes'
       'click .js-show-comments': 'showComments'
+      'click .js-passport': 'moveToPassport'
+      'click .js-wishlist': 'moveToWishlist'
 
     initialize: (options) ->
+      @profileView = options.profileView
       @where = options.where
       @listenTo @model, 'change', @render
 
@@ -37,6 +40,14 @@ jQuery ->
 
     showComments: (e) ->
       @story.showComments()
+
+    moveToWishlist: (e) ->
+      e.stopPropagation()
+      @profileView.moveToWishlist(@model)
+
+    moveToPassport: (e) ->
+      e.stopPropagation()
+      @profileView.moveToPassport(@model)
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.GuideCardView = GuideCardView

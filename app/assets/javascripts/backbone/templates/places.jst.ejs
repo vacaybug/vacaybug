@@ -5,7 +5,7 @@
                 <div class="guide-item">
                     <div class="guide-caption" style="position: relative">
                         <span class="pull-left number-icon"><%= model.get('order_num') %></span>
-                        <h4 class="text-center text-break-ellipsis">
+                        <h4 class="text-center text-break-ellipsis" data-toggle="tooltip" title="<%= _.escape(model.get('title')) %>">
                             <%= _.escape(model.get('title')) %>
                             <% if (isPrivate) { %>
                                 <a class="js-delete-place pull-right delete" data-id="<%= model.get('id') %>">&times;</a>
@@ -23,8 +23,8 @@
                         <div class="guide-caption-div"><%= _.escape(model.get('note')) %></div>
                     </div>
                     <hr>
-                    <p class="place-location text-break-ellipsis"><%= model.get('location').formattedAddress.join(", ") %></p>
-                    <p class="place-phone text-break-ellipsis"><%= model.get('phone') %></p>
+                    <p class="place-location text-break-ellipsis" data-toggle="tooltip" title="<%= model.get('location').formattedAddress.join(", ") %>"><%= model.get('location').formattedAddress.join(", ") %></p>
+                    <p class="place-phone text-break-ellipsis" data-toggle="tooltip" title="<%= model.get('phone') %>"><%= model.get('phone') %></p>
                     <% if (model.get('yelp')) { %>
                         <hr>
                         <a href="<%= model.get('yelp').url %>" target="_blank" style="text-align:center; display:block;">

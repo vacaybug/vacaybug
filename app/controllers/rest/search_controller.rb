@@ -5,13 +5,13 @@ class Rest::SearchController < ActionController::Base
 
     def search_recent geonames_id
     	render json: {
-            models: Guide.where(geonames_id: geonames_id).order('id desc')
+            models: Guide.where(geonames_id: geonames_id).order('id desc').limit(50)
         }
     end
 
     def search_popular geonames_id
     	render json: {
-    		models: Guide.where(geonames_id: geonames_id).order('popularity desc')
+    		models: Guide.where(geonames_id: geonames_id).order('popularity desc').limit(50)
     	}
     end
 

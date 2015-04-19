@@ -1,7 +1,6 @@
 jQuery ->
   class NewsfeedView extends window.Vacaybug.GenericView
     template: JST["backbone/templates/newsfeed"]
-    className: "newsfeed-container"
 
     events:
       'click .js-post': 'postStatus'
@@ -14,9 +13,9 @@ jQuery ->
     addStory: (story) ->
       itemView = new Vacaybug.StoryView({model: story})
       $(".newsfeed.share").parent().after(itemView.render().el)
-      $(".newsfeed-container").masonry("reloadItems")
-      $(".newsfeed-container").imagesLoaded () =>
-        $(".newsfeed-container").masonry()
+      $(".newsfeed-items").masonry("reloadItems")
+      $(".newsfeed-items").imagesLoaded () =>
+        $(".newsfeed-items").masonry()
 
     deletePhoto: ->
       @imageObject = null
@@ -29,8 +28,8 @@ jQuery ->
         @imageObject = obj.data
         @$(".image-preview img").attr("src", obj.data.image.thumb)
         @$(".image-preview").show()
-        $(".newsfeed-container").imagesLoaded () =>
-          $(".newsfeed-container").masonry()
+        $(".newsfeed-items").imagesLoaded () =>
+          $(".newsfeed-items").masonry()
 
     render: ->
       return @ unless @collection.sync_status
@@ -40,12 +39,14 @@ jQuery ->
 
       _.each @collection.models, (model) =>
         itemView = new Vacaybug.StoryView({model: model})
-        $(@el).append itemView.render().el
+        $('.newsfeed-items').append itemView.render().el
 
-      $(".newsfeed-container").imagesLoaded () =>
-        $(".newsfeed-container").masonry
+      $(".newsfeed-items").imagesLoaded () =>
+        $(".newsfeed-items").masonry
           itemSelector: '.timeline-block'
           isFitWidth: true
+
+      $(window).scroll _.debounce(@handleScroll, 100)
       @
 
     postStatus: (e) ->
@@ -76,6 +77,26 @@ jQuery ->
             Vacaybug.flash_message({type: 'alert'})
             elem.html("Post")
             elem.removeAttr("disabled")
+
+    loadMore: ->
+      return if @loading
+      @loading = true
+
+      $(".ajax-loader").removeClass("hidden")
+      new_collection = new Vacaybug.NewsfeedStoryCollection()
+      new_collection.next_offset = @collection.next_offset
+      new_collection.fetch
+        success: =>
+          @loading = false
+          _.each new_collection.models, (model) =>
+            @collection.add(model)
+            @addStory(model)
+          $('.ajax-loader').addClass('hidden')
+          @collection.next_offset = new_collection.next_offset
+
+    handleScroll: =>
+      if (window.innerHeight + window.scrollY) >= document.body.offsetHeight
+        @loadMore()
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.NewsfeedView = NewsfeedView

@@ -13,21 +13,44 @@ jQuery ->
       'click .js-guide-item': '_openModal'
       'click .js-change-photo': 'changePhoto'
       'click .js-delete-guide': 'deleteGuide'
+      'click .trip-type-choice': '_tripTypeClick'
 
     initialize: (options) ->
       @listenTo @model, 'change', @render
       @listenTo @model, 'sync', @render
       @activeTab = 'passport'
-      @isPrivate = Vacaybug.current_user && @model.get('username') == Vacaybug.current_user.get('username')
       @editMode = false
 
-      @guides = new Vacaybug.GuideCollection
-        username: @model.get('username')
-      @guides.fetch()
-
-      @listenTo @guides, 'remove', @renderMap
-      @listenTo @guides, 'add', @renderMap
       super()
+
+    renderPassport: ->
+      if !@passportView
+        @passportCollection = new Vacaybug.GuideCollection
+          username: @model.get('username')
+          type: 'passport'
+        @passportCollection.fetch()
+
+        @listenTo @passportCollection, 'remove', @renderMap
+        @listenTo @passportCollection, 'add', @renderMap
+
+      @passportView ||= new Vacaybug.GuidesView
+        profileView: @
+        collection: @passportCollection
+        where: 'profile'
+      @passportView.setElement($(".passport")[0]).render()
+
+    renderWishlist: ->
+      if !@wishlistView
+        @wishlistCollection = new Vacaybug.GuideCollection
+          username: @model.get('username')
+          type: 'wishlist'
+        @wishlistCollection.fetch()
+
+      @wishlistView ||= new Vacaybug.GuidesView
+        profileView: @
+        collection: @wishlistCollection
+        where: 'profile'
+      @wishlistView.setElement($(".wishlist")[0]).render()
 
     renderMap: ->
       return if $('.map-container').length == 0
@@ -36,10 +59,10 @@ jQuery ->
       map = new google.maps.Map($('.map-container')[0], mapOptions)
       window.map = map
 
-      if @guides.sync_status
-        if @guides.models.length > 0
+      if @passportCollection && @passportCollection.sync_status
+        if @passportCollection.models.length > 1
           bounds = new google.maps.LatLngBounds()
-          for guide in @guides.models
+          for guide in @passportCollection.models
             position = new google.maps.LatLng(parseFloat(guide.get('gn_data')['lat']), parseFloat(guide.get('gn_data')['lng']))
             bounds.extend(position)
 
@@ -50,8 +73,18 @@ jQuery ->
 
           map.fitBounds(bounds)
         else
-          centerAddress = 'California, United States'
-          geocoder = new google.maps.Geocoder();
+          if @passportCollection.models.length == 1
+            guide = @passportCollection.first()
+            centerAddress = guide.get('city') + " " + guide.get('region') + " " + guide.get('country')
+            position = new google.maps.LatLng(parseFloat(guide.get('gn_data')['lat']), parseFloat(guide.get('gn_data')['lng']))
+            marker = new google.maps.Marker
+              position: position
+              map: map
+              icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=|33CCFF|000000"
+          else
+            centerAddress = 'California, United States'
+
+          geocoder = new google.maps.Geocoder()
           geocoder.geocode { 'address': centerAddress }, (results, status) ->
             if status == google.maps.GeocoderStatus.OK
               if status != google.maps.GeocoderStatus.ZERO_RESULTS
@@ -60,13 +93,13 @@ jQuery ->
     _openModal: (e) ->
       guide_id = $(e.currentTarget).attr('data-id')
       modal = new Vacaybug.GuideModalView
-        guide: @guides.where({id: parseInt(guide_id)})[0]
+        guide: (@passportCollection.where({id: parseInt(guide_id)})[0] || @wishlistCollection.where({id: parseInt(guide_id)})[0])
       modal.render()
 
     deleteGuide: (e) ->
       if (confirm('Are you sure you want to delete this guide?'))
         guide_id = $(e.currentTarget).attr('data-id')
-        model = @guides.where({id: parseInt(guide_id)})[0]
+        model = (@passportCollection.where({id: parseInt(guide_id)})[0] || @wishlistGuides.where({id: parseInt(guide_id)})[0])
         model.destroy()
 
     createGuide: (event) ->
@@ -77,6 +110,7 @@ jQuery ->
         city:        @selected.data.name
         geonames_id: @selected.data.geonameId
         gn_data:     @selected.data
+        guide_type:  @getTripType()
 
       elem = $(event.currentTarget)
       elem.attr("disabled", "disabled")
@@ -92,6 +126,7 @@ jQuery ->
 
     render: ->
       return @ unless @model.sync_status
+      @isPrivate = Vacaybug.current_user && @model.get('id') == Vacaybug.current_user.get('id')
 
       @template = JST["backbone/templates/profile"]
 
@@ -121,7 +156,7 @@ jQuery ->
       timeout = null
       $(".typeahead").typeahead(
         {
-          hint: true,
+          hint: false,
           highlight: true,
           minLength: 3
         },
@@ -130,12 +165,13 @@ jQuery ->
           source: (query, callback) ->
             if (timeout)
               clearTimeout(timeout)
-            
+
             timeout = setTimeout((->
               matches = []
               $.ajax
                 url: "http://api.geonames.org/search?name_startsWith=#{encodeURIComponent(query)}&username=vacaybug&maxRows=10&featureClass=P&order=population&type=json"
                 success: (resp) ->
+                  $(".typeahead-spinner").addClass("hidden")
                   matches = []
                   for location in resp.geonames
                     name = location.toponymName
@@ -150,14 +186,12 @@ jQuery ->
         @selected = selected
       )
 
-      $(".typeahead").on('input', (event) =>
+      $(".typeahead").on 'input', (event) =>
         $(".js-continue").attr("disabled", "disabled")
-      )
+        $(".typeahead-spinner").removeClass("hidden")
 
-      @guidesView ||= new Vacaybug.GuidesView
-        collection: @guides
-        where: 'profile'
-      @guidesView.setElement($('.guides')[0]).render()
+      @renderPassport()
+      @renderWishlist()
       @
 
     follow: ->
@@ -226,6 +260,31 @@ jQuery ->
     clickTab: (e) ->
       currentTab = $(e.currentTarget).attr('data-tab')
       @activeTab = currentTab
+
+    getTripType: ->
+      if @$(".trip-type-choice.active").length > 0
+        @$(".trip-type-choice.active").attr("value")
+      else
+        null
+
+    _moveTo: (guideModel, from, to) ->
+      guideModel.set('guide_type', 3 - guideModel.get('guide_type'), {silent: true})
+      guideModel.save null,
+        success: =>
+          to.add(guideModel)
+          from.remove(guideModel)
+
+    moveToPassport: (guideModel) ->
+      @_moveTo(guideModel, @wishlistCollection, @passportCollection)
+
+    moveToWishlist: (guideModel) ->
+      @_moveTo(guideModel, @passportCollection, @wishlistCollection)
+
+    _tripTypeClick: (e) ->
+      e.preventDefault()
+      e.stopPropagation()
+      @$(".trip-type-choice").removeClass("active")
+      $(e.currentTarget).addClass("active")
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.ProfileView = ProfileView

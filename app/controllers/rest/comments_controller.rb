@@ -34,6 +34,9 @@ class Rest::CommentsController < ActionController::Base
         story = Story.find_by_id(params[:story_id]) || not_found
         text = params[:text] || ""
         comment = story.comments.create(user_id: current_user.id, text: text)
+        if story.story_type == Story::TYPES::GUIDE
+            story.resource.calculate_popularity
+        end
 
         render json: {
             status: true,
