@@ -46,7 +46,7 @@ Vacaybug::Application.configure do
     domain: "vacaybug.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "charles@hackerrank.com",
+    user_name: "charles@vacaybug.com",
     password: "q1w2e3r4T%"
   }
 

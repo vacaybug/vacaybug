@@ -27,12 +27,12 @@ class StaticController < ActionController::Base
 		render 'static/message'
 	end
 
-	def search
-		render 'static/search'
+	def discover
+		render 'static/discover'
 	end
 
-	def search2
-		render 'static/searchresult'
+	def search
+		render 'static/search'
 	end
 
 	def home

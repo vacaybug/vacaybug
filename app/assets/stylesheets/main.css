@@ -102,6 +102,29 @@ div.flash-notification .flash-notice {
 	color: #00629b;
 	border: 1px solid #00629b;
 }
+.box {
+	padding: 0px;
+	background-color: #fff;
+	border: 1px solid #d4d4d4;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.box .box-header {
+	padding: 10px;
+	border-bottom: 1px solid #d4d4d4;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+.box .box-body {
+	padding: 10px;
+}
+.box .box-footer {
+	padding: 10px;
+	border-top: 1px solid #d4d4d4;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
 
 /* TYPEAHEAD */
 
@@ -1136,10 +1159,32 @@ span.text-content {
 	-o-background-size: cover;
 	width: 100%;
 }
+.search-container .col-md-4 {
+	padding: 30px;
+	margin-top: 3%;
+}
+.search-container .col-md-4 .box-header img {
+	float: left;
+	width: 35px;
+	margin: 5px 20px 5px 10px;
+}
+.search-container .col-md-4 .box-header h3 {
+	font-size: 20px;
+	font-weight: 700;
+	margin: 0px;
+	padding: 10px 20px;
+}
+.search-container .col-md-4 .box-body ol {
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 40px;
+	margin: 0px;
+}
 .search-container .col-md-6 {
 	padding: 0px;
-	margin-top: 20%;
+	margin-top: 20px;
 	background-color: #fff;
+	border: 1px solid #d4d4d4;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;

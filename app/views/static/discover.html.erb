@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VacayBug | Search</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= render 'generic/header.html.erb' %>
+</head>
+<body>
+	<%= render 'generic/navigation.html.erb' %>
+	
+	<div class="container search-container" id="wrapper">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="box">
+					<div class="box-header">
+						<img src="/assets/like.svg">
+						<h3>Top 5 most liked</h3>
+					</div>
+					<div class="box-body">
+						<ol>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+						</ol>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="box">
+					<div class="box-header">
+						<img src="/assets/like.svg">
+						<h3>Top 5 most commented</h3>
+					</div>
+					<div class="box-body">
+						<ol>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+						</ol>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="box">
+					<div class="box-header">
+						<img src="/assets/like.svg">
+						<h3>Top 5 most shared</h3>
+					</div>
+					<div class="box-body">
+						<ol>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 search-bar">
+				<input class="typeahead form-control" type="text" placeholder="Discover a new destination...">
+				<i class="fa fa-search"></i>
+			</div>
+		</div>
+	</div>
+
+	<%= render 'generic/footer.html.erb' %>
+</body>
+</html>
