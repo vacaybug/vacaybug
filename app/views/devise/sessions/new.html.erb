@@ -42,7 +42,8 @@
                         <%= f.check_box :remember_me %> Remember me
                     </div>
                     <div class="col-sm-6">
-                        <a href="#" class="forgot-pwd pull-right">Forgot your password?</a>
+                        <!-- <a href="#" class="forgot-pwd pull-right">Forgot your password?</a> -->
+                        <%= link_to "Forgot your password?", new_password_path(resource_name), :class => 'forgot-pwd pull-right' %>
                     </div>
                 </div>
                 <div class="row">
