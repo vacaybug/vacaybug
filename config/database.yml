@@ -19,11 +19,10 @@ test:
   password: iTTPW_As9R70F7zSlbWrXRZx4A
 
 production:
-  adapter: postgresql
+  adapter: mysql2
   encoding: utf8
-  database: d446updv740hr9
-  host: ec2-54-235-76-206.compute-1.amazonaws.com
-  pool: 5
-  username: umoxmjcyifzoas
-  password: iTTPW_As9R70F7zSlbWrXRZx4A
-  collation: utf8_general_ci
+  database: vacaybug
+  username: vacaybug
+  password: db!vacaybug
+  host: cddffd1hwrho.us-west-2.rds.amazonaws.com
+  port: 3306
