@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.18'
 gem 'devise', '2.2.8'
 gem 'mysql2', '0.3.15'
+gem 'unicorn'
 
 group :development do
 	gem 'capistrano', '~> 3.1.0'
