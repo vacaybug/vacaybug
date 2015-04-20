@@ -3,14 +3,15 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.18'
 gem 'devise', '2.2.8'
 gem 'mysql2', '0.3.15'
-gem 'unicorn'
+
+gem 'puma'
 
 group :development do
-	gem 'capistrano', '~> 3.1.0'
-	gem 'capistrano-puma', require: false
-	gem 'capistrano-rails',   '~> 1.1', require: false
-	gem 'capistrano-bundler', '~> 1.1', require: false
-	gem 'capistrano-rvm',   '~> 0.1', require: false
+    gem 'capistrano',         require: false
+    gem 'capistrano-rvm',     require: false
+    gem 'capistrano-rails',   require: false
+    gem 'capistrano-bundler', require: false
+    gem 'capistrano3-puma',   require: false
 end
 
 # Gems used only for assets and not required
