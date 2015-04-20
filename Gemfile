@@ -2,15 +2,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.18'
 gem 'devise', '2.2.8'
+gem 'mysql2', '0.3.15'
 
 group :development do
-    gem 'mysql2', '0.3.15'
-end
-
-group :production do
-	gem 'mysql2', '0.3.15'
-    gem 'pg'
-    gem 'rails_12factor'
+	gem 'capistrano', '~> 3.1.0'
+	gem 'capistrano-puma', require: false
+	gem 'capistrano-rails',   '~> 1.1', require: false
+	gem 'capistrano-bundler', '~> 1.1', require: false
+	gem 'capistrano-rvm',   '~> 0.1', require: false
 end
 
 # Gems used only for assets and not required
