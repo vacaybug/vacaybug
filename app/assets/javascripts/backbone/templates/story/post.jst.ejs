@@ -1,4 +1,4 @@
-<div class="panel panel-default newsfeed newsfeed-item">
+<div class="panel panel-default newsfeed">
     <div class="panel-heading">
         <div class="media">
             <a href="" class="pull-left">
@@ -8,8 +8,9 @@
                 <a href="/users/<%= model.get('data').user.username %>" class="backbone newsfeed-user"><%= model.get('data').user.full_name %></a>
                 <span class="newsfeed-date"><%= $.timeago(model.get('created_at')) %></span>
             </div>
+            <div class="clearfix"></div>
             <% if (model.get('data').user.id == Vacaybug.current_user.id) { %>
-                <a class="js-delete-story pull-right delete" data-id="<%= model.get('data').user.id %>">&times;</a>
+                <a class="js-delete-story delete" data-id="<%= model.get('data').user.id %>">&times;</a>
             <% } %>
         </div>
     </div>
