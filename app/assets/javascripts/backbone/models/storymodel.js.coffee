@@ -50,6 +50,7 @@ jQuery ->
 
     parse: (resp, options) ->
       @next_offset = resp.next_offset
+      @has_more = resp.has_more
       super(resp, options)
 
   Vacaybug.NewsfeedStoryCollection = NewsfeedStoryCollection

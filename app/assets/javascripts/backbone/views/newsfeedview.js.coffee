@@ -10,9 +10,16 @@ jQuery ->
     initialize: (options) ->
       @listenTo @collection, 'sync', @render
 
-    addStory: (story) ->
+    prependStory: (story) ->
       itemView = new Vacaybug.StoryView({model: story})
       $(".newsfeed.share").parent().after(itemView.render().el)
+      $(".newsfeed-items").masonry("reloadItems")
+      $(".newsfeed-items").imagesLoaded () =>
+        $(".newsfeed-items").masonry()
+
+    appendStory: (story) ->
+      itemView = new Vacaybug.StoryView({model: story})
+      $(".newsfeed-items").append(itemView.render().el)
       $(".newsfeed-items").masonry("reloadItems")
       $(".newsfeed-items").imagesLoaded () =>
         $(".newsfeed-items").masonry()
@@ -46,7 +53,7 @@ jQuery ->
           itemSelector: '.timeline-block'
           isFitWidth: true
 
-      $(window).scroll _.debounce(@handleScroll, 100)
+      $(window).scroll _.debounce(@handleScroll, 250)
       @
 
     postStatus: (e) ->
@@ -67,7 +74,7 @@ jQuery ->
           success: (response) =>
             story = new Vacaybug.StoryModel(response.model.data)
             story.sync_status = true
-            @addStory(story)
+            @prependStory(story)
             @$(".js-status").val("")
             @deletePhoto()
 
@@ -79,7 +86,7 @@ jQuery ->
             elem.removeAttr("disabled")
 
     loadMore: ->
-      return if @loading
+      return if @loading || !@collection.has_more
       @loading = true
 
       $(".ajax-loader").removeClass("hidden")
@@ -90,9 +97,10 @@ jQuery ->
           @loading = false
           _.each new_collection.models, (model) =>
             @collection.add(model)
-            @addStory(model)
+            @appendStory(model)
           $('.ajax-loader').addClass('hidden')
           @collection.next_offset = new_collection.next_offset
+          @collection.has_more = new_collection.has_more
 
     handleScroll: =>
       if (window.innerHeight + window.scrollY) >= document.body.offsetHeight
