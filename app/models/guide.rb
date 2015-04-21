@@ -50,6 +50,10 @@ class Guide < ActiveRecord::Base
         self.save
     end
 
+    def can_publish
+        self.guide_type == Guide::TYPES::PASSPORT
+    end
+
     private
 
     def create_story

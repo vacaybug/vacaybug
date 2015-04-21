@@ -30,6 +30,10 @@ class Post < ActiveRecord::Base
         Story.where(resource_id: self.id, story_type: Story::TYPES::POST).first
     end
 
+    def can_publish
+        true
+    end
+
     private
 
     def destroy_story

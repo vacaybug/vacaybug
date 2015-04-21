@@ -49,6 +49,8 @@ class Story < ActiveRecord::Base
     end
 
     def publish_to_followers
-        story_published self
+        if resource.can_publish
+            story_published self
+        end
     end
 end
