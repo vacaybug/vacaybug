@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
     # :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable, :confirmable,  
         :recoverable, :rememberable, :trackable, :validatable,
-        :omniauthable, :omniauth_providers => [:facebook]
+        :omniauthable, :omniauth_providers => [:facebook, :twitter]
 
 
     # Setup accessible (or protected) attributes for your model
@@ -90,16 +90,30 @@ class User < ActiveRecord::Base
         NewsfeedAssociation.where(user_id: self.id)
     end
 
-    def self.from_omniauth(auth)
-        where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-            puts auth.info
-            sleep 3
+    def self.from_omniauth_facebook(auth)
+        where(email: auth.info.email).first_or_create do |user|
+            user.provider = auth.provider
+            user.uid = auth.uid
             user.email = auth.info.email
             user.password = Devise.friendly_token[10,20]
-            user.username = "user#{rand.to_s[2..11]}"   # assuming the user model has a name
+            user.username = "user#{rand.to_s[2..11]}"
             user.first_name = auth.info.first_name
             user.last_name = auth.info.last_name
-            # user.avatar = auth.info.image # assuming the user model has an image
+            user.skip_confirmation!
+            # user.avatar = URI.parse(auth.info.image)
+        end
+    end
+
+    def self.from_omniauth_twitter(auth)
+        where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+            user.provider = auth.provider
+            user.uid = auth.uid
+            user.email = "user#{rand.to_s[2..11]}@twitter_generated_email.com"
+            user.password = Devise.friendly_token[10,20]
+            user.username = "user#{rand.to_s[2..11]}"
+            user.first_name = auth.info.name
+            user.skip_confirmation!
+            user.avatar = URI.parse(auth.info.image)
         end
     end
 

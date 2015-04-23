@@ -223,6 +223,7 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   config.omniauth :facebook, "445675282262677", "ef28b1b13a69ba1ef96d6b6a219af871"
+  config.omniauth :twitter, "CARrceVE69acIUC6pikrDf3wE", "hpgjtyiSWuArdoQGJCexjynzbiHR3YJN9vIO9fyxBYAgslFjSq"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
