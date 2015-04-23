@@ -224,6 +224,7 @@ Devise.setup do |config|
 
   config.omniauth :facebook, "445675282262677", "ef28b1b13a69ba1ef96d6b6a219af871"
   config.omniauth :twitter, "CARrceVE69acIUC6pikrDf3wE", "hpgjtyiSWuArdoQGJCexjynzbiHR3YJN9vIO9fyxBYAgslFjSq"
+  config.omniauth :google_oauth2, "679734563400-sjab10po9a7i215dq301ol2rsdv27i94.apps.googleusercontent.com", "J3Zjp8nSkLta9y3RHtoQSAie"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
