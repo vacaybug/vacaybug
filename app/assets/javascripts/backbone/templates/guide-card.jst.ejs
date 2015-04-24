@@ -12,9 +12,9 @@
             <div class="guide-hover">
                 <% if (model.get('user').id == Vacaybug.current_user.get('id')) { %>
                     <% if (model.get('guide_type') == '1') { %>
-                        <span class="js-wishlist btn btn-warning">Wishlist</span>
+                        <span class="js-wishlist btn btn-warning">Move to Wishlist</span>
                     <% } else { %>
-                        <span class="js-passport btn btn-warning">Passport</span>
+                        <span class="js-passport btn btn-warning">Move to Passport</span>
                     <% } %>
                 <% } else { %>
                     <span class="js-save btn btn-warning">Add</span>

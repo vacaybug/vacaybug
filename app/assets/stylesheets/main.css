@@ -920,6 +920,7 @@ span.text-content {
 	-o-background-size: cover;
 	padding-top: 50px;
 	width: 100%;
+	min-height: 600px;
 }
 
 .sign-up .row .col-md-4 {
