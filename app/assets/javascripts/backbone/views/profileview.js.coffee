@@ -130,26 +130,27 @@ jQuery ->
 
       @template = JST["backbone/templates/profile"]
 
-      @birth_year = null
-      @birth_date = null
+      @birthday = null
       if @model.get('birthday')
         @date = new Date(@model.get('birthday') + " 00:00:00")
-        @birth_year = $.format.date(@date, "yyyy")
-        @birth_date = $.format.date(@date, "MMM, dd")
+        @birthday = $.format.date(@date, "MMM dd, yyyy")
 
       $(@el).html @template
         model: @model.toJSON()
         guides: @guides
         activeTab: @activeTab
         editMode: @editMode
-        birth_year: @birth_year
-        birth_date: @birth_date
         isPrivate: @isPrivate
+        birthday: @birthday
+        errors: @errors
 
       @renderMap()
 
       $('input.input-birthday').datepicker
-        format: "M, dd"
+        format: "MMM dd, YYYY"
+        changeMonth: true
+        changeYear: true
+        yearRange: "-100:+0"
 
       $('input.input-birthday').datepicker('setDate', @date)
 
@@ -219,7 +220,7 @@ jQuery ->
         field = $(elem).attr('data-field')
         copy_model.set(field, $(elem).val())
 
-      copy_model.set('birthday', copy_model.get('birth_year') + ' ' + copy_model.get('birth_date'))
+      copy_model.set('birthday', $.format.date(new Date(copy_model.get('birthday') + " 00:00:00"), "yyyy-MM-dd"))
 
       copy_model.save null,
         success: (model, resp) =>
@@ -232,24 +233,25 @@ jQuery ->
 
             @editMode = false
             @model.set(changed_attributes)
+            @_complete()
           else
-            $('input.profile-field').each (index, elem) ->
+            @_complete()
+            $('span.profile-label').each (index, elem) ->
               field = $(elem).attr('data-field')
 
               if resp.errors[field]
-                $("<div class='col-sm-offset-4 col-sm-8 text-danger error-message'>#{resp.errors[field][0]}</div>").insertAfter($(elem).parent())
+                $(elem).parent().parent().append($("<div class='col-sm-offset-4 col-sm-8 text-danger error-message'>#{resp.errors[field][0]}</div>"))
 
         error: (model, resp) =>
           Vacaybug.flash_message({text: 'There was an error while completing your request. Please try again', type: 'alert'})
 
-        complete: =>
-          $(".js-save").show()
-          $(".js-cancel").show()
+    _complete: ->
+      $(".js-save").show()
+      $(".js-cancel").show()
 
-          @saving = false
-          @editMode = false
-          @render()
-
+      @saving = false
+      @editMode = false
+      @render()
 
     cancel: ->
       return if @saving
@@ -285,6 +287,15 @@ jQuery ->
       e.stopPropagation()
       @$(".trip-type-choice").removeClass("active")
       $(e.currentTarget).addClass("active")
+
+    changePhoto: ->
+      uploader = new Vacaybug.ImageUploaderModalView()
+      uploader.render()
+      uploader.on 'done', (obj) =>
+        @imageObject = obj.data
+        $('img.nav-avatar').attr('src', obj.data.image.thumb)
+        @model.set('image_id', obj.data.id)
+        @model.save()
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.ProfileView = ProfileView

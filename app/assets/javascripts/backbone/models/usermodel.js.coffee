@@ -1,10 +1,19 @@
 jQuery ->
   class UserModel extends window.Vacaybug.GenericModel
     restURL: ->
-      if @get('username')
-        "/rest/users/#{@get('username')}"
+      if @get('id')
+        "/rest/users/#{@get('id')}"
       else
-        "/rest/users"
+        if @get('username')
+          "/rest/users/#{@get('username')}"
+        else
+          "/rest/users/"
+
+    queryParams: ->
+      if !@get('id') && @get('username')
+        "#{super()}&find_user_by_name=1"
+      else
+        "#{super()}"
 
     initialize: ->
 

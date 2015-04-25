@@ -8,11 +8,8 @@ class User < ActiveRecord::Base
 
 
     # Setup accessible (or protected) attributes for your model
-    attr_accessible :id, :email, :password, :password_confirmation, :remember_me, :unconfirmed_email
-    attr_accessible :website, :location, :photo_url, :tag_line, :username, :first_name, :last_name
-    attr_accessible :avatar, :birthday
-      has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/default_avatar.jpg"
-      validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+    attr_accessible :id, :email, :password, :password_confirmation, :remember_me, :unconfirmed_email,
+        :image_id, :website, :location, :photo_url, :tag_line, :username, :first_name, :last_name, :birthday
 
     has_many :followers_relation, :class_name => 'Follower', :foreign_key => 'user_id'
     has_many :following_relation, :class_name => 'Follower', :foreign_key => 'follower_id'
@@ -30,7 +27,23 @@ class User < ActiveRecord::Base
         },
         uniqueness: { case_sensitive: false },
         length: { in: 3..16 }
+    validates :first_name,
+        format: {
+            with: /[a-zA-Z ]+/,
+            message: 'can not contain numbers or special characters'
+        },
+        presence: true,
+        length: { maximum: 100 }
+    validates :last_name,
+        format: {
+            with: /[a-zA-Z ]+/,
+            message: 'can not contain numbers or special characters'
+        },
+        presence: true,
+        length: { maximum: 100 }
     validate :validate_birthday
+
+    before_save :setup_names
 
     def display_name
         self.first_name || self.username
@@ -49,6 +62,18 @@ class User < ActiveRecord::Base
         end
 
         name
+    end
+
+    def guides_count
+        self.guides.where(guide_type: Guide::TYPES::PASSPORT).count
+    end
+
+    def visited_countries_count
+        self.guides.where(guide_type: Guide::TYPES::PASSPORT).count('country', distinct: true)
+    end
+
+    def visited_cities_count
+        self.guides.where(guide_type: Guide::TYPES::PASSPORT).count('geonames_id', distinct: true)
     end
 
     def additional_attributes (options={})
@@ -72,18 +97,26 @@ class User < ActiveRecord::Base
             options.merge!({except: [:email]})
         end
 
-        options.merge!({methods: [:full_name]})
+        options.merge!({methods: [:full_name, :guides_count, :visited_cities_count, :visited_countries_count]})
 
         json = super(options)
         json.merge!(additional_attributes(options)) if options[:additional]
         json.merge!({
             avatar: {
-                thumb: self.avatar.url(:thumb),
-                medium: self.avatar.url(:medium)
+                thumb: self.avatar(:thumb),
+                medium: self.avatar(:medium)
             }
         })
 
         json
+    end
+
+    def avatar type
+        if self.image_id
+            Image.find(self.image_id).image.url(type)
+        else
+            "/assets/default_avatar.jpg"
+        end
     end
 
     def newsfeed_stories
@@ -99,7 +132,6 @@ class User < ActiveRecord::Base
             user.username = "user#{rand.to_s[2..11]}"
             user.first_name = auth.info.first_name
             user.last_name = auth.info.last_name
-            # user.avatar = URI.parse(auth.info.image)
             user.skip_confirmation!
         end
     end
@@ -112,7 +144,7 @@ class User < ActiveRecord::Base
             user.password = Devise.friendly_token[10,20]
             user.username = "user#{rand.to_s[2..11]}"
             user.first_name = auth.info.name
-            user.avatar = URI.parse(auth.info.image)
+            user.image_id = Image.creatURI.parse(auth.info.image)
             user.skip_confirmation!
         end
     end
@@ -131,11 +163,33 @@ class User < ActiveRecord::Base
         end
     end
 
+    def self.create_username first, last
+        first = first.split(" ").join("")
+        last = last.split(" ").join("")
+        username = first + last
+        suffix = nil
+        while User.where(username: username + suffix.to_s).count > 0 do
+            if suffix.nil?
+                suffix = 1
+            else
+                suffix += 1
+            end
+        end
+
+        username + suffix.to_s
+    end
+
     private
 
     def validate_birthday
         if self.birthday.present? && self.birthday > Date.today
             errors.add(:birthday, "can't be in the future")
         end
+    end
+
+    def setup_names
+        self.first_name = self.first_name.split(" ").join(" ")
+        self.last_name = self.last_name.split(" ").join(" ")
+        self.username = self.username.downcase
     end
 end

@@ -19,13 +19,10 @@ class Rest::UsersController < ActionController::Base
         @user = find_user(params[:id])
 
         if @user.id == current_user.id
-            allowed_fields = [:username, :first_name, :last_name, :photo_url, :website, :location, :tag_line, :email, :birthday]
+            allowed_fields = [:username, :first_name, :last_name, :photo_url, :website, :location, :tag_line, :email, :birthday, :image_id]
             changed = false
 
             allowed_fields.each do |field|
-                puts field
-                puts params[field]
-                puts @user[field]
                 if params.has_key?(field) and @user[field] != params[field]
                     puts "sending #{field} #{params[field]}"
                     changed = true

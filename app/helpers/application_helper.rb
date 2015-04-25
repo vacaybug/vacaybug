@@ -6,10 +6,10 @@ module ApplicationHelper
     end
 
     def find_user id
-        if id.to_i.to_s == id.to_s # by id
-            User.find_by_id(id)
-        else
+        if params[:find_user_by_name] == "1"
             User.find_by_username(id)
+        else
+            User.find(id)
         end
     end
 

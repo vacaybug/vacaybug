@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150419184340) do
+ActiveRecord::Schema.define(:version => 20150425181745) do
 
   create_table "comments", :force => true do |t|
     t.integer  "story_id"
@@ -171,10 +171,6 @@ ActiveRecord::Schema.define(:version => 20150419184340) do
     t.string   "location"
     t.string   "photo_url"
     t.text     "tag_line"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.string   "username"
     t.date     "birthday"
     t.string   "confirmation_token"
@@ -182,6 +178,7 @@ ActiveRecord::Schema.define(:version => 20150419184340) do
     t.datetime "confirmation_sent_at"
     t.string   "provider"
     t.string   "uid"
+    t.integer  "image_id"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

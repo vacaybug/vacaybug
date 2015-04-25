@@ -29,7 +29,7 @@ jQuery ->
       super(options)
 
     queryParams: ->
-      "type=#{@type}"
+      "type=#{@type}&find_user_by_name=1"
 
     restURL: ->
       "/rest/users/#{@username}/guides"

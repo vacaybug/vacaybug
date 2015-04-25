@@ -4,7 +4,7 @@
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
-server '52.10.24.229', user: 'ubuntu', roles: %w{web app db}
+server '54.69.99.179', user: 'ubuntu', roles: %w{web app db}
 
 # set :nginx_server_name, 'vacaybug.com'
 
