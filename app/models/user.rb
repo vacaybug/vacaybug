@@ -188,8 +188,8 @@ class User < ActiveRecord::Base
     end
 
     def setup_names
-        self.first_name = self.first_name.split(" ").join(" ")
-        self.last_name = self.last_name.split(" ").join(" ")
+        self.first_name = (self.first_name || "").split(" ").join(" ")
+        self.last_name = (self.last_name || "").split(" ").join(" ")
         self.username = self.username.downcase
     end
 end
