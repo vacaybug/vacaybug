@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <%= render 'generic/home_header' %>
         <meta name="description" content="">
         <meta name="author" content="">
         <title>VacayBug - About</title>
+        <%= render 'generic/home_header' %>
     </head>
     <body id="page-top">
         <%= render 'generic/home_navigation' %>
@@ -148,5 +148,13 @@
         </div>
         <!-- Vacaybug -->
         <%= javascript_include_tag("application", :media => "all") %>
+        <!-- Mixpanel Tracking -->
+        <script type="text/javascript">
+            mixpanel.track("Page Loaded", {"Page Name": "About" });
+        </script>
+        <!-- Amplitude Tracking -->
+        <script type="text/javascript">
+            amplitude.logEvent("about_page_loaded");
+        </script>
     </body>
 </html>

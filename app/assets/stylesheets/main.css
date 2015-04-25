@@ -909,6 +909,11 @@ span.text-content {
 }
 /* LOGIN / SIGN UP */
 
+.error-msg {
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 20px;	
+}
 .sign-up {
 	background-attachment: scroll;
 	background-image: url(../assets/login-cover.jpg);
