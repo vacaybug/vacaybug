@@ -1,6 +1,6 @@
 <div class="guide-heading">
     <h1 class="city-guide-heading"><%= _.escape(model.get('title')) %></h1>
-    <h4 class="guide-author">By <a class="backbone" href="/users/<%= model.get('user').username %>"><%= model.get('user').full_name %></a></h4>
+    <h4 class="guide-author">By <a class="backbone" href="/<%= model.get('user').username %>"><%= model.get('user').full_name %></a></h4>
 </div>
 <div class="container guide-map">
     <div class="map-container">

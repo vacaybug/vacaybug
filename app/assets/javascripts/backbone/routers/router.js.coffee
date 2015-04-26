@@ -14,7 +14,6 @@ jQuery ->
       ":user/following": "following"
 
       ":user/guides/:id": "guide"
-      "guides/:id": "my_guide"
 
       # "*notFound": "notFound"
     
@@ -88,12 +87,6 @@ jQuery ->
         model: guide
 
       Vacaybug.appView.setView(view)
-
-    my_guide: (id) ->
-      if Vacaybug.current_user
-        @guide(Vacaybug.current_user.get('username'), id)
-      else
-        @show404()
 
     search: ->
       geonames_id = $.getParameterByName('id')

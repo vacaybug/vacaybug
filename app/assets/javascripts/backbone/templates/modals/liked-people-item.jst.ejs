@@ -3,7 +3,7 @@
         <img src="<%= model.get('avatar').thumb %>" class="media-object" width="50">
     </a>
     <div class="media-body">
-        <a href="/users/<%= model.get('username') %>" class="backbone comment-author"><%= model.get('full_name') %></a>
+        <a href="<%= model.get('username') %>" class="backbone comment-author"><%= model.get('full_name') %></a>
         <div class="comment-date"><%= $.timeago(model.get('liked_date')) %></div>
     </div>
     <div class="clearfix"></div>

@@ -2,7 +2,7 @@
     <div class="panel-body">
         <img src="<%= model.get('avatar').thumb %>" alt="<%= model.get('username') %>" class="user-img img-square pull-left" height="100"/>
         <div class="user-info text-center pull-left">
-            <a href="/users/<%= model.get('username') %>" class="username"><%= model.get('full_name') %></a>
+            <a href="/<%= model.get('username') %>" class="username"><%= model.get('full_name') %></a>
             <a href="#" class="user-follower">40 followers</a>
         </div>
         <% if (model.get('follows')) { %>

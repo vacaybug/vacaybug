@@ -26,10 +26,10 @@
         </ul>
         <ul class="cover-nav nav nav-tabs pull-right" style="left: 650px">
             <li style="border-right-style: none !important">
-                <a href="/users/<%= model.username %>/follower"><%= model.followers_count %> Followers</a>
+                <a href="/<%= model.username %>/follower"><%= model.followers_count %> Followers</a>
             </li>
             <li style="border-right-style: none !important">
-                <a href="/users/<%= model.username %>/following"><%= model.following_count %> Following</a>
+                <a href="/<%= model.username %>/following"><%= model.following_count %> Following</a>
             </li>
         </ul>
         <% if (isPrivate) { %>

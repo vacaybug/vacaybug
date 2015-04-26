@@ -5,7 +5,7 @@
                 <img src="<%= model.get('data').user.avatar.thumb %>" class="media-object avatar-thumb">
             </a>
             <div class="media-body">
-                <a href="/users/<%= model.get('data').user.username %>" class="backbone newsfeed-user"><%= guide.get('user').full_name %></a>
+                <a href="<%= model.get('data').user.username %>" class="backbone newsfeed-user"><%= guide.get('user').full_name %></a>
                 <span class="newsfeed-date"><%= $.timeago(model.get('created_at')) %></span>
             </div>
             <% if (guide.get('user').id == Vacaybug.current_user.id) { %>
@@ -15,7 +15,7 @@
     </div>
     <div style="position: relative">
         <div class="panel-body">
-            Just uploaded a guide - <a href="/guides/<%= guide.get('id') %>" class="backbone"><%= guide.get('title') %></a>
+            Just uploaded a guide - <a href="<%= guide.get('user').username %>/guides/<%= guide.get('id') %>" class="backbone"><%= guide.get('title') %></a>
         </div>
         <div class="guide-hover newsfeed">
             <% if (guide.get('user').id == Vacaybug.current_user.get('id')) { %>
