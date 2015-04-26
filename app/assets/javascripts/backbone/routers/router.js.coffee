@@ -1,19 +1,20 @@
 jQuery ->
   class Router extends Backbone.Router
     routes:
-      # Profile routes
-      "users/:user": "profile"
-      "profile": "my_profile"
-
-      "users/:user/follower": "follower"
-      "users/:user/following": "following"
-
-      "users/:user/guides/:id": "guide"
-      "guides/:id": "my_guide"
-
       "search": "search"
 
       "newsfeed": "newsfeed"
+
+      "profile": "my_profile"
+
+      # Profile routes
+      ":user": "profile"
+
+      ":user/follower": "follower"
+      ":user/following": "following"
+
+      ":user/guides/:id": "guide"
+      "guides/:id": "my_guide"
 
       # "*notFound": "notFound"
     

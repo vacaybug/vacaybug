@@ -20,13 +20,20 @@ class User < ActiveRecord::Base
     has_many :guide_associations, :class_name => 'UserGuideAssociation', :dependent => :destroy
     has_many :guides, through: :guide_associations
 
+    USERNAME_BLACKLIST = [
+        "aboutus", "about", "terms", "tos", "story", "newsfeed", "assets", "rest", "messages", "share", "privacy",
+        "home", "careers", "jobs", "support", "help", "contact", "blog", "guides", "stories", "guide", "search",
+        "profile", "discover", "friends", "faq", "features", "login", "register", "auth", "password"
+    ]
+
     validates :username,
         format: {
             with: /\A[a-zA-Z0-9_]+\Z/,
             message: 'should only contain letters, numbers and underscore character'
         },
+        exclusion: { in: User::USERNAME_BLACKLIST, message: "has already been taken" },
         uniqueness: { case_sensitive: false },
-        length: { in: 3..16 }
+        length: { in: 3..30 }
     validates :first_name,
         format: {
             with: /[a-zA-Z ]+/,
@@ -43,7 +50,7 @@ class User < ActiveRecord::Base
         length: { maximum: 100 }
     validate :validate_birthday
 
-    before_save :setup_names
+    before_validation :setup_names
 
     def display_name
         self.first_name || self.username
@@ -164,11 +171,17 @@ class User < ActiveRecord::Base
     end
 
     def self.create_username first, last
-        first = first.split(" ").join("")
-        last = last.split(" ").join("")
+        first = (first || "").split(" ").join("").downcase
+        last = (last || "").split(" ").join("").downcase
         username = first + last
         suffix = nil
-        while User.where(username: username + suffix.to_s).count > 0 do
+
+        username = username.slice(0, 28)
+        while username.length < 3 do
+            username += "0"
+        end
+
+        while User.where(username: username + suffix.to_s).count > 0 || User::USERNAME_BLACKLIST::include?(username + suffix.to_s) do
             if suffix.nil?
                 suffix = 1
             else
@@ -190,6 +203,15 @@ class User < ActiveRecord::Base
     def setup_names
         self.first_name = (self.first_name || "").split(" ").join(" ")
         self.last_name = (self.last_name || "").split(" ").join(" ")
-        self.username = self.username.downcase
+
+        if self.username.nil?
+            self.username = User.create_username(self.first_name, self.last_name)
+        else
+            self.username = self.username.downcase
+        end
+
+        puts self.username
+        puts self.first_name
+        puts self.last_name
     end
 end
