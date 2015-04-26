@@ -241,11 +241,18 @@ header .intro-text span {
 }
 
 header .intro-text .intro-heading {
-    margin-bottom: 25px;
     text-transform: uppercase;
     font-family: 'Open Sans', sans-serif;
     font-size: 70px;
     font-weight: 600;
+    text-shadow: 0 0 15px #202020;
+}
+header .intro-text .intro-subheading {
+    margin-bottom: 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    font-weight: 00;
+    text-shadow: 0 0 15px #202020;
 }
 
 @media(min-width:768px) {
