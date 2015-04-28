@@ -36,11 +36,15 @@ jQuery ->
         Vacaybug.router.navigate("/search?query=#{encodeURIComponent(selected.value)}&id=#{selected.data.geonameId}", true)
       )
 
-    # if you did something special for
-    # some view, it is best place to free it up
-    # for other views
+    setTitle: (title) ->
+      if title && title.length > 0
+        document.title = "Vacaybug - #{title}"
+      else
+        document.title = "Vacaybug"
 
-    setView: (view) ->
+    setView: (view, title="") ->
+      @setTitle(title)
+
       @old_view = @view
       @old_view.remove() if @old_view
 

@@ -29,7 +29,7 @@ jQuery ->
         success: =>
           view = new Vacaybug.ProfileView
             model: model
-          Vacaybug.appView.setView(view)
+          Vacaybug.appView.setView(view, "Profile")
           Vacaybug.appView.setNavbarTab('profile')
         error: =>
           @show404()
@@ -49,7 +49,7 @@ jQuery ->
           collection: collection
           model: model
 
-        Vacaybug.appView.setView(view)
+        Vacaybug.appView.setView(view, "Network")
       else
         @show404()
 
@@ -69,7 +69,7 @@ jQuery ->
           collection: collection
           model: model
 
-        Vacaybug.appView.setView(view)
+        Vacaybug.appView.setView(view, "Network")
       else
         @show404()
 
@@ -83,7 +83,7 @@ jQuery ->
       view = new Vacaybug.GuideView
         model: guide
 
-      Vacaybug.appView.setView(view)
+      Vacaybug.appView.setView(view, "Guide")
 
     search: ->
       geonames_id = $.getParameterByName('id')
@@ -93,7 +93,7 @@ jQuery ->
       collection.fetch()
 
       view = new Vacaybug.SearchResultView({collection: collection})
-      Vacaybug.appView.setView(view)
+      Vacaybug.appView.setView(view, "Search")
       Vacaybug.appView.setNavbarTab('search')
 
     discover: ->
@@ -102,7 +102,7 @@ jQuery ->
 
       view = new Vacaybug.DiscoverView
         collection: collection
-      Vacaybug.appView.setView(view)
+      Vacaybug.appView.setView(view, "Discover")
       Vacaybug.appView.setNavbarTab('search')
 
     newsfeed: ->
@@ -110,7 +110,7 @@ jQuery ->
       collection.fetch()
       view = new Vacaybug.NewsfeedView({collection: collection})
 
-      Vacaybug.appView.setView(view)
+      Vacaybug.appView.setView(view, "Newsfeed")
       Vacaybug.appView.setNavbarTab('newsfeed')
 
     notFound: ->

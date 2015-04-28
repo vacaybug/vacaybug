@@ -50,6 +50,9 @@ jQuery ->
     restURL: ->
       "/rest/users/#{@username}/#{@type}"
 
+    queryParams: ->
+      "#{super()}&find_user_by_name=1"
+
     initialize: ->
       @type = 'followers'
 
