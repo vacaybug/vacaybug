@@ -6,7 +6,12 @@
     <div class="map-container">
     </div>
     <div class="guide-description">
-        <div maxlength="250" class="guide-description-div" placeholder="Create a purpose here...."><%= _.escape(model.get('description')) %></div>
+        <% if (model.get('user').id == Vacaybug.current_user.id) { %>
+            <div maxlength="250" class="guide-description-div" style="border: 2px dashed #98d6ec" placeholder="Create a purpose here....">
+        <% } else { %>
+            <div maxlength="250" class="guide-description-div" placeholder="Create a purpose here....">
+        <% } %>
+            <%= _.escape(model.get('description')) %></div>
         <hr>
         <% if (model.get('user').id == Vacaybug.current_user.id) { %>
             <button class="btn btn-danger btn-guide-delete">Delete Guide</button>

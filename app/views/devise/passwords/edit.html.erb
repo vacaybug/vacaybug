@@ -1,4 +1,4 @@
-<% title 'Change Password' %>
+    <% title 'Change Password' %>
 <div class="container sign-up">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <p class="error-msg"><%= devise_error_messages! %></p>
+            <%= devise_error_messages! %>
             <h4 class="text-center">Enter Your New Password</h4>
             <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
             	<%= f.hidden_field :reset_password_token %>

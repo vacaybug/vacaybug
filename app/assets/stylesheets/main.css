@@ -41,10 +41,12 @@ div.flash-notification .flash-notice {
     background-color: #A4E7A0;
 }
 
+.margin-top-0 {
+	margin-top: 0px;
+}
 .margin-top-3 {
 	margin-top: 3px;
 }
-
 .margin-right-10 {
 	margin-right: 10px;
 }
@@ -56,6 +58,12 @@ div.flash-notification .flash-notice {
 }
 .margin-left-25 {
 	margin-left: 25px;
+}
+.margin-bottom-0 {
+	margin-bottom: 0px;
+}
+.margin-bottom-25 {
+	margin-bottom: 25px;
 }
 .btn-save {
 	background-color: #00629b;
@@ -741,7 +749,7 @@ span.text-content {
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 1.5em;
-	border: 2px dashed #98d6ec;
+	/*border: 2px dashed #98d6ec;*/
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -913,6 +921,18 @@ span.text-content {
 	font-size: 18px;
 	font-weight: 700;
 	margin-bottom: 20px;	
+}
+#error_explanation {
+	margin-bottom: 40px;	
+}
+#error_explanation h2 {
+	font-size: 20px;
+	font-weight: 700;
+	margin: 0px 0px 20px 0px;
+}
+#error_explanation ul li {
+	font-size: 18px;
+	font-weight: 600;
 }
 .sign-up {
 	background-attachment: scroll;

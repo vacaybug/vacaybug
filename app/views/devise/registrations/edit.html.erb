@@ -1,29 +1,61 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>
+<% title 'Account Setting' %>
+<div class="container sign-up">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h2 class="login-text">Account Setting</h2>
+            <p class="login-subtext">Adventure Starts Here</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <%= devise_error_messages! %>
+            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+              <h3 class="text-center margin-top-0 margin-bottom-25">Edit User Info</h3>
+              <div class="form-group">
+                  <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                      <%= f.email_field :email, :autofocus => true, :autocomplete => "off", :class => 'form-control', :placeholder => 'Email Address' %>
+                  </div>
+              </div>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div><h5>Currently waiting confirmation for: <%= resource.unconfirmed_email %></h5></div>
+              <% end %>
+              <div class="form-group">
+                  <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                      <%= f.password_field :current_password, :autofocus => true, :class => 'form-control', :placeholder => 'Current Password' %>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                      <%= f.password_field :password, :autofocus => true, :autocomplete => "off", :class => 'form-control', :placeholder => 'New Password' %>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                      <%= f.password_field :password_confirmation, :autofocus => true, :class => 'form-control', :placeholder => 'Confirm New Password' %>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-6 col-sm-offset-3">
+                      <div class="form-group">
+                          <div><%= f.submit "Reset My Password", :class => 'btn btn-primary btn-block' %></div>
+                      </div>
+                  </div>
+              </div>
+          <% end %>
+          <hr>
+          <h5 class="text-center">Unhappy with VacayBug??</h5>
+          <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                  <div class="form-group">
+                      <div><%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure? No turning back if you press the button!" }, :class => 'btn btn-danger btn-block', :method => :delete %></div>
+                  </div>
+              </div>
+          </div>
+          <h5 class="text-center"><%= link_to "Go back to Profile", :back, :class => 'text-center' %></h5>
+        </div>
+    </div>
+</div>
