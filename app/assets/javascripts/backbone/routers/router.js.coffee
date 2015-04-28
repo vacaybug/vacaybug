@@ -1,6 +1,7 @@
 jQuery ->
   class Router extends Backbone.Router
     routes:
+      "discover": "discover"
       "search": "search"
 
       "newsfeed": "newsfeed"
@@ -15,8 +16,8 @@ jQuery ->
 
       ":user/guides/:id": "guide"
 
-      # "*notFound": "notFound"
-    
+      "*notFound": "notFound"
+
     initialize: ->
 
     show404: ->
@@ -24,18 +25,14 @@ jQuery ->
 
     profile: (user) ->
       model = new Vacaybug.UserModel({username: user})
-      model.fetch()
-
-      view = new Vacaybug.ProfileView
-        model: model
-      Vacaybug.appView.setView(view)
-      Vacaybug.appView.setNavbarTab('profile')
-
-    my_profile: ->
-      if Vacaybug.current_user
-        @profile(Vacaybug.current_user.get('username'))
-      else
-        @show404()
+      model.fetch
+        success: =>
+          view = new Vacaybug.ProfileView
+            model: model
+          Vacaybug.appView.setView(view)
+          Vacaybug.appView.setNavbarTab('profile')
+        error: =>
+          @show404()
 
     follower: (user) ->
       user ||= Vacaybug.current_user.get('username') if Vacaybug.current_user
@@ -96,6 +93,15 @@ jQuery ->
       collection.fetch()
 
       view = new Vacaybug.SearchResultView({collection: collection})
+      Vacaybug.appView.setView(view)
+      Vacaybug.appView.setNavbarTab('search')
+
+    discover: ->
+      collection = new Vacaybug.FamousGuideCollection()
+      collection.fetch()
+
+      view = new Vacaybug.DiscoverView
+        collection: collection
       Vacaybug.appView.setView(view)
       Vacaybug.appView.setNavbarTab('search')
 

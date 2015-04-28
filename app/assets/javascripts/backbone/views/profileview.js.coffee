@@ -119,7 +119,7 @@ jQuery ->
       guide.save null,
         success: (model, resp) =>
           $('body').removeClass('modal-open')
-          Vacaybug.router.navigate("/guides/#{guide.get('id')}", {trigger: true})
+          Vacaybug.router.navigate(guide.pageURL(), {trigger: true})
         error: ->
           elem.removeAttr("disabled")
           elem.html("Continue")

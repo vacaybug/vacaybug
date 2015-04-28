@@ -3,6 +3,11 @@
     <%= stylesheet_link_tag("application") %>
     <%= javascript_include_tag("application") %>
     <%= render "generic/header" %>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		Vacaybug.start();
+    	});
+    </script>
 </head>
 <body>
     <%= render 'generic/navigation.html.erb' %>

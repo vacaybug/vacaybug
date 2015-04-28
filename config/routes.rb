@@ -84,7 +84,10 @@ Vacaybug::Application.routes.draw do
             end
         end
 
-        match 'search' => 'search', via: :get
+        namespace :search do
+            get :famous
+            get :search
+        end
     end
 
     # all apis will go here

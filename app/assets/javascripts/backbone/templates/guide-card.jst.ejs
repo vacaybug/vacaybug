@@ -2,7 +2,7 @@
     <div class="guide-item">
         <div class="guide-caption" style="position: relative">
             <h4>
-                <a class="backbone" href="<%= model.get('user').username %>/guides/<%= model.get('id') %>"><%= _.escape(model.get('title')) %></a>
+                <a class="backbone" href="<%= model.pageURL() %>"><%= _.escape(model.get('title')) %></a>
                 <% if (model.get('user').id == Vacaybug.current_user.id && where == 'profile') { %>
                     <a class="js-delete-guide pull-right delete" data-id="<%= model.get('id') %>">&times;</a>
                 <% } %>

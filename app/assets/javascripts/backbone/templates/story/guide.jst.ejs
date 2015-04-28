@@ -15,7 +15,7 @@
     </div>
     <div style="position: relative">
         <div class="panel-body">
-            Just uploaded a guide - <a href="<%= guide.get('user').username %>/guides/<%= guide.get('id') %>" class="backbone"><%= guide.get('title') %></a>
+            Just uploaded a guide - <a href="<%= guide.pageURL() %>" class="backbone"><%= guide.get('title') %></a>
         </div>
         <div class="guide-hover newsfeed">
             <% if (guide.get('user').id == Vacaybug.current_user.get('id')) { %>

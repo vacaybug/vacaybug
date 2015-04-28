@@ -6,6 +6,9 @@ jQuery ->
       else
         "/rest/guides"
 
+    pageURL: ->
+      "/#{@get('user').username}/guides/#{@get('id')}"
+
     duplicate: ->
       $.ajax
         type: 'POST',

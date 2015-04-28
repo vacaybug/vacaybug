@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-md-4">
+		<div class="box">
+			<div class="box-header">
+				<h3><i class="fa fa-heart"></i> Top 5 most likes</h3>
+			</div>
+			<div class="box-body">
+				<ol>
+					<% _.each(most_liked, function(guide) { %>
+						<li><a class="backbone" href="<%= guide.pageURL() %>"><%= guide.get('title') %>, <%= guide.get('city') %></a>, by <a class="backbone" href="/<%= guide.get('user').username %>"><%= guide.get('user').full_name %></a></li>
+					<% }); %>
+				</ol>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="box">
+			<div class="box-header">
+				<h3><i class="fa fa-comment"></i> Top 5 most comments</h3>
+			</div>
+			<div class="box-body">
+				<ol>
+					<% _.each(most_liked, function(guide) { %>
+						<li><a class="backbone" href="<%= guide.pageURL() %>"><%= guide.get('title') %>, <%= guide.get('city') %></a>, by <a class="backbone" href="/<%= guide.get('user').username %>"><%= guide.get('user').full_name %></a></li>
+					<% }); %>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3 search-bar">
+		<input class="js-searchbar typeahead form-control" type="text" placeholder="Discover a new destination...">
+		<i class="fa fa-search"></i>
+	</div>
+</div>
