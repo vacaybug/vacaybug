@@ -15,7 +15,8 @@ jQuery ->
     initialize: ->
 
     show404: ->
-      $("body").html("Not found")
+      view = new Vacaybug.NotFoundView()
+      Vacaybug.appView.setView(view, "Not found")
 
     profile: (user) ->
       model = new Vacaybug.UserModel({username: user})

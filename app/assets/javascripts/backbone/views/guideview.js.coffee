@@ -6,7 +6,11 @@ jQuery ->
       "click .guide-description-save": "saveDescription"
       "click .btn-guide-delete": "deleteGuide"
 
+    remove: ->
+      $("#wrapper").addClass("container")
+
     initialize: (options) ->
+      $("#wrapper").removeClass('container')
       @listenTo @model, 'sync', @render
       @places = new Vacaybug.PlaceCollection
         guide_id: @model.get('id')

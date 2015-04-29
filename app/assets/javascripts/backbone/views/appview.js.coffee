@@ -48,11 +48,7 @@ jQuery ->
       @old_view = @view
       @old_view.remove() if @old_view
 
-      $(@el).addClass('container')
       @view = view
-
-      if @view instanceof Vacaybug.GuideView
-        $(@el).removeClass('container')
       @render()
 
     render: ->
