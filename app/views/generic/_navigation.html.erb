@@ -46,7 +46,7 @@
                             <li>
                                 <a class="backbone menu-profile" href="/<%= current_user.username %>"><i class="fa fa-fw icon-user-1"></i> Profile</a>
                             </li>
-                            <li><a href="/edit"><i class="fa fa-fw fa-info-circle"></i> Setting</a></li>
+                            <li><a href="/edit"><i class="fa fa-fw fa-gear"></i> Setting</a></li>
                             <li>
                                 <%= link_to(destroy_user_session_path, :class => "menu-delete", :method => :delete) do %>
                                     <i class="fa fa-fw icon-unlock-fill"></i> Logout

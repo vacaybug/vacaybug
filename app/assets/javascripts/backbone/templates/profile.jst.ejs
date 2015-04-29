@@ -24,23 +24,15 @@
                 </li> -->
             <% } %>
         </ul>
-        <ul class="cover-nav nav nav-tabs pull-right" style="left: 650px">
-            <li style="border-right-style: none !important">
-                <a href="/<%= model.username %>/follower"><%= model.followers_count %> Followers</a>
-            </li>
-            <li style="border-right-style: none !important">
-                <a href="/<%= model.username %>/following"><%= model.following_count %> Following</a>
-            </li>
-        </ul>
-        <% if (isPrivate) { %>
-            <a class="btn pull-right new-guide-btn" href="#guideModal" data-toggle="modal">New Guide</a>
-        <% } else { %>
+        <% if (!isPrivate) { %>
             <% if (model.follows) { %>
-                <a href="javascript:void(0)" class="btn btn-danger cover-follow pull-right js-unfollow">Unfollow</a>
+                <a href="javascript:void(0)" class="btn btn-danger js-unfollow">Unfollow</a>
             <% } else { %>
-                <a href="javascript:void(0)" class="btn btn-info cover-follow pull-right js-follow">Follow</a>
+                <a href="javascript:void(0)" class="btn btn-info js-follow">Follow</a>
             <% } %>
         <% } %>
+        <a href="/<%= model.username %>/follower" class="follow-tab"><%= model.followers_count %> Followers</a>
+        <a href="/<%= model.username %>/following" class="follow-tab"><%= model.following_count %> Following</a>
     </div>
 </div>
 <div class="panel">
@@ -61,113 +53,111 @@
         </div>
         <div class="tab-pane <%= activeTab == 'about' ? 'active in' : '' %> fade" id="about">
             <div class="tab-heading">
-                <i class="fa fa-info-circle"></i> About Me
+                <i class="fa fa-info-circle"></i> About
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-md-6">
-                        <h4 class="pull-left">Personal Information</h4>
-                        <div style="position: relative; top: 12px; left: 10px">
+                    <div class="col-md-5">
+                        <h4 class="pull-left">About me</h4>
+                        <div class="profile-edit">
                             <% if (editMode == false) { %>
-                                <a class="js-edit" href="javascript:void(0)" style="color:black"><i class="fa fa-edit"></i> Edit</a>
+                                <a class="js-edit" href="javascript:void(0)"><i class="fa fa-edit"></i> Edit</a>
                             <% } else { %>
                                 <span class="js-saving hide"><i class="fa fa-spinner fa-spin"></i> Saving</span>
-                                <a class="js-save" href="javascript:void(0)" style="color:black"><i class="fa fa-check"></i> Save</a>
-                                <a class="js-cancel" href="javascript:void(0)" style="color:black"><i class="fa fa-times"></i> Cancel</a>
+                                <a class="js-save" href="javascript:void(0)"><i class="fa fa-check"></i> Save</a>
+                                <a class="js-cancel" href="javascript:void(0)"><i class="fa fa-times"></i> Cancel</a>
                             <% } %>
                         </div>
                         <div class="clearfix"></div>
                         <ul class="list-unstyled profile-about">
                             <li>
                                 <div class="row">
-                                    <div class="col-sm-4"><span class="text-muted profile-label" data-field="username">Username:</span>
+                                    <div class="col-sm-6"><span class="text-muted profile-label" data-field="first_name">First name:</span>
                                     </div>
                                     <% if (editMode) { %>
-                                        <div class="col-sm-8"><input class="profile-field" data-field="username" placeholder="Username" value="<%= model.username %>"></div>
+                                        <div class="col-sm-6"><input class="profile-field" data-field="first_name" placeholder="First name" value="<%= model.first_name %>"></div>
                                     <% } else { %>
-                                        <div class="col-sm-8"><%= model.username %></div>
+                                        <div class="col-sm-6"><p class="profile-about-content"><%= model.first_name %></p></div>
                                     <% } %>
                                 </div>
                             </li>
                             <li>
                                 <div class="row">
-                                    <div class="col-sm-4"><span class="text-muted profile-label" data-field="first_name">First name:</span>
+                                    <div class="col-sm-6"><span class="text-muted profile-label" data-field="last_name">Last name:</span>
                                     </div>
                                     <% if (editMode) { %>
-                                        <div class="col-sm-8"><input class="profile-field" data-field="first_name" placeholder="First name" value="<%= model.first_name %>"></div>
+                                        <div class="col-sm-6"><input class="profile-field" data-field="last_name" placeholder="Last name" value="<%= model.last_name %>"></div>
                                     <% } else { %>
-                                        <div class="col-sm-8"><%= model.first_name %></div>
+                                        <div class="col-sm-6"><p class="profile-about-content"><%= model.last_name %></p></div>
                                     <% } %>
                                 </div>
                             </li>
                             <li>
                                 <div class="row">
-                                    <div class="col-sm-4"><span class="text-muted profile-label" data-field="last_name">Last name:</span>
+                                    <div class="col-sm-6"><span class="text-muted profile-label" data-field="username">Username:</span>
                                     </div>
                                     <% if (editMode) { %>
-                                        <div class="col-sm-8"><input class="profile-field" data-field="last_name" placeholder="Last name" value="<%= model.last_name %>"></div>
+                                        <div class="col-sm-6"><input class="profile-field" data-field="username" placeholder="Username" value="<%= model.username %>"></div>
                                     <% } else { %>
-                                        <div class="col-sm-8"><%= model.last_name %></div>
+                                        <div class="col-sm-6"><p class="profile-about-content"><%= model.username %></p></div>
                                     <% } %>
                                 </div>
                             </li>
                             <li>
                                 <div class="row">
-                                    <div class="col-sm-4"><span class="text-muted profile-label" data-field="email">Email:</span>
-                                    </div>
-<!--                                     <% if (editMode) { %>
-                                        <div class="col-sm-8"><input class="profile-field" data-field="email" placeholder="Email" value="<%= model.email %>"></div>
-                                    <% } else { %>
-                                        <div class="col-sm-8"><%= model.email %></div>
-                                    <% } %> -->
-                                    <div class="col-sm-8"><%= model.email %></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-4"><span class="text-muted profile-field" data-field="birthday">Birthday:</span>
-                                    </div>
+                                    <div class="col-sm-6"><span class="text-muted profile-label" data-field="birthday">Birthday:</span></div>
                                     <% if (editMode) { %>
-                                        <div class="col-sm-8"><input class="profile-field input-birthday" data-field="birthday" placeholder="Birthday"></div>
+                                        <div class="col-sm-6"><input class="profile-field input-birthday" data-field="birthday" placeholder="Birthday"></div>
                                     <% } else { %>
-                                        <div class="col-sm-8"><%= birthday %></div>
+                                        <div class="col-sm-6"><p class="profile-about-content"><%= birthday %></p></div>
                                     <% } %>
                                 </div>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-6">
-                        <h4>Travel Information</h4>
+                    <div class="col-md-5 col-md-offset-1">
+                        <h4 class="pull-left">Travel Information</h4>
+                        <div class="clearfix"></div>
                         <ul class="list-unstyled profile-about">
                             <li>
                                 <div class="row">
-                                    <div class="col-sm-4"><span class="text-muted">Lives</span></div>
+                                    <div class="col-sm-6"><span class="text-muted">Currently Located:</span></div>
                                     <% if (editMode) { %>
-                                        <div class="col-sm-8"><input class="profile-field input-location" data-field="location" placeholder="Where you live" value="<%= model.location %>"></div>
+                                        <div class="col-sm-6"><input class="profile-field input-location" data-field="location" placeholder="Where you live" value="<%= model.location %>"></div>
                                     <% } else { %>
-                                        <div class="col-sm-8"><%= model.location %></div>
+                                        <div class="col-sm-6"><p class="profile-about-content"><%= model.location %></p></div>
                                     <% } %>
                                 </div>
                             </li>
                             <li>
                                 <div class="row">
-                                    <div class="col-sm-4"><span class="text-muted"># Countries Visited:</span>
-                                    </div>
-                                    <div class="col-sm-8"><%= model.visited_countries_count %></div>
+                                    <div class="col-sm-6"><span class="text-muted">Originally From:</span></div>
+                                    <% if (editMode) { %>
+                                        <div class="col-sm-6"><input class="profile-field input-location" data-field="location" placeholder="Where you live" value="<%= model.location %>"></div>
+                                    <% } else { %>
+                                        <div class="col-sm-6"><p class="profile-about-content"><%= model.location %></p></div>
+                                    <% } %>
                                 </div>
                             </li>
                             <li>
                                 <div class="row">
-                                    <div class="col-sm-4"><span class="text-muted"># Cities Visit:</span>
+                                    <div class="col-sm-6"><span class="text-muted">Number of Countries Visited:</span>
                                     </div>
-                                    <div class="col-sm-8"><%= model.visited_cities_count %></div>
+                                    <div class="col-sm-6"><p class="profile-about-content"><%= model.visited_countries_count %></p></div>
                                 </div>
                             </li>
                             <li>
                                 <div class="row">
-                                    <div class="col-sm-4"><span class="text-muted"># Guides: </span>
+                                    <div class="col-sm-6"><span class="text-muted">Number of Cities Visit:</span>
                                     </div>
-                                    <div class="col-sm-8"><%= model.guides_count %></div>
+                                    <div class="col-sm-6"><p class="profile-about-content"><%= model.visited_cities_count %></p></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-sm-6"><span class="text-muted">Number of Guides Created: </span>
+                                    </div>
+                                    <div class="col-sm-6"><p class="profile-about-content"><%= model.guides_count %></p></div>
                                 </div>
                             </li>
                         </ul>
