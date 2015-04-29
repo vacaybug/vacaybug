@@ -43,6 +43,7 @@ jQuery ->
         document.title = "Vacaybug"
 
     setView: (view, title="") ->
+      $(".navbar-tab").removeClass("active")
       @setTitle(title)
 
       @old_view = @view
