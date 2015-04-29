@@ -1,3 +1,8 @@
+<% if (collection.length == 0) { %>
+    <h4 class="place-default-header">Welcome to your new guide</h4>
+    <p class="place-default-subheader">Begin to build your personalized Guide by searching above.</p>
+    <img class="place-default-img img-responsive" src="/assets/default-guide.png">
+<% } else { %>
 <% _.each(_.groupBy(collection.models, function(val, index) { return parseInt(index / 4); }), function(row) { %>
     <div class="row">
         <% _.each(row, function(model) { %>
@@ -16,7 +21,7 @@
                         <% if (model.get('photo')) { %>
                             <img src="<%= model.get('photo').prefix %>300x200<%= model.get('photo').suffix%>" alt="image" class="img-responsive" width="100%" />
                         <% } else { %>
-                            <img src="someimage" alt="image" class="img-responsive" width="100%" />
+                            <img src="/assets/default_place.jpg" alt="image" class="img-responsive" width="100%" />
                         <% } %>
                     </a>
                     <div class="guide-caption" data-id="<%= model.get('id') %>">
@@ -43,3 +48,4 @@
         <% }); %>
     </div>
 <% }); %>
+<% } %>
