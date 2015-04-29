@@ -8,6 +8,7 @@ jQuery ->
       'click .js-show-comments': 'showComments'
       'click .js-passport': 'moveToPassport'
       'click .js-wishlist': 'moveToWishlist'
+      'click .js-save'    : 'copyGuide'
 
     initialize: (options) ->
       @profileView = options.profileView
@@ -48,6 +49,10 @@ jQuery ->
     moveToPassport: (e) ->
       e.stopPropagation()
       @profileView.moveToPassport(@model)
+
+    copyGuide: (e) ->
+      e.stopPropagation()
+      @model.duplicate()
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.GuideCardView = GuideCardView

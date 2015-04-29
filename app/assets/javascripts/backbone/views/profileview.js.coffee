@@ -40,6 +40,7 @@ jQuery ->
       @passportView.setElement($(".passport")[0]).render()
 
     renderWishlist: ->
+      return if Vacaybug.current_user.get('id') != @model.get('id')
       if !@wishlistView
         @wishlistCollection = new Vacaybug.GuideCollection
           username: @model.get('username')
@@ -93,13 +94,13 @@ jQuery ->
     _openModal: (e) ->
       guide_id = $(e.currentTarget).attr('data-id')
       modal = new Vacaybug.GuideModalView
-        guide: (@passportCollection.where({id: parseInt(guide_id)})[0] || @wishlistCollection.where({id: parseInt(guide_id)})[0])
+        guide: (@passportCollection.where({id: parseInt(guide_id)})[0] || (@wishlistCollection && @wishlistCollection.where({id: parseInt(guide_id)})[0]))
       modal.render()
 
     deleteGuide: (e) ->
       if (confirm('Are you sure you want to delete this guide?'))
         guide_id = $(e.currentTarget).attr('data-id')
-        model = (@passportCollection.where({id: parseInt(guide_id)})[0] || @wishlistGuides.where({id: parseInt(guide_id)})[0])
+        model = (@passportCollection.where({id: parseInt(guide_id)})[0] || (@wishlistCollection && @wishlistGuides.where({id: parseInt(guide_id)})[0]))
         model.destroy()
 
     createGuide: (event) ->

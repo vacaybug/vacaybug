@@ -19,7 +19,7 @@ jQuery ->
 
     follow: ->
       $.ajax
-        url: "/rest/users/#{@get('username')}/follow"
+        url: "/rest/users/#{@get('id')}/follow"
         type: 'PUT'
         success: (resp) =>
           if resp.status
@@ -31,7 +31,7 @@ jQuery ->
 
     unfollow: ->
       $.ajax
-        url: "/rest/users/#{@get('username')}/unfollow"
+        url: "/rest/users/#{@get('id')}/unfollow"
         type: 'PUT'
         success: (resp) =>
           if resp.status
