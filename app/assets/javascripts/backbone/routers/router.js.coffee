@@ -3,17 +3,11 @@ jQuery ->
     routes:
       "discover": "discover"
       "search": "search"
-
       "newsfeed": "newsfeed"
 
-      "profile": "my_profile"
-
-      # Profile routes
       ":user": "profile"
-
       ":user/follower": "follower"
       ":user/following": "following"
-
       ":user/guides/:id": "guide"
 
       "*notFound": "notFound"

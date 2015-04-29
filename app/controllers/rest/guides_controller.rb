@@ -6,10 +6,16 @@ class Rest::GuidesController < ActionController::Base
 
     def index
         @user = find_user(params[:user_id])
-        if params[:type] == 'passport'
+        if params[:type] == 'wishlist'
+            if @user.id != current_user.id
+                render403
+                return
+            end
+            @type = Guide::TYPES::WISHLIST
+        elsif params[:type] == 'passport'
             @type = Guide::TYPES::PASSPORT
         else
-            @type = Guide::TYPES::WISHLIST
+            not_found
         end
 
         render json: {
