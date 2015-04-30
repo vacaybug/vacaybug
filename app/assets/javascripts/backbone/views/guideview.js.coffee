@@ -102,7 +102,6 @@ jQuery ->
       timeout = null
       $(".js-search-places").typeahead(
         {
-          hint: true,
           highlight: true,
           minLength: 3
         },
@@ -125,6 +124,7 @@ jQuery ->
             ), 300)
         }
       ).bind('typeahead:selected', (obj, selected, name) =>
+        $(".js-search-places").val("")
         place = new Vacaybug.PlaceModel
           guide_id: @model.get('id')
           fs_data: selected.data
