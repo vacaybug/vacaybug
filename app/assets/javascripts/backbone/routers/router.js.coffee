@@ -4,9 +4,10 @@ jQuery ->
       "discover": "discover"
       "search": "search"
       "newsfeed": "newsfeed"
+      "friends": "friends"
 
       ":user": "profile"
-      ":user/follower": "follower"
+      ":user/followers": "followers"
       ":user/following": "following"
       ":user/guides/:id": "guide"
 
@@ -29,40 +30,44 @@ jQuery ->
         error: =>
           @show404()
 
-    follower: (user) ->
-      user ||= Vacaybug.current_user.get('username') if Vacaybug.current_user
+    friends: ->
+      collection = new Vacaybug.FollowersCollection
+        types: ["followers", "following", "recommended"]
+      collection.setUsername(Vacaybug.current_user.get('username'))
+      collection.fetch()
 
+      view = new Vacaybug.FollowersView
+        collection: collection
+        types: {followers: true, following: true, recommended: true}
+
+      Vacaybug.appView.setView(view, "Friends")
+      Vacaybug.appView.setNavbarTab('friends')
+
+    followers: (user) ->
       if user
-        model = new Vacaybug.UserModel({username: user})
-        model.fetch()
-
-        collection = new Vacaybug.FollowersCollection()
+        collection = new Vacaybug.FollowersCollection
+          types: ["followers", "recommended"]
         collection.setUsername(user)
         collection.fetch()
 
         view = new Vacaybug.FollowersView
           collection: collection
-          model: model
+          types: {followers: true, recommended: true}
 
         Vacaybug.appView.setView(view, "Network")
       else
         @show404()
 
     following: (user) ->
-      user ||= Vacaybug.current_user.get('username') if Vacaybug.current_user
-
       if user
-        model = new Vacaybug.UserModel({username: user})
-        model.fetch()
-
-        collection = new Vacaybug.FollowersCollection()
-        collection.setType('following')
+        collection = new Vacaybug.FollowersCollection
+          types: ["following", "recommended"]
         collection.setUsername(user)
         collection.fetch()
 
         view = new Vacaybug.FollowersView
           collection: collection
-          model: model
+          types: {following: true, recommended: true}
 
         Vacaybug.appView.setView(view, "Network")
       else

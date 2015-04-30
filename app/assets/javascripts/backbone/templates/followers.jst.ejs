@@ -1,7 +1,12 @@
-<h1 class="follower-header text-center">Your VacayBug Network</h1>
-<div class="timeline row follower">
-</div>
+<h1 class="follower-header text-center"><%= user.get('full_name') %>'s Network</h1>
+<% if (types.followers) { %>
+	<h1 class="text-center">Followers</h1>
+	<div class="timeline row followers"></div>
+<% } %>
+<% if (types.following) { %>
+	<h1 class="text-center">Following</h1>
+	<div class="timeline row following"></div>
+<% } %>
 <h1 class="follower-network-header text-center">Expand Your Network</h1>
 <h2 class="follower-subheader text-center">VacayBug users you might want to connect with:</h2>
-<div class="timeline row">
-</div>
+<div class="timeline row recommended"></div>

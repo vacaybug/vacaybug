@@ -94,6 +94,7 @@ class User < ActiveRecord::Base
                 follows: Follower.where(:user_id => self.id, :follower_id => options[:current_user].id).count > 0
             })
         end
+        data
     end
 
     def as_json(options = {})

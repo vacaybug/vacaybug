@@ -41,7 +41,6 @@ Vacaybug::Application.routes.draw do
 
             member do
                 get :followers
-                get :following
 
                 put :follow
                 put :unfollow

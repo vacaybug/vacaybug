@@ -1,9 +1,9 @@
 <div class="panel panel-default user-box">
     <div class="panel-body">
-        <img src="<%= model.get('avatar').thumb %>" alt="<%= model.get('username') %>" class="user-img img-square pull-left" height="100"/>
+        <img src="<%= model.get('avatar').thumb %>" alt="<%= model.get('username') %>" class="user-img img-square pull-left" height="100" width="100"/>
         <div class="user-info text-center pull-left">
             <a href="/<%= model.get('username') %>" class="username"><%= model.get('full_name') %></a>
-            <a href="#" class="user-follower">40 followers</a>
+            <a href="/<%= model.get('username') %>/followers_count" class="user-follower backbone"><%= model.get('followers_count') %> followers</a>
         </div>
         <% if (model.get('follows')) { %>
             <a href="javascript:void(0)" class="btn btn-info btn-following js-unfollow">Following</a>

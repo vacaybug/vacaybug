@@ -48,17 +48,26 @@ jQuery ->
     model: Vacaybug.UserModel
 
     restURL: ->
-      "/rest/users/#{@username}/#{@type}"
+      "/rest/users/#{@username}/followers"
 
     queryParams: ->
-      "#{super()}&find_user_by_name=1"
+      "#{super()}&find_user_by_name=1&types=#{@types.join(",")}"
 
-    initialize: ->
-      @type = 'followers'
+    initialize: (options) ->
+      @types = options.types
 
     setUsername: (@username) ->
 
-    setType: (@type) ->
+    setTypes: (@types) ->
+
+    parse: (resp, options) ->
+      @user = new Vacaybug.UserModel(resp.user)
+      @_models = []
+      _.each resp.models, (model) =>
+        userModel = new Vacaybug.UserModel(model)
+        userModel.sync_status = true
+        @_models.push(userModel)
+      super(resp, options)
 
   Vacaybug.FollowersCollection = FollowersCollection
 

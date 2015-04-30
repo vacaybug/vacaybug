@@ -107,10 +107,21 @@ class Rest::UsersController < ActionController::Base
 
     def followers
         @user = find_user(params[:id])
-        @offset = params[:offset] || 0
-        @limit = params[:limit] || 20
+        @types = (params[:types] || "").split(",")
+        # @offset = params[:offset] || 0
+        @limit = 50
 
-        list = @user.followers.offset(@offset).limit(@limit).as_json
+        list = []
+
+        if @types.include?("followers")
+            list += @user.followers.offset(@offset).limit(@limit).as_json(additional: true).map { |f| f.merge({type: "follower"}) }
+        end
+        if @types.include?("following")
+            list += @user.following.offset(@offset).limit(@limit).as_json(additional: true).map { |f| f.merge({type: "following"}) }
+        end
+        if @types.include?("recommended")
+            list += recommended.as_json(additional: true).map { |f| f.merge({type: "recommended"}) }
+        end
 
         if current_user
             ids = Follower.where(:user_id => list.map { |f| f["id"] }, :follower_id => current_user.id).pluck(:user_id)
@@ -121,27 +132,8 @@ class Rest::UsersController < ActionController::Base
         end
 
         render json: {
-            models: list
-        }
-    end
-
-    def following
-        @user = find_user(params[:id])
-        @offset = params[:offset] || 0
-        @limit = params[:limit] || 20
-
-        list = @user.following.offset(@offset).limit(@limit).as_json
-
-        if current_user
-            ids = Follower.where(:user_id => list.map { |f| f["id"] }, :follower_id => current_user.id).pluck(:user_id)
-            list.map! do |f|
-                f[:follows] = ids.include? (f["id"])
-                f
-            end
-        end
-
-        render json: {
-            models: list
+            models: list,
+            user: @user
         }
     end
 
@@ -157,5 +149,11 @@ class Rest::UsersController < ActionController::Base
         else
             render text: 'Method not allowed', status: 403
         end
+    end
+
+    private
+
+    def recommended
+        User.where(id: Follower.select('user_id, COUNT(*) followers_count').where('user_id != ?', current_user.id).group(:user_id).order('followers_count desc').limit(5).map { |s| s.user_id }).all
     end
 end
