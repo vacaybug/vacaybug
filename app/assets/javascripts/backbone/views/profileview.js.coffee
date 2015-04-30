@@ -158,7 +158,7 @@ jQuery ->
       $('input.input-birthday').datepicker('setDate', @date)
 
       timeout = null
-      $(".typeahead").typeahead(
+      $(".js-modal-city").typeahead(
         {
           hint: false,
           highlight: true,
