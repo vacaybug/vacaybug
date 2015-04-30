@@ -1,21 +1,26 @@
 <% if (collection.sync_status) { %>
-	<% if (collection.length == 0) { %>
-		<!-- When there is nothing in passport -->
-		<div class="new-guide-default text-center">
-		    <div class="new-guide-btn-horizontal">
-		        <a href="#guideModal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
-		    </div>
-		    <h4>Your Passport is currently empty</h4>
-		    <p>It will be public so you can share all the awesome places you've visited with your followers. Start filling up your Passport by clicking "Create a Guide"</p>
-		</div>
-	<% } else { %>
+    <% if (collection.length == 0) { %>
+        <!-- When there is nothing in passport -->
+        <div class="new-guide-default text-center">
+            <div class="new-guide-btn-horizontal">
+                <a href="#guideModal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
+            </div>
+            <% if (type == 'wishlist') { %>
+                <h4>Your Wishlist is currently empty</h4>
+                <p>It will be private so you can store all the awesome places you wish to visit. Start filling up your Wishlist by clicking “Create a Guide"</p>
+            <% } else { %>
+                <h4>Your Passport is currently empty</h4>
+                <p>It will be public so you can share all the awesome places you've visited with your followers. Start filling up your Passport by clicking "Create a Guide"</p>
+            <% } %>
+        </div>
+    <% } else { %>
     <% _.each(_.groupBy(collection.models, function(value, index) { return parseInt(index / 3); }), function(row) { %>
         <div class="row">
-		    <div class="col-md-4 col-sm-6">
-		        <div class="new-guide-btn-vertical text-center">
-		            <a href="#guideModal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
-		        </div>
-		    </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="new-guide-btn-vertical text-center">
+                    <a href="#guideModal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
+                </div>
+            </div>
             <% _.each(row, function(guide) { %>
                 <div class="guide-card-container" data-id="<%= guide.get('id') %>">
                 </div>

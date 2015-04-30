@@ -6,6 +6,7 @@ jQuery ->
     initialize: (options) ->
       @where = options.where
       @profileView = options.profileView
+      @type = options.type
 
       @listenTo @collection, 'sync', @render
       @listenTo @collection, 'remove', @render
@@ -15,6 +16,7 @@ jQuery ->
 
       $(@el).html @template
         collection: @collection
+        type: @type
 
       _.each @collection.models, (@model) =>
         container = @$(".guide-card-container[data-id=#{@model.get('id')}]")[0]

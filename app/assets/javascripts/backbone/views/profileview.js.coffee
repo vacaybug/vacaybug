@@ -37,6 +37,7 @@ jQuery ->
         profileView: @
         collection: @passportCollection
         where: 'profile'
+        type: 'passport'
       @passportView.setElement($(".passport")[0]).render()
 
     renderWishlist: ->
@@ -51,6 +52,7 @@ jQuery ->
         profileView: @
         collection: @wishlistCollection
         where: 'profile'
+        type: 'wishlist'
       @wishlistView.setElement($(".wishlist")[0]).render()
 
     renderMap: ->
@@ -100,7 +102,7 @@ jQuery ->
     deleteGuide: (e) ->
       if (confirm('Are you sure you want to delete this guide?'))
         guide_id = $(e.currentTarget).attr('data-id')
-        model = (@passportCollection.where({id: parseInt(guide_id)})[0] || (@wishlistCollection && @wishlistGuides.where({id: parseInt(guide_id)})[0]))
+        model = (@passportCollection.where({id: parseInt(guide_id)})[0] || (@wishlistCollection && @wishlistCollection.where({id: parseInt(guide_id)})[0]))
         model.destroy()
 
     createGuide: (event) ->
