@@ -55,11 +55,11 @@ jQuery ->
     render: ->
       $(@el).html(@view.render().el)
 
-    navigate: (e) ->
-      e.preventDefault()
-      e.stopPropagation()
+    navigate: (event) ->
+      event.preventDefault()
+      event.stopPropagation()
 
-      url = $(e.currentTarget).attr('href')
+      url = $(event.currentTarget).attr('href')
 
       if (event.ctrlKey || event.shiftKey || event.metaKey || event.which == 2)
         window.open(url, '_blank')
