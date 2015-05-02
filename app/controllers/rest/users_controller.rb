@@ -72,8 +72,8 @@ class Rest::UsersController < ActionController::Base
         else
             f = Follower.new(user_id: @user.id, follower_id: current_user.id)
             if f.save!
-                Story.where(user_id: 2).where('created_at > ?', -15.days).order('id desc').limit(2).pluck(:id).each do |story_id|
-                    NewsfeedAssociation.where(user_id: @user.id, story_id: story_id).first_or_create
+                Story.where(user_id: @user.id).where('created_at > ?', -15.days).order('id desc').limit(2).pluck(:id).each do |story_id|
+                    NewsfeedAssociation.where(user_id: current_user.id, story_id: story_id).first_or_create
                 end
                 render json: {
                     status: true

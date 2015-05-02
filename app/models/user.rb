@@ -17,8 +17,11 @@ class User < ActiveRecord::Base
     has_many :followers, through: :followers_relation, source: :follower
     has_many :following, through: :following_relation, source: :followee
 
-    has_many :guide_associations, :class_name => 'UserGuideAssociation', :dependent => :destroy
+    has_many :guide_associations, :class_name => 'UserGuideAssociation'
     has_many :guides, through: :guide_associations
+
+    has_many :likes
+    has_many :comments
 
     USERNAME_BLACKLIST = [
         "aboutus", "about", "terms", "tos", "story", "newsfeed", "assets", "rest", "messages", "share", "privacy",
@@ -51,6 +54,8 @@ class User < ActiveRecord::Base
     validate :validate_birthday
 
     before_validation :setup_names
+
+    before_destroy :destroy_dependents
 
     def display_name
         self.first_name || self.username
@@ -214,5 +219,11 @@ class User < ActiveRecord::Base
         puts self.username
         puts self.first_name
         puts self.last_name
+    end
+
+    def destroy_dependents
+        self.likes.destroy_all
+        self.comments.destroy_all
+        self.guides.destroy_all
     end
 end
