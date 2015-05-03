@@ -14,16 +14,21 @@
             <% } %>
         </div>
     <% } else { %>
-    <% _.each(_.groupBy(collection.models, function(value, index) { return parseInt(index / 3); }), function(row) { %>
+        <% var index = 0; %>
+    <% _.each(_.groupBy($.merge([null], collection.models), function(value, index) { return parseInt(index / 3); }), function(row) { %>
         <div class="row">
-            <div class="col-md-4 col-sm-6">
-                <div class="new-guide-btn-vertical text-center">
-                    <a href="#guideModal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
-                </div>
-            </div>
             <% _.each(row, function(guide) { %>
-                <div class="guide-card-container" data-id="<%= guide.get('id') %>">
-                </div>
+                <% if (index == 0) { %>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="new-guide-btn-vertical text-center">
+                            <a href="#guideModal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <div class="guide-card-container" data-id="<%= guide.get('id') %>">
+                    </div>
+                <% } %>
+                <% index += 1; %>   
             <% }); %>
         </div>
     <% }); %>
