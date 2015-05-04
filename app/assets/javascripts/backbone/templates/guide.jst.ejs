@@ -7,9 +7,9 @@
     </div>
     <div class="guide-description">
         <% if (model.get('user').id == Vacaybug.current_user.id) { %>
-            <div maxlength="250" class="guide-description-div" style="border: 2px dashed #98d6ec" placeholder="Create a purpose here....">
+            <div maxlength="200" class="guide-description-div" style="border: 2px dashed #98d6ec" placeholder="Create a purpose here....">
         <% } else { %>
-            <div maxlength="250" class="guide-description-div" placeholder="Create a purpose here....">
+            <div maxlength="200" class="guide-description-div">
         <% } %>
             <%= _.escape(model.get('description')) %></div>
         <hr>
@@ -18,7 +18,7 @@
         <% } else { %>
             <button class="btn btn-danger btn-guide-delete" style="visibility: hidden">Delete Guide</button>
         <% } %>
-        <button class="btn btn-warning btn-guide-export">Export PDF</button>
+        <a class="btn btn-warning btn-guide-export"href="#exportpdf" data-toggle="modal">Export PDF</a>
     </div>
 </div>
 <div class="container guide-container">
@@ -28,5 +28,18 @@
         </div>
     </div>
     <div class="places-container">
+    </div>
+</div>
+<div class="modal fade" id="exportpdf" tabindex="-1" role="dialog" aria-labelledby="exportpdf" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Sneak Preview! Export Your  Guide to PDF!</h4>
+            </div>
+            <div class="modal-body">
+                <img src="/assets/guidepdf.png" class="img-responsive">
+            </div>
+        </div>
     </div>
 </div>

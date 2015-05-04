@@ -3,7 +3,6 @@ body {
 	/*font-family: 'Open Sans', sans-serif;*/
 	color: #000000;
 	background-color: #f7f7f7;
-	height: 100%;
 }
 h1,
 h2,
@@ -781,7 +780,7 @@ span.text-content {
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
-.guide-map .guide-description div {
+.guide-map .guide-description-div {
 	color: #000;
 	width: 87%;
 	min-height: 300px;
@@ -790,21 +789,20 @@ span.text-content {
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 1.5em;
-	/*border: 2px dashed #98d6ec;*/
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	background:rgba(255,255,255, 0.7);
+	overflow-wrap: break-word;
 }
 .guide-map .guide-description textarea {
 	color: #000;
-	width: 100%;
-	max-height: 248px;
 	padding: 0px;
 	margin: 0px;
 	border: none;
 	background:rgba(255, 255, 255, 0.0);
 	resize: none;
+	white-space: normal;
 }
 .guide-map .guide-description hr {
 	margin: 0 auto;
@@ -1286,20 +1284,17 @@ span.text-content {
 }
 
 .search-container {
-	min-height: 740px;
 	background-image: url(../assets/search-cover.jpg);
 	background-repeat: repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
 	-o-background-size: cover;
-	padding-left: 50px;
-	padding-right: 50px;
+	padding: 50px 50px 200px 50px;
 	width: 100%;
 }
 .search-container .col-md-4 {
 	padding: 10px;
-	margin-top: 3%;
 }
 .search-container .col-md-4 .box-header i {
 	font-size: 27px;
@@ -1341,6 +1336,7 @@ span.text-content {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
+	margin-bottom: 200px;
 }
 .search-container .search-bar input{
 	-webkit-border-radius: 10px;
@@ -1432,6 +1428,9 @@ span.text-content {
 }
 .timeline-block .newsfeed .panel-body {
 	padding: 10px 20px;
+}
+.timeline-block .newsfeed .panel-body p {
+	overflow-wrap: break-word;
 }
 .timeline-block .newsfeed .panel-body .form-control.share-text {
 	padding: 10px;
@@ -1651,6 +1650,7 @@ ul.social-buttons li a:active {
 	margin-bottom: 0px;
 	padding: 10px 15px;
 	height: 120px;
+	overflow-wrap: break-word;
 }
 .guide-item .guide-caption .guide-footer {
 	padding-left: 15px;
@@ -1765,7 +1765,9 @@ ul.social-buttons li a:active {
 	border-top-right-radius: 9px;
 	border-bottom: 1px solid #d4d4d4;
 }
-
+#exportpdf .modal-body {
+	padding: 0px;
+}
 .guide-item .delete {
 	font-size: 19px;
 	-webkit-border-radius: 50px;
