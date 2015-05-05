@@ -107,7 +107,7 @@ class User < ActiveRecord::Base
         options[:except] += [:created_at, :updated_at]
 
         unless options[:current_user] && options[:current_user].id == self.id
-            options.merge!({except: [:email]})
+            options[:except] << :email
         end
 
         options.merge!({methods: [:full_name, :guides_count, :visited_cities_count, :visited_countries_count]})
