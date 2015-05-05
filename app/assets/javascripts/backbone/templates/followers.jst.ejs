@@ -1,10 +1,10 @@
 <h1 class="follower-header text-center"><%= user.get('full_name') %>'s Network</h1>
 <% if (types.followers) { %>
-	<h2 class="follower-subheader text-center">Members that are following you:</h2>
+	<h2 class="follower-subheader text-center">Members that are following <%= user.get('full_name') %>:</h2>
 	<div class="timeline row followers"></div>
 <% } %>
 <% if (types.following) { %>
-	<h2 class="follower-subheader text-center">Members that you are following:</h2>
+	<h2 class="follower-subheader text-center">Members that <%= user.get('full_name') %> is following:</h2>
 	<div class="timeline row following"></div>
 <% } %>
 <h1 class="follower-network-header text-center">Expand Your Network</h1>
