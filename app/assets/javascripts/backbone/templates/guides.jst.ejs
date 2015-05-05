@@ -19,11 +19,13 @@
         <div class="row">
             <% _.each(row, function(guide) { %>
                 <% if (index == 0) { %>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="new-guide-btn-vertical text-center">
-                            <a href="#guideModal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
+                    <% if (where == 'profile' && collection.models[0].get('user').id == Vacaybug.current_user.id) { %>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="new-guide-btn-vertical text-center">
+                                <a href="#guideModal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
+                            </div>
                         </div>
-                    </div>
+                    <% } %>
                 <% } else { %>
                     <div class="guide-card-container" data-id="<%= guide.get('id') %>">
                     </div>

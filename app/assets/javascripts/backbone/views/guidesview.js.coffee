@@ -17,6 +17,7 @@ jQuery ->
       $(@el).html @template
         collection: @collection
         type: @type
+        where: @where
 
       _.each @collection.models, (@model) =>
         container = @$(".guide-card-container[data-id=#{@model.get('id')}]")[0]
