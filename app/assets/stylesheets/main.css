@@ -15,6 +15,7 @@ h6 {
 
 body #wrapper {
 	padding-bottom: 0px;
+	min-height: 100%;
 }
 
 div.flash-notification {
@@ -257,7 +258,6 @@ span.text-content {
 	background-color: inherit;
 }
 .navbar-nav > li > a.dropdown-toggle img {
-	margin-top: 8px;
 	margin-right: 0px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -1491,9 +1491,9 @@ span.text-content {
 /* FOOTER */
 
 footer {
-    padding: 25px 0;
-    text-align: center;
-    background-color: #203141;
+	padding: 25px 0;
+	text-align: center;
+	background-color: #203141;
 }
 
 footer span.copyright {
@@ -1552,9 +1552,9 @@ ul.social-buttons li a:active {
 }
 .guide-item:hover {
 	box-shadow: 0px 0px 10px 0px #888;
-	-webkit-transition: all ease .3s;
-	-moz-transition: all ease .3s;
-	transition: all ease .3s;
+	-webkit-transition: all ease .8s;
+	-moz-transition: all ease .8s;
+	transition: all ease .8s;
 }
 .guide-item .guide-link {
 	display: block;

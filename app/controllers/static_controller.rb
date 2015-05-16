@@ -74,4 +74,8 @@ class StaticController < ActionController::Base
 	def beta
 		render 'static/mailer/beta'
 	end
+
+	def landing
+		render 'static/landing'
+	end
 end
