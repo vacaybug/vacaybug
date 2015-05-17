@@ -88,7 +88,6 @@ class Rest::GuidesController < ActionController::Base
         if @guide.user_id != current_user.id # user can't copy his/her own guide
             # TODO: maybe move it to guide.rb
             copy_guide = Guide.create(
-                description: @guide.description,
                 country: @guide.country,
                 region: @guide.region,
                 city: @guide.city,
