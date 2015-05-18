@@ -23,7 +23,14 @@ class Guide < ActiveRecord::Base
 
     def as_json (options={})
         options[:methods] ||= [:user, :story]
-        super(options)
+        json = super(options)
+        json.merge!({
+            image: {
+                large: self.avatar(:large),
+                thumb: self.avatar(:thumb),
+                medium: self.avatar(:medium)
+            }
+        })
     end
 
     def story_attributes
@@ -52,6 +59,14 @@ class Guide < ActiveRecord::Base
 
     def can_publish
         self.guide_type == Guide::TYPES::PASSPORT
+    end
+
+    def avatar type
+        if self.image_id
+            Image.find(self.image_id).image.url(type)
+        else
+            "/assets/default_guide.png"
+        end
     end
 
     private

@@ -57,7 +57,7 @@ class Rest::GuidesController < ActionController::Base
     end
 
     def update
-        allowed_fields = [:title, :description, :guide_type]
+        allowed_fields = [:title, :description, :guide_type, :image_id]
         changed = false
 
         allowed_fields.each do |field|

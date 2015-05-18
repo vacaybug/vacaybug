@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150425181745) do
+ActiveRecord::Schema.define(:version => 20150518002755) do
 
   create_table "comments", :force => true do |t|
     t.integer  "story_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20150425181745) do
     t.text     "gn_data"
     t.integer  "popularity",  :default => 0
     t.integer  "guide_type"
+    t.integer  "image_id"
   end
 
   add_index "guides", ["geonames_id"], :name => "index_guides_on_geonames_id"

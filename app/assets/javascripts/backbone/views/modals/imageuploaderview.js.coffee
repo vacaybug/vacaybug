@@ -32,6 +32,8 @@ jQuery ->
 
     uploadFromURL: (e) ->
       image_url = @$(".js-image-url").val()
+      return if image_url.length == 0
+
       data = {image_url: image_url}
       @uploadStarted()
 

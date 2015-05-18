@@ -8,6 +8,7 @@ jQuery ->
       'click .js-show-comments': 'showComments'
       'click .js-passport': 'moveToPassport'
       'click .js-wishlist': 'moveToWishlist'
+      'click .js-guide-photo': 'changeCoverPhoto'
       'click .js-save'    : 'copyGuide'
 
     initialize: (options) ->
@@ -53,6 +54,16 @@ jQuery ->
     copyGuide: (e) ->
       e.stopPropagation()
       @model.duplicate()
+
+    changeCoverPhoto: (e) ->
+      e.stopPropagation()
+
+      uploader = new Vacaybug.ImageUploaderModalView()
+      uploader.render()
+      uploader.on 'done', (obj) =>
+        $('.js-cover-photo').attr('src', obj.data.image.medium)
+        @model.set('image_id', obj.data.id)
+        @model.save()
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.GuideCardView = GuideCardView

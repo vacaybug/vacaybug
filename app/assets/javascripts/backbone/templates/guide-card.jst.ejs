@@ -11,6 +11,7 @@
         <a href="javascript:void(0)" class="guide-link js-guide-item" data-id="<%= model.get('id') %>">
             <div class="guide-hover">
                 <% if (model.get('user').id == Vacaybug.current_user.get('id')) { %>
+                    <span class="js-guide-photo btn btn-info">Change photo</span>
                     <% if (model.get('guide_type') == '1') { %>
                         <span class="js-wishlist btn btn-warning">Move to Wishlist</span>
                     <% } else { %>
@@ -24,7 +25,7 @@
                     <p>Quick View</p>
                 </div>
             </div>
-            <img src="/assets/default_guide.png" class="img-responsive" alt="">
+            <img src="<%= model.get('image').medium %>" class="js-cover-photo img-responsive" alt="">
         </a>
         <div class="guide-caption">
             <p class="guide-content"><%= _.escape(model.get('description')) %></p>

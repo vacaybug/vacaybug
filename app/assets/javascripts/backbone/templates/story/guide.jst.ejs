@@ -31,7 +31,7 @@
             <div class="guide-hover-content">
             </div>
         </div>
-        <a href="#"><img src="/assets/guide/mongolia.jpg" class="img-responsive"></a>
+        <a href="#"><img src="<%= guide.get('image').medium %>" style="width: 100%" class="img-responsive"></a>
     </div>
     <div class="view-all-comments">
         <a href="javascript:void(0)" class="js-like text-muted <%= model.get('liked') ? 'active' : '' %>" data-toggle="modal"><i class="fa fa-heart"></i> <%= model.get('likes_count') %></a>
