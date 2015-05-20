@@ -15,6 +15,7 @@ jQuery ->
       return @ unless @collection.sync_status
 
       $(@el).html @template
+        profileView: @profileView
         collection: @collection
         type: @type
         where: @where

@@ -6,7 +6,7 @@
     <div class="map-container">
     </div>
     <div class="guide-description">
-        <% if (model.get('user').id == Vacaybug.current_user.id) { %>
+        <% if (isPrivate) { %>
             <div maxlength="200" class="guide-description-div" style="border: 2px dashed #98d6ec" placeholder="Create a purpose here....">
         <% } else { %>
             <div maxlength="200" class="guide-description-div">
@@ -22,11 +22,13 @@
     </div>
 </div>
 <div class="container guide-container">
-    <div class="row guide-searchbar">
-        <div class="col-md-8 col-md-offset-2">
-            <input type="text" class="js-search-places form-control input-lg" placeholder="Search by landmark, restaurant, anything :)">
+    <% if (isPrivate) { %>
+        <div class="row guide-searchbar">
+            <div class="col-md-8 col-md-offset-2">
+                <input type="text" class="js-search-places form-control input-lg" placeholder="Search by landmark, restaurant, anything :)">
+            </div>
         </div>
-    </div>
+    <% } %>
     <div class="places-container">
     </div>
 </div>

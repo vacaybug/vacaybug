@@ -468,11 +468,11 @@ span.text-content {
 	-moz-border-radius: 10px;
 	border-radius: 10px; 
 }
-.panel .panel-body .new-guide-default {
+.panel .panel-body .profile-private {
 	max-width: 430px;
 	margin: 30px auto;
 }
-.panel .panel-body .new-guide-default .new-guide-btn-horizontal {
+.panel .panel-body .profile-private .new-guide-btn-horizontal {
 	width: 100%;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -481,21 +481,39 @@ span.text-content {
 	padding: 30px;
 	background-color: #F2FBFE;
 }
-.panel .panel-body .new-guide-default .new-guide-btn-horizontal a {
+.panel .panel-body .profile-private .new-guide-btn-horizontal a {
 	color: #777F88;
 	font-size: 25px;
 	font-weight: 500;
 	text-decoration: none;
 }
-.panel .panel-body .new-guide-default h4 {
+.panel .panel-body .profile-private h4 {
 	font-size: 20px;
 	font-weight: 700;
 	margin: 40px 0 30px 0px;
 }
-.panel .panel-body .new-guide-default p {
+.panel .panel-body .profile-private p {
 	color: #B7B7B7;
 	font-size: 15px;
 	font-weight: 500;
+}
+.panel .panel-body .profile-public {
+	max-width: 900px;
+	margin: 30px auto;
+}
+.panel .panel-body .profile-public .profile-default-header {
+	font-size: 25px;
+	font-weight: 700;
+	margin-bottom: 30px;
+}
+.panel .panel-body .profile-public .profile-default-subheader {
+	color: #B7B7B7;
+	font-size: 20px;
+	font-weight: 500;
+	margin-bottom: 30px;
+}
+.panel .panel-body .profile-public .profile-default-img {
+	margin: 0 auto;
 }
 .panel .panel-body .new-guide-btn-vertical {
 	min-width: 291px;
@@ -1606,6 +1624,7 @@ ul.social-buttons li a:active {
 .guide-hover:hover {
 	opacity: .9;
 	background: #99d4e9;
+	/*background: rgba(0,0,0,0.5);*/
 }
 .guide-hover .guide-hover-content {
 	position: absolute;
@@ -1679,6 +1698,9 @@ ul.social-buttons li a:active {
 	text-decoration: none;
 	margin-bottom: 0px;
 }
+.guide-item .location {
+	height: 44px;
+}
 .guide-item .place-location {
 	text-align: center;
 	font-size: 12px;
@@ -1694,6 +1716,9 @@ ul.social-buttons li a:active {
 	padding: 5px 20px;
 	color:#00629b;
 	margin: 0 auto;
+}
+.guide-item .reviews {
+	height: 37px;
 }
 /* Guide Modal */
 

@@ -1,7 +1,7 @@
 <% if (collection.sync_status) { %>
     <% if (collection.length == 0) { %>
-        <!-- When there is nothing in passport -->
-        <div class="new-guide-default text-center">
+        <% if (profileView && profileView.model.get('id') == Vacaybug.current_user.id) { %>
+        <div class="profile-private text-center">
             <div class="new-guide-btn-horizontal">
                 <a href="#guideModal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
             </div>
@@ -13,6 +13,13 @@
                 <p>It will be public so you can share all the awesome places you've visited with your followers. Start filling up your Passport by clicking "Create a Guide"</p>
             <% } %>
         </div>
+        <% } else { %>
+            <div class="profile-public text-center">
+                <h4 class="profile-default-header">The passport is currently empty</h4>
+                <p class="profile-default-subheader">Please check back later</p>
+                <img class="profile-default-img img-responsive" src="/assets/default-profile.png">
+            </div>
+        <% } %>
     <% } else { %>
         <% var index = 0; %>
     <% _.each(_.groupBy($.merge([null], collection.models), function(value, index) { return parseInt(index / 3); }), function(row) { %>

@@ -8,45 +8,51 @@
         </div>
         <div class="container guide-container">
             <h3 class="text-center"><%= _.escape(guide.get('title')) %></h3>
-            <% _.each(_.groupBy(places.models, function(val, index) { return parseInt(index / 4); }), function(row) { %>
-                <div class="row">
-                    <% _.each(row, function(model) { %>
-                        <div class="col-md-3">
-                            <div class="guide-item">
-                                <div class="guide-caption" style="position: relative">
-                                    <span class="pull-left number-icon"><%= model.get('order_num') %></span>
-                                    <h4 class="text-center text-break-ellipsis">
-                                        <%= _.escape(model.get('title')) %>
-                                    </h4>
-                                </div>
-                                <a href="#">
-                                    <% if (model.get('photo')) { %>
-                                        <img src="<%= model.get('photo').prefix %>300x200<%= model.get('photo').suffix%>" alt="image" class="img-responsive" width="100%" />
-                                    <% } else { %>
-                                        <img src="someimage" alt="image" class="img-responsive" width="100%" />
-                                    <% } %>
-                                </a>
-                                <div class="guide-caption" data-id="<%= model.get('id') %>">
-                                    <div class="guide-caption-div"><%= _.escape(model.get('note')) %></div>
-                                </div>
-                                <% if (model.get('yelp')) { %>
-                                    <hr>
-                                    <a href="<%= model.get('yelp').url %>" target="_blank" style="text-align:center; display:block;">
-                                        <img src="/assets/guide/yelp.png" style="width: 34px; height: 17px" >
-                                        <div class="rating rating-<%= parseInt(model.get('yelp').rating) %><%= parseInt(model.get('yelp').rating) != model.get('yelp').rating ? '-half' : ''%>" style="display: inline-block">
-                                            <i class="star-1">★</i>
-                                            <i class="star-2">★</i>
-                                            <i class="star-3">★</i>
-                                            <i class="star-4">★</i>
-                                            <i class="star-5">★</i>
-                                        </div>
+            <% if (places.models.length == 0) { %>
+                <h4 class="place-default-header">This guide has not been updated</h4>
+                <p class="place-default-subheader">Please check back later</p>
+                <img class="place-default-img img-responsive" src="/assets/default-guide.png">
+            <% } else { %>
+                <% _.each(_.groupBy(places.models, function(val, index) { return parseInt(index / 4); }), function(row) { %>
+                    <div class="row">
+                        <% _.each(row, function(model) { %>
+                            <div class="col-md-3">
+                                <div class="guide-item">
+                                    <div class="guide-caption" style="position: relative">
+                                        <span class="pull-left number-icon"><%= model.get('order_num') %></span>
+                                        <h4 class="text-center text-break-ellipsis">
+                                            <%= _.escape(model.get('title')) %>
+                                        </h4>
+                                    </div>
+                                    <a href="#">
+                                        <% if (model.get('photo')) { %>
+                                            <img src="<%= model.get('photo').prefix %>300x200<%= model.get('photo').suffix%>" alt="image" class="img-responsive" width="100%" />
+                                        <% } else { %>
+                                            <img src="someimage" alt="image" class="img-responsive" width="100%" />
+                                        <% } %>
                                     </a>
-                                <% } %>
+                                    <div class="guide-caption" data-id="<%= model.get('id') %>">
+                                        <div class="guide-caption-div"><%= _.escape(model.get('note')) %></div>
+                                    </div>
+                                    <% if (model.get('yelp')) { %>
+                                        <hr>
+                                        <a href="<%= model.get('yelp').url %>" target="_blank" style="text-align:center; display:block;">
+                                            <img src="/assets/guide/yelp.png" style="width: 34px; height: 17px" >
+                                            <div class="rating rating-<%= parseInt(model.get('yelp').rating) %><%= parseInt(model.get('yelp').rating) != model.get('yelp').rating ? '-half' : ''%>" style="display: inline-block">
+                                                <i class="star-1">★</i>
+                                                <i class="star-2">★</i>
+                                                <i class="star-3">★</i>
+                                                <i class="star-4">★</i>
+                                                <i class="star-5">★</i>
+                                            </div>
+                                        </a>
+                                    <% } %>
+                                </div>
                             </div>
-                        </div>
-                    <% }); %>
-                </div>
-            <% }); %>
+                        <% }); %>
+                    </div>
+                <% }); %>
+            <% } %>
         </div>
     </div>
 </div>

@@ -88,7 +88,7 @@ class Guide < ActiveRecord::Base
 
     def setup_params
         if self.title.nil?
-            self.title = self.city + " itinerary"
+            self.title = self.city + " Guide"
         end
     end
 
