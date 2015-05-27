@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VacayBug | Search</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <%= render 'generic/header.html.erb' %>
+	<title>VacayBug | Search</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="title" content="VacayBug | Social Travel Platform" />
+	<meta name="description" content="VacayBug makes traveling easier with access to customized itineraries created by locals." />
+	<meta name="keywords" content="abroad journey tour trip itinerary voyage explore fun gallivant roam wander rove range move transfer" />
+	<meta property:"og:image" content="/assets/opengraph/opengraph.jpg">
+	<link rel="icon" type="image/png" href="/assets/favicon.png">
 </head>
 <body>
 	<%= render 'generic/navigation.html.erb' %>
 	
-	<div class="container search-container">
+	<div class="container search-container" id="wrapper">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="box">
@@ -18,13 +25,10 @@
 						<h3><i class="fa fa-heart"></i> Top 5 most likes</h3>
 					</div>
 					<div class="box-body">
-						<ol>
+<!-- 						<ol>
 							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
 							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
-							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
-							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
-							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
-						</ol>
+						</ol> -->
 					</div>
 				</div>
 			</div>
@@ -34,13 +38,10 @@
 						<h3><i class="fa fa-comment"></i> Top 5 most comments</h3>
 					</div>
 					<div class="box-body">
-						<ol>
+<!-- 						<ol>
 							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
 							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
-							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
-							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
-							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
-						</ol>
+						</ol> -->
 					</div>
 				</div>
 			</div>
@@ -50,13 +51,10 @@
 						<h3><i class="fa fa-refresh"></i> Top 5 most shares</h3>
 					</div>
 					<div class="box-body">
-						<ol>
+<!-- 						<ol>
 							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
 							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
-							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
-							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
-							<li><a href="">Road Trip 2015</a>, <a href="">San Jose</a> by <a href="">Charles Hsieh</a></li>
-						</ol>
+						</ol> -->
 					</div>
 				</div>
 			</div>
@@ -68,7 +66,36 @@
 			</div>
 		</div>
 	</div>
-
-	<%= render 'generic/footer.html.erb' %>
+	<footer>
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-4">
+	                <span class="copyright">Copyright &copy; VacayBug 2015</span>
+	            </div>
+	            <div class="col-md-4">
+	                <ul class="list-inline social-buttons">
+	                    <li><a href="https://twitter.com/vacaybug" target="_blank"><i class="fa fa-twitter"></i></a>
+	                    </li>
+	                    <li><a href="https://www.facebook.com/pages/VacayBug/888427661180456" target="_blank"><i class="fa fa-facebook"></i></a>
+	                    </li>
+	                    <li><a href="https://www.linkedin.com/company/vacaybug" target="_blank"><i class="fa fa-linkedin"></i></a>
+	                    </li>
+	                </ul>
+	            </div>
+	            <div class="col-md-4">
+	                <ul class="list-inline quicklinks">
+	                    <li><a href="/about">About Us</a>
+	                    </li>
+	                    <li><a href="/privacy">Privacy</a>
+	                    </li>
+	                    <li><a href="/terms">Terms of Use</a>
+	                    </li>
+	                    <li><a href="https://mixpanel.com/f/partner"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+	</footer>
 </body>
 </html>

@@ -12,7 +12,7 @@
                 <div class="intro-text">
                     <div class="intro-heading">Let Your Trip Tell a Story</div>
                     <div class="intro-subheading">Explore, build and share itineraries from locals like you.</div>
-                    <a href="#about" class="page-scroll btn btn-xl">Find out how</a>
+                    <a href="#about" id="page-scroll" class="btn btn-xl">Find out how</a>
                 </div>
             </div>
             <div class="container" id="hero-signup">
@@ -28,7 +28,7 @@
                             <form action="http://vacaybug.us9.list-manage.com/subscribe/post?u=966c023f999f4d933716e4aa9&amp;id=e22664c95f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                                 <div id="mc_embed_signup_scroll"
                                     <div class="row">
-                                        <div class="col-md-6 col-md-offset-2">
+                                        <div class="col-md-5 col-md-offset-3">
                                             <div class="form-group mc-field-group">
                                                 <input type="email" value="" name="EMAIL" class="form-control required email" placeholder="Your Email *" id="mce-EMAIL">
                                             </div>
@@ -155,6 +155,19 @@
         <!-- Amplitude Tracking -->
         <script type="text/javascript">
             amplitude.logEvent("home_page_loaded");
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                function scroll_to(div){
+                    $('html, body').animate({
+                      scrollTop: $(div).offset().top
+                    },1000);
+                }
+                $("#page-scroll").click(function(){
+                    scroll_to("#about");
+                    return false;
+                });
+            })
         </script>
     </body>
 </html>

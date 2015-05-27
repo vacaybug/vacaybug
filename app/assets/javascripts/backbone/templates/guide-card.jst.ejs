@@ -21,20 +21,12 @@
                     <span class="js-save btn btn-warning">Add to Wishlist</span>
                 <% } %>
                 <!-- <span class="js-share btn btn-primary">Share</span> -->
-                <div class="guide-hover-content">
-                    <p>Quick View</p>
-                </div>
+                <p>Quick View</p>
             </div>
-            <img src="<%= model.get('image').medium %>" class="js-cover-photo img-responsive" alt="">
+            <img src="<%= model.get('image').medium %>" class="js-cover-photo img-responsive" alt="guide">
         </a>
         <div class="guide-caption">
             <p class="guide-content"><%= _.escape(model.get('description')) %></p>
-            <ul class="guide-socialMeta">
-                <li><a href="javascript:void(0)" class="js-like text-muted"><i class="fa fa-heart"></i> <%= story.get('likes_count') %></a></li>
-                <li><a href="javascript:void(0)" class="js-show-comments text-muted"><i class="fa fa-comment"></i> <%= story.get('comments_count') %></a></li>
-                <!-- <li><a href="javascript:void(0)" class="js-share text-muted"><i class="fa fa-refresh"></i> 10</a></li> -->
-                <li class="pull-right"><p class="text-muted"><%= $.timeago(model.get('created_at')) %></p></li>
-            </ul>
             <% if (story.get('likes_count') > 0) { %>
                 <div class="guide-footer">
                     <span class="js-show-likes cursor-pointer">
@@ -46,6 +38,14 @@
                     </span>  
                 </div>
             <% } %>
+            <div class="guide-caption-footer">
+                <ul class="guide-socialMeta">
+                    <li><a href="javascript:void(0)" class="js-like text-muted"><i class="fa fa-heart"></i> <%= story.get('likes_count') %></a></li>
+                    <li><a href="javascript:void(0)" class="js-show-comments text-muted"><i class="fa fa-comment"></i> <%= story.get('comments_count') %></a></li>
+                    <!-- <li><a href="javascript:void(0)" class="js-share text-muted"><i class="fa fa-refresh"></i> 10</a></li> -->
+                    <li class="pull-right"><p class="text-muted"><%= $.timeago(model.get('created_at')) %></p></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
