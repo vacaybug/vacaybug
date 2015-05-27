@@ -4,8 +4,7 @@ jQuery ->
       "discover": "discover"
       "search": "search"
       "newsfeed": "newsfeed"
-      "members/:page": "members"
-      "members": "members"
+      "friends": "friends"
 
       ":user": "profile"
       ":user/followers": "followers"
@@ -16,6 +15,10 @@ jQuery ->
 
     initialize: ->
 
+    show404: ->
+      view = new Vacaybug.NotFoundView()
+      Vacaybug.appView.setView(view, "Not found")
+
     profile: (user) ->
       model = new Vacaybug.UserModel({username: user})
       model.fetch
@@ -25,18 +28,20 @@ jQuery ->
           Vacaybug.appView.setView(view, "Profile")
           Vacaybug.appView.setNavbarTab('profile')
         error: =>
-          Vacaybug.show404()
+          @show404()
 
-    members: (page=1) ->
-      collection = new Vacaybug.AllUsersCollection
-        page: page
+    friends: ->
+      collection = new Vacaybug.FollowersCollection
+        types: ["followers", "following", "recommended"]
+      collection.setUsername(Vacaybug.current_user.get('username'))
       collection.fetch()
 
-      view = new Vacaybug.MembersView
+      view = new Vacaybug.FollowersView
         collection: collection
+        types: {followers: true, following: true, recommended: true}
 
-      Vacaybug.appView.setView(view, "Members")
-      Vacaybug.appView.setNavbarTab('members')
+      Vacaybug.appView.setView(view, "Friends")
+      Vacaybug.appView.setNavbarTab('friends')
 
     followers: (user) ->
       if user
@@ -51,7 +56,7 @@ jQuery ->
 
         Vacaybug.appView.setView(view, "Network")
       else
-        Vacaybug.show404()
+        @show404()
 
     following: (user) ->
       if user
@@ -66,14 +71,14 @@ jQuery ->
 
         Vacaybug.appView.setView(view, "Network")
       else
-        Vacaybug.show404()
+        @show404()
 
     guide: (user, id) ->
       guide = new Vacaybug.GuideModel
         id: id
       guide.fetch
         error: =>
-          Vacaybug.show404()
+          @show404()
 
       view = new Vacaybug.GuideView
         model: guide
@@ -109,7 +114,7 @@ jQuery ->
       Vacaybug.appView.setNavbarTab('newsfeed')
 
     notFound: ->
-      Vacaybug.show404()
+      @show404()
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.Router = Router

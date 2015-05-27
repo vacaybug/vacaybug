@@ -32,7 +32,7 @@ Vacaybug::Application.routes.draw do
     # restful api
     # MODELS ONLY
     namespace :rest do
-        resources :users, only: [:show, :update, :index] do
+        resources :users, only: [:show, :update] do
             resources :guides, only: [:index] do
             end
 
