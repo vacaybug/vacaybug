@@ -21,18 +21,22 @@
             </div>
         <% } %>
     <% } else { %>
-        <% var index = 0; %>
-    <% _.each(_.groupBy($.merge([null], collection.models), function(value, index) { return parseInt(index / 3); }), function(row) { %>
+    <%
+        var index = 0; 
+        var c = collection.models;
+        if (where == 'profile' && collection.models[0].get('user').id == Vacaybug.current_user.id) {
+            c = $.merge([null], collection.models);
+        }
+    %>
+    <% _.each(_.groupBy(c, function(value, index) { return parseInt(index / 3); }), function(row) { %>
         <div class="row">
             <% _.each(row, function(guide) { %>
-                <% if (index == 0) { %>
-                    <% if (where == 'profile' && collection.models[0].get('user').id == Vacaybug.current_user.id) { %>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="new-guide-btn-vertical text-center">
-                                <a href="#guideModal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
-                            </div>
+                <% if (guide == null) { %>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="new-guide-btn-vertical text-center">
+                            <a href="#guideModal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
                         </div>
-                    <% } %>
+                    </div>
                 <% } else { %>
                     <div class="guide-card-container" data-id="<%= guide.get('id') %>">
                     </div>
