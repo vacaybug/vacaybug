@@ -87,4 +87,20 @@ jQuery ->
       @next_offset = resp.next_offset
       super(resp, options)
 
-  Vacaybug.LikedPeopleCollection = LikedPeopleCollection
+  class AllUsersCollection extends window.Vacaybug.GenericCollection
+      model: Vacaybug.UserModel
+
+      restURL: ->
+        "/rest/users"
+
+      queryParams: ->
+        "#{super()}&page=#{@page}"
+
+      initialize: (options) ->
+        @page = options.page || 1
+
+      parse: (resp, options) ->
+        @total_pages = resp.total_pages
+        super(resp, options)
+
+  Vacaybug.AllUsersCollection = AllUsersCollection
