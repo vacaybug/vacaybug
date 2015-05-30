@@ -1,37 +1,39 @@
-<div class="newsfeed-container">
-    <div class="newsfeed-items">
-        <div class="timeline-block">
-            <div class="panel panel-default newsfeed share">
-                <div class="panel-heading">
-                    <div class="media">
-                        <a href="" class="pull-left">
-                            <img src="<%= Vacaybug.current_user.get('avatar').thumb %>" class="media-object avatar-thumb">
-                        </a>
-                        <div class="media-body">
-                            <p class="newsfeed-status">What's new <%= Vacaybug.current_user.get('first_name') || Vacaybug.current_user.get('username') %>?</p>
+<div class="container">
+    <div class="newsfeed-container">
+        <div class="newsfeed-items">
+            <div class="timeline-block">
+                <div class="panel panel-default newsfeed share">
+                    <div class="panel-heading">
+                        <div class="media">
+                            <a href="" class="pull-left">
+                                <img src="<%= Vacaybug.current_user.get('avatar').thumb %>" class="media-object avatar-thumb">
+                            </a>
+                            <div class="media-body">
+                                <p class="newsfeed-status">What's new <%= Vacaybug.current_user.get('first_name') || Vacaybug.current_user.get('username') %>?</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="panel-body">
-                    <textarea name="status" class="form-control share-text js-status" maxlength="200" rows="5" placeholder="Share your status..."></textarea>
-                    <div class="image-preview" style="display: none">
-                        <span class="js-delete-image pull-right cursor-pointer"><i class="fa fa-times"></i></span>
-                        <img src='' width='150'>
+                    <div class="panel-body">
+                        <textarea name="status" class="form-control share-text js-status" maxlength="200" rows="5" placeholder="Share your status..."></textarea>
+                        <div class="image-preview" style="display: none">
+                            <span class="js-delete-image pull-right cursor-pointer"><i class="fa fa-times"></i></span>
+                            <img src='' width='150'>
+                        </div>
                     </div>
-                </div>
-                <div class="panel-footer share-buttons">
-        <!--             <a href="#">
-                        <i class="fa fa-link"></i>
-                    </a> -->
-                    <a href="javascript:void(0)" class="js-upload-photo">
-                        <i class="fa fa-photo"></i>
-                    </a>
-                    <span class="js-post btn btn-primary pull-right" style="margin-right: 20px; margin-top: -10px">Post</span>
+                    <div class="panel-footer share-buttons">
+            <!--             <a href="#">
+                            <i class="fa fa-link"></i>
+                        </a> -->
+                        <a href="javascript:void(0)" class="js-upload-photo">
+                            <i class="fa fa-photo"></i>
+                        </a>
+                        <span class="js-post btn btn-primary pull-right" style="margin-right: 20px; margin-top: -10px">Post</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="newsfeed-footer" style="padding-bottom: 20px">
-        <img src="/assets/spinner.gif" class="hidden ajax-loader" width="30" style="display: block; margin: auto">
+        <div class="newsfeed-footer" style="padding-bottom: 20px">
+            <img src="/assets/spinner.gif" class="hidden ajax-loader" width="30" style="display: block; margin: auto">
+        </div>
     </div>
 </div>

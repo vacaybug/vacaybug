@@ -1,12 +1,25 @@
-<h1 class="follower-header text-center"><%= user.get('full_name') %>'s Network</h1>
+<div class="follower-search-container">
+	<h2 class="follower-header">Search for people on VacayBug</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 follower-searchbar">
+			    <input class="js-searchbar typeahead form-control" type="text" placeholder="Type a name or email address">
+			    <i class="fa fa-search"></i>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+<h1 class="follower-header">Your VacayBug Network</h1>
 <% if (types.followers) { %>
-	<h2 class="follower-subheader text-center">Members that are following <%= user.get('full_name') %>:</h2>
+	<h2 class="follower-subheader">Members that are following <%= user.get('full_name') %>:</h2>
 	<div class="timeline row followers"></div>
 <% } %>
 <% if (types.following) { %>
-	<h2 class="follower-subheader text-center">Members that <%= user.get('full_name') %> is following:</h2>
+	<h2 class="follower-subheader">Members that <%= user.get('full_name') %> is following:</h2>
 	<div class="timeline row following"></div>
 <% } %>
-<h1 class="follower-network-header text-center">Expand Your Network</h1>
-<h2 class="follower-subheader text-center">Members you might want to connect with:</h2>
+<h1 class="follower-network-header">Expand Your VacayBug Network</h1>
+<h2 class="follower-subheader">Members you might want to connect with:</h2>
 <div class="timeline row recommended"></div>
+</div>

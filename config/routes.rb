@@ -1,6 +1,6 @@
 Vacaybug::Application.routes.draw do
     devise_for :users, :path => '',
-        :path_names => {:sign_in => 'login', :sign_up => 'kcw', :sign_out => 'logout'},
+        :path_names => {:sign_in => 'login', :sign_up => 'beta', :sign_out => 'logout'},
         :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
 
     resources :friendships

@@ -1,7 +1,7 @@
-<div class="panel panel-default user-box">
+<div class="panel panel-default">
     <div class="panel-body">
-        <img src="<%= model.get('avatar').thumb %>" alt="<%= model.get('username') %>" class="user-img img-square pull-left" height="100" width="100"/>
-        <div class="user-info text-center pull-left">
+        <img src="<%= model.get('avatar').thumb %>" alt="<%= model.get('username') %>" class="user-img img-square"/>
+        <div class="user-info">
             <a href="/<%= model.get('username') %>" class="username"><%= model.get('full_name') %></a>
             <a href="/<%= model.get('username') %>/followers" class="user-follower backbone"><%= model.get('followers_count') %> followers</a>
         </div>

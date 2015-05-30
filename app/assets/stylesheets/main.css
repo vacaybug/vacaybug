@@ -1,5 +1,5 @@
 /* GENERAL */
-html, body, #wrapper {
+html, body {
 	height: 100%;
 }
 body {
@@ -20,6 +20,7 @@ body #wrapper {
 	padding-bottom: 90px;
 	height: auto;
 	min-height: 100%;
+	width: 100%;
 }
 div.flash-notification {
     top: 80px;
@@ -520,7 +521,7 @@ span.text-content {
 }
 .panel .panel-body .new-guide-btn-vertical {
 	min-width: 291px;
-	min-height: 425px;
+	min-height: 447px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px; 
@@ -664,59 +665,88 @@ span.text-content {
 
 /* FOLLOWER | FOLLOWERING */
 
+.follower-search-container {
+	background-color: #fff;
+	padding: 30px 50px 50px;
+	width: 100%
+}
+.follower-searchbar {
+	margin-top: 20px;
+	background-color: #fff;
+	border: 1px solid #d4d4d4;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding: 15px;
+}
+.follower-searchbar input {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	height: 50px;
+	font-size: 16px;
+	background-color: #fff;
+}
+.follower-searchbar .fa-search {
+	color: #bbbcbc;
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	font-size: 18px;
+}
 .follower-header {
-	margin-top: 40px;
+	text-align: center;
+	margin-top: 30px;
 	font-size: 32px;
 	color: #00629b;
 }
 .follower-network-header {
+	text-align: center;
 	margin-top: 30px;
 	font-size: 32px;
 	color: #00629b;
 }
 .follower-subheader {
-	font-size: 16px;
+	margin-top: 50px;
+	font-size: 18px;
 	color: #777777;
-}
-.timeline.follower {
-	margin: 0 auto;
-	margin-top: 40px;
-	padding-bottom: 20px;
-	border-bottom: 1px solid #d4d4d4; 
 }
 .timeline {
 	margin: 0 auto;
-	margin-top: 50px;
+	margin-top: 30px;
+}
+.timeline .panel-default {
+	width: 150px;
 }
 .timeline .panel-body {
 	padding: 0px;
+	text-align: center
 }
 .timeline .panel-body .user-img {
 	border-top-left-radius: 9px;
-	border-bottom-left-radius: 9px;
-	border-right: 1px solid #d4d4d4;
+	border-top-right-radius: 9px;
+	width: 100%
 }
 .timeline .panel-body .user-info {
-	border-right: 1px solid #d4d4d4;
-	width: 39%;
+	width: 100%;
 	padding: 20px 0px;
 	height: 100px;
+	text-align: center;
 }
 .timeline .panel-body .user-info .username {
 	font-weight: 500;
   	font-size: 16px;
   	color: #000;
+  	display: block;
+  	padding: 5px;
 }
 .timeline .panel-body .user-info .user-follower {
-  	font-size: 13px;
+  	font-size: 15px;
 }
-.timeline .btn-follow {
-	width: 90px;
-	margin: 33px 13px;
-}
+.timeline .btn-follow,
 .timeline .btn-following {
-	width: 90px;
-	margin: 33px 13px;
+	width: 120px;
+	margin-bottom: 15px;
 }
 
 /* USER GUIDE */
@@ -850,8 +880,7 @@ span.text-content {
 	left: 60px;
 }
 .guide-map .guide-description .btn-guide-delete {
-	float: left;
-	margin: 10px 20px 10px 32px;
+	margin: 10px 0px 0px 0px;
 	font-weight: 600;
 	background-color: #f26d65;
 	-webkit-border-radius: 8px;
@@ -864,7 +893,8 @@ span.text-content {
 	border: 1px solid #ec281d;
 }
 .guide-map .guide-description .btn-guide-export {
-	margin: 10px 0px 0px 0px;
+	float: left;
+	margin: 10px 20px 10px 32px;
 	font-weight: 600;
 	background-color: #00629b;
 	-webkit-border-radius: 8px;
@@ -1000,7 +1030,7 @@ span.text-content {
 	font-size: 18px;
 	font-weight: 600;
 }
-.sign-up {
+#devise-wrapper {
 	background-attachment: scroll;
 	background-image: url(../assets/login-cover.jpg);
 	background-position: center center;
@@ -1010,31 +1040,29 @@ span.text-content {
 	background-size: cover;
 	-o-background-size: cover;
 	padding-top: 50px;
+	padding-bottom: 120px;
 	width: 100%;
-	min-height: 600px;
+	min-height: 100%;
 }
-
-.sign-up .row .col-md-4 {
+#devise-wrapper .row .col-md-4 {
 	background-color: #fff;
 	padding: 40px 50px 20px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 }
-
-.sign-up .row .border img {
+#devise-wrapper .row .border img {
 	margin-left: 40px;
 }
 
-.sign-up .row .col-md-8 .login-text {
+#devise-wrapper .row .col-md-8 .login-text {
 	font-size: 40px;
 	text-align: center;
 	text-shadow: 0 0 15px #202020;
 	line-height: 1.25;
 	color: #fff;
 }
-
-.sign-up .row .col-md-8 .login-subtext {
+#devise-wrapper .row .col-md-8 .login-subtext {
 	font-size: 20px;
 	text-align: center;
 	text-shadow: 0 0 15px #202020;
@@ -1042,22 +1070,18 @@ span.text-content {
 	color: #fff;
 	margin-bottom: 20px;
 }
-
-.sign-up .row .col-md-4 .terms {
+#devise-wrapper .row .col-md-4 .terms {
 	font-size: 13px;
 	margin-bottom: 25px;
 }
-
-.sign-up .row .col-md-4 .fa {
+#devise-wrapper .row .col-md-4 .fa {
 	width: 20px;
 }
-
-.sign-up .row .col-md-4 .row .col-sm-6 a {
+#devise-wrapper .row .col-md-4 .row .col-sm-6 a {
 	margin-bottom: 20px;
 	font-weight: bold;
 }
-
-.sign-up .row .col-md-4 h5 {
+#devise-wrapper .row .col-md-4 h5 {
 	margin-bottom: 20px;
 }
 
@@ -1358,14 +1382,14 @@ span.text-content {
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 }
-.search-container .search-bar {
+.search-container .discover-searchbar {
 	padding: 15px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	margin-bottom: 200px;
 }
-.search-container .search-bar input{
+.search-container .discover-searchbar input{
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -1373,7 +1397,7 @@ span.text-content {
 	font-size: 16px;
 	background-color: #fff;
 }
-.search-container .search-bar .fa-search {
+.search-container .discover-searchbar .fa-search {
 	color: #bbbcbc;
 	position: absolute;
 	top: 30px;

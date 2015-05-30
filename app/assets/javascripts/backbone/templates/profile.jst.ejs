@@ -1,199 +1,201 @@
-<div class="cover profile">
-    <div class="map-container"></div>
-    <div class="cover-info">
-        <div class="avatar">
-            <img src="<%= model.avatar.medium %>" alt="people">
-            <span class="text-content js-change-photo"><label for="fileupload">Change Photo</label></span>
-        </div>
-        <div class="name">
-            <a href="#"><%= model.full_name %></a>
-        </div>
-        <ul class="cover-nav nav nav-tabs" role="tablist">
-            <li class="<%= activeTab == 'passport' ? 'active' : '' %> js-tab" data-tab='passport'>
-                <a href="#passport" role="tab" data-toggle="tab"><i class="fa fa-briefcase"></i> Passport</a>
-            </li>
-            <% if (isPrivate) { %>
-                <li class="<%= activeTab == 'wishlist' ? 'active' : '' %> js-tab" data-tab='wishlist'>
-                    <a href="#wishlist" role="tab" data-toggle="tab"><i class="fa fa-map-marker"></i> Wishlist</a>
+<div class="container">
+    <div class="cover profile">
+        <div class="map-container"></div>
+        <div class="cover-info">
+            <div class="avatar">
+                <img src="<%= model.avatar.medium %>" alt="people">
+                <span class="text-content js-change-photo"><label for="fileupload">Change Photo</label></span>
+            </div>
+            <div class="name">
+                <a href="#"><%= model.full_name %></a>
+            </div>
+            <ul class="cover-nav nav nav-tabs" role="tablist">
+                <li class="<%= activeTab == 'passport' ? 'active' : '' %> js-tab" data-tab='passport'>
+                    <a href="#passport" role="tab" data-toggle="tab"><i class="fa fa-briefcase"></i> Passport</a>
                 </li>
-                <li class="<%= activeTab == 'about' ? 'active' : '' %> js-tab" data-tab='about'>
-                    <a href="#about" role="tab" data-toggle="tab"><i class="fa fa-info-circle"></i> About</a>
-                </li>
-<!--                 <li class="story">
-                    <a href="#" role="tab"><i class="fa fa-book"></i> Story<br><span>*Coming Soon*</span></a>
-                </li> -->
+                <% if (isPrivate) { %>
+                    <li class="<%= activeTab == 'wishlist' ? 'active' : '' %> js-tab" data-tab='wishlist'>
+                        <a href="#wishlist" role="tab" data-toggle="tab"><i class="fa fa-map-marker"></i> Wishlist</a>
+                    </li>
+                    <li class="<%= activeTab == 'about' ? 'active' : '' %> js-tab" data-tab='about'>
+                        <a href="#about" role="tab" data-toggle="tab"><i class="fa fa-info-circle"></i> About</a>
+                    </li>
+    <!--                 <li class="story">
+                        <a href="#" role="tab"><i class="fa fa-book"></i> Story<br><span>*Coming Soon*</span></a>
+                    </li> -->
+                <% } %>
+            </ul>
+            <% if (!isPrivate) { %>
+                <% if (model.follows) { %>
+                    <a href="javascript:void(0)" class="btn btn-danger js-unfollow">Unfollow</a>
+                <% } else { %>
+                    <a href="javascript:void(0)" class="btn btn-info js-follow">Follow</a>
+                <% } %>
             <% } %>
-        </ul>
-        <% if (!isPrivate) { %>
-            <% if (model.follows) { %>
-                <a href="javascript:void(0)" class="btn btn-danger js-unfollow">Unfollow</a>
-            <% } else { %>
-                <a href="javascript:void(0)" class="btn btn-info js-follow">Follow</a>
-            <% } %>
-        <% } %>
-        <a href="/<%= model.username %>/followers" class="follow-tab"><%= model.followers_count %> Followers</a>
-        <a href="/<%= model.username %>/following" class="follow-tab"><%= model.following_count %> Following</a>
+            <a href="/<%= model.username %>/followers" class="follow-tab"><%= model.followers_count %> Followers</a>
+            <a href="/<%= model.username %>/following" class="follow-tab"><%= model.following_count %> Following</a>
+        </div>
     </div>
-</div>
-<div class="panel">
-    <div class="tab-content">
-        <div class="tab-pane fade <%= activeTab == 'passport' ? 'active in' : '' %> in" id="passport">
-            <div class="tab-heading">
-                <i class="fa fa-briefcase"></i> My Passport - I've Been to...
+    <div class="panel">
+        <div class="tab-content">
+            <div class="tab-pane fade <%= activeTab == 'passport' ? 'active in' : '' %> in" id="passport">
+                <div class="tab-heading">
+                    <i class="fa fa-briefcase"></i> My Passport - I've Been to...
+                </div>
+                <div class="panel-body passport">
+                </div>
             </div>
-            <div class="panel-body passport">
+            <div class="tab-pane <%= activeTab == 'wishlist' ? 'active in' : ''%> fade" id="wishlist">
+                <div class="tab-heading">
+                    <i class="fa fa-list"></i> My Wishlist - I Want to Go...
+                </div>
+                <div class="panel-body wishlist">
+                </div>
             </div>
-        </div>
-        <div class="tab-pane <%= activeTab == 'wishlist' ? 'active in' : ''%> fade" id="wishlist">
-            <div class="tab-heading">
-                <i class="fa fa-list"></i> My Wishlist - I Want to Go...
-            </div>
-            <div class="panel-body wishlist">
-            </div>
-        </div>
-        <div class="tab-pane <%= activeTab == 'about' ? 'active in' : '' %> fade" id="about">
-            <div class="tab-heading">
-                <i class="fa fa-info-circle"></i> About
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-5">
-                        <h4 class="pull-left">About me</h4>
-                        <div class="profile-edit">
-                            <% if (editMode == false) { %>
-                                <a class="js-edit" href="javascript:void(0)"><i class="fa fa-edit"></i> Edit</a>
-                            <% } else { %>
-                                <span class="js-saving hide"><i class="fa fa-spinner fa-spin"></i> Saving</span>
-                                <a class="js-save" href="javascript:void(0)"><i class="fa fa-check"></i> Save</a>
-                                <a class="js-cancel" href="javascript:void(0)"><i class="fa fa-times"></i> Cancel</a>
-                            <% } %>
+            <div class="tab-pane <%= activeTab == 'about' ? 'active in' : '' %> fade" id="about">
+                <div class="tab-heading">
+                    <i class="fa fa-info-circle"></i> About
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h4 class="pull-left">About me</h4>
+                            <div class="profile-edit">
+                                <% if (editMode == false) { %>
+                                    <a class="js-edit" href="javascript:void(0)"><i class="fa fa-edit"></i> Edit</a>
+                                <% } else { %>
+                                    <span class="js-saving hide"><i class="fa fa-spinner fa-spin"></i> Saving</span>
+                                    <a class="js-save" href="javascript:void(0)"><i class="fa fa-check"></i> Save</a>
+                                    <a class="js-cancel" href="javascript:void(0)"><i class="fa fa-times"></i> Cancel</a>
+                                <% } %>
+                            </div>
+                            <div class="clearfix"></div>
+                            <ul class="list-unstyled profile-about">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6"><span class="text-muted profile-label" data-field="first_name">First name:</span>
+                                        </div>
+                                        <% if (editMode) { %>
+                                            <div class="col-sm-6"><input class="profile-field" data-field="first_name" placeholder="First name" value="<%= model.first_name %>"></div>
+                                        <% } else { %>
+                                            <div class="col-sm-6"><p class="profile-about-content"><%= model.first_name %></p></div>
+                                        <% } %>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6"><span class="text-muted profile-label" data-field="last_name">Last name:</span>
+                                        </div>
+                                        <% if (editMode) { %>
+                                            <div class="col-sm-6"><input class="profile-field" data-field="last_name" placeholder="Last name" value="<%= model.last_name %>"></div>
+                                        <% } else { %>
+                                            <div class="col-sm-6"><p class="profile-about-content"><%= model.last_name %></p></div>
+                                        <% } %>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6"><span class="text-muted profile-label" data-field="username">Username:</span>
+                                        </div>
+                                        <% if (editMode) { %>
+                                            <div class="col-sm-6"><input class="profile-field" data-field="username" placeholder="Username" value="<%= model.username %>"></div>
+                                        <% } else { %>
+                                            <div class="col-sm-6"><p class="profile-about-content"><%= model.username %></p></div>
+                                        <% } %>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6"><span class="text-muted profile-label" data-field="birthday">Birthday:</span></div>
+                                        <% if (editMode) { %>
+                                            <div class="col-sm-6"><input class="profile-field input-birthday" data-field="birthday" placeholder="Birthday"></div>
+                                        <% } else { %>
+                                            <div class="col-sm-6"><p class="profile-about-content"><%= birthday %></p></div>
+                                        <% } %>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="clearfix"></div>
-                        <ul class="list-unstyled profile-about">
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-6"><span class="text-muted profile-label" data-field="first_name">First name:</span>
+                        <div class="col-md-5 col-md-offset-1">
+                            <h4 class="pull-left">Travel Information</h4>
+                            <div class="clearfix"></div>
+                            <ul class="list-unstyled profile-about">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6"><span class="text-muted">Currently Located:</span></div>
+                                        <% if (editMode) { %>
+                                            <div class="col-sm-6"><input class="profile-field input-location" data-field="location" placeholder="Where you live" value="<%= model.location %>"></div>
+                                        <% } else { %>
+                                            <div class="col-sm-6"><p class="profile-about-content"><%= model.location %></p></div>
+                                        <% } %>
                                     </div>
-                                    <% if (editMode) { %>
-                                        <div class="col-sm-6"><input class="profile-field" data-field="first_name" placeholder="First name" value="<%= model.first_name %>"></div>
-                                    <% } else { %>
-                                        <div class="col-sm-6"><p class="profile-about-content"><%= model.first_name %></p></div>
-                                    <% } %>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-6"><span class="text-muted profile-label" data-field="last_name">Last name:</span>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6"><span class="text-muted">Originally From:</span></div>
+                                        <% if (editMode) { %>
+                                            <div class="col-sm-6"><input class="profile-field input-location" data-field="location" placeholder="Where you live" value="<%= model.location %>"></div>
+                                        <% } else { %>
+                                            <div class="col-sm-6"><p class="profile-about-content"><%= model.location %></p></div>
+                                        <% } %>
                                     </div>
-                                    <% if (editMode) { %>
-                                        <div class="col-sm-6"><input class="profile-field" data-field="last_name" placeholder="Last name" value="<%= model.last_name %>"></div>
-                                    <% } else { %>
-                                        <div class="col-sm-6"><p class="profile-about-content"><%= model.last_name %></p></div>
-                                    <% } %>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-6"><span class="text-muted profile-label" data-field="username">Username:</span>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6"><span class="text-muted">Number of Countries Visited:</span>
+                                        </div>
+                                        <div class="col-sm-6"><p class="profile-about-content"><%= model.visited_countries_count %></p></div>
                                     </div>
-                                    <% if (editMode) { %>
-                                        <div class="col-sm-6"><input class="profile-field" data-field="username" placeholder="Username" value="<%= model.username %>"></div>
-                                    <% } else { %>
-                                        <div class="col-sm-6"><p class="profile-about-content"><%= model.username %></p></div>
-                                    <% } %>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-6"><span class="text-muted profile-label" data-field="birthday">Birthday:</span></div>
-                                    <% if (editMode) { %>
-                                        <div class="col-sm-6"><input class="profile-field input-birthday" data-field="birthday" placeholder="Birthday"></div>
-                                    <% } else { %>
-                                        <div class="col-sm-6"><p class="profile-about-content"><%= birthday %></p></div>
-                                    <% } %>
-                                </div>
-                            </li>
-                        </ul>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6"><span class="text-muted">Number of Cities Visit:</span>
+                                        </div>
+                                        <div class="col-sm-6"><p class="profile-about-content"><%= model.visited_cities_count %></p></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6"><span class="text-muted">Number of Guides Created: </span>
+                                        </div>
+                                        <div class="col-sm-6"><p class="profile-about-content"><%= model.guides_count %></p></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-md-5 col-md-offset-1">
-                        <h4 class="pull-left">Travel Information</h4>
-                        <div class="clearfix"></div>
-                        <ul class="list-unstyled profile-about">
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-6"><span class="text-muted">Currently Located:</span></div>
-                                    <% if (editMode) { %>
-                                        <div class="col-sm-6"><input class="profile-field input-location" data-field="location" placeholder="Where you live" value="<%= model.location %>"></div>
-                                    <% } else { %>
-                                        <div class="col-sm-6"><p class="profile-about-content"><%= model.location %></p></div>
-                                    <% } %>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-6"><span class="text-muted">Originally From:</span></div>
-                                    <% if (editMode) { %>
-                                        <div class="col-sm-6"><input class="profile-field input-location" data-field="location" placeholder="Where you live" value="<%= model.location %>"></div>
-                                    <% } else { %>
-                                        <div class="col-sm-6"><p class="profile-about-content"><%= model.location %></p></div>
-                                    <% } %>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-6"><span class="text-muted">Number of Countries Visited:</span>
-                                    </div>
-                                    <div class="col-sm-6"><p class="profile-about-content"><%= model.visited_countries_count %></p></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-6"><span class="text-muted">Number of Cities Visit:</span>
-                                    </div>
-                                    <div class="col-sm-6"><p class="profile-about-content"><%= model.visited_cities_count %></p></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-sm-6"><span class="text-muted">Number of Guides Created: </span>
-                                    </div>
-                                    <div class="col-sm-6"><p class="profile-about-content"><%= model.guides_count %></p></div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>    
+                </div>    
+            </div>
         </div>
     </div>
-</div>
-<div class="modal fade" id="guideModal" tabindex="-1" role="dialog" aria-labelledby="guideModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Where are you going?</h4>
-            </div>
-            <div class="modal-body">
-                <img width="20" class="typeahead-spinner hidden" src="/assets/spinner.gif"
-                    style="float: left; position: absolute; top: 36px; left: 5px;">
-                <input type="text" class="form-control js-modal-city" name="city" placeholder="Type in a city name" />
-                <hr>
-                <h5>Trip Type</h5>
-                <div class="btn-group btn-group-justified btn-trip-type" role="group">
-                    <div class="btn-group" role="group">
-                        <button type="button" class="trip-type-choice active btn btn-success" value="passport"><span>Passport</span><br/>- Where you've been -</button>
-                    </div>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="trip-type-choice btn btn-success" value="wishlist"><span>Wishlist</span><br/>- Where you wish to go -</button>
-                    </div>
+    <div class="modal fade" id="guideModal" tabindex="-1" role="dialog" aria-labelledby="guideModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Where are you going?</h4>
                 </div>
-                <hr>
-                <h5>Trip Description</h5>
-                <textarea rows="4" maxlength="250" class="form-control trip-description" placeholder="Tell us more about the trip...(max 250 characters)"></textarea>
-                <hr>
-                <button type="button" class="btn btn-cancel js-close" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-continue js-continue" disabled="disabled">Continue</button>
+                <div class="modal-body">
+                    <img width="20" class="typeahead-spinner hidden" src="/assets/spinner.gif"
+                        style="float: left; position: absolute; top: 36px; left: 5px;">
+                    <input type="text" class="form-control js-modal-city" name="city" placeholder="Type in a city name" />
+                    <hr>
+                    <h5>Trip Type</h5>
+                    <div class="btn-group btn-group-justified btn-trip-type" role="group">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="trip-type-choice active btn btn-success" value="passport"><span>Passport</span><br/>- Where you've been -</button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="trip-type-choice btn btn-success" value="wishlist"><span>Wishlist</span><br/>- Where you wish to go -</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <h5>Trip Description</h5>
+                    <textarea rows="4" maxlength="250" class="form-control trip-description" placeholder="Tell us more about the trip...(max 250 characters)"></textarea>
+                    <hr>
+                    <button type="button" class="btn btn-cancel js-close" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-continue js-continue" disabled="disabled">Continue</button>
+                </div>
             </div>
         </div>
     </div>
