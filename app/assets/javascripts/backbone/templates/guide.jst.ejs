@@ -1,3 +1,14 @@
+<% if (isPrivate) { %>
+    <nav class="guide-searchbar-fixed">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <input type="text" class="js-search-places form-control input-lg" placeholder="Search by landmark, restaurant, anything :)">
+                </div>
+            </div>
+        </div>
+    </nav>
+<% } %>
 <div class="guide-heading">
     <h1 class="city-guide-heading"><%= _.escape(model.get('title')) %></h1>
     <h4 class="guide-author">By <a class="backbone" href="/<%= model.get('user').username %>"><%= model.get('user').full_name %></a></h4>
@@ -6,12 +17,7 @@
     <div class="map-container">
     </div>
     <div class="guide-description">
-        <% if (isPrivate) { %>
-            <div maxlength="200" class="guide-description-div" style="border: 2px dashed #98d6ec" placeholder="Create a purpose here....">
-        <% } else { %>
-            <div maxlength="200" class="guide-description-div">
-        <% } %>
-            <%= _.escape(model.get('description')) %></div>
+        <div maxlength="200" class="guide-description-div"><%= _.escape(model.get('description')) %></div>
         <hr>
         <% if (model.get('user').id == Vacaybug.current_user.id) { %>
             <button class="btn btn-danger btn-guide-delete">Delete Guide</button>
@@ -44,3 +50,13 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var elementPosition = $('.places-container').offset();
+    $(window).scroll(function(){
+        if($(window).scrollTop() > elementPosition.top){
+            $('.guide-searchbar-fixed').css({'opacity':'1'});
+        } else {
+            $('.guide-searchbar-fixed').css({'opacity':'0'});
+        }    
+    });
+</script>

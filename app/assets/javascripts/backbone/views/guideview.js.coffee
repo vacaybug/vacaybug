@@ -59,7 +59,17 @@ jQuery ->
             Vacaybug.router.navigate('/profile', {trigger: true, replace: true})
 
     initInputs: ->
-      return if !@isPrivate
+      if @isPrivate
+        $('.city-guide-heading').css
+          "border" : "2px dashed #fff"
+          "-webkit-border-radius": "8px"
+          "-moz-border-radius": "8px"
+          "border-radius": "8px"
+          "margin-bottom": "10px"
+        $('.guide-description-div').css
+          "border": "2px dashed #98d6ec"
+      else
+        return
 
       $('.guide-description-div').editable (value, settings) =>
         @model.set('description', value)
