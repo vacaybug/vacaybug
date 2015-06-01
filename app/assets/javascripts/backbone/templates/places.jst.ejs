@@ -38,8 +38,8 @@
                         <p class="place-phone text-break-ellipsis" data-toggle="tooltip" title="<%= model.get('phone') %>"><%= model.get('phone') %></p>
                     </div>
                     <div class="reviews">
+                        <hr>
                         <% if (model.get('yelp')) { %>
-                            <hr>
                             <a href="<%= model.get('yelp').url %>" target="_blank" style="text-align:center; display:block;">
                                 <img src="/assets/guide/yelp.png" style="width: 34px; height: 17px" >
                                 <div class="rating rating-<%= parseInt(model.get('yelp').rating) %><%= parseInt(model.get('yelp').rating) != model.get('yelp').rating ? '-half' : ''%>" style="display: inline-block">
@@ -50,6 +50,8 @@
                                     <i class="star-5">★</i>
                                 </div>
                             </a>
+                        <% } else { %>
+                            <p class="no-review">No Yelp Reviews</p>
                         <% } %>
                     </div>
                 </div>

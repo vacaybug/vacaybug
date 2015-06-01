@@ -725,7 +725,8 @@ span.text-content {
 .network-container .timeline .panel-body .user-img {
 	border-top-left-radius: 9px;
 	border-top-right-radius: 9px;
-	width: 100%
+	width: 100%;
+	height: 178px;
 }
 .network-container .timeline .panel-body .user-info {
 	width: 100%;
@@ -1644,6 +1645,10 @@ ul.social-buttons li a:active {
 	width: 100%;
 	height: 175px;
 }
+.guide-item .js-cover-photo {
+	width: 100%;
+	height: 225px;
+}
 .guide-hover {
 	position: absolute;
 	width: 100%;
@@ -1767,7 +1772,9 @@ ul.social-buttons li a:active {
 .guide-item .location {
 	height: 44px;
 }
-.guide-item .place-location {
+.guide-item .place-location,
+.guide-item .place-phone,
+.guide-item .no-review {
 	text-align: center;
 	font-size: 12px;
 	font-weight: 500;
@@ -1786,6 +1793,11 @@ ul.social-buttons li a:active {
 .guide-item .reviews {
 	height: 37px;
 }
+.guide-item .no-review {
+	color: #000;
+	margin: 0 auto;
+  	padding: 4px;
+}
 /* Guide Modal */
 
 .guide-modal .modal-content {
@@ -1796,7 +1808,6 @@ ul.social-buttons li a:active {
     background-clip: border-box;
     -webkit-box-shadow: none;
     box-shadow: none;
-
 }
 
 .guide-modal .modal-content h2 {
