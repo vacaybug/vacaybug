@@ -1,3 +1,16 @@
+<div class="guide-heading">
+    <h1 class="city-guide-heading"><%= _.escape(model.get('title')) %></h1>
+    <h4 class="guide-author">By <a class="backbone" href="/<%= model.get('user').username %>"><%= model.get('user').full_name %></a></h4>
+</div>
+<div class="container guide-map">
+    <div class="map-container">
+    </div>
+    <div class="guide-description">
+        <div maxlength="200" class="guide-description-div"><%= _.escape(model.get('description')) %></div>
+        <hr>
+        <a class="btn btn-warning btn-guide-export" href="#exportpdf" data-toggle="modal">Export PDF</a>
+    </div>
+</div>
 <% if (isPrivate) { %>
     <nav class="guide-searchbar-fixed">
         <div class="container">
@@ -9,22 +22,6 @@
         </div>
     </nav>
 <% } %>
-<div class="guide-heading">
-    <h1 class="city-guide-heading"><%= _.escape(model.get('title')) %></h1>
-    <h4 class="guide-author">By <a class="backbone" href="/<%= model.get('user').username %>"><%= model.get('user').full_name %></a></h4>
-</div>
-<div class="container guide-map">
-    <div class="map-container">
-    </div>
-    <div class="guide-description">
-        <div maxlength="200" class="guide-description-div"><%= _.escape(model.get('description')) %></div>
-        <hr>
-        <% if (model.get('user').id == Vacaybug.current_user.id) { %>
-            <button class="btn btn-danger btn-guide-delete">Delete Guide</button>
-        <% } %>
-        <a class="btn btn-warning btn-guide-export" href="#exportpdf" data-toggle="modal">Export PDF</a>
-    </div>
-</div>
 <div class="container guide-container">
         <% if (isPrivate) { %>
             <div class="row guide-searchbar">
@@ -42,7 +39,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Sneak Preview! Export Your  Guide to PDF!</h4>
+                <h4 class="modal-title" id="myModalLabel">Coming Soon! Export Your  Guide to PDF!</h4>
             </div>
             <div class="modal-body">
                 <img src="/assets/guidepdf.png" class="img-responsive">
@@ -51,12 +48,13 @@
     </div>
 </div>
 <script type="text/javascript">
-    var elementPosition = $('.places-container').offset();
+    $('.guide-searchbar-fixed').hide();
+    var elementPosition = $('.guide-container').offset();
     $(window).scroll(function(){
         if($(window).scrollTop() > elementPosition.top){
-            $('.guide-searchbar-fixed').css({'opacity':'1'});
+            $('.guide-searchbar-fixed').show(600);
         } else {
-            $('.guide-searchbar-fixed').css({'opacity':'0'});
+            $('.guide-searchbar-fixed').hide(600);
         }    
     });
 </script>

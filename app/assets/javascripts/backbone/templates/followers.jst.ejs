@@ -9,17 +9,17 @@
 		</div>
 	</div>
 </div>
-<div class="container">
-<h1 class="follower-header">Your VacayBug Network</h1>
-<% if (types.followers) { %>
-	<h2 class="follower-subheader">Members that are following <%= user.get('full_name') %>:</h2>
-	<div class="timeline row followers"></div>
-<% } %>
-<% if (types.following) { %>
-	<h2 class="follower-subheader">Members that <%= user.get('full_name') %> is following:</h2>
-	<div class="timeline row following"></div>
-<% } %>
-<h1 class="follower-network-header">Expand Your VacayBug Network</h1>
-<h2 class="follower-subheader">Members you might want to connect with:</h2>
-<div class="timeline row recommended"></div>
+<div class="container network-container">
+	<h1 class="follower-header">Your VacayBug Network</h1>
+	<% if (types.followers) { %>
+		<h2 class="follower-subheader">Members that are following <%= user.get('full_name') %>:</h2>
+		<div class="timeline row followers"></div>
+	<% } %>
+	<% if (types.following) { %>
+		<h2 class="follower-subheader">Members that <%= user.get('full_name') %> is following:</h2>
+		<div class="timeline row following"></div>
+	<% } %>
+	<h1 class="follower-network-header">Expand Your VacayBug Network</h1>
+	<h2 class="follower-subheader">Members you might want to connect with:</h2>
+	<div class="timeline row recommended"></div>
 </div>
