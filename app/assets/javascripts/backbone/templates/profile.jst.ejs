@@ -4,7 +4,9 @@
         <div class="cover-info">
             <div class="avatar">
                 <img src="<%= model.avatar.medium %>" alt="people" class="img-responsive">
-                <span class="text-content js-change-photo"><label for="fileupload">Change Photo</label></span>
+                <% if (isPrivate) { %>
+                    <span class="text-content js-change-photo"><label for="fileupload">Change Photo</label></span>
+                <% } %>
             </div>
             <div class="name">
                 <a href="#"><%= model.full_name %></a>

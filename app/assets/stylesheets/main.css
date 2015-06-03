@@ -149,7 +149,7 @@ div.flash-notification .flash-notice {
 	background-color: #fff;
 }
 span.twitter-typeahead {
-	border-radius: 5px;
+	border-radius: 8px;
 }
 span.twitter-typeahead .tt-dropdown-menu {
 	position: absolute;
@@ -933,17 +933,31 @@ span.text-content {
 	width: 100%;
 	top: 76px;
 	z-index: 1000;
-	padding: 20px 0px;
-	background: rgba(0, 0, 0, 0.5);
+	padding: 10px 0px;
+	background: rgba(31, 49, 66, 0.7);
+}
+.guide-searchbar-fixed .guide-searchbar-fixed-outer {
+	background-color: #fff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding: 10px;
+	background: rgba(31, 49, 66, 0.5);
 }
 .guide-searchbar-fixed input {
-	font-size: 17px;
-	padding: 25px;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
-	border-radius: 5px;
-	border: 1px solid #d4d4d4;
+	border-radius: 8px;
+	height: 45px;
+	font-size: 16px;
 	background-color: #fff;
+}
+.guide-searchbar-fixed .fa-search {
+	color: #bbbcbc;
+	position: absolute;
+	top: 25px;
+	right: 30px;
+	font-size: 16px;
 }
 .guide-container {
 	margin-top: 25px;
