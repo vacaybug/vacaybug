@@ -3,7 +3,7 @@
         <div class="map-container"></div>
         <div class="cover-info">
             <div class="avatar">
-                <img src="<%= model.avatar.medium %>" alt="people">
+                <img src="<%= model.avatar.medium %>" alt="people" class="img-responsive">
                 <span class="text-content js-change-photo"><label for="fileupload">Change Photo</label></span>
             </div>
             <div class="name">
@@ -191,7 +191,7 @@
                     </div>
                     <hr>
                     <h5>Trip Description</h5>
-                    <textarea rows="4" maxlength="250" class="form-control trip-description" placeholder="Tell us more about the trip...(max 250 characters)"></textarea>
+                    <textarea rows="4" maxlength="230" class="form-control trip-description" placeholder="Tell us more about the trip...(max 230 characters)"></textarea>
                     <hr>
                     <button type="button" class="btn btn-cancel js-close" data-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-continue js-continue" disabled="disabled">Continue</button>

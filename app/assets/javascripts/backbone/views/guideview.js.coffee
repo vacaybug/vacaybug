@@ -77,6 +77,8 @@ jQuery ->
         value
       , {
         type    : 'textarea',
+        maxlength: 230,
+        indicator: 'Saving...',
         submit  : '<button type="submit" class="btn btn-save"><i class="fa fa-check"></i> Save</button>',
         cancel  : '<button class="btn btn-cancel"><i class="fa fa-times"></i> Cancel</button>',
         onblur  : 'ignore',
@@ -88,6 +90,8 @@ jQuery ->
         value
       , {
         type    : 'text',
+        maxlength: 50,
+        indicator: 'Saving...',
         submit  : '<button type="submit" class="btn btn-save"><i class="fa fa-check"></i> Save</button>',
         cancel  : '<button class="btn btn-cancel"><i class="fa fa-times"></i> Cancel</button>',
         onblur  : 'ignore',

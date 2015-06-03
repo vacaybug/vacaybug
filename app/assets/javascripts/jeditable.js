@@ -443,6 +443,7 @@
                     var input = $('<input />');
                     if (settings.width  != 'none') { input.width(settings.width);  }
                     if (settings.height != 'none') { input.height(settings.height); }
+                    if (settings.maxlength) { input.attr('maxlength', settings.maxlength); }
                     /* https://bugzilla.mozilla.org/show_bug.cgi?id=236791 */
                     //input[0].setAttribute('autocomplete','off');
                     input.attr('autocomplete','off');
@@ -463,6 +464,7 @@
                     } else {
                         textarea.width(settings.width);
                     }
+                    if (settings.maxlength) { textarea.attr('maxlength', settings.maxlength); }
                     $(this).append(textarea);
                     return(textarea);
                 }

@@ -1009,6 +1009,9 @@ span.text-content {
 	padding: 10px;
 	border: 2px dashed #98d6ec;
 	background-color: #fbfefe;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px; 
 }
 .guide-container .guide-item .guide-caption textarea {
 	width: 100%;
@@ -1109,7 +1112,13 @@ span.text-content {
 #devise-wrapper .row .col-md-4 h5 {
 	margin-bottom: 20px;
 }
-
+#devise-wrapper a.forgot-pwd,
+#devise-wrapper a.forgot-confirmation {
+	font-size: 13px;
+}
+#devise-wrapper a.forgot-pwd {
+	margin-bottom: 0px !important;
+}
 /* MESSAGE */
 
 .panel .list-group:first-child .list-group-item:first-child {
@@ -1456,7 +1465,7 @@ span.text-content {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
-.newsfeed .timeline-block {
+.newsfeed-container .timeline-block {
 	margin: 0px 10px;
 	width: 360px;
 }
