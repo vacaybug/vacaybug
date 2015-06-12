@@ -51,6 +51,9 @@ jQuery ->
     search_members: (query='', page=1) ->
       @members(page, query)
 
+    search_members: (query='', page=1) ->
+      @members(page, query)
+
     followers: (user) ->
       if user
         collection = new Vacaybug.FollowersCollection
