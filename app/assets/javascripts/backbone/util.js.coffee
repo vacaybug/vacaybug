@@ -153,7 +153,7 @@ jQuery ->
 
     html
 
-  show404: ->
+  show404 = ->
     view = new Vacaybug.NotFoundView()
     Vacaybug.appView.setView(view, "Not found")
 
