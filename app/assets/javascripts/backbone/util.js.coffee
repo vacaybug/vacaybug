@@ -118,6 +118,42 @@ jQuery ->
     results = regex.exec(location.search);
     return if results == null then "" else decodeURIComponent(results[1].replace(/\+/g, " "));
 
+  String.format = ->
+    # The string containing the format items (e.g. "{0}")
+    # will and always has to be the first argument.
+    theString = arguments[0]
+    # start with the second argument (i = 1)
+    i = 1
+    while i < arguments.length
+      # "gm" = RegEx options for Global search (more than one instance)
+      # and for Multiline search
+      regEx = new RegExp('\\{' + (i - 1) + '\\}', 'gm')
+      theString = theString.replace(regEx, arguments[i])
+      i++
+    theString
+
+  render_pagination = (href, count, current) ->
+    if (count == 1)
+      return ""
+    html = ""
+    normal = "<a href='{0}' class='backbone'>{1}</a> "
+    active = "<a href='{0}' class='backbone' style='color: red'>{1}</a> "
+
+    skipped = false
+    for i in [1..count]
+      if i == 1 || i == count || (current - 2 <= i && i <= current + 2)
+        html += "&hellip; " if skipped
+        skipped = false
+        if i != current
+          html += String.format(normal, String.format(href, i), i)
+        else
+          html += String.format(active, String.format(href, i), i)
+      else
+        skipped = true
+
+    html
+
+  Vacaybug.render_pagination = render_pagination
   Vacaybug.flash_message = flash_message
 
   window.Vacaybug ||= Vacaybug

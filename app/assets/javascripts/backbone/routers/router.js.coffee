@@ -4,7 +4,13 @@ jQuery ->
       "discover": "discover"
       "search": "search"
       "newsfeed": "newsfeed"
-      "friends": "friends"
+
+      "members/:page": "members"
+      "members": "members"
+
+      "members/query/": "search_members"
+      "members/query/:query": "search_members"
+      "members/query/:query/:page": "search_members"
 
       ":user": "profile"
       ":user/followers": "followers"
@@ -30,18 +36,20 @@ jQuery ->
         error: =>
           @show404()
 
-    friends: ->
-      collection = new Vacaybug.FollowersCollection
-        types: ["followers", "following", "recommended"]
-      collection.setUsername(Vacaybug.current_user.get('username'))
+    members: (page=1, query='') ->
+      collection = new Vacaybug.AllUsersCollection
+        page: page
+        query: query
       collection.fetch()
 
-      view = new Vacaybug.FollowersView
+      view = new Vacaybug.MembersView
         collection: collection
-        types: {followers: true, following: true, recommended: true}
 
-      Vacaybug.appView.setView(view, "Friends")
-      Vacaybug.appView.setNavbarTab('friends')
+      Vacaybug.appView.setView(view, "Members")
+      Vacaybug.appView.setNavbarTab('members')
+
+    search_members: (query='', page=1) ->
+      @members(page, query)
 
     followers: (user) ->
       if user

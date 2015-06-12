@@ -88,3 +88,22 @@ jQuery ->
       super(resp, options)
 
   Vacaybug.LikedPeopleCollection = LikedPeopleCollection
+
+  class AllUsersCollection extends window.Vacaybug.GenericCollection
+      model: Vacaybug.UserModel
+
+      restURL: ->
+        "/rest/users"
+
+      queryParams: ->
+        "#{super()}&page=#{@page}&query=#{encodeURIComponent(@query)}"
+
+      initialize: (options) ->
+        @page = options.page || 1
+        @query = options.query || ''
+
+      parse: (resp, options) ->
+        @total_pages = resp.total_pages
+        super(resp, options)
+
+  Vacaybug.AllUsersCollection = AllUsersCollection

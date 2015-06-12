@@ -3,6 +3,25 @@ class Rest::UsersController < ActionController::Base
 
     before_filter :check_logged_in, only: [:follow, :unfollow, :followers]
 
+    def index
+        page = (params[:page] || 1).to_i
+        page_size = 5
+
+        query = params[:query]
+
+        users = User
+        if query && query != ""
+            users = users.where('username LIKE ? OR last_name LIKE ? OR first_name LIKE ?', "%#{query}%", "%#{query}%",  "%#{query}%")
+        end
+        sorted_users = Follower.select('follower_id, user_id, COUNT(*) followers_count').group(:user_id).order('followers_count desc').having('follower_id != ?', current_user.id)
+        total_pages = (sorted_users.length + page_size - 1) / page_size
+
+        render json: {
+            models: users.where(id: (sorted_users.slice((page - 1) * page_size, page_size) || []).map { |u| u.user_id }).as_json(additional: true, current_user: current_user),
+            total_pages: total_pages
+        }
+    end
+
     def show
         @user = find_user(params[:id])
 
