@@ -126,7 +126,7 @@
                                     <div class="row">
                                         <div class="col-sm-6"><span class="text-muted">Currently Located:</span></div>
                                         <% if (editMode) { %>
-                                            <div class="col-sm-6"><input class="profile-field input-location" data-field="location" placeholder="Where you live" value="<%= model.location %>"></div>
+                                            <div class="col-sm-6"><input class="profile-field input-location" data-field="location" placeholder="Where do you live?" value="<%= model.location %>"></div>
                                         <% } else { %>
                                             <div class="col-sm-6"><p class="profile-about-content"><%= model.location %></p></div>
                                         <% } %>
@@ -136,7 +136,7 @@
                                     <div class="row">
                                         <div class="col-sm-6"><span class="text-muted">Originally From:</span></div>
                                         <% if (editMode) { %>
-                                            <div class="col-sm-6"><input class="profile-field input-location" data-field="location" placeholder="Where you live" value="<%= model.location %>"></div>
+                                            <div class="col-sm-6"><input class="profile-field input-location" data-field="location" placeholder="Where are you from?" value="<%= model.location %>"></div>
                                         <% } else { %>
                                             <div class="col-sm-6"><p class="profile-about-content"><%= model.location %></p></div>
                                         <% } %>

@@ -2,9 +2,7 @@
     <% if (collection.length == 0) { %>
         <% if (profileView && profileView.model.get('id') == Vacaybug.current_user.id) { %>
         <div class="profile-private text-center">
-            <div class="new-guide-btn-horizontal">
-                <a href="#guideModal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
-            </div>
+            <a href="#guideModal" class="new-guide-btn-horizontal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
             <% if (type == 'wishlist') { %>
                 <h4>Your Wishlist is currently empty</h4>
                 <p>It will be private so you can store all the awesome places you wish to visit. Start filling up your Wishlist by clicking “Create a Guide"</p>
@@ -33,9 +31,7 @@
             <% _.each(row, function(guide) { %>
                 <% if (guide == null) { %>
                     <div class="col-md-4 col-sm-6">
-                        <div class="new-guide-btn-vertical text-center">
-                            <a href="#guideModal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
-                        </div>
+                        <a href="#guideModal" class="new-guide-btn-vertical text-center" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
                     </div>
                 <% } else { %>
                     <div class="guide-card-container" data-id="<%= guide.get('id') %>">

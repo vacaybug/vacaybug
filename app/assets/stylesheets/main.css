@@ -484,12 +484,11 @@ span.text-content {
 	border: 3px dashed #98d6ec;
 	padding: 30px;
 	background-color: #F2FBFE;
-}
-.panel .panel-body .profile-private .new-guide-btn-horizontal a {
 	color: #777F88;
 	font-size: 25px;
 	font-weight: 500;
 	text-decoration: none;
+	display: block;
 }
 .panel .panel-body .profile-private h4 {
 	font-size: 20px;
@@ -528,12 +527,11 @@ span.text-content {
 	border: 3px dashed #98d6ec;
 	padding: 165px 0px;
 	background-color: #F2FBFE;
-}
-.panel .panel-body .new-guide-btn-vertical a {
 	color: #777F88;
 	font-size: 25px;
 	font-weight: 500;
 	text-decoration: none;
+	display: block;
 }
 .panel .tab-content .tab-heading {
 	font-size: 14px;
