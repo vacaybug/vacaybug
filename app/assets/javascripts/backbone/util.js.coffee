@@ -158,6 +158,7 @@ jQuery ->
     Vacaybug.appView.setView(view, "Not found")
 
   Vacaybug.render_pagination = render_pagination
+  Vacaybug.show404 = show404
   Vacaybug.flash_message = flash_message
 
   window.Vacaybug ||= Vacaybug
