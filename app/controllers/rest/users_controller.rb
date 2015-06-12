@@ -5,7 +5,7 @@ class Rest::UsersController < ActionController::Base
 
     def index
         page = (params[:page] || 1).to_i
-        page_size = 5
+        page_size = 30
 
         query = params[:query]
 
