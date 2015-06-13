@@ -1,5 +1,8 @@
+require 'rails_rinku'
+require 'sanitize'
+
 class Comment < ActiveRecord::Base
-	require 'rails_rinku'
+
 	attr_accessible :user_id, :story_id, :text
 	belongs_to :user
 	belongs_to :story
@@ -14,6 +17,12 @@ class Comment < ActiveRecord::Base
 	private
 
 	def escape_text
-		self.text = Rinku.auto_link self.text
+		self.text = Rinku.auto_link(self.text, :all, 'target="_blank"')
+		self.text =	Sanitize.fragment(self.text,
+			:elements => ['a'],
+		 	:attributes => {
+		    	'a'    => ['href', 'target'],
+		  	},
+		)
 	end
 end

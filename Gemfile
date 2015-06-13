@@ -39,6 +39,7 @@ gem 'yelp', require: 'yelp'
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 gem 'rinku', :require => 'rails_rinku'
+gem 'sanitize'
 
 # omniauth
 gem 'omniauth-facebook'

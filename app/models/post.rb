@@ -42,7 +42,13 @@ class Post < ActiveRecord::Base
 
     def process_content
         if !self.raw_content.nil?
-            self.content = Rinku.auto_link self.raw_content
+            self.content = Rinku.auto_link(self.raw_content, :all, 'target="_blank"')
+            self.content = Sanitize.fragment(self.content,
+                :elements => ['a'],
+                :attributes => {
+                    'a'    => ['href', 'target'],
+                },
+            )
         end
     end
 
