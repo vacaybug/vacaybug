@@ -28,7 +28,7 @@ jQuery ->
 
       if @places.sync_status
         if @places.models.length > 0
-          mapOptions = {}
+          mapOptions = {scrollwheel: false}
           map = new google.maps.Map($('.map-container')[0], mapOptions)
           bounds = new google.maps.LatLngBounds()
           for place in @places.models
@@ -43,7 +43,7 @@ jQuery ->
 
           map.fitBounds(bounds)
         else
-          mapOptions = {zoom: 5}
+          mapOptions = {zoom: 5, scrollwheel: false}
           map = new google.maps.Map($('.map-container')[0], mapOptions)
           centerAddress = @model.get('city') + " " + @model.get('region') + " " + @model.get('country')
           geocoder = new google.maps.Geocoder();

@@ -58,7 +58,7 @@ jQuery ->
     renderMap: ->
       return if $('.map-container').length == 0
 
-      mapOptions = {zoom: 5}
+      mapOptions = {zoom: 5, scrollwheel: false}
       map = new google.maps.Map($('.map-container')[0], mapOptions)
       window.map = map
 
