@@ -16,7 +16,7 @@ class Rest::NewsfeedController < ActionController::Base
         story_ids = story_ids.pluck(:story_id)
         stories = story_ids.map do |story_id|
             Story.find_by_id(story_id)
-        end.reject(&:blank?)
+        end.reject(&:blank?).select { |s| s.user != nil}
 
         render json: {
             models: stories.as_json(include_resource: true, user: current_user),
