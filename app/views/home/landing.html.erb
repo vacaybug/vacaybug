@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>VacayBug - Home</title>
+        <title>Home | VacayBug</title>
         <%= render 'generic/home_header' %>
     </head>
     <body id="page-top" class="index">
@@ -146,16 +146,6 @@
         <%= render 'generic/home_modal_signin' %>
         <!-- Vacaybug -->
         <%= javascript_include_tag("application", :media => "all") %>
-        <!-- Mixpanel Tracking -->
-        <script type="text/javascript">
-            mixpanel.track("Page Loaded", {"Page Name": "Home" });  
-            mixpanel.track_forms("#mc-embedded-subscribe-form");
-            mixpanel.track_links(".guide-item a", "Guide Modal");
-        </script>
-        <!-- Amplitude Tracking -->
-        <script type="text/javascript">
-            amplitude.logEvent("home_page_loaded");
-        </script>
         <script type="text/javascript">
             $(document).ready(function(){
                 function scroll_to(div){

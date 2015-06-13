@@ -21,6 +21,12 @@ class Rest::UsersController < ActionController::Base
             total_pages: total_pages
         }
     end
+   #  def index
+   #     render json: {
+   #         models: User.all.as_json(additional: true, current_user: current_user),
+   #         total_pages: 1
+   #     }
+   # end
 
     def show
         @user = find_user(params[:id])

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>VacayBug - Privacy</title>
+        <title>Privacy | VacayBug</title>
         <%= render 'generic/home_header' %>
     </head>
     <body id="page-top" class="index">
@@ -162,13 +162,5 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         <!-- Vacaybug -->
         <%= javascript_include_tag("application", :media => "all") %>
-        <!-- Mixpanel Tracking -->
-        <script type="text/javascript">
-            mixpanel.track("Page Loaded", {"Page Name": "Privacy" });
-        </script>
-        <!-- Amplitude Tracking -->
-        <script type="text/javascript">
-            amplitude.logEvent("privacy_page_loaded");
-        </script>
     </body>
 </html>

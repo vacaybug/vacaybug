@@ -23,6 +23,7 @@ jQuery ->
           type    : 'textarea',
           submit  : '<button type="submit" class="btn-none"><i class="fa fa-check"></i> Save</button>',
           cancel  : '<button class="btn-none"><i class="fa fa-times"></i> Cancel</button>',
+          maxlength: 155,
           onblur  : 'ignore',
         }
 

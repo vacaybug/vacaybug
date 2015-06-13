@@ -38,7 +38,7 @@ jQuery ->
 
     setTitle: (title) ->
       if title && title.length > 0
-        document.title = "Vacaybug - #{title}"
+        document.title = "#{title} | VacayBug"
       else
         document.title = "Vacaybug"
 
