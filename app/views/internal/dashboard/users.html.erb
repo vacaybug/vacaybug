@@ -1,0 +1,9 @@
+<% @groups.each do |group| %>
+	<h3><%= group[0] %></h3>
+	<ul>
+		<% group[1].split(",").each do |user_id| %>
+			<% @user = User.find(user_id) %>
+			<li><a href='/<%= @user.username %>' target='_blank'><%= @user.full_name %></a>, <%= @user.email %>, <%= @user.provider %></li>
+		<% end %>
+	</ul>
+<% end %>

@@ -29,6 +29,11 @@ class User < ActiveRecord::Base
         "profile", "discover", "friends", "faq", "features", "login", "register", "auth", "password"
     ]
 
+    module PERMISSIONS
+        REGULAR = 0
+        ADMIN = 1
+    end
+
     validates :username,
         format: {
             with: /\A[a-zA-Z0-9_]+\Z/,

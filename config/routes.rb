@@ -90,6 +90,12 @@ Vacaybug::Application.routes.draw do
         end
     end
 
+    namespace :internal do
+        namespace :dashboard do
+            get :users
+        end
+    end
+
     # all apis will go here
     namespace :api do
         # four square apis
