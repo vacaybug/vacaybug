@@ -266,46 +266,46 @@ header .intro-text .intro-subheading {
     text-shadow: 0 0 15px #202020;
 }
 
-header #hero-signup {
+header #testimonial {
     width: 100%;
     padding: 1.5em;
     background: rgba(0,0,0,0.5);
 }
-
-header #hero-signup .section-heading {
+header #testimonial .section-heading,
+header #testimonial .section-author,
+header #testimonial .section-profile {
     color: #fff;
-}
-
-header #hero-signup .section-subheading {
-    color: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     text-transform: none;
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-style: italic;
     font-weight: 400;
+    text-align: left;
 }
-
-header #hero-signup .form-group {
-    margin-bottom: 25px;
+header #testimonial .section-heading .quote {
+    font-size: 20px;
+    font-weight: 700;
 }
-header #hero-signup .form-group input {
-    padding: 17px;
+header #testimonial .section-author {
+    font-style: none;
+    font-weight: 700;
 }
-header #hero-signup .form-group .form-control {
-    height: auto;
+header #testimonial .section-profile {
+    display: block;
+    margin-left: 15px;
+    color: #43bae9;
+    font-style: none;
+    font-weight: 400;
 }
-header #hero-signup .form-control:focus {
-    border-color: #00629b;
-    box-shadow: none;
+header #testimonial .carousel-control {
+    background-image: inherit;
 }
-
 @media(min-width:768px) {
     header .intro-text {
         padding-top: 300px;
         padding-bottom: 200px;
     }
-
     header .intro-text .intro-lead-in {
         margin-bottom: 25px;
         font-family: 'Open Sans', sans-serif;
@@ -313,7 +313,6 @@ header #hero-signup .form-control:focus {
         font-style: italic;
         line-height: 40px;
     }
-
 }
 
 section {
@@ -389,34 +388,16 @@ section#signup {
     background-image: url(../assets/map-image.png);
     background-position: center;
     background-repeat: no-repeat;
+    padding: 3em;   
 }
-
 section#signup .section-heading {
     color: #fff;
-}
-
-section#signup .section-subheading {
-    color: #fff;
+    margin-top: 0px;
     margin-bottom: 30px;
-    text-transform: none;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    font-style: italic;
-    font-weight: 400;
 }
-
-section#signup .form-group {
-    margin-bottom: 25px;
-}
-section#signup .form-group input {
-    padding: 17px;
-}
-section#signup .form-group .form-control {
-    height: auto;
-}
-section#signup .form-control:focus {
-    border-color: #00629b;
-    box-shadow: none;
+section#signup .btn-xl {
+    color: #fff;
+    font-size: 15px;
 }
 
 /* Privacy Section */
