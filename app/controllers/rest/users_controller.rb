@@ -13,20 +13,15 @@ class Rest::UsersController < ActionController::Base
         if query && query != ""
             users = users.where('username LIKE ? OR last_name LIKE ? OR first_name LIKE ?', "%#{query}%", "%#{query}%",  "%#{query}%")
         end
-        sorted_users = Follower.select('follower_id, user_id, COUNT(*) followers_count').group(:user_id).order('followers_count desc').having('follower_id != ?', current_user.id)
+        sorted_users = users.select('users.id as id, COUNT(followers.user_id) AS count').joins("LEFT JOIN followers ON followers.user_id = users.id").group("users.id").order("count desc")
+        sorted_users = sorted_users.slice((page - 1) * page_size, page_size)
         total_pages = (sorted_users.length + page_size - 1) / page_size
 
         render json: {
-            models: users.where(id: (sorted_users.slice((page - 1) * page_size, page_size) || []).map { |u| u.user_id }).as_json(additional: true, current_user: current_user),
+            models: sorted_users.map { |u| User.find(u.id) }.as_json(additional: true, current_user: current_user),
             total_pages: total_pages
         }
     end
-   #  def index
-   #     render json: {
-   #         models: User.all.as_json(additional: true, current_user: current_user),
-   #         total_pages: 1
-   #     }
-   # end
 
     def show
         @user = find_user(params[:id])

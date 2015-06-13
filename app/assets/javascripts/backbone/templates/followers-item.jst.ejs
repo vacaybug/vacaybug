@@ -3,7 +3,11 @@
         <img src="<%= model.get('avatar').thumb %>" alt="<%= model.get('username') %>" class="user-img img-square"/>
         <div class="user-info">
             <a href="/<%= model.get('username') %>" class="username"><%= model.get('full_name') %></a>
-            <a href="/<%= model.get('username') %>/followers" class="user-follower backbone"><%= model.get('followers_count') %> followers</a>
+            <% if (model.get('followers_count') == 0 && model.get('id') != Vacaybug.current_user.id) { %>
+                <p class="user-follower">0 follower</p>
+            <% } else { %>
+                <a href="/<%= model.get('username') %>/followers" class="user-follower backbone"><%= model.get('followers_count') %> followers</a>
+            <% } %>
         </div>
         <% if (model.get('follows')) { %>
             <a href="javascript:void(0)" class="btn btn-info btn-following js-unfollow">Following</a>

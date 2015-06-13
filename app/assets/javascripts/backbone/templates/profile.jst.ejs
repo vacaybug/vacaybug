@@ -34,8 +34,16 @@
                     <a href="javascript:void(0)" class="btn btn-info js-follow">Follow</a>
                 <% } %>
             <% } %>
-            <a href="/<%= model.username %>/followers" class="follow-tab"><%= model.followers_count %> Followers</a>
-            <a href="/<%= model.username %>/following" class="follow-tab"><%= model.following_count %> Following</a>
+            <% if (!isPrivate && model.followers_count == 0) { %>
+                <p class="follow-tab">0 Follower</p>
+            <% } else { %>
+                <a href="/<%= model.username %>/followers" class="follow-tab"><%= model.followers_count %> Followers</a>
+            <% } %>
+            <% if (!isPrivate && model.following_count == 0) { %>
+                <p class="follow-tab">0 Following</p>
+            <% } else { %>
+                <a href="/<%= model.username %>/following" class="follow-tab"><%= model.following_count %> Following</a>
+            <% } %>
         </div>
     </div>
     <div class="panel">
