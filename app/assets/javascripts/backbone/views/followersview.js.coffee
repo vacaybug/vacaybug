@@ -12,6 +12,8 @@ jQuery ->
           collection: @collection
           user: @collection.user
           types: @types
+          count: @collection.length
+        console.log(@collection.length)
 
         _.each @collection._models, (model) =>
           itemView = new Vacaybug.FollowersItemView
@@ -21,16 +23,11 @@ jQuery ->
             @$(".timeline.followers").append(itemView.render().el)
           else if model.get('type') == 'following'
             @$(".timeline.following").append(itemView.render().el)
-          else if model.get('type') == 'recommended'
-            @$(".timeline.recommended").append(itemView.render().el)
 
         @$(".timeline.following").masonry
           itemSelector: '.timeline-block'
           isFitWidth: true
         @$(".timeline.followers").masonry
-          itemSelector: '.timeline-block'
-          isFitWidth: true
-        @$(".timeline.recommended").masonry
           itemSelector: '.timeline-block'
           isFitWidth: true
       @

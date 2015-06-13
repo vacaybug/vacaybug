@@ -57,7 +57,7 @@ jQuery ->
     followers: (user) ->
       if user
         collection = new Vacaybug.FollowersCollection
-          types: ["followers", "recommended"]
+          types: ["followers"]
         collection.setUsername(user)
         collection.fetch()
 
@@ -72,7 +72,7 @@ jQuery ->
     following: (user) ->
       if user
         collection = new Vacaybug.FollowersCollection
-          types: ["following", "recommended"]
+          types: ["following"]
         collection.setUsername(user)
         collection.fetch()
 

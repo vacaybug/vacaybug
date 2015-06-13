@@ -23,7 +23,7 @@ body #wrapper {
 	width: 100%;
 }
 div.flash-notification {
-    top: 80px;
+    top: 76px;
     position: fixed;
     z-index: 1001;
     width: 100%;
