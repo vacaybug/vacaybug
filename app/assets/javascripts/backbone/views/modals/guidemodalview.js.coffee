@@ -16,8 +16,8 @@ jQuery ->
       @listenTo @places, 'sync', @render
 
     renderModal: ->
-      $('body').append("<div id='somecrazymodal'></div>")
-      @setElement($('#somecrazymodal'))
+      $('body').append("<div id='quick-view-modal'></div>")
+      @setElement($('#quick-view-modal'))
       @modalRendered = true
 
     render: ->
