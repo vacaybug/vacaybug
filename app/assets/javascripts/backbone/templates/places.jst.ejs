@@ -37,10 +37,10 @@
                         <p class="place-location text-break-ellipsis" data-toggle="tooltip" title="<%= model.get('location').formattedAddress.join(", ") %>"><%= model.get('location').formattedAddress.join(", ") %></p>
                         <p class="place-phone text-break-ellipsis" data-toggle="tooltip" title="<%= model.get('phone') %>"><%= model.get('phone') %></p>
                     </div>
-                    <div class="reviews">
+                    <div class="reviews" style="text-align: center">
                         <hr>
                         <% if (model.get('yelp')) { %>
-                            <a href="<%= model.get('yelp').url %>" target="_blank" style="text-align:center; display:block;">
+                            <a href="<%= model.get('yelp').url %>" target="_blank" style="text-align:center; text-decoration: none">
                                 <img src="/assets/guide/yelp.png" style="width: 34px; height: 17px" >
                                 <div class="rating rating-<%= parseInt(model.get('yelp').rating) %><%= parseInt(model.get('yelp').rating) != model.get('yelp').rating ? '-half' : ''%>" style="display: inline-block">
                                     <i class="star-1">★</i>
@@ -50,6 +50,9 @@
                                     <i class="star-5">★</i>
                                 </div>
                             </a>
+                            <% if (model.get('yelp').review_count) { %>
+                                <span><%= model.get('yelp').review_count %> reviews</span>
+                            <% } %>
                         <% } else { %>
                             <p class="no-review">No Reviews</p>
                         <% } %>

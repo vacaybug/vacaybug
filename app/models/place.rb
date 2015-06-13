@@ -43,14 +43,14 @@ class Place < ActiveRecord::Base
 			if response.businesses && response.businesses[0]
 				self.yelp = {
 					rating: response.businesses[0].rating,
-					url: response.businesses[0].url
+					url: response.businesses[0].url,
+					review_count: response.businesses[0].review_count,
 				}
 
 				self.save
 			end
 		rescue
 			self.yelp = nil
-
 			self.save
 		end
 	end
