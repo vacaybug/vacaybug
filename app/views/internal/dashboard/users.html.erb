@@ -1,10 +1,44 @@
-Total users = <%= User.count %>
-<% @groups.each do |group| %>
-	<h3><%= group[0] %></h3>
-	<ul>
-		<% group[1].split(",").each do |user_id| %>
-			<% @user = User.find(user_id) %>
-			<li><a href='/<%= @user.username %>' target='_blank'><%= @user.full_name %></a>, <%= @user.email %>, <%= @user.provider %></li>
-		<% end %>
-	</ul>
-<% end %>
+<!DOCTYPE html>
+<html>
+<head>
+	<%= render "generic/header" %>
+	<title>Dashboard</title>
+
+	<%= stylesheet_link_tag("application") %>
+	<%= javascript_include_tag("application") %>
+
+</head>
+<body>
+	<%= render 'generic/navigation.html.erb' %>
+	<h1 class="text-center">VacayBug Dashboard</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="nav nav-pills">
+				  <li class="active"><a href="#totaluser" role="tab" data-toggle="tab">Total Users <span class="badge"><%= User.count %></span></a></li>
+				  <li><a href="#totalguide" role="tab" data-toggle="tab">Total Guides <span class="badge"><%= Guide.count %></span></a></li>
+				  <li><a href="#totalplace" role="tab" data-toggle="tab">Total Places <span class="badge"><%= Place.count %></span></a></li>
+				  <li><a href="#totalcountry" role="tab" data-toggle="tab">Total Countries <span class="badge">-</span></a></li>
+				  <li><a href="#totalmessage" role="tab" data-toggle="tab">Messages <span class="badge">-</span></a></li>
+				</ul>
+				<div class="tab-content">
+                <div class="tab-pane fade active in" id="totaluser">
+                	<% @groups.each do |group| %>
+							<h3><%= group[0] %></h3>
+							<ul>
+								<% group[1].split(",").each do |user_id| %>
+									<% @user = User.find(user_id) %>
+									<li><a href='/<%= @user.username %>' target='_blank'><%= @user.full_name %></a>, <%= @user.email %>, <%= @user.provider %></li>
+								<% end %>
+							</ul>
+						<% end %>
+                </div>
+                <div class="tab-pane fade in" id="totalguide">
+                    
+                </div>
+            </div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
