@@ -55,7 +55,8 @@ class User < ActiveRecord::Base
             message: 'can not contain numbers or special characters'
         },
         presence: true,
-        length: { maximum: 100 }
+        length: { maximum: 100 },
+        if: "!provider"
     validate :validate_birthday
 
     before_validation :setup_names
@@ -147,9 +148,9 @@ class User < ActiveRecord::Base
             user.uid = auth.uid
             user.email = auth.info.email
             user.password = Devise.friendly_token[10,20]
-            user.username = "user#{rand.to_s[2..11]}"
             user.first_name = auth.info.first_name
             user.last_name = auth.info.last_name
+            user.username = "user#{rand.to_s[2..11]}"
             user.skip_confirmation!
         end
     end
@@ -158,11 +159,11 @@ class User < ActiveRecord::Base
         where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
             user.provider = auth.provider
             user.uid = auth.uid
-            user.email = "user#{rand.to_s[2..11]}@twitter_generated_email.com"
             user.password = Devise.friendly_token[10,20]
-            user.username = "user#{rand.to_s[2..11]}"
             user.first_name = auth.info.name
-            user.image_id = Image.creatURI.parse(auth.info.image)
+            user.image_id = Image.create_image_from_url(auth.info.image).id
+            user.username = "user#{rand.to_s[2..11]}"
+            user.email = "#{user.username}@change_your_email.com"
             user.skip_confirmation!
         end
     end
@@ -173,10 +174,10 @@ class User < ActiveRecord::Base
             user.uid = auth.uid
             user.email = auth.info.email
             user.password = Devise.friendly_token[10,20]
-            user.username = "user#{rand.to_s[2..11]}"
             user.first_name = auth.info.first_name
             user.last_name = auth.info.last_name
-            user.avatar = URI.parse(auth.info.image)
+            user.image_id = Image.create_image_from_url(auth.info.image).id
+            user.username = "user#{rand.to_s[2..11]}"
             user.skip_confirmation!
         end
     end
@@ -205,12 +206,6 @@ class User < ActiveRecord::Base
 
     private
 
-    def validate_birthday
-        if self.birthday.present? && self.birthday > Date.today
-            errors.add(:birthday, "can't be in the future")
-        end
-    end
-
     def setup_names
         self.first_name = (self.first_name || "").split(" ").join(" ")
         self.last_name = (self.last_name || "").split(" ").join(" ")
@@ -220,10 +215,12 @@ class User < ActiveRecord::Base
         else
             self.username = self.username.downcase
         end
+    end
 
-        puts self.username
-        puts self.first_name
-        puts self.last_name
+    def validate_birthday
+        if self.birthday.present? && self.birthday > Date.today
+            errors.add(:birthday, "can't be in the future")
+        end
     end
 
     def destroy_dependents
