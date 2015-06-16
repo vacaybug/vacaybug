@@ -28,7 +28,7 @@ jQuery ->
         most_commented: @collection.most_commented
         most_liked: @collection.most_liked
 
-      $(".search-bar input").typeahead(
+      $(".discover-searchbar input").typeahead(
         {
           hint: true,
           highlight: true,
