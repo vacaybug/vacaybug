@@ -161,7 +161,8 @@ class User < ActiveRecord::Base
             user.uid = auth.uid
             user.password = Devise.friendly_token[10,20]
             user.first_name = auth.info.name
-            user.image_id = Image.create_image_from_url(auth.info.image).id
+            puts auth.info.image
+            user.image_id = Image.create_image_from_url(auth.info.image.sub("_normal", "")).id
             user.username = "user#{rand.to_s[2..11]}"
             user.email = "#{user.username}@change_your_email.com"
             user.skip_confirmation!
@@ -176,7 +177,7 @@ class User < ActiveRecord::Base
             user.password = Devise.friendly_token[10,20]
             user.first_name = auth.info.first_name
             user.last_name = auth.info.last_name
-            user.image_id = Image.create_image_from_url(auth.info.image).id
+            user.image_id = Image.create_image_from_url(auth.info.image.sub("sz=50", "")).id
             user.username = "user#{rand.to_s[2..11]}"
             user.skip_confirmation!
         end
