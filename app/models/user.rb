@@ -34,6 +34,21 @@ class User < ActiveRecord::Base
         ADMIN = 1
     end
 
+    validates :first_name,
+        format: {
+            with: /[a-zA-Z -]+$/,
+            message: 'can not contain numbers or special characters'
+        },
+        presence: true,
+        length: { maximum: 100 }
+    validates :last_name,
+        format: {
+            with: /[a-zA-Z -]+$/,
+            message: 'can not contain numbers or special characters'
+        },
+        presence: true,
+        length: { maximum: 100 },
+        if: "!provider"
     validates :username,
         format: {
             with: /\A[a-zA-Z0-9_]+\Z/,
@@ -42,21 +57,6 @@ class User < ActiveRecord::Base
         exclusion: { in: User::USERNAME_BLACKLIST, message: "has already been taken" },
         uniqueness: { case_sensitive: false },
         length: { in: 3..30 }
-    validates :first_name,
-        format: {
-            with: /[a-zA-Z ]+/,
-            message: 'can not contain numbers or special characters'
-        },
-        presence: true,
-        length: { maximum: 100 }
-    validates :last_name,
-        format: {
-            with: /[a-zA-Z ]+/,
-            message: 'can not contain numbers or special characters'
-        },
-        presence: true,
-        length: { maximum: 100 },
-        if: "!provider"
     validate :validate_birthday
 
     before_validation :setup_names
@@ -183,8 +183,8 @@ class User < ActiveRecord::Base
     end
 
     def self.create_username first, last
-        first = (first || "").split(" ").join("").downcase
-        last = (last || "").split(" ").join("").downcase
+        first = (first || "").split(/[ -]/).join("").downcase
+        last = (last || "").split(/[ -]/).join("").downcase
         username = first + last
         suffix = nil
 

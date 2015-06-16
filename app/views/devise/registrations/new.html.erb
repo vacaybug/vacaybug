@@ -13,7 +13,7 @@
                 <h5>Please check following errors:</h5>
                 <div class="row">
                     <ul>
-                        <%= raw resource.errors.full_messages.map { |msg| content_tag(:li, msg) }.join %>
+                        <%= raw resource.errors.full_messages.select { |msg| !msg.starts_with?("Username") }.map { |msg| content_tag(:li, msg) }.join %>
                     </ul>
                 </div>
             <% end %>
