@@ -1,6 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-body">
-        <img src="<%= model.get('avatar').thumb %>" alt="<%= model.get('username') %>" class="user-img img-square"/>
+        <img src="<%= model.get('avatar').medium %>" alt="<%= model.get('username') %>" class="user-img img-square"/>
         <div class="user-info">
             <a href="/<%= model.get('username') %>" class="username"><%= model.get('full_name') %></a>
             <% if (model.get('followers_count') == 0 && model.get('id') != Vacaybug.current_user.id) { %>
