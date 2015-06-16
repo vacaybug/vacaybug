@@ -15,7 +15,7 @@ class Rest::UsersController < ActionController::Base
         end
         sorted_users = users.select('users.id as id, COUNT(followers.user_id) AS count').joins("LEFT JOIN followers ON followers.user_id = users.id").group("users.id").order("count desc")
         sorted_users = sorted_users.slice((page - 1) * page_size, page_size)
-        total_pages = (sorted_users.length + page_size - 1) / page_size
+        total_pages = (User.count + page_size - 1) / page_size
 
         render json: {
             models: sorted_users.map { |u| User.find(u.id) }.as_json(additional: true, current_user: current_user),
