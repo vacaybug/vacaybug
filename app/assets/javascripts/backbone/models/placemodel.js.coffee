@@ -2,6 +2,8 @@ jQuery ->
   Vacaybug = window.Vacaybug ? {}
 
   class PlaceModel extends window.Vacaybug.GenericModel
+    idAttribute: 'assoc_id'
+
     getGuideId: ->
       if @get('guide_id')
         @get('guide_id')

@@ -13,6 +13,7 @@ class Rest::PlacesController < ActionController::Base
         assocs.each do |assoc|
             model = assoc.place.as_json(guide: guide)
             model["order_num"] = assoc.order_num
+            model["assoc_id"] = assoc.id
             models << model
         end
 

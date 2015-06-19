@@ -36,3 +36,4 @@
 //= require timeago
 //= require dropzone
 //= require jscroll
+//= require sortable

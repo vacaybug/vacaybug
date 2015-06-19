@@ -8,6 +8,7 @@
     <% } %>
     <img class="place-default-img img-responsive" src="/assets/default-guide.png">
 <% } else { %>
+<% console.log(collection.models); %>
 <% _.each(_.groupBy(collection.models, function(val, index) { return parseInt(index / 4); }), function(row) { %>
     <div class="row">
         <% _.each(row, function(model) { %>
