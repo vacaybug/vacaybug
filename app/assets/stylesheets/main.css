@@ -459,6 +459,7 @@ span.text-content {
 	padding: 18px 15px;
 	color: #6c6c6c;
 	text-decoration: none;
+	margin: 0 auto;
 }
 .cover.profile .cover-info .js-unfollow,
 .cover.profile .cover-info .js-follow {
@@ -1413,6 +1414,40 @@ span.text-content {
 	margin: 0px;
 	padding: 10px 20px;
 }
+.city-list-header {
+	color: #fff;
+	text-align: center;
+	text-shadow: 0 0 15px #202020;
+	font-size: 40px;
+	font-weight: 600;
+	margin: 40px 0px;
+}
+.city-list {
+	background: #fff;
+	padding: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin-bottom: 25px;
+}
+.city-list .column {
+	list-style-type: none;
+	width: 166px;
+	height: 256px;
+	float: left;
+	margin-bottom: 10px;
+}
+.city-list .letter {
+	border-bottom: 1px solid #d7d7d7;
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+.city-list .column li a {
+	display: block;
+	font-size: 15px;
+	margin: 10px 0px;
+}
 .search-container .col-md-4 .box-body ol {
 	font-size: 15px;
 	font-weight: 400;
@@ -2177,6 +2212,14 @@ ul.social-buttons li a:active {
 	font-weight: 400;
 	font-size: 20px;
 }
+
+/* DASHBOARD */
+#totalguide .timeline-block {
+	margin: 0 auto;
+	width: 140px;
+}
+
+/* END OF DASHBOARD*/
 
 img.avatar-thumb {
 	width: 50px;

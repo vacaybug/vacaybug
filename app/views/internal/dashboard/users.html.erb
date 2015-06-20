@@ -23,6 +23,47 @@
 				</ul>
 				<div class="tab-content">
                 <div class="tab-pane fade active in" id="totaluser">
+                	<div class="table-responsive">
+	                	<table class="table table-bordered">
+	                		<thead>
+	                			<tr>
+	                				<th></th>
+	                				<th></th>
+	                				<th>Sign Ups:</th>
+	                				<th>Email <span class="badge">1</span></th>
+	                				<th>Facebook <span class="badge">1</span></th>
+	                				<th>Twitter <span class="badge">1</span></th>
+	                				<th>Google <span class="badge">1</span></th>
+	                				<th></th>
+	                				<th></th>
+	                			</tr>
+	                		</thead>
+	                		<thead>
+	                			<tr>
+	                				<th>Date</th>
+	                				<th>First Name</th>
+	                				<th>Last Name</th>
+	                				<th>Email</th>
+	                				<th>Username</th>
+	                				<th>OAuth</th>
+	                				<th># of Guides</th>
+	                				<th># of Cities</th>
+	                				<th># of Places</th>
+	                			</tr>
+	                		</thead>
+	                		<tbody>
+	                			<td>2015-05-28</td>
+	                			<td>Charles</td>
+	                			<td>Hsieh</td>
+	                			<td>charles@vacaybug.com</td>
+	                			<td><a href="">charleshsieh</a></td>
+	                			<td>facebook</td>
+	                			<td>5</td>
+	                			<td>5</td>
+	                			<td>1</td>
+	                		</tbody>
+	                	</table>
+	               </div>
                 	<% @groups.each do |group| %>
 							<h3><%= group[0] %></h3>
 							<ul>
@@ -34,7 +75,31 @@
 						<% end %>
                 </div>
                 <div class="tab-pane fade in" id="totalguide">
-                    
+                		<h4>Total Number of Guides: <%= Guide.count %></h4>
+                		<h4>Total Number of Cities: </h4>
+                		<h4>Total Number of Places: <%= Place.count %></h4>
+                		<h4>Most popular city: </h4>
+                		<ul>
+                			<li>City 1</li>
+                			<li>City 2</li>
+                			<li>City 3</li>
+                		</ul>
+                    <div class="timeline-block">
+                    		<div class="guide-dashboard-item">
+                    			<h4>A</h4>
+                    			<p><a href="">Amsterdam </a><span class="badge">1</span></p>
+                    			<p><a href="">Altantic City </a><span class="badge">5</span></p>
+                    			<p><a href="">Austin </a><span class="badge">3</span></p>
+                    		</div>
+                    	</div>
+                    	<div class="timeline-block">
+                    		<div class="guide-dashboard-item">
+                    			<h4>B</h4>
+                    			<p><a href="">Baltimore </a><span class="badge">1</span></p>
+                    			<p><a href="">Boston </a><span class="badge">5</span></p>
+                    			<p><a href="">Berlin </a><span class="badge">3</span></p>
+                    		</div>
+                    </div>
                 </div>
             </div>
 			</div>
