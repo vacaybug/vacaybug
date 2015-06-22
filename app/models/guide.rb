@@ -10,6 +10,7 @@ class Guide < ActiveRecord::Base
     after_destroy :delete_associations
     before_save :setup_params
     after_create :create_story
+    after_create :create_city
     after_destroy :destroy_story
 
     validates_length_of :description, maximum: 1000
@@ -77,6 +78,10 @@ class Guide < ActiveRecord::Base
             story_type: Story::TYPES::GUIDE,
             resource_id: self.id
         })
+    end
+
+    def create_city
+        City.create_from_guide(self)
     end
 
     def destroy_story
