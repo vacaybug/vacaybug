@@ -93,7 +93,10 @@ class Guide < ActiveRecord::Base
     end
 
     def delete_associations
-        UserGuideAssociation.find_by_guide_id(self.id).destroy
+        begin
+            UserGuideAssociation.find_by_guide_id(self.id).destroy
+        rescue
+        end
         GuidePlaceAssociation.where(guide_id: self.id).destroy_all
     end
 end

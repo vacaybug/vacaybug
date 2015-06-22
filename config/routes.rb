@@ -88,6 +88,10 @@ Vacaybug::Application.routes.draw do
             get :famous
             get :search
         end
+
+        namespace :cities do
+            get :discover
+        end
     end
 
     namespace :internal do

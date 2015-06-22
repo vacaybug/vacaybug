@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150613214456) do
+ActiveRecord::Schema.define(:version => 20150621223321) do
+
+  create_table "cities", :force => true do |t|
+    t.integer  "gn_id"
+    t.text     "gn_data"
+    t.string   "city"
+    t.string   "region"
+    t.string   "country"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "cities", ["gn_id"], :name => "index_cities_on_gn_id"
 
   create_table "comments", :force => true do |t|
     t.integer  "story_id"
@@ -22,6 +34,13 @@ ActiveRecord::Schema.define(:version => 20150613214456) do
   end
 
   add_index "comments", ["story_id"], :name => "index_comments_on_story_id"
+
+  create_table "create_cities", :force => true do |t|
+    t.integer  "gn_id"
+    t.text     "gn_data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "followers", :force => true do |t|
     t.integer  "user_id"

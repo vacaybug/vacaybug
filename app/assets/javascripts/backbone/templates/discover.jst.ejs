@@ -32,6 +32,15 @@
 <div class="city-list">
 	<div class="row">
 		<div class="col-md-12">
+			<% _.each(city_groups, function(cities, letter) { if (cities.length > 0) { %>
+				<ul class="column">
+					<li class="letter"><%= letter %></li>
+					<% _.each(cities, function(city) { %>
+						<li><a class="backbone" href="/search?id=<%= city.gn_id %>"><%= city.city %></a></li>
+					<% }); %>
+				</ul>
+			<% }}); %>
+<!-- 
 			<ul class="column">
 				<li class="letter">A</li>
 				<li><a href="">Abu Dhabi</a></li>
@@ -161,7 +170,7 @@
 				<li><a href="">Atlantic City</a></li>
 				<li><a href="">Austin</a></li>
 				<li><a href="">Austin</a></li>
-			</ul>
+			</ul> -->
 		</div>
 	</div>
 <!-- 	<div class="col-md-6 col-md-offset-3 discover-searchbar">

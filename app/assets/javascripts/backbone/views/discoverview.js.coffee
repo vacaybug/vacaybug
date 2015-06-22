@@ -12,6 +12,12 @@ jQuery ->
     initialize: (options) ->
       @listenTo @collection, 'sync', @render
       $('#wrapper').addClass('search-container')
+      @city_groups = []
+      $.ajax
+        url: '/rest/cities/discover'
+        success: (resp) =>
+          @city_groups = resp
+          @render()
 
     search: (input) ->
       return if !input
@@ -27,6 +33,7 @@ jQuery ->
       $(@el).html @template
         most_commented: @collection.most_commented
         most_liked: @collection.most_liked
+        city_groups: @city_groups
 
       $(".discover-searchbar input").typeahead(
         {
