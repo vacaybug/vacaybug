@@ -54,6 +54,9 @@ Vacaybug::Application.routes.draw do
             end
 
             resources :places do
+                collection do
+                    post :rearrange
+                end
             end
         end
 

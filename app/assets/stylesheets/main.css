@@ -1674,6 +1674,7 @@ ul.social-buttons li a:active {
 /* GUIDE ITEM */
 
 .places-container {
+	position: relative;
 	padding-top: 20px;
 }
 .guide-item {

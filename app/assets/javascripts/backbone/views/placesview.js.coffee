@@ -39,12 +39,35 @@ jQuery ->
                 new_order = model.get('order_num') - 1
                 model.set('order_num', new_order)
 
+    rearrange: ->
+      new_order = {}
+      _.each $(".places-container").children(), (place, index) =>
+        assoc_id = $(place).attr('data-assoc-id')
+        new_order[assoc_id] = index + 1
+      data = {new_order: new_order}
+
+      $.ajax
+        url: "/rest/guides/#{@collection.guide_id}/places/rearrange"
+        type: "POST"
+        data: data
+
+      _.each @collection.models, (model) =>
+        model.set('order_num', new_order[model.get('assoc_id')], {silent: true})
+      @collection.sort()
+      @collection.trigger('change')
+
     render: ->
       return @ unless @collection.sync_status
 
       $(@el).html @template
         collection: @collection
         isPrivate: @isPrivate
+
+      $(".places-container").trigger("ss-destroy")
+      $(".places-container").unbind("ss-rearranged")
+      $(".places-container").shapeshift()
+      $(".places-container").on "ss-rearranged", () =>
+        @rearrange()
 
       @initInputs()
       @

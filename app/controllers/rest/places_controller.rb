@@ -3,7 +3,7 @@ class Rest::PlacesController < ActionController::Base
     include FsHelper
 
     before_filter :check_logged_in
-    before_filter :check_guide_permission, only: [:create, :update, :destroy]
+    before_filter :check_guide_permission, only: [:create, :update, :destroy, :rearrange]
 
     def index
         guide = Guide.find(params[:guide_id])
@@ -54,10 +54,11 @@ class Rest::PlacesController < ActionController::Base
             place.gen_yelp
         end
 
-        order = guide.add_place(place)
+        guide.add_place(place)
+        assoc = GuidePlaceAssociation.where(guide_id: guide.id).last
 
         render json: {
-            model: place.as_json().merge({order_num: order})
+            model: place.as_json().merge({order_num: assoc.order_num, assoc_id: assoc.id})
         }
     end
 
@@ -102,6 +103,18 @@ class Rest::PlacesController < ActionController::Base
                 status: true
             }
         end
+    end
+
+    def rearrange
+        new_order = params[:new_order]
+        GuidePlaceAssociation.where(guide_id: params[:guide_id]).each do |assoc|
+            if assoc.order_num != new_order[assoc.id.to_s]
+                assoc.order_num = new_order[assoc.id.to_s]
+                assoc.save
+            end
+        end
+
+        render json: {}
     end
 
     def destroy

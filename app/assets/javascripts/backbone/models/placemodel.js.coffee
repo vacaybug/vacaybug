@@ -21,6 +21,9 @@ jQuery ->
   class PlaceCollection extends window.Vacaybug.GenericCollection
     model: window.Vacaybug.PlaceModel
 
+    comparator: (item) ->
+      item.get('order_num')
+
     restURL: ->
     	"/rest/guides/#{@guide_id}/places"
 
