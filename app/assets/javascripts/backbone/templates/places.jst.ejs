@@ -19,13 +19,11 @@
                         <% } %>
                     </h4>
                 </div>
-                <a href="#">
-                    <% if (model.get('photo')) { %>
-                        <img src="<%= model.get('photo').prefix %>300x200<%= model.get('photo').suffix%>" alt="image" class="img-responsive" />
-                    <% } else { %>
-                        <img src="/assets/default_place.jpg" alt="image" class="img-responsive" />
-                    <% } %>
-                </a>
+                <% if (model.get('photo')) { %>
+                    <img src="<%= model.get('photo').prefix %>300x200<%= model.get('photo').suffix%>" alt="image" class="img-responsive" />
+                <% } else { %>
+                    <img src="/assets/default_place.jpg" alt="image" class="img-responsive" />
+                <% } %>
                 <div class="guide-caption" data-id="<%= model.get('id') %>">
                     <div class="guide-caption-div"><%= _.escape(model.get('note')) %></div>
                 </div>

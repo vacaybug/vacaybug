@@ -521,7 +521,7 @@ span.text-content {
 }
 .panel .panel-body .new-guide-btn-vertical {
 	min-width: 291px;
-	min-height: 447px;
+	min-height: 469px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px; 
@@ -1025,6 +1025,7 @@ span.text-content {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px; 
+	cursor: pointer;
 }
 .guide-container .guide-item .guide-caption textarea {
 	width: 100%;
@@ -1443,9 +1444,9 @@ span.text-content {
 	margin-bottom: 10px;
 }
 .city-list .column li a {
-	display: block;
 	font-size: 15px;
 	margin: 10px 0px;
+	display: block;
 }
 .search-container .col-md-4 .box-body ol {
 	font-size: 15px;
@@ -1684,6 +1685,9 @@ ul.social-buttons li a:active {
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	background-color: #fff;
+	cursor: -webkit-grab; 
+	cursor: -moz-grab;
+	cursor: grab;
 }
 .guide-item:hover {
 	box-shadow: 0px 0px 10px 0px #888;
@@ -1791,6 +1795,7 @@ ul.social-buttons li a:active {
 	overflow-wrap: break-word;
 }
 .guide-item .guide-caption .guide-footer {
+  height: 22px;
   padding-left: 10px;
   padding-bottom: 5px;
   font-size: 12px;

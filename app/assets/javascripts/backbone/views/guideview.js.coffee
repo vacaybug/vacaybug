@@ -68,6 +68,7 @@ jQuery ->
           "margin-bottom": "10px"
         $('.guide-description-div').css
           "border": "2px dashed #98d6ec"
+          "cursor": "pointer"
       else
         return
 

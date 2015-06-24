@@ -36,6 +36,7 @@
 	                				<th>Google <span class="badge">1</span></th>
 	                				<th></th>
 	                				<th></th>
+	                				<th></th>
 	                			</tr>
 	                		</thead>
 	                		<thead>
@@ -89,17 +90,21 @@
                 				</li>
 							<% end %>
                 		</ul>
-                    <div class="timeline-block">
-                    	<% ('A'..'Z').each do |group| %>
-                    		<% if (@grouped_cities[group].count > 0) %>
-	                    		<div class="guide-dashboard-item">
-	                    			<h4><%= group %></h4>
-	                    			<% @grouped_cities[group].each do |city| %>
-                    					<p><a href="/search?id=<%= city.gn_id %>" target="_blank"><%= city.city %></a><span class="badge"><%= Guide.where(geonames_id: city.gn_id).count %></span></p>
-	                    			<% end %>
+                    <div class="city-list">
+                    		<div class="row">
+                    			<div class="col-md-12">
+			                    	<% ('A'..'Z').each do |group| %>
+			                    		<% if (@grouped_cities[group].count > 0) %>
+				                    		<ul class="column">
+				                    			<li class="letter"><%= group %></li>
+				                    			<% @grouped_cities[group].each do |city| %>
+			                    					<li><a href="/search?id=<%= city.gn_id %>" target="_blank" style="display: initial"><%= city.city %>&nbsp</a><span class="badge"><%= Guide.where(geonames_id: city.gn_id).count %></span></li>
+				                    			<% end %>
+				                    		</ul>
+			                    		<% end %>
+			                    	<% end %>
 	                    		</div>
-                    		<% end %>
-                    	<% end %>
+	                 		</div>
                     </div>
                 </div>
             </div>
