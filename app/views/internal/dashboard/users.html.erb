@@ -18,7 +18,7 @@
 				  <li class="active"><a href="#totaluser" role="tab" data-toggle="tab">Total Users <span class="badge"><%= User.count %></span></a></li>
 				  <li><a href="#totalguide" role="tab" data-toggle="tab">Total Guides <span class="badge"><%= Guide.count %></span></a></li>
 				  <li><a href="#totalplace" role="tab" data-toggle="tab">Total Places <span class="badge"><%= Place.count %></span></a></li>
-				  <li><a href="#totalcountry" role="tab" data-toggle="tab">Total Countries <span class="badge">-</span></a></li>
+				  <li><a href="#totalcountry" role="tab" data-toggle="tab">Total Countries <span class="badge"><%= Guide.where(guide_type: Guide::TYPES::PASSPORT).count('country', distinct: true) %></span></a></li>
 				  <li><a href="#totalmessage" role="tab" data-toggle="tab">Messages <span class="badge">-</span></a></li>
 				</ul>
 				<div class="tab-content">
@@ -52,53 +52,52 @@
 	                			</tr>
 	                		</thead>
 	                		<tbody>
-	                			<td>2015-05-28</td>
-	                			<td>Charles</td>
-	                			<td>Hsieh</td>
-	                			<td>charles@vacaybug.com</td>
-	                			<td><a href="">charleshsieh</a></td>
-	                			<td>facebook</td>
-	                			<td>5</td>
-	                			<td>5</td>
-	                			<td>1</td>
+		                		<% @users.each do |user| %>
+	                				<tr>
+										<td><%= user.created_at.to_date %></td>
+										<td><%= user.first_name %></td>
+			                			<td><%= user.last_name %></td>
+			                			<td><%= user.email %></td>
+			                			<td><a target="_blank" href="/<%= user.username %>"><%= user.username %></a></td>
+			                			<td><%= user.provider %></td>
+			                			<td><%= user.guides.count %></td>
+			                			<td><%= user.guides.where(guide_type: Guide::TYPES::PASSPORT).count('country', distinct: true) %></td>
+			                			<td><%= user.guides.where(guide_type: Guide::TYPES::PASSPORT).count('geonames_id', distinct: true) %></td>
+                					</tr>
+								<% end %>
 	                		</tbody>
 	                	</table>
 	               </div>
-                	<% @groups.each do |group| %>
-							<h3><%= group[0] %></h3>
-							<ul>
-								<% group[1].split(",").each do |user_id| %>
-									<% @user = User.find(user_id) %>
-									<li><a href='/<%= @user.username %>' target='_blank'><%= @user.full_name %></a>, <%= @user.email %>, <%= @user.provider %></li>
-								<% end %>
-							</ul>
-						<% end %>
                 </div>
                 <div class="tab-pane fade in" id="totalguide">
-                		<h4>Total Number of Guides: <%= Guide.count %></h4>
-                		<h4>Total Number of Cities: </h4>
+                		<h4>Total Number of Passports: <%= Guide.where(guide_type: Guide::TYPES::PASSPORT).count %></h4>
+                		<h4>Total Number of Wishlists: <%= Guide.where(guide_type: Guide::TYPES::WISHLIST).count %></h4>
+                		<h4>Total Number of Cities: <%= Guide.where(guide_type: Guide::TYPES::PASSPORT).count('geonames_id', distinct: true) %> </h4>
                 		<h4>Total Number of Places: <%= Place.count %></h4>
                 		<h4>Most popular city: </h4>
                 		<ul>
-                			<li>City 1</li>
-                			<li>City 2</li>
-                			<li>City 3</li>
+                			<% @cities = City.select('gn_id, COUNT(g.geonames_id) as count').
+								joins("join guides g on g.geonames_id=cities.gn_id").group('cities.gn_id').order('count desc').limit(10).
+							    map { |c| City.find_by_gn_id(c.gn_id) } %>
+							<% @cities.each do |city| %>
+                				<li>
+                					<a target="_blank" href="/search?id=<%= city.gn_id %>"><%= [city.city, city.region, city.country].select { |s| s != '' }.join(", ") %>
+                					</a>
+                					<span class="badge"><%= Guide.where(geonames_id: city.gn_id).count %></span>
+                				</li>
+							<% end %>
                 		</ul>
                     <div class="timeline-block">
-                    		<div class="guide-dashboard-item">
-                    			<h4>A</h4>
-                    			<p><a href="">Amsterdam </a><span class="badge">1</span></p>
-                    			<p><a href="">Altantic City </a><span class="badge">5</span></p>
-                    			<p><a href="">Austin </a><span class="badge">3</span></p>
-                    		</div>
-                    	</div>
-                    	<div class="timeline-block">
-                    		<div class="guide-dashboard-item">
-                    			<h4>B</h4>
-                    			<p><a href="">Baltimore </a><span class="badge">1</span></p>
-                    			<p><a href="">Boston </a><span class="badge">5</span></p>
-                    			<p><a href="">Berlin </a><span class="badge">3</span></p>
-                    		</div>
+                    	<% ('A'..'Z').each do |group| %>
+                    		<% if (@grouped_cities[group].count > 0) %>
+	                    		<div class="guide-dashboard-item">
+	                    			<h4><%= group %></h4>
+	                    			<% @grouped_cities[group].each do |city| %>
+                    					<p><a href="/search?id=<%= city.gn_id %>" target="_blank"><%= city.city %></a><span class="badge"><%= Guide.where(geonames_id: city.gn_id).count %></span></p>
+	                    			<% end %>
+	                    		</div>
+                    		<% end %>
+                    	<% end %>
                     </div>
                 </div>
             </div>
