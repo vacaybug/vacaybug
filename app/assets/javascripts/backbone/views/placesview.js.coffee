@@ -64,10 +64,14 @@ jQuery ->
         isPrivate: @isPrivate
 
       $(".places-container").trigger("ss-destroy")
+      $(".places-container").attr("style", "")
       $(".places-container").unbind("ss-rearranged")
-      $(".places-container").shapeshift()
-      $(".places-container").on "ss-rearranged", () =>
-        @rearrange()
+      if @collection.models.length > 0
+        $(".places-container").shapeshift
+          align: "left"
+          gutterX: 22
+        $(".places-container").on "ss-rearranged", () =>
+          @rearrange()
 
       @initInputs()
       @
