@@ -47,6 +47,7 @@
 	                				<th>Username</th>
 	                				<th>OAuth</th>
 	                				<th># of Guides</th>
+	                				<th># of Countries</th>
 	                				<th># of Cities</th>
 	                				<th># of Places</th>
 	                			</tr>
@@ -63,6 +64,7 @@
 			                			<td><%= user.guides.count %></td>
 			                			<td><%= user.guides.where(guide_type: Guide::TYPES::PASSPORT).count('country', distinct: true) %></td>
 			                			<td><%= user.guides.where(guide_type: Guide::TYPES::PASSPORT).count('geonames_id', distinct: true) %></td>
+			                			<td><%= user.guides.joins(:places).count %></td>
                 					</tr>
 								<% end %>
 	                		</tbody>
