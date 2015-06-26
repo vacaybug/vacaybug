@@ -56,6 +56,18 @@ jQuery ->
       @collection.sort()
       @collection.trigger('change')
 
+    shapeshift: ->
+      $(".places-container").trigger("ss-destroy")
+      $(".places-container").attr("style", "")
+      $(".places-container").unbind("ss-rearranged")
+      if @collection.models.length > 0
+        $(".places-container").shapeshift
+          align: "left"
+          enableDrag: @isPrivate
+          gutterX: 22
+        $(".places-container").on "ss-rearranged", () =>
+          @rearrange()
+
     render: ->
       return @ unless @collection.sync_status
 
@@ -63,16 +75,7 @@ jQuery ->
         collection: @collection
         isPrivate: @isPrivate
 
-      $(".places-container").trigger("ss-destroy")
-      $(".places-container").attr("style", "")
-      $(".places-container").unbind("ss-rearranged")
-      if @collection.models.length > 0
-        $(".places-container").shapeshift
-          align: "left"
-          gutterX: 22
-        $(".places-container").on "ss-rearranged", () =>
-          @rearrange()
-
+      @shapeshift()
       @initInputs()
       @
 
