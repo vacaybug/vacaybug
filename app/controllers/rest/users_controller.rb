@@ -1,7 +1,7 @@
 class Rest::UsersController < ActionController::Base
     include ApplicationHelper
 
-    before_filter :check_logged_in
+    before_filter :check_logged_in, except: [:show]
 
     def index
         page = (params[:page] || 1).to_i

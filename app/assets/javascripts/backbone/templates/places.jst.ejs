@@ -15,7 +15,7 @@
                     <h4 class="text-center text-break-ellipsis" data-toggle="tooltip" title="<%= _.escape(model.get('title')) %>">
                         <%= _.escape(model.get('title')) %>
                         <% if (isPrivate) { %>
-                            <a class="js-delete-place pull-right delete" data-id="<%= model.get('id') %>">&times;</a>
+                            <a class="js-delete-place pull-right delete" data-assoc-id="<%= model.get('assoc_id') %>">&times;</a>
                         <% } %>
                     </h4>
                 </div>
@@ -24,7 +24,7 @@
                 <% } else { %>
                     <img src="/assets/default_place.jpg" alt="image" class="img-responsive" />
                 <% } %>
-                <div class="guide-caption" data-id="<%= model.get('id') %>">
+                <div class="guide-caption" data-assoc-id="<%= model.get('assoc_id') %>">
                     <div class="guide-caption-div"><%= _.escape(model.get('note')) %></div>
                 </div>
                 <hr>

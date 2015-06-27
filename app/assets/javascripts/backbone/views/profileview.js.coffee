@@ -1,6 +1,7 @@
 jQuery ->
   class ProfileView extends window.Vacaybug.GenericView
     showSpinner: true
+    isPublic: true
 
     events:
       'click .js-follow': 'follow'
@@ -41,7 +42,7 @@ jQuery ->
       @passportView.setElement($(".passport")[0]).render()
 
     renderWishlist: ->
-      return if Vacaybug.current_user.get('id') != @model.get('id')
+      return if Vacaybug.current_user && Vacaybug.current_user.get('id') != @model.get('id')
       if !@wishlistView
         @wishlistCollection = new Vacaybug.GuideCollection
           username: @model.get('username')

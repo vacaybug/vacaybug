@@ -11,7 +11,11 @@ class HomeController < ActionController::Base
 
     def load_prefetch_data
         @prefetch_data = {}
-        @prefetch_data[:current_user] = current_user
+        if current_user
+            @prefetch_data[:current_user] = current_user
+        else
+            @prefetch_data[:current_user] = {id: 0}
+        end
     end
 
     def backbone

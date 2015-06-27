@@ -14,6 +14,3 @@ $(document).ready ->
       if !Backbone.History.started
         Backbone.history.start
           pushState: true
-
-      if !Vacaybug.current_user
-        window.location = "/login"

@@ -1,13 +1,13 @@
 class Rest::GuidesController < ActionController::Base
     include ApplicationHelper
 
-    before_filter :check_logged_in
+    before_filter :check_logged_in, except: [:index, :show]
     before_filter :check_permission, only: [:destroy, :update]
 
     def index
         @user = find_user(params[:user_id])
         if params[:type] == 'wishlist'
-            if @user.id != current_user.id
+            if !current_user || @user.id != current_user.id
                 render403
                 return
             end
@@ -51,6 +51,9 @@ class Rest::GuidesController < ActionController::Base
     end
 
     def show
+        guide = Guide.find(params[:id])
+        return if guide.guide_type == Guide::TYPES::WISHLIST && (!current_user || current_user.id != guide.user_id)
+
         render json: {
             model: Guide.find(params[:id]).as_json
         }

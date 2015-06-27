@@ -15,7 +15,7 @@ jQuery ->
     initInputs: ->
       return if !@isPrivate
       _.each @collection.models, (model) =>
-        $(".guide-caption[data-id=#{model.get('id')}] .guide-caption-div").editable (value, settings) =>
+        $(".guide-caption[data-assoc-id=#{model.get('assoc_id')}] .guide-caption-div").editable (value, settings) =>
           model.set('note', value)
           model.save(null, {silent: true})
           value
@@ -29,8 +29,8 @@ jQuery ->
 
     deleteGuide: (e) ->
       if (confirm('Are you sure you want to delete this place?'))
-        place_id = $(e.currentTarget).attr('data-id')
-        model = @collection.where({id: parseInt(place_id)})[0]
+        assoc_id = $(e.currentTarget).attr('data-assoc-id')
+        model = @collection.where({assoc_id: parseInt(assoc_id)})[0]
         order = model.get('order_num')
         model.destroy
           success: =>

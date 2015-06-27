@@ -1,6 +1,6 @@
 <% if (collection.sync_status) { %>
     <% if (collection.length == 0) { %>
-        <% if (profileView && profileView.model.get('id') == Vacaybug.current_user.id) { %>
+        <% if (profileView && Vacaybug.current_user && profileView.model.get('id') == Vacaybug.current_user.id) { %>
         <div class="profile-private text-center">
             <a href="#guideModal" class="new-guide-btn-horizontal" data-toggle="modal"><img src="/assets/plus-icon.png"><br/>Create a Guide</a>
             <% if (type == 'wishlist') { %>
@@ -22,7 +22,7 @@
     <%
         var index = 0; 
         var c = collection.models;
-        if (where == 'profile' && collection.models[0].get('user').id == Vacaybug.current_user.id) {
+        if (where == 'profile' && Vacaybug.current_user && collection.models[0].get('user').id == Vacaybug.current_user.id) {
             c = $.merge([null], collection.models);
         }
     %>

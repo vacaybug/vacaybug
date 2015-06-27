@@ -17,8 +17,8 @@ class Place < ActiveRecord::Base
 		{ prefix: item["prefix"], suffix: item["suffix"] }
 	end
 
-	def get_note guide
-		g = GuidePlaceAssociation.where(guide_id: guide.id, place_id: self.id).first
+	def get_note assoc_id
+		g = GuidePlaceAssociation.find(assoc_id)
 		if g
 			g.note
 		else
@@ -59,7 +59,7 @@ class Place < ActiveRecord::Base
 	    options.merge!({methods: [:photo], except: [:fs_data]})
 
 	    json = super(options)
-	    json["note"] = get_note(options[:guide]) if options[:guide]
+	    json["note"] = get_note(options[:assoc_id]) if options[:assoc_id]
 	    json["location"] = fs_data["location"]
 	    json
 	end

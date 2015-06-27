@@ -2,7 +2,7 @@ class Rest::PlacesController < ActionController::Base
     include ApplicationHelper
     include FsHelper
 
-    before_filter :check_logged_in
+    before_filter :check_logged_in, except: [:index, :show]
     before_filter :check_guide_permission, only: [:create, :update, :destroy, :rearrange]
 
     def index
@@ -11,7 +11,7 @@ class Rest::PlacesController < ActionController::Base
 
         assocs = guide.place_associations.order('order_num ASC')
         assocs.each do |assoc|
-            model = assoc.place.as_json(guide: guide)
+            model = assoc.place.as_json(guide: guide, assoc_id: assoc.id)
             model["order_num"] = assoc.order_num
             model["assoc_id"] = assoc.id
             models << model
@@ -76,7 +76,7 @@ class Rest::PlacesController < ActionController::Base
         end
 
         # editing note is little bit hacky :D
-        gp = GuidePlaceAssociation.where(place_id: params[:id], guide_id: params[:guide_id]).first
+        gp = GuidePlaceAssociation.find(params[:assoc_id])
         if params[:note] != gp.note
             gp.note = params[:note]
             gp.save

@@ -53,6 +53,8 @@ jQuery ->
       @render()
 
     render: ->
+      if !Vacaybug.current_user && !@view.isPublic
+        window.location = "/login"
       $(@el).html(@view.render().el)
 
     navigate: (event) ->
