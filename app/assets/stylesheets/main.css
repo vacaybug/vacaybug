@@ -70,6 +70,20 @@ div.flash-notification .flash-notice {
 .margin-bottom-25 {
 	margin-bottom: 25px;
 }
+.js-show-likes {
+	font-size: 12px;
+	font-weight: 500;
+}
+.btn-share {
+	background-color: #00629b;
+	border: solid 1px #fff;
+	color: #fff;
+}
+.btn-share:hover {
+	background-color: #4089B4;
+	border: solid 1px #fff;
+	color: #fff;
+}
 .btn-save {
 	background-color: #00629b;
 	color: #fff;
@@ -544,6 +558,11 @@ span.text-content {
 	background-color: #00629b;
 	border-radius: 9px 9px 0 0;
 }
+.panel .tab-content .tab-heading .profile-share {
+	float: right;
+	margin-top: -7px;
+	margin-left: 10px;
+}
 .panel .tab-content #about .profile-edit {
 	position: relative; 
 	top: 10px; 
@@ -842,6 +861,7 @@ span.text-content {
 	background:rgba(255,255,255, 0.7);
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
+	text-align: center;
 }
 .guide-map .guide-description-div {
 	color: #000;
@@ -857,6 +877,7 @@ span.text-content {
 	border-radius: 10px;
 	background:rgba(255,255,255, 0.7);
 	overflow-wrap: break-word;
+	text-align: left;
 }
 .guide-map .guide-description textarea {
 	color: #000;
@@ -915,8 +936,11 @@ span.text-content {
 	display: block;
 }
 .guide-map .guide-description .btn-guide-export:hover {
-	background-color: #003d60;
+	background-color: #003d60;gu
 	border: 1px solid #003d60;
+}
+.guide-map .guide-description .guide-share {
+	margin-top: 13px;
 }
 .guide-map .guide-description-save {
 	color: white;
@@ -1720,7 +1744,7 @@ ul.social-buttons li a:active {
 	transition: all ease .5s;
 }
 .guide-hover.newsfeed {
-	height: 86.5%;
+	height: 225px;
 }
 .guide-hover .js-share {
 	float: right;
@@ -1798,9 +1822,6 @@ ul.social-buttons li a:active {
   height: 22px;
   padding-left: 10px;
   padding-bottom: 5px;
-  font-size: 12px;
-  font-weight: 500;
-  color: #9daab2;
 }
 .guide-item .guide-caption hr {
 	margin-top: 0px;
