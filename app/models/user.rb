@@ -134,7 +134,7 @@ class User < ActiveRecord::Base
         if self.image_id
             Image.find(self.image_id).image.url(type)
         else
-            "/assets/default_avatar.jpg"
+            ActionController::Base.helpers.asset_path("default_avatar.jpg")
         end
     end
 

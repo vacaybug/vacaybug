@@ -4,6 +4,7 @@ jQuery ->
 
     events:
       "click .guide-description-save": "saveDescription"
+      "click .js-share-facebook": "shareFacebook"
       "click .btn-guide-delete": "deleteGuide"
 
     remove: ->
@@ -148,6 +149,16 @@ jQuery ->
             @places.add(place)
       )
       @
+
+    shareFacebook: (e) ->
+      e.preventDefault()
+      url_prefix = "#{location.protocol}//#{location.host}"
+      FB.ui
+        method: 'feed',
+        link: "#{url_prefix}/#{@model.get('user').username}/guides/#{@model.get('id')}"
+        name: "#{@model.get('user').full_name}'s #{@model.get('city')} trip"
+        description: "Check out my #{@model.get('title')}"
+        picture: "#{url_prefix}/#{@model.get('image').medium}"
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.GuideView = GuideView

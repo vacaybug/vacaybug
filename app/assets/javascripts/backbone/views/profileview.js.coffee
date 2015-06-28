@@ -15,6 +15,8 @@ jQuery ->
       'click .js-change-photo': 'changePhoto'
       'click .js-delete-guide': 'deleteGuide'
       'click .trip-type-choice': '_tripTypeClick'
+      'click .js-share-twitter': 'shareTwitter'
+      'click .js-share-facebook': 'shareFacebook'
 
     initialize: (options) ->
       @listenTo @model, 'change', @render
@@ -300,6 +302,16 @@ jQuery ->
         $('img.nav-avatar').attr('src', obj.data.image.thumb)
         @model.set('image_id', obj.data.id)
         @model.save()
+
+    shareFacebook: (e) ->
+      e.preventDefault()
+      url_prefix = "#{location.protocol}//#{location.host}"
+      FB.ui
+        method: 'feed',
+        link: "#{url_prefix}/#{@model.get('username')}"
+        name: "#{@model.get('full_name')} is on Vacaybug"
+        description: "Check out where I have been lately"
+        picture: "#{url_prefix}/#{@model.get('avatar').medium}"
 
   Vacaybug = window.Vacaybug ? {}
   Vacaybug.ProfileView = ProfileView
