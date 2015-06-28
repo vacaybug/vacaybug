@@ -53,7 +53,7 @@ jQuery ->
       @render()
 
     render: ->
-      if !Vacaybug.current_user && !@view.isPublic
+      if Vacaybug.current_user.id == 0 && !@view.isPublic
         window.location = "/login"
       $(@el).html(@view.render().el)
 
