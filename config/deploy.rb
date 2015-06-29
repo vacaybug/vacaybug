@@ -1,5 +1,5 @@
 # Change these
-set :repo_url,        'git@github.com:khongor/vacaybug.git'
+set :repo_url,        'git@github.com:vacaybug/vacaybug.git'
 set :application,     'vacaybug'
 set :user,            'deploy'
 set :puma_threads,    [4, 4]
