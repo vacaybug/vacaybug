@@ -17391,12 +17391,12 @@ fieldset[disabled] .cover.overlay .btn-cover.active {
 }
 @media (max-width: 768px) {
   .navbar-primary .navbar-collapse .navbar-nav .open .dropdown-menu > li a {
-    color: #fff;
+    color: #7d888e;
     font-weight: 500;
-    background-color: #219c90;
+    background-color: #fff;
   }
   .navbar-primary .navbar-collapse .navbar-nav .open .dropdown-menu > li a:hover {
-    background: #1e8b80;
+    background: #fff;
   }
 }
 .navbar-primary.dropdown-hover .navbar-nav > li:hover .dropdown-menu {
@@ -17407,7 +17407,7 @@ fieldset[disabled] .cover.overlay .btn-cover.active {
 }
 .navbar-primary .navbar-toggle:hover,
 .navbar-primary .navbar-toggle:focus {
-  background-color: #1e8b80;
+  background-color: #98d6ec;
 }
 .navbar-primary .navbar-toggle:hover .icon-bar,
 .navbar-primary .navbar-toggle:focus .icon-bar {

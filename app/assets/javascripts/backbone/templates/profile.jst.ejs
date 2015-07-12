@@ -50,16 +50,24 @@
         <div class="tab-content">
             <div class="tab-pane fade <%= activeTab == 'passport' ? 'active in' : '' %> in" id="passport">
                 <div class="tab-heading">
-                    <i class="fa fa-briefcase"></i> My Passport - I've Been to...
-                    <a href="https://twitter.com/intent/tweet?text=Check out where I have been lately <%= location.protocol + "//" + location.host + "/" + model.username %>" class="js-share-twitter btn btn-share profile-share"><i class="fa fa fa-twitter"></i>&nbsp;Share</a>
-                    <a href="#" class="js-share-facebook btn btn-share profile-share"><i class="fa fa-facebook-square"></i>&nbsp;Share</a>
+                    <i class="fa fa-briefcase"></i> Public Passport
+                    <!-- Only appears when less than 400px -->
+                    <div class="profile-share-responsive">
+                        <a href="https://twitter.com/intent/tweet?text=Check out where I have been lately <%= location.protocol + "//" + location.host + "/" + model.username %>" class="js-share-twitter btn btn-share"><i class="fa fa fa-twitter"></i></a>
+                        <a href="#" class="js-share-facebook btn btn-share"><i class="fa fa-facebook-square"></i></a>
+                    </div>
+                    <!-- End -->
+                    <div class="profile-share">
+                        <a href="https://twitter.com/intent/tweet?text=Check out where I have been lately <%= location.protocol + "//" + location.host + "/" + model.username %>" class="js-share-twitter btn btn-share"><i class="fa fa fa-twitter"></i>&nbsp;Share</a>
+                        <a href="#" class="js-share-facebook btn btn-share"><i class="fa fa-facebook-square"></i>&nbsp;Share</a>
+                    </div>
                 </div>
                 <div class="panel-body passport">
                 </div>
             </div>
             <div class="tab-pane <%= activeTab == 'wishlist' ? 'active in' : ''%> fade" id="wishlist">
                 <div class="tab-heading">
-                    <i class="fa fa-list"></i> My Wishlist - I Want to Go...
+                    <i class="fa fa-list"></i> Private Wishlist
                 </div>
                 <div class="panel-body wishlist">
                 </div>
