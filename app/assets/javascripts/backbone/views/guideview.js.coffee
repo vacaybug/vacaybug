@@ -78,8 +78,9 @@ jQuery ->
         @model.save(null, {silent: true})
         value
       , {
+        cssclass: 'text-center',
         type    : 'textarea',
-        maxlength: 230,
+        maxlength: 300,
         indicator: 'Saving...',
         submit  : '<button type="submit" class="btn btn-save"><i class="fa fa-check"></i> Save</button>',
         cancel  : '<button class="btn btn-cancel"><i class="fa fa-times"></i> Cancel</button>',

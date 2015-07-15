@@ -572,6 +572,8 @@ span.text-content {
 	}
 	.cover-info {
 		text-align: center;
+		border-bottom-right-radius: 10px;
+		border-bottom-left-radius: 10px;
 	}
 	.cover.profile .cover-info .avatar {
 		left: 0;
@@ -797,6 +799,7 @@ span.text-content {
 }
 .network-container .timeline .panel-default {
 	width: 180px;
+	margin: 10px auto;
 }
 .network-container .timeline .panel-body {
 	padding: 0px;
@@ -834,6 +837,15 @@ span.text-content {
 	width: 265px;
 }
 
+@media (max-width: 768px) {
+	.follower-searchbar input {
+		font-size: 1em;
+	}
+	.follower-searchbar .fa-search {
+		display: none;
+	}	
+}
+
 /* USER GUIDE */
 
 .guide-heading {
@@ -857,10 +869,11 @@ span.text-content {
 	margin: 0px auto;
 	padding: 10px;
 	color: #fff;
+	overflow-wrap: break-word;
 }
 .guide-heading .city-guide-heading input {
 	height: 46px !important;
-		z-index: 10000;
+	z-index: 10000;
 }
 .guide-heading .guide-author{
 	margin-top: 0px;
@@ -873,21 +886,12 @@ span.text-content {
 .guide-heading input {
 	color: #000;
 	font-size: 18px;
-	padding-right: 150px;
 }
-.guide-heading .btn-save {
-	width: 70px;
-	font-size: 10px;
-	position: absolute;
-	top: 112px;
-	right: 450px;
-}
+.guide-heading .btn-save,
 .guide-heading .btn-cancel {
 	width: 70px;
 	font-size: 10px;
-	position: absolute;
-	top: 112px;
-	right: 375px;
+	margin: 5px;
 }
 .city-guide-heading span {
 	text-transform: none;
@@ -910,27 +914,21 @@ span.text-content {
 }
 .container.guide-map .map-container {
 	height: 400px;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	border-radius: 8px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 }
 .guide-map .guide-description {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	width: 25%;
+	padding-top: 1px;
 	height: 100%;
 	background:rgba(255,255,255, 0.7);
-	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 	text-align: center;
 }
 .guide-map .guide-description-div {
 	color: #000;
-	width: 87%;
-	min-height: 300px;
-	margin: 20px;
 	padding: 15px;
+	margin: 10px;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 1.5em;
@@ -949,28 +947,27 @@ span.text-content {
 	background:rgba(255, 255, 255, 0.0);
 	resize: none;
 	white-space: normal;
+	overflow-wrap: break-word;
 }
 .guide-map .guide-description hr {
 	margin: 0 auto;
 	border-top: 1px solid #f26d65;
 }
 .guide-map .guide-description .btn-save {
+	display: inline-block;
 	background-color: #00629b;
 	color: #fff;
 	font-size: 12px;
 	text-transform: uppercase;
-	position: absolute;
-	bottom: 90px;
-	right: 60px;
+	margin: 5px;
 }
 .guide-map .guide-description .btn-cancel {
+	display: inline-block;
 	background-color: #f26d65;
 	color: #fff;
 	font-size: 12px;
 	text-transform: uppercase;
-	position: absolute;
-	bottom: 90px;
-	left: 60px;
+	margin: 5px;
 }
 /*.guide-map .guide-description .btn-guide-delete {
 	margin: 10px 0px 0px 0px;
@@ -1002,16 +999,12 @@ span.text-content {
 	border: 1px solid #003d60;
 }
 .guide-map .guide-description .guide-share {
-	margin-top: 13px;
+	margin: 10px auto;
 }
 .guide-map .guide-description-save {
 	color: white;
 	background-color: #282828;
 	border: none;
-	position: relative;
-	right: 0;
-	top: 235px;
-	left: 225px;
 }
 .guide-searchbar-fixed {
 	position: fixed;
@@ -1509,6 +1502,11 @@ span.text-content {
 	font-weight: 600;
 	margin: 40px 0px;
 }
+@media (max-width: 768px) {
+  .city-list-header {
+    font-size: 2.5em;
+  }
+}
 .city-list {
 	background: #fff;
 	padding: 10px;
@@ -1533,6 +1531,11 @@ span.text-content {
 	font-size: 15px;
 	margin: 10px 0px;
 	display: block;
+}
+@media (max-width: 320px) {
+	.city-list .column {
+		width: 190px;
+	}
 }
 .search-container .col-md-4 .box-body ol {
 	font-size: 15px;
@@ -1593,14 +1596,22 @@ span.text-content {
 	margin: 0 auto;
 	margin-top: 40px;
 }
+.newsfeed-container .newsfeed-items	 {
+	margin: 0 auto;
+}
 .newsfeed-container .media .media-object {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
 .newsfeed-container .timeline-block {
-	margin: 0px 10px;
+	margin: 0 10px;
 	width: 360px;
+}
+@media (max-width: 409px) {
+	.newsfeed-container .timeline-block {
+		width: 93%;
+	}
 }
 .timeline-block .newsfeed .delete {
 	font-size: 19px;

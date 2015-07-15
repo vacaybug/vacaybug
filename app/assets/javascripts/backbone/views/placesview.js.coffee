@@ -62,7 +62,7 @@ jQuery ->
       $(".places-container").unbind("ss-rearranged")
       if @collection.models.length > 0
         $(".places-container").shapeshift
-          align: "left"
+          align: "center"
           enableDrag: @isPrivate
           gutterX: 22
         $(".places-container").on "ss-rearranged", () =>
