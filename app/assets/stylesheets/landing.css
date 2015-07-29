@@ -181,9 +181,6 @@ fieldset[disabled] .btn-xl.active {
 }
 .navbar-primary .navbar-nav > li > a {
   color: #00629b;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 0px;
 }
 .navbar-primary .navbar-nav > li > a:hover {
   color: #99d4e9;

@@ -78,4 +78,8 @@ class StaticController < ActionController::Base
 	def landing
 		render 'static/landing'
 	end
+
+	def test
+		render 'static/test'
+	end
 end
