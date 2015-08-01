@@ -6,7 +6,7 @@ class Rest::PlacesController < ActionController::Base
     before_filter :check_guide_permission, only: [:create, :update, :destroy, :rearrange]
 
     def index
-        guide = Guide.find(params[:guide_id])
+        guide = Guide.find_by_slug(params[:guide_id])
         models = []
 
         assocs = guide.place_associations.order('order_num ASC')

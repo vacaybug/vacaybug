@@ -15,7 +15,7 @@ jQuery ->
       ":user": "profile"
       ":user/followers": "followers"
       ":user/following": "following"
-      ":user/guides/:id": "guide"
+      ":user/guides/:slug": "guide"
 
       "*notFound": "notFound"
 
@@ -84,9 +84,9 @@ jQuery ->
       else
         @show404()
 
-    guide: (user, id) ->
+    guide: (user, slug) ->
       guide = new Vacaybug.GuideModel
-        id: id
+        slug: slug
       guide.fetch
         error: =>
           @show404()

@@ -51,12 +51,14 @@ class Rest::GuidesController < ActionController::Base
     end
 
     def show
-        guide = Guide.find(params[:id])
-        return if guide.guide_type == Guide::TYPES::WISHLIST && (!current_user || current_user.id != guide.user_id)
-
-        render json: {
-            model: Guide.find(params[:id]).as_json
-        }
+        guide = Guide.find_by_slug(params[:id])
+        if guide.guide_type == Guide::TYPES::WISHLIST && (!current_user || current_user.id != guide.user_id)
+            render403
+        else
+            render json: {
+                model: guide.as_json
+            }
+        end
     end
 
     def update

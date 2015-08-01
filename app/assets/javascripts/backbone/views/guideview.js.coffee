@@ -14,7 +14,7 @@ jQuery ->
       $("#wrapper").removeClass('container')
       @listenTo @model, 'sync', @render
       @places = new Vacaybug.PlaceCollection
-        guide_id: @model.get('id')
+        guide_id: @model.get('slug')
       @places.fetch()
       @placesView = new Vacaybug.PlacesView
         collection: @places

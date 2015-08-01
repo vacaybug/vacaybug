@@ -1,13 +1,13 @@
 jQuery ->
   class GuideModel extends window.Vacaybug.GenericModel
     restURL: ->
-      if @get('id')
-        "/rest/guides/#{@get('id')}"
+      if @get('slug')
+        "/rest/guides/#{@get('slug')}"
       else
         "/rest/guides"
 
     pageURL: ->
-      "/#{@get('user').username}/guides/#{@get('id')}"
+      "/#{@get('user').username}/guides/#{@get('slug')}"
 
     duplicate: ->
       $.ajax
