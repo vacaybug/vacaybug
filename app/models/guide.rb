@@ -109,6 +109,10 @@ class Guide < ActiveRecord::Base
         if self.title.nil?
             self.title = self.city + " Guide"
         end
+
+        if self.slug.nil?
+            self.slug = self.generate_slug
+        end
     end
 
     def delete_associations
