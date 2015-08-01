@@ -10,7 +10,7 @@ jQuery ->
       @modalRendered = false
       @guide = options.guide
       @places = new Vacaybug.PlaceCollection
-        guide_id: @guide.get('id')
+        guide_id: @guide.get('slug')
       @places.fetch()
 
       @listenTo @places, 'sync', @render
