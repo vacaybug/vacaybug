@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150621223321) do
+ActiveRecord::Schema.define(:version => 20150801170103) do
 
   create_table "cities", :force => true do |t|
     t.integer  "gn_id"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(:version => 20150621223321) do
   end
 
   add_index "comments", ["story_id"], :name => "index_comments_on_story_id"
+
+  create_table "create_cities", :force => true do |t|
+    t.integer  "gn_id"
+    t.text     "gn_data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "followers", :force => true do |t|
     t.integer  "user_id"
@@ -72,11 +79,13 @@ ActiveRecord::Schema.define(:version => 20150621223321) do
     t.integer  "popularity",  :default => 0
     t.integer  "guide_type"
     t.integer  "image_id"
+    t.string   "slug"
   end
 
   add_index "guides", ["geonames_id"], :name => "index_guides_on_geonames_id"
   add_index "guides", ["popularity", "geonames_id"], :name => "index_guides_on_popularity_and_geonames_id"
   add_index "guides", ["popularity"], :name => "index_guides_on_popularity"
+  add_index "guides", ["slug"], :name => "index_guides_on_slug"
   add_index "guides", ["user_id"], :name => "index_guides_on_user_id"
 
   create_table "images", :force => true do |t|

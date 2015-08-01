@@ -1,5 +1,5 @@
 class Guide < ActiveRecord::Base
-    attr_accessible :privacy, :country, :city, :region, :geonames_id, :user_id, :title, :description, :gn_data, :guide_type
+    attr_accessible :privacy, :country, :city, :region, :geonames_id, :user_id, :title, :description, :gn_data, :guide_type, :slug
     serialize :gn_data, JSON
 
     has_many :place_associations, :class_name => 'GuidePlaceAssociation'
@@ -68,6 +68,20 @@ class Guide < ActiveRecord::Base
         else
             "/assets/default_guide.png"
         end
+    end
+
+    def generate_slug
+        guide_slug = self.city
+        guide_slug += "_" + self.region if self.region.present?
+        suffix = ""
+        count = 1
+
+        while Guide.where("slug = ? AND id != ?", "#{guide_slug}#{suffix}", self.id).count > 0 do
+            suffix = "_" + count.to_s
+            count += 1
+        end
+
+        "#{guide_slug}#{suffix}"
     end
 
     private
