@@ -162,7 +162,47 @@ fieldset[disabled] .btn-xl.active {
     color: #fff;
     background-color: #fed136;
 }
-
+.btn-facebook {
+    padding: 15px 25px;
+    border-color: #3B5791;
+    border-radius: 3px;
+    text-transform: uppercase;
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #3B5791;
+    margin-bottom: 15px;
+    width: 300px;
+}
+.btn-twitter {
+    padding: 15px 25px;
+    border-color: #32A7E0;
+    border-radius: 3px;
+    text-transform: uppercase;
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #32A7E0;
+    margin-bottom: 15px;
+    width: 300px;
+}
+.btn-google {
+    padding: 15px 25px;
+    border-color: #BF3529;
+    border-radius: 3px;
+    text-transform: uppercase;
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #BF3529;
+    width: 300px;
+}
 .navbar-primary .navbar-brand {
   color: #ffffff;
   font-weight: bold;
@@ -262,7 +302,13 @@ header .intro-text .intro-subheading {
     font-weight: 00;
     text-shadow: 0 0 15px #202020;
 }
-
+header .intro-text i {
+    font-size: 20px;
+    font-weight: 700;
+    width: 35px;
+    margin-right: 20px;
+    border-right: 1px solid #fff;
+}
 header #testimonial {
     width: 100%;
     padding: 1.5em;
@@ -300,8 +346,8 @@ header #testimonial .carousel-control {
 }
 @media(min-width:768px) {
     header .intro-text {
-        padding-top: 300px;
-        padding-bottom: 200px;
+        padding-top: 200px;
+        padding-bottom: 100px;
     }
     header .intro-text .intro-lead-in {
         margin-bottom: 25px;
