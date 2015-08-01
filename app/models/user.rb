@@ -1,3 +1,5 @@
+include MailchimpHelper
+
 class User < ActiveRecord::Base
     # Include default devise modules. Others available are:
     # :token_authenticatable, :confirmable,
@@ -60,8 +62,8 @@ class User < ActiveRecord::Base
     validate :validate_birthday
 
     before_validation :setup_names
-
     before_destroy :destroy_dependents
+    after_create :subscribe_to_mailchimp
 
     def display_name
         self.first_name || self.username
@@ -228,5 +230,9 @@ class User < ActiveRecord::Base
         self.likes.destroy_all
         self.comments.destroy_all
         self.guides.destroy_all
+    end
+
+    def subscribe_to_mailchimp
+        subscribe self.email if self.email.present?
     end
 end

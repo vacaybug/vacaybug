@@ -99,4 +99,9 @@ Vacaybug::Application.configure do
     token: "rTfHUlxS7c4OEL9FSswxFKydiYCgTUta",
     token_secret: "m_lOnKxyrLvKPFYvaeoHA3gpDFQ"
   }
+
+  config.mailchimp = {
+    api_key: "27404434c993e5680062e010d9ceb69d-us9",
+    list_id: "7d508066d8"
+  }
 end
