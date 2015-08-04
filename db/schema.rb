@@ -35,13 +35,6 @@ ActiveRecord::Schema.define(:version => 20150801170103) do
 
   add_index "comments", ["story_id"], :name => "index_comments_on_story_id"
 
-  create_table "create_cities", :force => true do |t|
-    t.integer  "gn_id"
-    t.text     "gn_data"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "followers", :force => true do |t|
     t.integer  "user_id"
     t.integer  "follower_id"

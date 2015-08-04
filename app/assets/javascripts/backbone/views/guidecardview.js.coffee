@@ -28,6 +28,7 @@ jQuery ->
         model: @model
         story: @story
         where: @where
+      $('[data-toggle="tooltip"]').tooltip()
       @
 
     like: (e) ->

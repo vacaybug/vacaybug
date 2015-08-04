@@ -26,12 +26,13 @@
 //= require backbone/vacaybug
 //= require_self
 
+//= require jquery-ui
 //= require bootstrap.min
 //= require masonry
 //= require imagesloaded.min
 //= require typeahead
 //= require geonames
-//= require jquery-ui
+
 //= require jeditable
 //= require timeago
 //= require dropzone

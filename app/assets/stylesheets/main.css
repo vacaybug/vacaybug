@@ -481,6 +481,14 @@ span.text-content {
 	width: 100px;
 	margin: 12px;
 }
+@media (max-width: 425px){
+	.modal .modal-body .js-close,
+	.modal .modal-body .js-continue  {
+		width: 100% !important;
+		margin-bottom: 10px !important;
+		margin-left: 0px !important;
+	}
+}
 .panel {
 	border: 1px solid #d4d4d4;
 	-webkit-border-radius: 10px;
@@ -1444,9 +1452,10 @@ span.text-content {
 }
 .navbar-sort .btn-group button {
 	background-color: #fff;
+	font-size: 15px;
 	color: #25ABE1;
 	height: 40px;
-	width: 33%;
+	width: 50%;
 	border: 1px solid #25ABE1;
 
 }
@@ -1860,6 +1869,13 @@ ul.social-buttons li a:active {
 	font-size: 20px;
 	font-weight: 500;
 	color: #fff;
+}
+.guide-item .guide-card-avatar {
+	width: 54px;
+	height: 54px;
+	position: absolute;
+	bottom: 215px;
+	left: 25px;
 }
 .guide-item .guide-caption {
 	margin: 0 auto;

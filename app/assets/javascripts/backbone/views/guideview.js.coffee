@@ -27,6 +27,13 @@ jQuery ->
     initializeMap: ->
       return if $('.map-container').length == 0
 
+      w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      isDraggable = w > 480 ? true : false;
+      mapOptions = {
+        draggable: isDraggable,
+        scrollwheel: false
+      };
+
       if @places.sync_status
         if @places.models.length > 0
           mapOptions = {scrollwheel: false}

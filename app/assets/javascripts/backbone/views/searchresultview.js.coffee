@@ -26,10 +26,12 @@ jQuery ->
 
       html = '
         <div class="navbar-sort search-result-navbar">
-          <div class="col-md-6 col-lg-offset-4 col-sm-6 col-sm-offset-3">
+          <div class="col-md-6 col-md-offset-3 col-xs-12">
             <div class="btn-group" role="group" aria-label="...">
               <button type="button" class="js-search-key btn active" data-key="popular">Popular</button>
               <button type="button" class="js-search-key btn" data-key="recent">Recent</button>
+<!--               <button type="button" class="js-search-key btn active" data-key="popular">Guides</button>
+              <button type="button" class="js-search-key btn" data-key="recent">Places</button> -->
             </div>
           </div>
         </div>

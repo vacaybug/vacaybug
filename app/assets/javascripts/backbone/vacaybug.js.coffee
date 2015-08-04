@@ -14,3 +14,4 @@ $(document).ready ->
       if !Backbone.History.started
         Backbone.history.start
           pushState: true
+

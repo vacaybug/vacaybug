@@ -12,6 +12,7 @@ jQuery ->
       @listenTo @collection, 'remove', @render
       @isPrivate = options.isPrivate
 
+
     initInputs: ->
       return if !@isPrivate
       _.each @collection.models, (model) =>
