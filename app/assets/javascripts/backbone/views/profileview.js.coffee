@@ -26,6 +26,113 @@ jQuery ->
 
       super()
 
+    renderTour1: ->
+      return if !Vacaybug.tour_going
+      return if $('#tour-element-passport').length == 0 || $('#tour-element-createguide').length == 0
+      Vacaybug.tour_going = false
+
+      clearInterval @interval
+      @interval = null
+      steps = [
+        # {
+        #   content: '
+        #     <p class="text-center"><strong>VacayBug in 1 minute</strong></p>
+        #     <p>VacayBug enables travelers to be more productive around building, sharing and exploring travel guides.</p>
+        #   ',
+        #   highlightTarget: true,
+        #   buttonLabel: 'Get Started'
+        #   nextButton: true,
+        #   target: [700, 300],
+        #   my: 'center center',
+        #   at: 'center center'
+        # },
+        # {
+        #   content: '
+        #     <p class="text-center"><strong>Passport</strong></p>
+        #     <p>Fill up your passport with the places that you have visited.</p>
+        #   ',
+        #   highlightTarget: true,
+        #   buttonLabel: 'Got it',
+        #   nextButton: true,
+        #   target: $('#tour-element-passport'),
+        #   my: 'top center',
+        #   at: 'bottom center'
+        # },
+        # {
+        #   content: '
+        #     <p class="text-center"><strong>Wishlist</strong></p>
+        #     <p>Everything inside of your wishlist is private. Use this page to store the places that you wish to visit.</p>
+        #   ',
+        #   highlightTarget: true,
+        #   buttonLabel: 'Got it',
+        #   nextButton: true,
+        #   target: $('#tour-element-wishlist'),
+        #   my: 'top center',
+        #   at: 'bottom center'
+        # },
+        {
+          content: '
+            <p class="text-center"><strong>Create a guide</strong></p>
+            <p>Get the most out of VacayBug by creating guides of the places you\'ve visited.</p>
+          ',
+          highlightTarget: true,
+          buttonLabel: 'Got it',
+          nextButton: true,
+          target: $('#tour-element-createguide'),
+          my: 'bottom center',
+          at: 'top center',
+          teardown: =>
+            if !@interval
+              @openModal()
+        }
+      ]
+
+      tour = new Tourist.Tour({
+        steps: steps,
+        tipClass: 'Bootstrap',
+        tipOptions:{ showEffect: 'slidein' }
+      });
+      tour.start();
+
+    renderTour2: ->
+      return if $("#tour-element-searchbar").length == 0
+
+      console.log('clearing')
+      console.log(@interval)
+      clearInterval @interval
+
+      steps = [
+        {
+          content: '
+            <p class="text-center"><strong>Search + Document</strong></p>
+            <p>Easily document where you have been by searching for a city by name</p>
+          ',
+          highlightTarget: true,
+          buttonLabel: 'Got it',
+          nextButton: true,
+          target: $("#tour-element-searchbar"),
+          my: 'top center',
+          at: 'bottom center',
+        }
+      ]
+
+      tour = new Tourist.Tour({
+        steps: steps,
+        tipClass: 'Bootstrap',
+        tipOptions:{ showEffect: 'slidein' }
+      });
+      setTimeout ( ->
+        tour.start()
+      ), 1000
+
+    openModal: ->
+      return if @interval
+      $("#guideModal").modal('show')
+      @interval = setInterval((=>
+        @renderTour2()
+      ), 200)
+      console.log(@interval)
+
     renderPassport: ->
       if !@passportView
         @passportCollection = new Vacaybug.GuideCollection
@@ -199,6 +306,11 @@ jQuery ->
 
       @renderPassport()
       @renderWishlist()
+      
+      if !@interval
+        @interval = setInterval((=>
+          @renderTour1()
+        ), 200)
       @
 
     follow: ->

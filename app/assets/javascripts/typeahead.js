@@ -128,7 +128,7 @@
     }();
     var html = function() {
         return {
-            wrapper: '<span class="twitter-typeahead"></span>',
+            wrapper: '<span id="tour-element-searchbar" class="twitter-typeahead"></span>',
             dropdown: '<span class="tt-dropdown-menu"></span>',
             dataset: '<div class="tt-dataset-%CLASS%"></div>',
             suggestions: '<span class="tt-suggestions"></span>',

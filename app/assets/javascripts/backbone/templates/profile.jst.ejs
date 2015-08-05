@@ -12,14 +12,14 @@
                 <a href="#"><%= model.full_name %></a>
             </div>
             <ul class="cover-nav nav nav-tabs" role="tablist">
-                <li class="<%= activeTab == 'passport' ? 'active' : '' %> js-tab" data-tab='passport'>
+                <li id="tour-element-passport" class="<%= activeTab == 'passport' ? 'active' : '' %> js-tab" data-tab='passport'>
                     <a href="#passport" role="tab" data-toggle="tab"><i class="fa fa-briefcase"></i> Passport</a>
                 </li>
                 <% if (isPrivate) { %>
-                    <li class="<%= activeTab == 'wishlist' ? 'active' : '' %> js-tab" data-tab='wishlist'>
+                    <li id="tour-element-wishlist" class="<%= activeTab == 'wishlist' ? 'active' : '' %> js-tab" data-tab='wishlist'>
                         <a href="#wishlist" role="tab" data-toggle="tab"><i class="fa fa-map-marker"></i> Wishlist</a>
                     </li>
-                    <li class="<%= activeTab == 'about' ? 'active' : '' %> js-tab" data-tab='about'>
+                    <li id="tour-element-about" class="<%= activeTab == 'about' ? 'active' : '' %> js-tab" data-tab='about'>
                         <a href="#about" role="tab" data-toggle="tab"><i class="fa fa-info-circle"></i> About</a>
                     </li>
                 <% } %>

@@ -35,6 +35,8 @@ Vacaybug::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  config.assets.js_compressor = NoCompression.new
+
   # default mailer
   config.action_mailer.perform_deliveries = false
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }

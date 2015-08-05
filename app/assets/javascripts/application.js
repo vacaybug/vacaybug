@@ -27,7 +27,7 @@
 //= require_self
 
 //= require jquery-ui
-//= require bootstrap.min
+//= require bootstrap
 //= require masonry
 //= require imagesloaded.min
 //= require typeahead
@@ -38,3 +38,4 @@
 //= require dropzone
 //= require jscroll
 //= require jquery.shapeshifter.min
+//= require tourist

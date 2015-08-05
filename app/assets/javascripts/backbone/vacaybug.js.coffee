@@ -3,7 +3,6 @@ $(document).ready ->
     Vacaybug.start = ->
       $('a.backbone').click (e) =>
         e.preventDefault()
-        # e.stopPropagation()
         Vacaybug.router.navigate($(e.currentTarget).attr('href'), true)
 
       if Vacaybug.PREFETCH_DATA && Vacaybug.PREFETCH_DATA.current_user
@@ -15,3 +14,4 @@ $(document).ready ->
         Backbone.history.start
           pushState: true
 
+      Vacaybug.tour_going = true
