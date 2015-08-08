@@ -32,14 +32,16 @@
 <div class="city-list">
 	<div class="row">
 		<div class="col-md-12">
-			<% _.each(city_groups, function(cities, letter) { if (cities.length > 0) { %>
-				<ul class="column">
-					<li class="letter"><%= letter %></li>
-					<% _.each(cities, function(city) { %>
-						<li><a class="backbone" href="/search?id=<%= city.gn_id %>"><%= city.city %></a></li>
-					<% }); %>
-				</ul>
-			<% }}); %>
+			<div class="column">
+				<% _.each(city_groups, function(cities, letter) { if (cities.length > 0) { %>
+					<div class="item">
+						<h4 class="letter"><%= letter %></h4>
+						<% _.each(cities, function(city) { %>
+							<a class="backbone" href="/search?id=<%= city.gn_id %>"><%= city.city %></a>
+						<% }); %>
+					</div>
+				<% }}); %>
+			</div>
 		</div>
 	</div>
 <!-- 	<div class="col-md-6 col-md-offset-3 discover-searchbar">

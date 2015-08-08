@@ -176,6 +176,12 @@ fieldset[disabled] .btn-xl.active {
     margin-bottom: 15px;
     width: 300px;
 }
+.btn-facebook:focus,
+.btn-facebook:hover {
+    border-color: #2D4577;
+    background-color: #2D4577;
+    color: #fff;
+}
 .btn-twitter {
     padding: 15px 25px;
     border-color: #32A7E0;
@@ -190,6 +196,12 @@ fieldset[disabled] .btn-xl.active {
     margin-bottom: 15px;
     width: 300px;
 }
+.btn-twitter:focus,
+.btn-twitter:hover {
+    border-color: #278ABA;
+    background-color: #278ABA;
+    color: #fff;
+}
 .btn-google {
     padding: 15px 25px;
     border-color: #BF3529;
@@ -202,6 +214,12 @@ fieldset[disabled] .btn-xl.active {
     color: #fff;
     background-color: #BF3529;
     width: 300px;
+}
+.btn-google:focus,
+.btn-google:hover {
+    border-color: #AD2B1F;
+    background-color: #AD2B1F;
+    color: #fff;
 }
 .navbar-primary .navbar-brand {
   color: #ffffff;

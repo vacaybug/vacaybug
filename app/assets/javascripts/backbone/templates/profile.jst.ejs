@@ -22,9 +22,6 @@
                     <li class="<%= activeTab == 'about' ? 'active' : '' %> js-tab" data-tab='about'>
                         <a href="#about" role="tab" data-toggle="tab"><i class="fa fa-info-circle"></i> About</a>
                     </li>
-    <!--                 <li class="story">
-                        <a href="#" role="tab"><i class="fa fa-book"></i> Story<br><span>*Coming Soon*</span></a>
-                    </li> -->
                 <% } %>
             </ul>
             <% if (!isPrivate && Vacaybug.current_user.id != 0) { %>

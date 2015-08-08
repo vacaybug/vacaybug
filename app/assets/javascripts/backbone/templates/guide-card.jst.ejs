@@ -25,7 +25,7 @@
             </div>
             <img style="background-image: url('<%= model.get('image').medium %>')" class="js-cover-photo">
         </a>
-        <a href=""><img src="<%= model.get('user').avatar.thumb %>" data-toggle="tooltip" class="guide-card-avatar img-circle" title="<%= model.get('user').full_name %>" data-placement="bottom"></a>
+        <a href="/<%= model.get('user').username %>"><img src="<%= model.get('user').avatar.thumb %>" data-toggle="tooltip" class="guide-card-avatar img-square" title="<%= model.get('user').full_name %>" data-placement="bottom"></a>
         <div class="guide-caption">
             <p class="guide-content"><%= _.escape(model.get('description')) %></p>
                 <div class="guide-footer">

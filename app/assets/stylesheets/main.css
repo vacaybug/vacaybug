@@ -1525,26 +1525,72 @@ span.text-content {
 	margin-bottom: 25px;
 }
 .city-list .column {
-	list-style-type: none;
-	width: 166px;
-	float: left;
-	margin-bottom: 10px;
+	-moz-column-count: 6;
+	-webkit-column-count: 6;
+	column-count: 6;
+	 -moz-column-gap: 1em;
+	-webkit-column-gap: 1em;
+	column-gap: 1em;
+}
+.city-list .item {
+	display: inline-block;
+	background: #fff;
+	padding: 1.5em;
+	width: 100%;
 }
 .city-list .letter {
 	border-bottom: 1px solid #d7d7d7;
 	font-size: 20px;
 	font-weight: 700;
 	margin-bottom: 10px;
+	padding-bottom: .5em;
 }
-.city-list .column li a {
+.city-list .column a {
 	font-size: 15px;
 	margin: 10px 0px;
 	display: block;
 }
-@media (max-width: 320px) {
-	.city-list .column {
-		width: 190px;
-	}
+@media only screen and (max-width: 400px) {
+    .city-list .column {
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+}
+@media only screen and (min-width: 400px) {
+    .city-list .column {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+@media only screen and (min-width: 600px) {
+    .city-list .column  {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+@media only screen and (min-width: 800px) {
+    .city-list .column  {
+        -moz-column-count: 4;
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    .city-list .column  {
+        -moz-column-count: 5;
+        -webkit-column-count: 5;
+        column-count: 5;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .city-list .column  {
+        -moz-column-count: 6;
+        -webkit-column-count: 6;
+        column-count: 6;
+    }
 }
 .search-container .col-md-4 .box-body ol {
 	font-size: 15px;
@@ -1876,6 +1922,10 @@ ul.social-buttons li a:active {
 	position: absolute;
 	bottom: 215px;
 	left: 25px;
+	border: 2px solid #fff;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
 }
 .guide-item .guide-caption {
 	margin: 0 auto;
