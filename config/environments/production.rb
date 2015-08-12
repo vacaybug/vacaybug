@@ -61,7 +61,7 @@ Vacaybug::Application.configure do
     domain: "vacaybug.com",
     authentication: :plain,
     enable_starttls_auto: true,
-    user_name: "khongor@vacaybug.com",
+    user_name: "support@vacaybug.com",
     password: "vacaybug1!",
   }
 
