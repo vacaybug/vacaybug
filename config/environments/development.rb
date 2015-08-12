@@ -47,8 +47,8 @@ Vacaybug::Application.configure do
     domain: "vacaybug.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "charles@vacaybug.com",
-    password: "q1w2e3r4T%"
+    user_name: "support@vacaybug.com",
+    password: "vacaybug1!"
   }
 
   # AWSAccessKeyId=AKIAJGKYDVCM3HA72JBQ

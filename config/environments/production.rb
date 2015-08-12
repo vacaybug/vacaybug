@@ -62,7 +62,7 @@ Vacaybug::Application.configure do
     authentication: :plain,
     enable_starttls_auto: true,
     user_name: "charles@vacaybug.com",
-    password: "q1w2e3r4T%",
+    password: "vacaybug1!",
   }
 
   # Enable threaded mode
