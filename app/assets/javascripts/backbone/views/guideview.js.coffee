@@ -1,6 +1,7 @@
 jQuery ->
   class GuideView extends window.Vacaybug.GenericView
     template: JST["backbone/templates/guide"]
+    isPublic: true
 
     events:
       "click .guide-description-save": "saveDescription"
