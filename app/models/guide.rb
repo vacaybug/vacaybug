@@ -71,7 +71,7 @@ class Guide < ActiveRecord::Base
     end
 
     def generate_slug
-        guide_slug = self.city
+        guide_slug = self.city.gsub(" ", "")
         guide_slug += "_" + self.region if self.region.present?
         suffix = ""
         count = 1
