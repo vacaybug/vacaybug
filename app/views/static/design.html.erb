@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VacayBug | Design</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <%= render 'generic/navigation.html.erb' %>
+    <div id="wrapper" style="background: #fff">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h3>Brand</h3>
+          <hr>
+          <h4><a href="">Logos</a></h4>
+          <h4><a href="">Color</a></h4>
+          <h3>Components</h3>
+          <hr>
+          <h4><a href="">Grid</a></h4>
+          <h4><a href="">Buttons</a></h4>
+          <h4><a href="">Lists</a></h4>
+        </div>
+        <div class="col-md-9"></div>
+      </div>
+    </div>
+        </div>
+    <%= render 'generic/footer.html.erb' %>
+</body>
+</html>

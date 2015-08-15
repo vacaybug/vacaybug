@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VacayBug | Guide</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= render 'generic/header.html.erb' %>
+  <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.16/dist/jquery.flip.min.js"></script>
+  <script type="text/javascript">
+    // $(document).ready(function(){
+    //     $('#wrapper').flip();
+    // })
+  </script>
+</head>
+<body>
+    <%= render 'generic/navigation.html.erb' %>
+
+    <div id="wrapper">
+        <div class="guide-heading">
+            <h1 class="city-guide-heading" style="border: 2px dashed rgb(255, 255, 255); border-radius: 8px; margin-bottom: 10px;">San Francisco Guide</h1>
+            <h4 class="guide-author">By <a class="backbone" href="/charleshsieh">Charles Hsieh</a></h4>
+        </div>
+        <div class="map-display">
+            <div class="container guide-container">
+            <div class="row guide-searchbar">
+                <div class="col-md-8 col-md-offset-2">
+                    <span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;"><input type="text" class="js-search-places form-control input-lg tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);"><input type="text" class="js-search-places form-control input-lg tt-input" placeholder="Search by landmark, restaurant, anything :)" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 17px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none; right: auto;"><div class="tt-dataset-1"></div></span></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="guide-map map-view">
+                        <div class="btn-group btn-view" role="group" aria-label="...">
+                            <button type="button" id="guide-btn" class="btn">Guide View</button>
+                            <button type="button" id="map-btn" class="btn active">Map View</button>
+                        </div>
+                        <div class="map-container map-view-container" style="position: relative; overflow: hidden; transform: translateZ(0px) translateZ(0px) translateZ(0px) translateZ(0px) translateZ(0px) translateZ(0px) translateZ(0px) translateZ(0px) translateZ(0px) translateZ(0px) translateZ(0px) translateZ(0px); background-color: rgb(229, 227, 223);"></div>
+                        <div class="guide-description">
+                            <div class="guide-description-div" style="border: 2px dashed rgb(152, 214, 236); cursor: pointer;">Quite possibly one of my most memorable trips, this week long adventure to the picturesque Puerto Rico was a result of my brother's college graduation. Sea forts, rain forests, and passing out on a nearly deserted beach due to pir</div>
+                            <hr>
+                    <!--         <a class="btn btn-warning btn-guide-export" href="#exportpdf" data-toggle="modal">Export PDF <sup>Coming Soon</sup></a> -->
+                            <a class="js-share-facebook btn btn-share guide-share" href="#"><i class="fa fa-facebook-square"></i>&nbsp;Share</a>
+                            <a class="js-share-twitter btn btn-share guide-share" href="https://twitter.com/intent/tweet?text=Check out my San Francisco Guide http://localhost:3000/charleshsieh/guides/40"><i class="fa fa-twitter"></i>&nbsp;Share</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs- place-map-view">
+                    <div class="guide-item" data-assoc-id="41">
+                <div class="guide-caption" style="position: relative">
+                    <span class="pull-left number-icon">1</span>
+                    <h4 class="text-center text-break-ellipsis" data-toggle="tooltip" title="Four Barrel Coffee">
+                        Four Barrel Coffee
+                        
+                            <a class="js-delete-place pull-right delete" data-assoc-id="41">×</a>
+                        
+                    </h4>
+                </div>
+                
+                    <img src="https://irs0.4sqi.net/img/general/300x200/mIIPSQkw8mreYwS5STIU3srMXddR2rQD56uzvcEL7n4.jpg" alt="image" class="img-responsive">
+                
+                <div class="guide-caption" data-assoc-id="41">
+                    <div class="guide-caption-div">Click to edit</div>
+                </div>
+                <hr>
+                <div class="location">
+                    <p class="place-location text-break-ellipsis" data-toggle="tooltip" title="375 Valencia St (btwn 14th &amp; 15th St), San Francisco, CA 94103, United States">375 Valencia St (btwn 14th &amp; 15th St), San Francisco, CA 94103, United States</p>
+                    <p class="place-phone text-break-ellipsis" data-toggle="tooltip" title="(415) 896-4289">(415) 896-4289</p>
+                </div>
+                <div class="reviews" style="text-align: center">
+                    <hr style="margin-bottom: 3px">
+                    
+                        <a href="http://www.yelp.com/biz/four-barrel-coffee-san-francisco" target="_blank">
+                            <img src="/assets/guide/yelp.png" class="yelp-img">
+                            <div class="rating rating-4" style="display: inline-block">
+                                <i class="star-1">★</i>
+                                <i class="star-2">★</i>
+                                <i class="star-3">★</i>
+                                <i class="star-4">★</i>
+                                <i class="star-5">★</i>
+                            </div>
+                        </a>
+                        
+                    
+                </div>
+                    </div>
+        
+                    <div class="guide-item" data-assoc-id="42">
+                        <div class="guide-caption" style="position: relative">
+                            <span class="pull-left number-icon">2</span>
+                            <h4 class="text-center text-break-ellipsis" data-toggle="tooltip" title="AT&amp;T Park">
+                                AT&amp;T Park
+                                
+                                    <a class="js-delete-place pull-right delete" data-assoc-id="42">×</a>
+                                
+                            </h4>
+                        </div>
+                        
+                            <img src="https://irs3.4sqi.net/img/general/300x200/469656_kHGIrXCWcL-_9exGv8unvnc-LnRupeQv_4u19srYwJg.jpg" alt="image" class="img-responsive">
+                        
+                        <div class="guide-caption" data-assoc-id="42">
+                            <div class="guide-caption-div">Click to edit</div>
+                        </div>
+                        <hr>
+                        <div class="location">
+                            <p class="place-location text-break-ellipsis" data-toggle="tooltip" title="24 Willie Mays Plz (at 3rd St), San Francisco, CA 94107, United States">24 Willie Mays Plz (at 3rd St), San Francisco, CA 94107, United States</p>
+                            <p class="place-phone text-break-ellipsis" data-toggle="tooltip" title="(415) 972-2000">(415) 972-2000</p>
+                        </div>
+                        <div class="reviews" style="text-align: center">
+                            <hr style="margin-bottom: 3px">
+                            
+                                <a href="http://www.yelp.com/biz/at-and-t-park-san-francisco" target="_blank">
+                                    <img src="/assets/guide/yelp.png" class="yelp-img">
+                                    <div class="rating rating-4-half" style="display: inline-block">
+                                        <i class="star-1">★</i>
+                                        <i class="star-2">★</i>
+                                        <i class="star-3">★</i>
+                                        <i class="star-4">★</i>
+                                        <i class="star-5">★</i>
+                                    </div>
+                                </a>
+                                
+                            
+                        </div>
+                    </div>
+                
+                    <div class="guide-item" data-assoc-id="43">
+                        <div class="guide-caption" style="position: relative">
+                            <span class="pull-left number-icon">3</span>
+                            <h4 class="text-center text-break-ellipsis" data-toggle="tooltip" title="State Bird Provisions">
+                                State Bird Provisions
+                                
+                                    <a class="js-delete-place pull-right delete" data-assoc-id="43">×</a>
+                                
+                            </h4>
+                        </div>
+                        
+                            <img src="https://irs1.4sqi.net/img/general/300x200/13475_VSt3W8_hbZmhaAl20lG8FUBd8G98d9TuWsVB-2b12gw.jpg" alt="image" class="img-responsive">
+                        
+                        <div class="guide-caption" data-assoc-id="43">
+                            <div class="guide-caption-div">Click to edit</div>
+                        </div>
+                        <hr>
+                        <div class="location">
+                            <p class="place-location text-break-ellipsis" data-toggle="tooltip" title="1529 Fillmore St (btwn Geary &amp; O'Farrell St), San Francisco, CA 94115, United States">1529 Fillmore St (btwn Geary &amp; O'Farrell St), San Francisco, CA 94115, United States</p>
+                            <p class="place-phone text-break-ellipsis" data-toggle="tooltip" title="(415) 795-1272">(415) 795-1272</p>
+                        </div>
+                        <div class="reviews" style="text-align: center">
+                            <hr style="margin-bottom: 3px">
+                            
+                                <a href="http://www.yelp.com/biz/state-bird-provisions-san-francisco" target="_blank">
+                                    <img src="/assets/guide/yelp.png" class="yelp-img">
+                                    <div class="rating rating-4-half" style="display: inline-block">
+                                        <i class="star-1">★</i>
+                                        <i class="star-2">★</i>
+                                        <i class="star-3">★</i>
+                                        <i class="star-4">★</i>
+                                        <i class="star-5">★</i>
+                                    </div>
+                                </a>
+                                
+                            
+                        </div>
+                    </div>
+                
+                    <div class="guide-item" data-assoc-id="44">
+                        <div class="guide-caption" style="position: relative">
+                            <span class="pull-left number-icon">4</span>
+                            <h4 class="text-center text-break-ellipsis" data-toggle="tooltip" title="Twin Peaks">
+                                Twin Peaks
+                                
+                                    <a class="js-delete-place pull-right delete" data-assoc-id="44">×</a>
+                                
+                            </h4>
+                        </div>
+                        
+                            <img src="https://irs3.4sqi.net/img/general/300x200/30922332_mN9wTq14LG0REDk7lop_2JJFEYQaLOWw5Lj-tDC4zV4.jpg" alt="image" class="img-responsive">
+                        
+                        <div class="guide-caption" data-assoc-id="44">
+                            <div class="guide-caption-div">Click to edit</div>
+                        </div>
+                        <hr>
+                        <div class="location">
+                            <p class="place-location text-break-ellipsis" data-toggle="tooltip" title="San Francisco, CA 94131, United States">San Francisco, CA 94131, United States</p>
+                            <p class="place-phone text-break-ellipsis" data-toggle="tooltip" title=""></p>
+                        </div>
+                        <div class="reviews" style="text-align: center">
+                            <hr style="margin-bottom: 3px">
+                            
+                                <a href="http://www.yelp.com/biz/twin-peaks-san-francisco" target="_blank">
+                                    <img src="/assets/guide/yelp.png" class="yelp-img">
+                                    <div class="rating rating-4-half" style="display: inline-block">
+                                        <i class="star-1">★</i>
+                                        <i class="star-2">★</i>
+                                        <i class="star-3">★</i>
+                                        <i class="star-4">★</i>
+                                        <i class="star-5">★</i>
+                                    </div>
+                                </a>
+                                
+                            
+                        </div>
+                    </div>
+                
+                    <div class="guide-item" data-assoc-id="45">
+                        <div class="guide-caption" style="position: relative">
+                            <span class="pull-left number-icon">5</span>
+                            <h4 class="text-center text-break-ellipsis" data-toggle="tooltip" title="Chinatown">
+                                Chinatown
+                                
+                                    <a class="js-delete-place pull-right delete" data-assoc-id="45">×</a>
+                                
+                            </h4>
+                        </div>
+                        
+                            <img src="https://irs3.4sqi.net/img/general/300x200/6581199_bibisTgAf7v5NuFBiW3zGKIXGOylIEaz-3B5XvLw3nk.jpg" alt="image" class="img-responsive">
+                        
+                        <div class="guide-caption" data-assoc-id="45">
+                            <div class="guide-caption-div">Click to edit</div>
+                        </div>
+                        <hr>
+                        <div class="location">
+                            <p class="place-location text-break-ellipsis" data-toggle="tooltip" title="San Francisco, CA 94108, United States">San Francisco, CA 94108, United States</p>
+                            <p class="place-phone text-break-ellipsis" data-toggle="tooltip" title=""></p>
+                        </div>
+                        <div class="reviews" style="text-align: center">
+                            <hr style="margin-bottom: 3px">
+                            
+                                <a href="http://www.yelp.com/biz/good-mong-kok-bakery-san-francisco" target="_blank">
+                                    <img src="/assets/guide/yelp.png" class="yelp-img">
+                                    <div class="rating rating-4" style="display: inline-block">
+                                        <i class="star-1">★</i>
+                                        <i class="star-2">★</i>
+                                        <i class="star-3">★</i>
+                                        <i class="star-4">★</i>
+                                        <i class="star-5">★</i>
+                                    </div>
+                                </a>
+                                
+                            
+                        </div>
+                    </div>
+                
+                    <div class="guide-item" data-assoc-id="46">
+                        <div class="guide-caption" style="position: relative">
+                            <span class="pull-left number-icon">6</span>
+                            <h4 class="text-center text-break-ellipsis" data-toggle="tooltip" title="Japantown">
+                                Japantown
+                                
+                                    <a class="js-delete-place pull-right delete" data-assoc-id="46">×</a>
+                                
+                            </h4>
+                        </div>
+                        
+                            <img src="https://irs3.4sqi.net/img/general/300x200/NzrwVggaGjIi353k45K5QqI8Ynpjtv-T_dtPQdDmD7k.jpg" alt="image" class="img-responsive">
+                        
+                        <div class="guide-caption" data-assoc-id="46">
+                            <div class="guide-caption-div">Click to edit</div>
+                        </div>
+                        <hr>
+                        <div class="location">
+                            <p class="place-location text-break-ellipsis" data-toggle="tooltip" title="San Francisco, CA 94115, United States">San Francisco, CA 94115, United States</p>
+                            <p class="place-phone text-break-ellipsis" data-toggle="tooltip" title=""></p>
+                        </div>
+                        <div class="reviews" style="text-align: center">
+                            <hr style="margin-bottom: 3px">
+                            
+                                <a href="http://www.yelp.com/biz/japantown-san-francisco" target="_blank">
+                                    <img src="/assets/guide/yelp.png" class="yelp-img">
+                                    <div class="rating rating-4" style="display: inline-block">
+                                        <i class="star-1">★</i>
+                                        <i class="star-2">★</i>
+                                        <i class="star-3">★</i>
+                                        <i class="star-4">★</i>
+                                        <i class="star-5">★</i>
+                                    </div>
+                                </a>
+                                
+                            
+                        </div>
+                    </div>
+                
+                    <div class="guide-item" data-assoc-id="47">
+                        <div class="guide-caption" style="position: relative">
+                            <span class="pull-left number-icon">7</span>
+                            <h4 class="text-center text-break-ellipsis" data-toggle="tooltip" title="Cable Car Stop - California &amp; Grant">
+                                Cable Car Stop - California &amp; Grant
+                                
+                                    <a class="js-delete-place pull-right delete" data-assoc-id="47">×</a>
+                                
+                            </h4>
+                        </div>
+                        
+                            <img src="https://irs1.4sqi.net/img/general/300x200/174555__nva2PA_J9izxkYbO9hj30OysEdSa9H-PhI_Z49A1qk.jpg" alt="image" class="img-responsive">
+                        
+                        <div class="guide-caption" data-assoc-id="47">
+                            <div class="guide-caption-div">Click to edit</div>
+                        </div>
+                        <hr>
+                        <div class="location">
+                            <p class="place-location text-break-ellipsis" data-toggle="tooltip" title="California St (at Grant Ave), San Francisco, CA 94108, United States">California St (at Grant Ave), San Francisco, CA 94108, United States</p>
+                            <p class="place-phone text-break-ellipsis" data-toggle="tooltip" title=""></p>
+                        </div>
+                        <div class="reviews" style="text-align: center">
+                            <hr style="margin-bottom: 3px">
+                            
+                                <a href="http://www.yelp.com/biz/sfmta-muni-cable-cars-san-francisco" target="_blank">
+                                    <img src="/assets/guide/yelp.png" class="yelp-img">
+                                    <div class="rating rating-4" style="display: inline-block">
+                                        <i class="star-1">★</i>
+                                        <i class="star-2">★</i>
+                                        <i class="star-3">★</i>
+                                        <i class="star-4">★</i>
+                                        <i class="star-5">★</i>
+                                    </div>
+                                </a>
+                                
+                            
+                        </div>
+                    </div>
+                
+                    <div class="guide-item" data-assoc-id="48">
+                        <div class="guide-caption" style="position: relative">
+                            <span class="pull-left number-icon">8</span>
+                            <h4 class="text-center text-break-ellipsis" data-toggle="tooltip" title="Fisherman's Wharf">
+                                Fisherman's Wharf
+                                
+                                    <a class="js-delete-place pull-right delete" data-assoc-id="48">×</a>
+                                
+                            </h4>
+                        </div>
+                        
+                            <img src="https://irs0.4sqi.net/img/general/300x200/38962654_hugiasDzUejGsEr714bHsgt6CrcM2PV5yz7PDWvlBp0.jpg" alt="image" class="img-responsive">
+                        
+                        <div class="guide-caption" data-assoc-id="48">
+                            <div class="guide-caption-div">Click to edit</div>
+                        </div>
+                        <hr>
+                        <div class="location">
+                            <p class="place-location text-break-ellipsis" data-toggle="tooltip" title="2801 Leavenworth St (at Bay St), San Francisco, CA 94133, United States">2801 Leavenworth St (at Bay St), San Francisco, CA 94133, United States</p>
+                            <p class="place-phone text-break-ellipsis" data-toggle="tooltip" title="(415) 673-3530">(415) 673-3530</p>
+                        </div>
+                        <div class="reviews" style="text-align: center">
+                            <hr style="margin-bottom: 3px">
+                            
+                                <a href="http://www.yelp.com/biz/fishermans-wharf-san-francisco-3" target="_blank">
+                                    <img src="/assets/guide/yelp.png" class="yelp-img">
+                                    <div class="rating rating-3-half" style="display: inline-block">
+                                        <i class="star-1">★</i>
+                                        <i class="star-2">★</i>
+                                        <i class="star-3">★</i>
+                                        <i class="star-4">★</i>
+                                        <i class="star-5">★</i>
+                                    </div>
+                                </a>
+                                
+                            
+                        </div>
+                    </div>
+                
+                    <div class="guide-item" data-assoc-id="53">
+                        <div class="guide-caption" style="position: relative">
+                            <span class="pull-left number-icon">9</span>
+                            <h4 class="text-center text-break-ellipsis" data-toggle="tooltip" title="Mission &amp; Vam Ness">
+                                Mission &amp; Vam Ness
+                                
+                                    <a class="js-delete-place pull-right delete" data-assoc-id="53">×</a>
+                                
+                            </h4>
+                        </div>
+                        
+                            <img src="/assets/default_place.jpg" alt="image" class="img-responsive">
+                        
+                        <div class="guide-caption" data-assoc-id="53">
+                            <div class="guide-caption-div">Click to edit</div>
+                        </div>
+                        <hr>
+                        <div class="location">
+                            <p class="place-location text-break-ellipsis" data-toggle="tooltip" title="CA 94103, United States">CA 94103, United States</p>
+                            <p class="place-phone text-break-ellipsis" data-toggle="tooltip" title=""></p>
+                        </div>
+                        <div class="reviews" style="text-align: center">
+                            <hr style="margin-bottom: 3px">
+                            
+                                <a href="http://www.yelp.com/biz/the-love-of-ganesha-san-francisco" target="_blank">
+                                    <img src="/assets/guide/yelp.png" class="yelp-img">
+                                    <div class="rating rating-5" style="display: inline-block">
+                                        <i class="star-1">★</i>
+                                        <i class="star-2">★</i>
+                                        <i class="star-3">★</i>
+                                        <i class="star-4">★</i>
+                                        <i class="star-5">★</i>
+                                    </div>
+                                </a>
+                                
+                            
+                        </div>
+                    </div>
+                
+                    <div class="guide-item" data-assoc-id="54">
+                        <div class="guide-caption" style="position: relative">
+                            <span class="pull-left number-icon">10</span>
+                            <h4 class="text-center text-break-ellipsis" data-toggle="tooltip" title="Mission Stition">
+                                Mission Stition
+                                
+                                    <a class="js-delete-place pull-right delete" data-assoc-id="54">×</a>
+                                
+                            </h4>
+                        </div>
+                        
+                            <img src="/assets/default_place.jpg" alt="image" class="img-responsive">
+                        
+                        <div class="guide-caption" data-assoc-id="54">
+                            <div class="guide-caption-div">Click to edit</div>
+                        </div>
+                        <hr>
+                        <div class="location">
+                            <p class="place-location text-break-ellipsis" data-toggle="tooltip" title="San Francisco, CA, United States">San Francisco, CA, United States</p>
+                            <p class="place-phone text-break-ellipsis" data-toggle="tooltip" title=""></p>
+                        </div>
+                        <div class="reviews" style="text-align: center">
+                            <hr style="margin-bottom: 3px">
+                            
+                                <p class="no-review">No Reviews</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div> 
+        </div> 
+
+        <div class="modal fade" id="exportpdf" tabindex="-1" role="dialog" aria-labelledby="exportpdf" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Coming Soon! Export Your  Guide to PDF!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="/assets/guidepdf.png" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<%= render 'generic/footer.html.erb' %>
+</html>

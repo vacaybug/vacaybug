@@ -75,11 +75,27 @@ class StaticController < ActionController::Base
 		render 'static/mailer/beta'
 	end
 
+	def like
+		render 'static/mailer/like'
+	end
+
+	def comment
+		render 'static/mailer/comment'
+	end
+
+	def follow
+		render 'static/mailer/follow'
+	end
+
 	def landing
 		render 'static/landing'
 	end
 
-	def test
-		render 'static/test'
+	def mapview
+		render 'static/mapview'
+	end
+
+	def design
+		render 'static/design'
 	end
 end

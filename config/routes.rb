@@ -27,8 +27,12 @@ Vacaybug::Application.routes.draw do
     get 'static/confirmation'
     get 'static/password'
     get 'static/beta'
+    get 'static/like'
+    get 'static/comment'
+    get 'static/follow'
     get 'static/landing'
-    get 'static/test'
+    get 'static/mapview'
+    get 'static/design'
 
     # restful api
     # MODELS ONLY

@@ -905,7 +905,8 @@ span.text-content {
 	text-transform: none;
 	font-size: 30px;
 }
-.container.guide-map {
+
+.guide-map {
 	position: relative;
 	padding: 0px;
 	margin-bottom: 0px;
@@ -920,7 +921,31 @@ span.text-content {
 	background-size: cover;
 	-o-background-size: cover;
 }
-.container.guide-map .map-container {
+.guide-map .btn-view {
+	display: none;
+}
+@media (min-width: 992px) {
+	.guide-map .btn-view {
+		position: absolute;
+		top: 20px;
+		left: 25%;
+		z-index: 1001;
+		display: inline;
+		width: 50%;
+	}
+	.guide-map .btn-view button{
+		background-color: #fff;
+		font-size: 14px;
+		color: #25ABE1;
+		width: 50%;
+		border: 1px solid #25ABE1;
+	}
+	.guide-map .btn-view .btn.active{
+		background-color: #25ABE1;
+	   color: #fff;
+	}
+}
+.guide-map .map-container {
 	height: 400px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -977,19 +1002,6 @@ span.text-content {
 	text-transform: uppercase;
 	margin: 5px;
 }
-/*.guide-map .guide-description .btn-guide-delete {
-	margin: 10px 0px 0px 0px;
-	font-weight: 600;
-	background-color: #f26d65;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	border-radius: 8px;
-	border: 1px solid #f26d65;
-}
-.guide-map .guide-description .btn-guide-delete:hover {
-	background-color: #ec281d;
-	border: 1px solid #ec281d;
-}*/
 .guide-map .guide-description .btn-guide-export {
 /*	float: left;
 	margin: 10px 20px 10px 32px;*/
@@ -1101,8 +1113,8 @@ span.text-content {
 	border-radius: 20px; 
 }
 .guide-container .guide-item .guide-caption div {
-	margin: 15px 15px 10px 15px;
-	width: 230px;
+	margin: 15px auto;
+	width: 90%;
 	height: 115px;
 	font-size: 12px;
 	font-weight: 500;
@@ -1140,6 +1152,22 @@ span.text-content {
 	width: 30%;
 	height: 17px
 }
+
+/* MAP VIEW IN GUIDE */
+.map-view {
+	margin-top: 15px;
+}
+.place-map-view {
+	padding-top: 11px;
+	margin-top: 15px;
+	height: 650px;
+	overflow-y: scroll;
+
+}
+.guide-map .map-view-container {
+	height: 450px;
+}
+
 /* LOGIN / SIGN UP */
 
 .error-msg {
@@ -1832,6 +1860,8 @@ ul.social-buttons li a:active {
 	padding-top: 20px;
 }
 .guide-item {
+	max-width: 260px;
+	margin: 0 auto;
 	margin-bottom: 15px;
 	border: 1px solid #d4d4d4;
 	-webkit-border-radius: 10px;
