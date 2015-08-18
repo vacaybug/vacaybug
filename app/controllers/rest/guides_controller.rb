@@ -115,7 +115,7 @@ class Rest::GuidesController < ActionController::Base
     private
 
     def check_permission
-        @guide = Guide.find(params[:id])
+        @guide = Guide.find_by_slug(params[:id])
         if @guide.user_id.to_i != current_user.id
             render403
         end
