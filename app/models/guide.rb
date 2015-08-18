@@ -9,6 +9,7 @@ class Guide < ActiveRecord::Base
 
     after_destroy :delete_associations
     before_save :setup_params
+    after_save :setup_slug
     after_create :create_story
     after_create :create_city
     after_destroy :destroy_story
@@ -109,9 +110,12 @@ class Guide < ActiveRecord::Base
         if self.title.nil?
             self.title = self.city + " Guide"
         end
+    end
 
+    def setup_slug
         if self.slug.nil?
             self.slug = self.generate_slug
+            self.save
         end
     end
 
