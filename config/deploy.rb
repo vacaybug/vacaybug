@@ -20,6 +20,7 @@ set :ssh_options,     { forward_agent: true, user: 'ubuntu', keys: %w(~/.ssh/vac
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, false  # Change to true if using ActiveRecord
+set :linked_dirs, %w{tmp/pids tmp/sockets log}
 
 ## Defaults:
 # set :scm,           :git
