@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.21'
-gem 'devise', '2.2.8'
+gem 'devise', '3.5.2'
 gem 'mysql2', '0.3.15'
 
 gem 'puma'
