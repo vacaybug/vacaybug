@@ -4,14 +4,14 @@ gem 'rails', '3.2.21'
 gem 'devise', '3.5.2'
 gem 'mysql2', '0.3.15'
 
-gem 'puma'
+gem 'puma', '2.11.2'
 
 group :development do
     gem 'capistrano',         require: false
     gem 'capistrano-rvm',     require: false
     gem 'capistrano-rails',   require: false
     gem 'capistrano-bundler', require: false
-    gem 'capistrano3-puma',   require: false
+    gem 'capistrano3-puma', '0.9.0',   require: false
 end
 
 # Gems used only for assets and not required
