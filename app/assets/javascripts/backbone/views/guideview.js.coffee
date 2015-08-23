@@ -149,7 +149,7 @@ jQuery ->
             ), 300)
         }
       ).bind('typeahead:selected', (obj, selected, name) =>
-        $(".js-search-places").val("")
+        $('.js-search-places').typeahead('val', '')
         place = new Vacaybug.PlaceModel
           guide_id: @model.get('id')
           fs_data: selected.data
