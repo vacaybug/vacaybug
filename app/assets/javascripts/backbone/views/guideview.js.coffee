@@ -164,7 +164,7 @@ jQuery ->
       url_prefix = "#{location.protocol}//#{location.host}"
       FB.ui
         method: 'feed',
-        link: "#{url_prefix}/#{@model.get('user').username}/guides/#{@model.get('id')}"
+        link: "#{url_prefix}/#{@model.get('user').username}/guides/#{@model.get('slug')}"
         name: "#{@model.get('user').full_name}'s #{@model.get('city')} trip"
         description: "Check out my #{@model.get('title')}"
         picture: "#{url_prefix}/#{@model.get('image').medium}"
