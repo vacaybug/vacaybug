@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150801170103) do
+ActiveRecord::Schema.define(:version => 20150823201505) do
 
   create_table "cities", :force => true do |t|
     t.integer  "gn_id"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(:version => 20150801170103) do
   end
 
   add_index "comments", ["story_id"], :name => "index_comments_on_story_id"
+
+  create_table "create_cities", :force => true do |t|
+    t.integer  "gn_id"
+    t.text     "gn_data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "followers", :force => true do |t|
     t.integer  "user_id"
@@ -195,6 +202,7 @@ ActiveRecord::Schema.define(:version => 20150801170103) do
     t.string   "uid"
     t.integer  "image_id"
     t.integer  "permission",             :default => 0
+    t.string   "from"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

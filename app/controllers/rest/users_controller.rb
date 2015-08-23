@@ -39,7 +39,7 @@ class Rest::UsersController < ActionController::Base
         @user = find_user(params[:id])
 
         if @user.id == current_user.id
-            allowed_fields = [:username, :first_name, :last_name, :photo_url, :website, :location, :tag_line, :email, :birthday, :image_id]
+            allowed_fields = [:username, :first_name, :last_name, :photo_url, :website, :location, :tag_line, :email, :birthday, :image_id, :from]
             changed = false
 
             allowed_fields.each do |field|
