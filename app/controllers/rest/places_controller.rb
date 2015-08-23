@@ -107,7 +107,7 @@ class Rest::PlacesController < ActionController::Base
 
     def rearrange
         new_order = params[:new_order]
-        GuidePlaceAssociation.where(guide_id: params[:guide_id]).each do |assoc|
+        GuidePlaceAssociation.where(guide_id: @guide.id).each do |assoc|
             if assoc.order_num != new_order[assoc.id.to_s]
                 assoc.order_num = new_order[assoc.id.to_s]
                 assoc.save
@@ -134,8 +134,13 @@ class Rest::PlacesController < ActionController::Base
     private
 
     def check_guide_permission
-        guide = Guide.find_by_slug(params[:guide_id])
-        if current_user.id != guide.user_id
+        id = params[:guide_id]
+        if id.to_s == id.to_i.to_s
+            @guide = Guide.find(id)
+        else
+            @guide = Guide.find_by_slug(id)
+        end
+        if current_user.id != @guide.user_id
             render403
             return
         end

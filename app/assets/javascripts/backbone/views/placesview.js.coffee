@@ -6,12 +6,10 @@ jQuery ->
       'click .js-delete-place': 'deleteGuide'
 
     initialize: (options) ->
-      @listenTo @collection, 'sync', @render
-      @listenTo @collection, 'change', @render
+      @listenToOnce @collection, 'sync', @render
       @listenTo @collection, 'add', @render
       @listenTo @collection, 'remove', @render
       @isPrivate = options.isPrivate
-
 
     initInputs: ->
       return if !@isPrivate
@@ -56,6 +54,7 @@ jQuery ->
         model.set('order_num', new_order[model.get('assoc_id')], {silent: true})
       @collection.sort()
       @collection.trigger('change')
+      @render()
 
     shapeshift: ->
       $(".places-container").trigger("ss-destroy")
