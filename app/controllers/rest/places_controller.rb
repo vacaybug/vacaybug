@@ -134,7 +134,7 @@ class Rest::PlacesController < ActionController::Base
     private
 
     def check_guide_permission
-        guide = Guide.find_by_id(params[:guide_id])
+        guide = Guide.find_by_slug(params[:guide_id])
         if current_user.id != guide.user_id
             render403
             return
